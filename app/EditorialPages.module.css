@@ -12,3 +12,6 @@
 
 /* Care 4.0 timeline controls */
 .careRecordActions{display:flex;gap:.7rem;margin-top:.7rem}.careRecordActions button,.careEdit button{border:0;background:transparent;border-bottom:1px solid currentColor;padding:.2rem 0;cursor:pointer;font:inherit}.careEdit{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}.careEdit input{min-width:min(260px,100%);border:0;border-bottom:1px solid currentColor;background:transparent;padding:.45rem 0;font:inherit;color:inherit}
+
+/* Care 5.0 structured context fields */
+.careFields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem;margin:.8rem 0}.careFields label{display:grid;gap:.35rem}.careFields input,.careFields select{width:100%;border:1px solid var(--line);background:var(--paper2);color:inherit;padding:.72rem .8rem;font:inherit;border-radius:0}.visitGrid article small+small{display:block;margin-top:.35rem;opacity:.72}@media(max-width:760px){.careFields{grid-template-columns:1fr}}
