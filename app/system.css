@@ -11,3 +11,10 @@
 
 /* FINAL DESIGN LOCK — rectangular editorial photography; approved ILAMA theme */
 .novaHeroImage,.novaDinaPortrait,.kidsHero,.libraryGrid>*,.atlasGrid>*,.siteMapGrid>*,.kidsGroupGrid>*,.gameCatalogGrid>*,.lensCard,.lensResult,.logBox,.journalDay,.visitOverview,.visitSheet,.questionPocket,.plateGame,.detectCard,.miniGame,.kidsTip,.kidsLimit,.labelLesson,.mathBox,.gameStage,.authCard,.accountCard{border-radius:0!important}.novaHeroImage img,.novaFeaturePhoto img,.novaDinaPortrait img{border-radius:0!important}
+
+
+/* Arabic font refinement — keep English typography unchanged */
+.siteAr,.siteAr button,.siteAr input,.siteAr textarea,.siteAr select,
+.siteAr h1,.siteAr h2,.siteAr h3,.siteAr h4,.siteAr .brandDrawer,.siteAr .navMorePanel{
+  font-family:"Tajawal","Noto Sans Arabic",Arial,sans-serif;
+}
