@@ -26,7 +26,7 @@ export default function HomeReference({go,ar}:Props){
    <div className={styles.petals} aria-hidden="true">
     <i style={{left:"6%",animationDuration:"13s",animationDelay:"-4s"}}/><i style={{left:"15%",animationDuration:"18s",animationDelay:"-11s"}}/><i style={{left:"27%",animationDuration:"15s",animationDelay:"-7s"}}/><i style={{left:"38%",animationDuration:"20s",animationDelay:"-16s"}}/><i style={{left:"49%",animationDuration:"12s",animationDelay:"-2s"}}/><i style={{left:"59%",animationDuration:"17s",animationDelay:"-13s"}}/><i style={{left:"68%",animationDuration:"14s",animationDelay:"-8s"}}/><i style={{left:"77%",animationDuration:"19s",animationDelay:"-17s"}}/><i style={{left:"88%",animationDuration:"16s",animationDelay:"-6s"}}/><i style={{left:"96%",animationDuration:"21s",animationDelay:"-15s"}}/><i/><i/><i/><i/>
    </div>
-   <div className={styles.heroBloom} aria-hidden="true"><span>FOOD</span><i>·</i><span>BODY</span><i>·</i><span>CONTEXT</span></div>
+   <div className={styles.heroBloom} aria-hidden="true"><span>{ar?"الأكل":"FOOD"}</span><i>·</i><span>{ar?"الجسم":"BODY"}</span><i>·</i><span>{ar?"السياق":"CONTEXT"}</span></div>
    <div className={styles.heroCopy}>
     <p className={styles.eyebrow}>{ar?"تغذية أفضل":"GOOD NUTRITION BRINGS"}</p>
     <h1>{ar?<>لحياة <em>أكثر إشراقًا</em></>:<>A Brighter <em>You</em></>}</h1>
