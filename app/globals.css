@@ -1932,3 +1932,34 @@ html.ilama-large-text{font-size:112.5%}html.ilama-high-contrast body{filter:cont
   font-family:"Tajawal","Noto Sans Arabic",Arial,sans-serif;
   letter-spacing:0;
 }
+
+
+/* OCT 2026 — IMAGE TEXT CONTRAST + COMPACT FOOTER AUDIT */
+:where(.v4HeroPhoto,.editorialPhotoBand,.v4ManifestoMedia,.v4FoodMain,.v4JournalPhoto){position:relative}
+:where(.v4HeroPhoto,.editorialPhotoBand,.v4ManifestoMedia,.v4FoodMain,.v4JournalPhoto):after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,transparent 48%,rgba(14,35,27,.18) 66%,rgba(14,35,27,.72) 100%)}
+:where(.v4HeroPhoto,.editorialPhotoBand,.v4ManifestoMedia,.v4FoodMain,.v4JournalPhoto) figcaption{z-index:2!important;color:#fff!important;background:rgba(14,35,27,.82)!important;padding:.58rem .72rem!important;text-shadow:0 1px 8px rgba(0,0,0,.38)!important;box-shadow:0 6px 18px rgba(0,0,0,.08)}
+.heroCaption{padding:.5rem .65rem;background:rgba(14,35,27,.72);text-shadow:0 1px 10px rgba(0,0,0,.5)}
+.bloomHero .magHeroCopy{padding:clamp(1rem,2vw,1.5rem);background:linear-gradient(90deg,rgba(11,35,28,.62),rgba(11,35,28,.18) 78%,transparent);text-shadow:0 2px 18px rgba(0,0,0,.32)}
+.siteAr .bloomHero .magHeroCopy{background:linear-gradient(270deg,rgba(11,35,28,.62),rgba(11,35,28,.18) 78%,transparent)}
+
+/* Footer should close the page, not become another full screen. */
+.bloomFooter{padding-top:clamp(34px,4.5vw,58px)!important}
+.bloomFooterMain,.footerEditorial{grid-template-columns:minmax(230px,.82fr) minmax(0,1.65fr)!important;gap:clamp(2rem,5vw,5rem)!important;padding-bottom:clamp(30px,4vw,48px)!important}
+.bloomFooterStatement p,.footerSlogan{font-size:clamp(1.75rem,2.7vw,2.9rem)!important;margin:1rem 0 .65rem!important;line-height:1!important}
+.bloomFooterStatement small,.footerIntro{font-size:.82rem!important;line-height:1.5!important}
+.bloomFooterNav,.footerLinks{gap:1.1rem 2rem!important;padding-top:0!important}
+.bloomFooterNav>div,.footerLinks nav,.footerClinician{gap:.48rem!important}
+.bloomFooterNav span,.footerLinks span,.footerClinician>span{margin-bottom:.2rem!important}
+.bloomFooterNav button,.bloomFooterNav a,.footerLinks button,.footerLinks a{font-size:.82rem!important;line-height:1.25!important}
+.bloomFooterBottom,.footerLegal{min-height:54px!important;padding-block:.65rem!important}
+.v3Footer{padding-top:clamp(3rem,5vw,5rem)!important;padding-bottom:.7rem!important}
+.v3FooterStage{grid-template-columns:.24fr .9fr 1.35fr!important;gap:3vw!important}
+.v3FooterMark{width:min(11vw,110px)!important}
+.v3FooterStatement h2{font-size:clamp(2.4rem,4vw,4.4rem)!important;margin:.45rem 0 .8rem!important;line-height:.9!important}
+.v3FooterStatement p{font-size:.84rem!important;line-height:1.45!important}
+.v3FooterNav{gap:1.4rem 2rem!important}
+.v3FooterNav nav{gap:.42rem!important}.v3FooterNav button,.v3FooterNav a{font-size:.9rem!important;line-height:1.25!important}
+.v3FooterDoctor{padding-top:1rem!important}.v3FooterDoctor p{font-size:.8rem!important}
+.v3FooterBase{margin-top:2rem!important;padding:.8rem 0 1rem!important}
+@media(max-width:900px){.bloomFooterMain,.footerEditorial,.v3FooterStage{grid-template-columns:1fr!important}.bloomFooterNav,.footerLinks,.v3FooterNav{grid-template-columns:repeat(2,minmax(0,1fr))!important}.v3FooterMark{display:none!important}}
+@media(max-width:520px){.bloomFooter{padding-top:28px!important}.bloomFooterMain,.footerEditorial{gap:1.5rem!important;padding-bottom:24px!important}.bloomFooterNav,.footerLinks,.v3FooterNav{gap:1.2rem!important}.bloomFooterStatement p,.footerSlogan{font-size:1.75rem!important}.v3Footer{padding-top:2.5rem!important}.v3FooterStatement h2{font-size:2.65rem!important}.v3FooterBase{margin-top:1.4rem!important}}
