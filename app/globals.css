@@ -1909,3 +1909,5 @@ html.ilama-large-text{font-size:112.5%}html.ilama-high-contrast body{filter:cont
 .drawerGroup button:hover{background:var(--acid);padding-inline:.55rem}
 @media(max-width:900px){.desktopBrandNav{display:none}.brandDrawer{top:64px;max-height:calc(100dvh - 64px);padding-inline:18px}.drawerNav{grid-template-columns:1fr}.drawerGroup button{min-height:46px}.drawerGroup>span{text-transform:none;letter-spacing:0}.nav{direction:ltr}.siteAr .nav{direction:rtl}.siteAr .headerActions{direction:rtl}.navMorePanel{right:auto;left:0}}
 @media(prefers-reduced-motion:reduce){.navPrimary>button,.navMore>summary,.navMorePanel button,.drawerGroup button{transition:none}}
+
+/* 2026-10 deployment verification marker: Arabic content QA complete */
