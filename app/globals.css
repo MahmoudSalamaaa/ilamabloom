@@ -2046,3 +2046,19 @@ body{overflow-wrap:break-word}
  html{scroll-behavior:auto!important}
  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
 }
+
+/* Typography + interaction normalization without redesign */
+.homeRefShell #content :where(.heroBloom,.heroCaption),
+#content :where(.kicker,[class*="eyebrow"]){font-size:max(.68rem,11px)}
+#content :where(.kicker,[class*="eyebrow"]){line-height:1.35}
+#content :where(.heroCaption){line-height:1.4}
+#content :where(nav button,[class*="Tabs"] button,[class*="tabs"] button,[class*="Filters"] button,[class*="filters"] button){min-height:44px}
+#content :where([class*="cats"],[class*="Tabs"],[class*="tabs"],[class*="Filters"],[class*="filters"]){scrollbar-width:thin}
+#content :where([class*="cats"],[class*="Tabs"],[class*="tabs"],[class*="Filters"],[class*="filters"])::-webkit-scrollbar{height:6px}
+#content :where([class*="cats"],[class*="Tabs"],[class*="tabs"],[class*="Filters"],[class*="filters"])::-webkit-scrollbar-thumb{background:rgba(32,49,40,.28);border-radius:999px}
+#content :where(figure){isolation:isolate}
+#content :where(figcaption){line-height:1.4}
+@media(max-width:520px){
+ .homeRefShell #content :where(.heroBloom,.heroCaption),
+ #content :where(.kicker,[class*="eyebrow"]){font-size:max(.7rem,11px)}
+}
