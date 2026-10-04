@@ -32,3 +32,12 @@
 [dir="rtl"] .careRecordActions,[dir="rtl"] .careEdit,[dir="rtl"] .gentleLinks{justify-content:flex-start}
 @media(max-width:850px){.easyActions button{padding:20px}.wellAge{gap:2.5rem}.easySafety{gap:2rem}.summaryActions{gap:8px;padding:10px}.careRecordActions{flex-wrap:wrap}.careEdit input{min-width:0;flex:1 1 180px}}
 @media(prefers-reduced-motion:reduce){.easyActions button,.mode button,.actions button,.actions a,.careTools>article>button,.wellAge button,.summaryActions button,.observationForm button{transition:none}}
+
+
+/* Forms + utility pages refinement */
+.careTools input,.careTools textarea,.careFields input,.careFields select,.wellAge textarea,.mentalVisit select{min-height:44px;color:var(--ink)}
+.careTools input::placeholder,.careTools textarea::placeholder,.wellAge textarea::placeholder{color:#6F685F;opacity:1}
+.careTools label,.careFields label{line-height:1.45}.careRecordActions button,.careEdit button,.questionDelete{min-height:40px}
+.questionDelete{min-width:40px;width:40px;height:40px}.savedQ{padding-inline-end:3rem!important;padding-right:inherit!important}
+[dir="ltr"] .savedQ{padding-right:3rem!important}[dir="rtl"] .savedQ{padding-left:3rem!important}.questionDelete{right:.35rem}[dir="rtl"] .questionDelete{right:auto;left:.35rem}
+@media(max-width:850px){.careTools{grid-template-columns:1fr;gap:0}.careTools article+article{border-top:1px solid var(--line)}.structuredNote{font-size:.9rem}.easySafety{padding-inline:18px}}
