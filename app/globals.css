@@ -1881,3 +1881,31 @@ html.ilama-large-text{font-size:112.5%}html.ilama-high-contrast body{filter:cont
 .siteAr,.siteAr button,.siteAr input,.siteAr textarea,.siteAr select{font-family:"Noto Sans Arabic","DM Sans",Arial,sans-serif}
 .page,.siteAr{font-synthesis:none}
 @media(max-width:800px){.nav{min-height:64px!important;padding-inline:1rem!important}.brandLogo{width:148px!important;height:48px!important}.mobileNav{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}.mobileNav button:focus-visible{outline-offset:-3px}}
+
+/* 2026-10 Arabic typography + two-level navigation repair */
+.siteAr,.siteAr button,.siteAr input,.siteAr textarea,.siteAr select{font-family:"Noto Sans Arabic","DM Sans",Arial,sans-serif}
+.siteAr h1,.siteAr h2,.siteAr h3,.siteAr h4,.siteAr .brandDrawer,.siteAr .navMorePanel{font-family:"Cairo","Noto Sans Arabic","DM Sans",Arial,sans-serif;letter-spacing:0}
+.desktopBrandNav{display:flex;align-items:center;justify-content:flex-end;gap:.55rem;min-width:0;flex:1}
+.navPrimary{display:flex;align-items:center;gap:.15rem;min-width:0}
+.navPrimary>button,.navMore>summary{border:0;background:transparent;color:var(--ink);font-size:.76rem;line-height:1.2;padding:.65rem .48rem;white-space:nowrap;cursor:pointer}
+.navPrimary>button:hover,.navMore>summary:hover{background:var(--line);opacity:1}
+.navMore{position:relative}
+.navMore>summary{list-style:none;border:1px solid var(--ink);padding-inline:.72rem}
+.navMore>summary::-webkit-details-marker{display:none}
+.navMore>summary::after{content:"⌄";display:inline-block;margin-inline-start:.4rem;font-size:.85em}
+.navMore[open]>summary{background:var(--ink);color:var(--paper)}
+.navMorePanel{position:absolute;top:calc(100% + .6rem);right:0;z-index:120;display:grid;grid-template-columns:repeat(2,minmax(150px,1fr));gap:1px;width:min(390px,calc(100vw - 32px));padding:1px;background:var(--ink);box-shadow:0 16px 35px rgba(32,49,40,.18)}
+.navMorePanel button{border:0;background:var(--paper);color:var(--ink);padding:.85rem .9rem;text-align:start;cursor:pointer;line-height:1.35}
+.navMorePanel button:hover{background:var(--acid)}
+.brandDrawer{position:fixed;top:72px;right:0;left:0;z-index:110;display:none;max-height:calc(100dvh - 72px);overflow:auto;background:var(--paper);color:var(--ink);border-bottom:1px solid var(--ink);box-shadow:0 20px 40px rgba(32,49,40,.16);padding:1rem 1.1rem 1.4rem}
+.brandDrawer.open{display:block}
+.drawerHeader{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding:.25rem 0 .85rem;margin-bottom:.85rem}
+.drawerHeader strong{font-size:1.1rem}
+.drawerHeader button{border:1px solid var(--ink);background:transparent;color:inherit;width:36px;height:36px;font-size:1.4rem;line-height:1;cursor:pointer}
+.drawerNav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.1rem}
+.drawerGroup{display:grid;align-content:start;gap:.2rem}
+.drawerGroup>span{font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-bottom:.35rem;border-bottom:1px solid var(--line);margin-bottom:.2rem}
+.drawerGroup button{border:0;background:transparent;color:inherit;text-align:start;padding:.7rem .2rem;border-bottom:1px solid var(--line);cursor:pointer;line-height:1.35}
+.drawerGroup button:hover{background:var(--acid);padding-inline:.55rem}
+@media(max-width:900px){.desktopBrandNav{display:none}.brandDrawer{top:64px;max-height:calc(100dvh - 64px);padding-inline:18px}.drawerNav{grid-template-columns:1fr}.drawerGroup button{min-height:46px}.drawerGroup>span{text-transform:none;letter-spacing:0}.nav{direction:ltr}.siteAr .nav{direction:rtl}.siteAr .headerActions{direction:rtl}.navMorePanel{right:auto;left:0}}
+@media(prefers-reduced-motion:reduce){.navPrimary>button,.navMore>summary,.navMorePanel button,.drawerGroup button{transition:none}}
