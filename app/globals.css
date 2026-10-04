@@ -1993,3 +1993,56 @@ html.ilama-large-text{font-size:112.5%}html.ilama-high-contrast body{filter:cont
 .siteAr .drawerGroup button{text-align:right!important}.siteAr .drawerGroup>span{text-align:right!important}
 @media(max-width:1050px){.brandHeader{grid-template-columns:auto 1fr auto!important}.desktopBrandNav{display:none!important}.menuToggle{display:block!important}.brandDrawer{top:74px!important}}
 @media(max-width:520px){.brandDrawer{top:64px!important}.drawerNav{grid-template-columns:1fr!important}.drawerGroup button{font-size:1rem!important}.globalLang{display:flex!important}.globalLang button{min-width:32px!important;padding:0 .35rem!important}}
+
+/* OCT 2026 — SITE-WIDE UI/UX REFINEMENT LAYER
+   Preserve the approved art direction; normalize usability, rhythm and accessibility. */
+:root{
+ --ux-content:min(1200px,calc(100vw - 40px));
+ --ux-reading:68ch;
+ --ux-space-1:.5rem;--ux-space-2:.75rem;--ux-space-3:1rem;--ux-space-4:1.5rem;--ux-space-5:2rem;--ux-space-6:3rem;
+ --ux-focus:#A94B65;
+}
+html{scroll-padding-top:92px;text-size-adjust:100%;-webkit-text-size-adjust:100%}
+body{overflow-wrap:break-word}
+#content{min-width:0}
+#content :where(section,article,aside,div){min-width:0}
+#content :where(p,li){text-wrap:pretty}
+#content :where(h1,h2,h3,h4){text-wrap:balance}
+#content :where(p){max-width:72ch}
+#content :where(img,video,svg){max-width:100%}
+#content :where(input,textarea,select,button){font:inherit}
+#content :where(input,textarea,select){min-height:44px}
+#content textarea{min-height:112px;resize:vertical}
+#content :where(button,[role="button"],input,textarea,select,a){scroll-margin-top:96px}
+#content :where(button,[role="button"],a,input,textarea,select,summary):focus-visible{
+ outline:3px solid var(--ux-focus)!important;outline-offset:3px!important;
+}
+#content :where(button,[role="button"],a,input,textarea,select,summary):focus:not(:focus-visible){outline:none}
+#content :where(button,[role="button"]){min-height:44px}
+#content button:disabled{cursor:not-allowed;opacity:.52;filter:saturate(.7)}
+#content :where(input,textarea,select){border-color:rgba(32,49,40,.32)}
+#content :where(input,textarea,select):focus-visible{border-color:#203128!important}
+#content :where(a,button){touch-action:manipulation}
+#content :where(p,small,label){line-height:1.55}
+#content :where(h1,h2,h3)+p{margin-top:.75em}
+#content :where(section){scroll-margin-top:96px}
+.siteAr #content :where(p,li,label,button,input,textarea){line-height:1.75}
+.siteAr #content :where(h1,h2,h3,h4){line-height:1.18}
+@media(hover:hover) and (pointer:fine){
+ #content :where(button,a,[role="button"]){transition-property:transform,background-color,color,border-color,box-shadow,opacity;transition-duration:.18s}
+}
+@media(max-width:900px){
+ :root{--ux-content:calc(100vw - 36px)}
+ html{scroll-padding-top:76px}
+ #content :where(section){scroll-margin-top:76px}
+ #content :where(button,[role="button"],input,textarea,select){min-height:46px}
+}
+@media(max-width:520px){
+ :root{--ux-content:calc(100vw - 28px)}
+ #content :where(button,[role="button"],input,textarea,select){min-height:48px}
+ #content :where(p){max-width:none}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto!important}
+ *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
