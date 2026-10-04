@@ -1963,3 +1963,14 @@ html.ilama-large-text{font-size:112.5%}html.ilama-high-contrast body{filter:cont
 .v3FooterBase{margin-top:2rem!important;padding:.8rem 0 1rem!important}
 @media(max-width:900px){.bloomFooterMain,.footerEditorial,.v3FooterStage{grid-template-columns:1fr!important}.bloomFooterNav,.footerLinks,.v3FooterNav{grid-template-columns:repeat(2,minmax(0,1fr))!important}.v3FooterMark{display:none!important}}
 @media(max-width:520px){.bloomFooter{padding-top:28px!important}.bloomFooterMain,.footerEditorial{gap:1.5rem!important;padding-bottom:24px!important}.bloomFooterNav,.footerLinks,.v3FooterNav{gap:1.2rem!important}.bloomFooterStatement p,.footerSlogan{font-size:1.75rem!important}.v3Footer{padding-top:2.5rem!important}.v3FooterStatement h2{font-size:2.65rem!important}.v3FooterBase{margin-top:1.4rem!important}}
+
+/* Final contrast harmonization — dark surfaces and compact legacy footer variants */
+:where(.budget,.bridge,.closing,.result,.easySafety,.signatureFooter,.bloomFooter,.v3Footer) :where(p,small,span){text-shadow:none}
+:where(.signatureFooter,.bloomFooter,.v3Footer) :where(p,small){color:#E7EDE9!important}
+:where(.signatureFooter,.bloomFooter,.v3Footer) :where(a,button){color:#fff}
+:where(.signatureFooter,.bloomFooter,.v3Footer) :where(.footerNav section>span,.bloomFooterNav span,.footerLinks span,.v3FooterNav span){color:#F2C7C2!important}
+.siteFooter{padding-top:32px!important;padding-bottom:24px!important}
+.siteFooter .unifiedFooterTop{gap:18px!important}
+.siteFooter .unifiedFooterBottom{margin-top:24px!important;padding-top:14px!important}
+@media(max-width:900px){.siteFooter{padding-bottom:calc(82px + env(safe-area-inset-bottom))!important}.siteFooter .unifiedFooterTop{grid-template-columns:1fr 1fr!important}}
+@media(max-width:520px){.siteFooter .unifiedFooterTop{gap:12px!important}.siteFooter .unifiedFooterBottom{margin-top:18px!important}}
