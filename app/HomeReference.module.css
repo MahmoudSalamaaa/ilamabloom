@@ -75,3 +75,10 @@
 .heroCopy .primary{background:#fff;color:#203128;border:1px solid rgba(255,255,255,.88);box-shadow:0 8px 24px rgba(0,0,0,.14)}
 .heroCaption{border-radius:2px;color:#fff;background:rgba(14,35,27,.78);padding:7px 9px;text-shadow:0 1px 8px rgba(0,0,0,.5)}
 .atlasImage figcaption{color:#203128;background:rgba(255,253,249,.97);border:1px solid rgba(32,49,40,.14)}
+
+
+/* Homepage refinement — same composition, stronger usability */
+.primary,.textLink,.atlasImage figcaption button,.closing>button{min-height:44px}.primary:focus-visible,.textLink:focus-visible,.atlasImage figcaption button:focus-visible,.closing>button:focus-visible{outline:3px solid #F4B4C5;outline-offset:4px}
+.card,.approachTop>*,.atlas>*,.kids>*{min-width:0}.card p,.atlasCopy>p,.kids>div>p{overflow-wrap:anywhere}
+@media(max-width:900px){.cardGrid{scroll-padding-inline:1px;overscroll-behavior-inline:contain}.card{scroll-snap-stop:always}.heroCaption{font-size:.7rem;letter-spacing:.08em;align-items:flex-end}.heroCaption span{max-width:55%;line-height:1.35}}
+@media(max-width:520px){.heroCaption{left:10px;right:10px;padding:7px}.heroCaption span{max-width:60%}.closing>button{width:100%}}
