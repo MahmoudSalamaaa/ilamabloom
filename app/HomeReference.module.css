@@ -67,3 +67,11 @@
 [dir="rtl"] .heroImage:after{background:linear-gradient(270deg,rgba(20,32,26,.76) 0%,rgba(20,32,26,.52) 42%,rgba(20,32,26,.12) 72%,rgba(20,32,26,.04) 100%)}
 @media(max-width:900px){.hero{min-height:680px}.heroCopy{width:100%;min-height:680px;padding:100px 22px 90px;justify-content:flex-end}.heroCopy h1{font-size:clamp(58px,17vw,88px)}.heroImage{aspect-ratio:auto;min-height:100%}.heroImage:after{background:linear-gradient(0deg,rgba(20,32,26,.82) 0%,rgba(20,32,26,.48) 54%,rgba(20,32,26,.16) 100%)}[dir="rtl"] .heroImage:after{background:linear-gradient(0deg,rgba(20,32,26,.82) 0%,rgba(20,32,26,.48) 54%,rgba(20,32,26,.16) 100%)}}
 @media(max-width:520px){.hero{min-height:640px}.heroCopy{min-height:640px;padding:96px 20px 82px}.heroCopy h1{font-size:clamp(54px,18vw,76px)}.heroCaption{bottom:12px}}
+
+/* Contrast audit — overlays must remain readable across photography */
+.heroCopy h1,.heroCopy .lead,.heroCopy .eyebrow{position:relative;z-index:1}
+.heroCopy h1{color:#fff}
+.heroCopy .eyebrow{color:#F4DDD6}
+.heroCopy .primary{background:#fff;color:#203128;border:1px solid rgba(255,255,255,.88);box-shadow:0 8px 24px rgba(0,0,0,.14)}
+.heroCaption{border-radius:2px;color:#fff;background:rgba(14,35,27,.78);padding:7px 9px;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+.atlasImage figcaption{color:#203128;background:rgba(255,253,249,.97);border:1px solid rgba(32,49,40,.14)}
