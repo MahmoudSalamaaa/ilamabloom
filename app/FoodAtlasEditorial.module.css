@@ -23,3 +23,11 @@
 [dir="rtl"] .grid article button span{margin-left:0;margin-right:8px}
 @media(max-width:900px){.controls{padding-inline:18px;overflow:hidden}.search{margin-bottom:20px}.cats,.gentleFilters{flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-inline:contain;padding:2px 2px 9px;max-width:100vw}.cats button,.gentleFilters button{flex:0 0 auto}.grid{gap:18px}.grid article>div{padding:20px}.grid h2{font-size:clamp(28px,8vw,36px);margin-bottom:16px}.grid dl>div{padding-block:11px}.bridge{gap:20px}.gentleCollection{margin-inline:18px;padding-block:2rem}.gentleIdeas{gap:.75rem!important}}
 @media(prefers-reduced-motion:reduce){.search button,.cats button,.gentleFilters button,.gentleIdeas button{transition:none}}
+
+
+/* Atlas refinement — search/filter clarity and card consistency */
+.search input{min-height:50px}.search button{min-width:44px;min-height:44px;top:3px}.cats button,.gentleFilters button{min-height:44px}
+.grid article{transition:box-shadow .18s ease,transform .18s ease}.grid article:focus-within{box-shadow:0 0 0 3px var(--rose)}
+.grid dt{font-size:.68rem;line-height:1.35}.meta{font-size:.82rem;line-height:1.5}.grid article button{min-height:42px}
+@media(hover:hover) and (pointer:fine){.grid article:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(32,49,40,.1)}}
+@media(max-width:900px){.search input{font-size:1.2rem}.cats,.gentleFilters{scroll-snap-type:x proximity}.cats button,.gentleFilters button{scroll-snap-align:start}.grid article{box-shadow:0 8px 22px rgba(32,49,40,.05)}}
