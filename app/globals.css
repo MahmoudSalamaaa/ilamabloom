@@ -1974,3 +1974,22 @@ html.ilama-large-text{font-size:112.5%}html.ilama-high-contrast body{filter:cont
 .siteFooter .unifiedFooterBottom{margin-top:24px!important;padding-top:14px!important}
 @media(max-width:900px){.siteFooter{padding-bottom:calc(82px + env(safe-area-inset-bottom))!important}.siteFooter .unifiedFooterTop{grid-template-columns:1fr 1fr!important}}
 @media(max-width:520px){.siteFooter .unifiedFooterTop{gap:12px!important}.siteFooter .unifiedFooterBottom{margin-top:18px!important}}
+
+/* FULL SITE QA — navigation hierarchy, bilingual parity, stable palette */
+.brandHeader{background:rgba(250,246,240,.96)!important;border-bottom-color:rgba(32,49,40,.16)!important}
+.desktopBrandNav{justify-content:flex-end!important;gap:.45rem!important}
+.navPrimary{gap:.12rem!important}
+.navPrimary>button,.navMore>summary{color:#203128!important;font-size:.72rem!important;font-weight:800!important;letter-spacing:.025em!important;border-radius:999px!important;padding:.62rem .64rem!important}
+.siteAr .navPrimary>button,.siteAr .navMore>summary{font-family:"Tajawal","Noto Sans Arabic",Arial,sans-serif!important;font-size:.78rem!important;letter-spacing:0!important}
+.navPrimary>button:hover,.navMore>summary:hover{background:#E9D8D1!important;color:#203128!important}
+.navMore>summary{border:1px solid rgba(32,49,40,.32)!important}
+.navMore[open]>summary{background:#203128!important;color:#fff!important}
+.navMorePanel{background:#203128!important;border-radius:14px!important;overflow:hidden!important;box-shadow:0 18px 42px rgba(32,49,40,.2)!important}
+.navMorePanel button{background:#FFFDFC!important;color:#203128!important;font-size:.8rem!important;font-weight:700!important}
+.navMorePanel button:hover{background:#F0E4DA!important;color:#203128!important}
+.headerActions{gap:.45rem!important}.readAloud{color:#203128!important}.signInPill{border-color:#203128!important;color:#203128!important;background:#FFFDFC!important}.signInPill:hover{background:#203128!important;color:#fff!important}
+.globalLang{background:#F0E4DA!important;border-color:rgba(32,49,40,.24)!important}.globalLang button{color:#203128!important}.globalLang button.on{background:#203128!important;color:#fff!important}
+.drawerHeader{border-bottom:1px solid rgba(32,49,40,.18)!important;padding-bottom:.8rem!important;margin-bottom:.8rem!important}.drawerGroup>span{color:#8A5B48!important}.drawerGroup button{color:#203128!important}.drawerGroup button:hover{background:#F0E4DA!important}
+.siteAr .drawerGroup button{text-align:right!important}.siteAr .drawerGroup>span{text-align:right!important}
+@media(max-width:1050px){.brandHeader{grid-template-columns:auto 1fr auto!important}.desktopBrandNav{display:none!important}.menuToggle{display:block!important}.brandDrawer{top:74px!important}}
+@media(max-width:520px){.brandDrawer{top:64px!important}.drawerNav{grid-template-columns:1fr!important}.drawerGroup button{font-size:1rem!important}.globalLang{display:flex!important}.globalLang button{min-width:32px!important;padding:0 .35rem!important}}
