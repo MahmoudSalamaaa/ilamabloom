@@ -14,3 +14,10 @@
 [dir="rtl"] .observationList p strong{grid-column:1;grid-row:1}
 @media(max-width:800px){.hero{padding-top:5.5rem}.hero h1{max-width:13ch}.mode{top:64px;padding-inline:18px}.mode button{flex:0 0 8.5rem;padding-inline:.75rem}.topics{padding-bottom:4.5rem}.topics article{padding-block:1.5rem}.gentle,.observe,.medication,.pattern{padding-block:4.5rem}.observationForm{padding-top:1.5rem}.observationForm button{width:100%}.actions{display:grid;gap:1rem}.actions button,.actions a{width:max-content}.safety{margin-inline:18px;margin-bottom:4.5rem}}
 @media(prefers-reduced-motion:reduce){.mode button{transition:none}}
+
+
+/* Mental-health page refinement — calm hierarchy, safe sticky navigation */
+.mode{top:74px;overscroll-behavior-inline:contain}.mode button{min-height:52px}.topics article,.gentle article,.observe>*,.medication>*,.pattern>*{min-width:0}
+.topics p,.topics li,.gentle p,.observe p,.medication p,.pattern p,.safety p{overflow-wrap:anywhere}.observationForm input,.observationForm textarea{min-height:44px}
+.actions a,.actions button,.gentleLinks button,.edSupport button{min-height:44px;display:inline-flex;align-items:center}
+@media(max-width:800px){.mode{top:64px;scroll-snap-type:x proximity}.mode button{scroll-snap-align:start}.topics article{gap:1rem}.gentle article{padding-block:1.5rem}.gentle aside{padding-inline-start:1.25rem}.actions a,.actions button{width:100%;justify-content:flex-start}}
