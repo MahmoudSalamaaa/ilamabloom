@@ -1915,3 +1915,11 @@ html.ilama-large-text{font-size:112.5%}html.ilama-high-contrast body{filter:cont
 /* Arabic copy QA deploy marker */
 
 /* production sync a7ad057 */
+
+/* Targeted Arabic typography and menu repair — preserve the existing visual system */
+.siteAr,.siteAr button,.siteAr input,.siteAr textarea,.siteAr select{font-family:"Cairo","Noto Sans Arabic","DM Sans",Arial,sans-serif}
+.siteAr .navMorePanel{min-width:360px;max-width:calc(100vw - 24px);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 14px 32px rgba(32,49,40,.2)}
+.siteAr .navMorePanel button{min-height:44px;line-height:1.35;white-space:normal;text-align:right}
+.siteAr .drawerGroup button{font-family:inherit;line-height:1.45}
+.siteAr .drawerGroup>span{font-family:inherit;font-weight:800}
+@media(max-width:900px){.siteAr .navMorePanel{min-width:280px;left:auto;right:0}.siteAr .brandDrawer{overflow-y:auto}}
