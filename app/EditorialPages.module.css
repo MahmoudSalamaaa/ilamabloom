@@ -18,3 +18,4 @@
 
 /* Visit Prep 4.0 — structured family questions */
 .savedQ{position:relative;padding-right:2.4rem!important}.questionDelete{position:absolute;right:.45rem;top:50%;transform:translateY(-50%);width:30px;height:30px;border:1px solid var(--line)!important;border-radius:50%!important;background:transparent!important;color:inherit!important;padding:0!important;font-size:1rem!important}.questionDelete:hover,.questionDelete:focus-visible{background:var(--paper2)!important}@media(max-width:800px){.questionDelete{width:36px;height:36px}}
+.mentalVisit{margin:1.5rem 0;padding:1rem 0;border-top:1px solid currentColor;border-bottom:1px solid currentColor}.mentalVisit>b{font-size:.72rem;letter-spacing:.1em}.mentalVisit p{font-size:.85rem;line-height:1.5}.mentalVisit select{width:100%;padding:.7rem;background:transparent;color:inherit;border:1px solid currentColor;margin:.5rem 0}.mentalVisit button{margin-top:.4rem}
