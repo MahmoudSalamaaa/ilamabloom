@@ -2062,3 +2062,7 @@ body{overflow-wrap:break-word}
  .homeRefShell #content :where(.heroBloom,.heroCaption),
  #content :where(.kicker,[class*="eyebrow"]){font-size:max(.7rem,11px)}
 }
+
+
+/* Keep the full navigation from colliding at medium desktop widths. */
+@media(max-width:1300px){.desktopBrandNav{display:none!important}.brandHeader{grid-template-columns:auto 1fr auto!important;justify-content:space-between!important}.headerActions{margin-inline-start:auto}.menuToggle{display:block!important}.brandDrawer{top:74px!important}}
