@@ -95,3 +95,6 @@
 @media(max-width:900px){.heroSideNote{right:16px;top:auto;bottom:102px;font-size:8px}.heroFolio{right:18px;bottom:82px;width:68px;height:68px;font-size:12px}.heroFolio:before{inset:4px}.heroFootline{align-items:flex-start;flex-direction:column;gap:8px;padding-block:13px}}
 @media(max-width:520px){.heroSideNote{display:none}.heroFolio{right:16px;bottom:78px}}
 
+/* Keep the homepage header compact when the surrounding shell has a stronger nav rule. */
+@media(max-width:1300px){:global(main.homeRefShell .desktopBrandNav){display:none!important}:global(main.homeRefShell .menuToggle){display:block!important}:global(main.homeRefShell .brandHeader){grid-template-columns:auto 1fr auto!important;justify-content:space-between!important}}
+
