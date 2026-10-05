@@ -2406,3 +2406,68 @@ input,textarea,select{accent-color:var(--ilama-berry)}
 .kidsWorld{font-family:var(--ilama-ui)!important}
 .kidsWorld h1,.kidsWorld h2,.kidsWorld h3{font-family:var(--ilama-ui)!important}
 .kidsWorld button[class*="active"],.kidsWorld button[aria-pressed="true"]{background:#A94B65!important;color:#fff!important}
+
+
+/* ILAMA BLOOM — feminine typography for all ordinary copy */
+:root{
+ --ilama-body-feminine:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+ --ilama-ar-feminine:"Tajawal","Noto Sans Arabic",Arial,sans-serif;
+}
+html:not([dir="rtl"]) body,
+html:not([dir="rtl"]) p,
+html:not([dir="rtl"]) li,
+html:not([dir="rtl"]) label,
+html:not([dir="rtl"]) small,
+html:not([dir="rtl"]) blockquote,
+html:not([dir="rtl"]) figcaption,
+html:not([dir="rtl"]) dt,
+html:not([dir="rtl"]) dd,
+html:not([dir="rtl"]) button,
+html:not([dir="rtl"]) a,
+html:not([dir="rtl"]) input,
+html:not([dir="rtl"]) textarea,
+html:not([dir="rtl"]) select,
+html:not([dir="rtl"]) .brandHeader,
+html:not([dir="rtl"]) .mobileNav,
+html:not([dir="rtl"]) .desktopBrandNav,
+html:not([dir="rtl"]) .v3FooterNav,
+html:not([dir="rtl"]) .v3FooterBase{
+ font-family:var(--ilama-body-feminine)!important;
+}
+html:not([dir="rtl"]) p,
+html:not([dir="rtl"]) li,
+html:not([dir="rtl"]) label,
+html:not([dir="rtl"]) figcaption,
+html:not([dir="rtl"]) dd{
+ font-weight:500;
+ letter-spacing:.002em;
+}
+html:not([dir="rtl"]) button,
+html:not([dir="rtl"]) a,
+html:not([dir="rtl"]) input,
+html:not([dir="rtl"]) textarea,
+html:not([dir="rtl"]) select{
+ font-weight:600;
+}
+html:not([dir="rtl"]) input::placeholder,
+html:not([dir="rtl"]) textarea::placeholder{
+ font-family:var(--ilama-body-feminine)!important;
+ font-weight:500;
+}
+html[dir="rtl"] body,
+html[dir="rtl"] p,
+html[dir="rtl"] li,
+html[dir="rtl"] label,
+html[dir="rtl"] small,
+html[dir="rtl"] blockquote,
+html[dir="rtl"] figcaption,
+html[dir="rtl"] dt,
+html[dir="rtl"] dd,
+html[dir="rtl"] button,
+html[dir="rtl"] a,
+html[dir="rtl"] input,
+html[dir="rtl"] textarea,
+html[dir="rtl"] select{
+ font-family:var(--ilama-ar-feminine)!important;
+}
+html[dir="rtl"] p,html[dir="rtl"] li,html[dir="rtl"] label{font-weight:500}
