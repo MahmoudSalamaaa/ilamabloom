@@ -1,2 +1,2 @@
-export const metadata={title:"Caregiver Space — NutClue",description:"A private caregiver space for NutClue learning profiles."};
+export const metadata={title:"Caregiver Space — ILAMA BLOOM",description:"A private caregiver space for ILAMA BLOOM learning profiles."};
 
