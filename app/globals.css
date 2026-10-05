@@ -2269,3 +2269,27 @@ body{overflow-wrap:break-word}
   .v3FooterStatement h2{font-size:3.35rem!important}
   .v3FooterBase{grid-template-columns:1fr!important;text-align:center!important;gap:.6rem!important}
 }
+
+
+/* Live visual QA correction — keep footer legal row below the content */
+.v3FooterStage{position:relative!important;display:grid!important}
+.v3FooterBase{
+  position:relative!important;
+  clear:both!important;
+  display:grid!important;
+  width:min(1200px,calc(100% - 40px))!important;
+  margin:clamp(3rem,5vw,5rem) auto 0!important;
+  z-index:2!important;
+}
+.v3FooterDoctor b{
+  white-space:nowrap!important;
+  overflow-wrap:normal!important;
+  word-break:normal!important;
+}
+@media(max-width:900px){
+  .v3FooterBase{
+    width:calc(100% - 36px)!important;
+    margin-top:2.5rem!important;
+  }
+  .v3FooterDoctor b{white-space:normal!important}
+}
