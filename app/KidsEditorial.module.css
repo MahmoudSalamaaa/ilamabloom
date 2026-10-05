@@ -34,3 +34,17 @@
 /* Kids: keep playful identity while aligning typography with ILAMA */
 .page,.kidsWorld{font-family:"DM Sans","Tajawal",Arial,sans-serif!important}
 [dir="rtl"] .page,[dir="rtl"] .kidsWorld{font-family:"Tajawal","Noto Sans Arabic",Arial,sans-serif!important}
+
+
+/* PLAY GARDEN — phase 1 connected progression */
+.playGarden{padding:clamp(3.5rem,6vw,6rem) max(1.25rem,7vw);display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:center;background:#F9C4D3;border-block:3px solid var(--kid-ink)}
+.playGarden h2{font-family:"Trebuchet MS",Arial,sans-serif;font-weight:900;font-size:clamp(2.4rem,5vw,5rem);line-height:.95;letter-spacing:-.045em;margin:.8rem 0;max-width:14ch}
+.playGarden p{font-family:Arial,sans-serif;font-weight:650;line-height:1.6;max-width:62ch}
+.petals{width:190px;aspect-ratio:1;border:3px solid var(--kid-ink);border-radius:50%;background:var(--kid-yellow);box-shadow:8px 9px 0 var(--kid-ink);display:grid;place-content:center;text-align:center;transform:rotate(3deg)}
+.petals b{font:900 4.5rem/1 "Trebuchet MS",Arial,sans-serif}.petals span{font:900 .78rem Arial,sans-serif;text-transform:uppercase;letter-spacing:.08em}
+.sensorySteps,.pairGrid,.egyptGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.sensorySteps button,.pairGrid button,.egyptGrid button{border:2px solid var(--kid-ink);border-radius:18px;background:#fff;box-shadow:3px 4px 0 var(--kid-ink);padding:16px;text-align:center;display:grid;gap:7px}
+.sensorySteps button:nth-child(4n+1),.egyptGrid button:nth-child(4n+1){background:#FFE39A}.sensorySteps button:nth-child(4n+2),.egyptGrid button:nth-child(4n+2){background:#F7BDD0}.sensorySteps button:nth-child(4n+3),.egyptGrid button:nth-child(4n+3){background:#BFE8F7}.sensorySteps button:nth-child(4n),.egyptGrid button:nth-child(4n){background:#CDECCF}
+.sensorySteps b,.egyptGrid b{font-size:2rem}.pairGrid b{font-size:1.55rem}.pairGrid i{font-style:normal;color:#A94B65}.pairGrid small,.egyptGrid small{font-family:Arial,sans-serif;line-height:1.35;font-weight:650}
+.sensorySteps button.selected,.pairGrid button.selected,.egyptGrid button.selected{outline:3px solid #A94B65;outline-offset:-5px}
+@media(max-width:700px){.playGarden{grid-template-columns:1fr}.petals{width:150px}.sensorySteps,.pairGrid,.egyptGrid{grid-template-columns:1fr}.playGarden h2{max-width:none}}
