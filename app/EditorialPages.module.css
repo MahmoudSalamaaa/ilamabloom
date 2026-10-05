@@ -41,3 +41,12 @@
 .questionDelete{min-width:40px;width:40px;height:40px}.savedQ{padding-inline-end:3rem!important;padding-right:inherit!important}
 [dir="ltr"] .savedQ{padding-right:3rem!important}[dir="rtl"] .savedQ{padding-left:3rem!important}.questionDelete{right:.35rem}[dir="rtl"] .questionDelete{right:auto;left:.35rem}
 @media(max-width:850px){.careTools{grid-template-columns:1fr;gap:0}.careTools article+article{border-top:1px solid var(--line)}.structuredNote{font-size:.9rem}.easySafety{padding-inline:18px}}
+
+
+/* ILAMA feminine editorial page treatment */
+.page{font-family:"DM Sans","Tajawal",Arial,sans-serif!important}
+.page h1,.page h2,.page h3,.page h4{font-family:"Cormorant Garamond",Georgia,serif!important;font-weight:500}
+[dir="rtl"] .page,[dir="rtl"] .page h1,[dir="rtl"] .page h2,[dir="rtl"] .page h3,[dir="rtl"] .page h4{font-family:"Tajawal","Noto Sans Arabic",Arial,sans-serif!important}
+.page button{font-family:inherit}
+.page button[class*="active"],.page button[class*="Active"],.page button[aria-pressed="true"]{background:#8F435B!important;color:#fff!important;border-color:#8F435B!important}
+.page button:focus-visible,.page a:focus-visible,.page input:focus-visible,.page textarea:focus-visible,.page select:focus-visible{outline-color:#F2C7C2!important}

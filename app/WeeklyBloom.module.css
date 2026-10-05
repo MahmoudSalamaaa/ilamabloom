@@ -9,3 +9,12 @@
 .wellbeing>div{gap:1px}.wellbeing article{min-height:120px}
 @media(max-width:850px){.page header{margin-bottom:38px}.totals article{padding:24px}.grid article{min-height:190px;padding:22px}.page aside{padding:28px 22px}.reflect{margin-top:48px}}
 @media(max-width:520px){.page{padding-inline:16px}.page h1{font-size:clamp(46px,15vw,58px)}.wellbeing{margin-inline:0}.wellbeing>div{grid-template-columns:1fr}.grid article{min-height:0}.reflect button{width:100%}}
+
+
+/* ILAMA feminine editorial page treatment */
+.page{font-family:"DM Sans","Tajawal",Arial,sans-serif!important}
+.page h1,.page h2,.page h3,.page h4{font-family:"Cormorant Garamond",Georgia,serif!important;font-weight:500}
+[dir="rtl"] .page,[dir="rtl"] .page h1,[dir="rtl"] .page h2,[dir="rtl"] .page h3,[dir="rtl"] .page h4{font-family:"Tajawal","Noto Sans Arabic",Arial,sans-serif!important}
+.page button{font-family:inherit}
+.page button[class*="active"],.page button[class*="Active"],.page button[aria-pressed="true"]{background:#8F435B!important;color:#fff!important;border-color:#8F435B!important}
+.page button:focus-visible,.page a:focus-visible,.page input:focus-visible,.page textarea:focus-visible,.page select:focus-visible{outline-color:#F2C7C2!important}

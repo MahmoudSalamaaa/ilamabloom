@@ -29,3 +29,8 @@
 @media(max-width:900px){.hero figure{border-left:0!important;border-top:3px solid var(--kid-ink)!important}.groups{gap:12px}.game{grid-template-columns:1fr}.gameTabs{gap:10px}.familyQuest>div{transform:none}.mission figure{border-right:0!important;border-bottom:3px solid var(--kid-ink)!important}}
 @media(max-width:520px){.hero:before{width:44px;height:44px}.hero:after{display:none}.hero h1{font-size:clamp(48px,15vw,68px)}.hero figure:after{font-size:9px}.groups{grid-template-columns:1fr}.groups article{min-height:170px}.gameTabs button{flex-basis:132px}.builder{padding:16px;border-radius:22px}.plate{padding:32px}.familyQuest{gap:30px}}
 @media(prefers-reduced-motion:reduce){.plate span{animation:none}.ageBand button,.groups article,.gameTabs button,.foods button,.options button{transition:none}}
+
+
+/* Kids: keep playful identity while aligning typography with ILAMA */
+.page,.kidsWorld{font-family:"DM Sans","Tajawal",Arial,sans-serif!important}
+[dir="rtl"] .page,[dir="rtl"] .kidsWorld{font-family:"Tajawal","Noto Sans Arabic",Arial,sans-serif!important}

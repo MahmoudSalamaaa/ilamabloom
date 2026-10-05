@@ -31,3 +31,12 @@
 .grid dt{font-size:.68rem;line-height:1.35}.meta{font-size:.82rem;line-height:1.5}.grid article button{min-height:42px}
 @media(hover:hover) and (pointer:fine){.grid article:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(32,49,40,.1)}}
 @media(max-width:900px){.search input{font-size:1.2rem}.cats,.gentleFilters{scroll-snap-type:x proximity}.cats button,.gentleFilters button{scroll-snap-align:start}.grid article{box-shadow:0 8px 22px rgba(32,49,40,.05)}}
+
+
+/* ILAMA feminine editorial page treatment */
+.page{font-family:"DM Sans","Tajawal",Arial,sans-serif!important}
+.page h1,.page h2,.page h3,.page h4{font-family:"Cormorant Garamond",Georgia,serif!important;font-weight:500}
+[dir="rtl"] .page,[dir="rtl"] .page h1,[dir="rtl"] .page h2,[dir="rtl"] .page h3,[dir="rtl"] .page h4{font-family:"Tajawal","Noto Sans Arabic",Arial,sans-serif!important}
+.page button{font-family:inherit}
+.page button[class*="active"],.page button[class*="Active"],.page button[aria-pressed="true"]{background:#8F435B!important;color:#fff!important;border-color:#8F435B!important}
+.page button:focus-visible,.page a:focus-visible,.page input:focus-visible,.page textarea:focus-visible,.page select:focus-visible{outline-color:#F2C7C2!important}
