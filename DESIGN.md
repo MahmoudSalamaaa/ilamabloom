@@ -1,6 +1,6 @@
-# NutClue design context
+# ILAMA BLOOM design context
 
-NutClue is a bilingual, Egyptian-food-aware nutrition education product. Its public experience should feel editorial, calm, curious and non-judgmental; its private experience should feel trustworthy, factual and easy to recover from.
+ILAMA BLOOM is a bilingual, Egyptian-food-aware nutrition education product. Its public experience should feel editorial, calm, curious and non-judgmental; its private experience should feel trustworthy, factual and easy to recover from.
 
 ## Durable decisions
 
