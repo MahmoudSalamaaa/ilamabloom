@@ -2143,3 +2143,44 @@ body{overflow-wrap:break-word}
  .authV3Footer{font-size:.58rem;padding:1rem 14px;flex-wrap:wrap}
 }
 @media(prefers-reduced-motion:reduce){.authForm button,.authSocial button{transition:none}}
+
+
+/* FOOTER STRUCTURE PASS — rebuild the editorial footer grid */
+.v3FooterStage{
+  grid-template-columns:minmax(260px,1fr) minmax(420px,1.35fr)!important;
+  gap:clamp(2.5rem,6vw,7rem)!important;
+  align-items:start!important;
+}
+.v3FooterMark{display:none!important}
+.v3FooterStatement{min-width:0!important}
+.v3FooterStatement p{max-width:34ch!important}
+.v3FooterNav{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:2.2rem 3rem!important;
+  min-width:0!important;
+  padding-top:0!important;
+}
+.v3FooterNav nav{min-width:0!important}
+.v3FooterDoctor{
+  grid-column:1/-1!important;
+  min-width:0!important;
+  overflow:visible!important;
+  padding-top:1.5rem!important;
+  margin-top:.5rem!important;
+}
+.v3FooterDoctor b,.v3FooterDoctor p,.v3FooterDoctor a{overflow-wrap:anywhere!important}
+.v3FooterBase{
+  grid-template-columns:auto 1fr auto!important;
+  width:min(1200px,calc(100% - 40px))!important;
+}
+@media(max-width:900px){
+  .v3FooterStage{grid-template-columns:1fr!important;gap:3rem!important}
+  .v3FooterNav{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:2rem 1.5rem!important}
+  .v3FooterBase{grid-template-columns:1fr!important;width:calc(100% - 36px)!important;gap:.75rem!important;text-align:center!important}
+  .v3FooterBase p{text-align:center!important}
+}
+@media(max-width:520px){
+  .v3FooterNav{grid-template-columns:1fr!important;gap:1.5rem!important}
+  .v3FooterStage{gap:2.2rem!important}
+  .v3Footer{padding-top:3.5rem!important}
+}
