@@ -2330,3 +2330,12 @@ body{overflow-wrap:break-word}
  .v3FooterBase{width:calc(100% - 32px)!important;margin-top:2.25rem!important;padding-top:1rem!important}
  .v3FooterBase .footerCredit{max-width:34ch!important;margin-inline:auto!important}
 }
+
+
+/* ILAMA BLOOM feminine editorial type system */
+:root{--ilama-display:"Cormorant Garamond",Georgia,serif;--ilama-ui:"DM Sans","Tajawal",Arial,sans-serif;--ilama-blush:#F2C7C2;--ilama-blush-soft:#F8E2DE;--ilama-berry:#8F435B}
+body{font-family:var(--ilama-ui)!important}
+h1,h2,h3,.v3FooterStatement h2,.v3FooterDoctor b{font-family:var(--ilama-display)!important;font-weight:500}
+button,a,input,textarea,select{font-family:inherit}
+.brandHeader .desktopBrandNav button,.brandHeader .menuToggle{font-family:var(--ilama-ui)!important}
+.v3FooterNav button,.v3FooterNav a,.v3FooterBase{font-family:var(--ilama-ui)!important}
