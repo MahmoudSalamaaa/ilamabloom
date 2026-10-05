@@ -2107,3 +2107,39 @@ body{overflow-wrap:break-word}
 .v3Footer .v3FooterNav span,
 .v3Footer .v3FooterDoctor>span{color:#DCE89D!important}
 .v3Footer .v3FooterDoctor a{color:#DCE89D!important}
+
+/* AUTH EDITORIAL LAYOUT — keep sign-in and sign-up inside the ILAMA visual system. */
+.authV3{min-height:100svh;background:#FAF6F0;color:#203128;display:flex;flex-direction:column;font-family:Arial,sans-serif}
+.authV3Header{height:82px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(18px,5vw,72px);border-bottom:1px solid #DED3C8;background:rgba(250,246,240,.94)}
+.authV3Logo{display:inline-flex;align-items:center}.authV3Logo img{display:block;width:150px;height:auto;max-height:58px;object-fit:contain}
+.authV3Home{color:#203128;text-decoration:none;font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;border-bottom:1px solid currentColor;padding-bottom:.35rem}
+.authV3Stage{width:min(1160px,calc(100% - 48px));flex:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,.78fr);gap:clamp(3rem,8vw,8rem);align-items:center;margin:0 auto;padding:clamp(3.5rem,8vw,7rem) 0}
+.authV3Story{max-width:660px;padding:clamp(2rem,5vw,5rem);background:#203128;color:#FAF6F0;position:relative;overflow:hidden}
+.authV3Story:after{content:"";position:absolute;width:260px;height:260px;border:1px solid rgba(250,246,240,.16);border-radius:50%;right:-90px;bottom:-100px}
+.authV3Story>span{font-size:.62rem;font-weight:800;letter-spacing:.18em;color:#DCE89D}
+.authV3Story h2{font:400 clamp(3rem,6vw,6.5rem)/.86 Georgia,serif;letter-spacing:-.055em;margin:1.4rem 0 1.2rem;color:#fff}
+.authV3Story h2 em{font-style:italic;color:#E9B8B0}
+.authV3Story p{max-width:34ch;color:#E7EDE9;line-height:1.65;margin:0}
+.authV3Form{width:min(100%,430px);justify-self:end}
+.authForm{position:relative;background:#FFFDFC;border:1px solid #DED3C8;padding:clamp(1.5rem,4vw,2.5rem);box-shadow:0 18px 50px rgba(32,49,40,.08)}
+.authLang{position:absolute;top:1.4rem;inset-inline-end:1.4rem;border:1px solid rgba(32,49,40,.25);background:#F0E4DA;color:#203128;padding:.5rem .75rem;cursor:pointer;font-weight:800}
+.authForm h1{font:400 clamp(2.8rem,6vw,4.8rem)/.9 Georgia,serif;letter-spacing:-.05em;margin:0 0 .75rem;color:#203128}
+.authForm>p{color:#5B675F;line-height:1.55;max-width:34ch;margin:0 0 2rem}
+.authForm form{display:grid;gap:1.05rem}.authForm label{display:grid;gap:.45rem;font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#203128}
+.authForm input{width:100%;min-height:48px;border:1px solid #CFC5B9;background:#FAF6F0;color:#203128;padding:.8rem .85rem;font:400 1rem Arial;outline:none}
+.authForm input:focus{border-color:#203128;box-shadow:0 0 0 3px rgba(169,75,101,.16)}
+.authForm form>button{min-height:50px;border:0;background:#203128;color:#fff;padding:.85rem 1rem;cursor:pointer;font-weight:800}
+.authForm form>button:hover{background:#A94B65}.authForm button:disabled{opacity:.55;cursor:not-allowed}
+.authSocial{margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid #DED3C8}.authSocial>span{display:block;color:#6A746D;font-size:.72rem;margin-bottom:.7rem}.authSocial>div{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}.authSocial button{min-height:44px;border:1px solid #CFC5B9;background:#fff;color:#203128;cursor:pointer;font-weight:800}.authSocial button:hover{background:#F0E4DA}
+.authMessage{padding:.75rem .85rem!important;margin:1rem 0 0!important;background:#F6DFDD;color:#7E3048!important;border-inline-start:3px solid #A94B65;max-width:none!important}
+.authSwitch{display:block;margin-top:1.35rem;color:#203128;text-decoration:underline;text-underline-offset:4px;font-size:.82rem}
+.authV3Footer{display:flex;justify-content:space-between;gap:1rem;padding:1rem clamp(18px,5vw,72px);border-top:1px solid #DED3C8;color:#69736C;font-size:.68rem;letter-spacing:.06em}
+.authNotice{min-height:100svh;display:grid;place-items:center;padding:2rem;color:#203128}
+@media(max-width:800px){
+ .authV3Header{height:68px;padding-inline:16px}.authV3Logo img{width:124px;max-height:48px}.authV3Home{font-size:.65rem}
+ .authV3Stage{width:min(100% - 28px,520px);display:flex;flex-direction:column;align-items:stretch;gap:1.25rem;padding:2rem 0 3rem}
+ .authV3Story{order:2;padding:1.7rem 1.35rem}.authV3Story h2{font-size:clamp(2.8rem,13vw,4.6rem);margin:1rem 0}.authV3Story p{font-size:.9rem}
+ .authV3Form{order:1;width:100%}.authForm{padding:1.3rem}.authForm h1{font-size:3.1rem}.authLang{top:1rem;inset-inline-end:1rem}
+ .authV3Footer{font-size:.58rem;padding:1rem 14px;flex-wrap:wrap}
+}
+@media(prefers-reduced-motion:reduce){.authForm button,.authSocial button{transition:none}}
