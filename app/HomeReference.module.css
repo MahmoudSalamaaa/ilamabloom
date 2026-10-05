@@ -129,3 +129,33 @@
   .heroCopy h1{font-size:clamp(3.45rem,15vw,5rem)!important;letter-spacing:-.07em!important}
   .heroCopy .lead{font-size:1rem!important}
 }
+
+
+/* 2026-10-05 mobile composition repair */
+.closing{position:relative!important;border-top:18px solid var(--paper)!important;border-bottom:18px solid var(--paper)!important;background:#17382F!important;color:#FFFDF8!important}
+.closing .eyebrow{color:#F2C7C2!important}
+.closing h2{color:#FFFDF8!important}
+.closing>div>p:last-child{color:#E7EDE9!important}
+.closing>button{background:#FFF9F0!important;color:#17382F!important;border:1px solid #FFF9F0!important}
+@media(max-width:900px){
+ .approach{padding-inline:18px!important}
+ .cardGrid{display:grid!important;grid-template-columns:1fr!important;overflow:visible!important;gap:12px!important;padding:0!important}
+ .card{min-width:0!important;width:100%!important;display:grid!important;grid-template-columns:38% minmax(0,1fr)!important;min-height:148px!important;overflow:hidden!important}
+ .cardImage{height:100%!important;aspect-ratio:auto!important}
+ .cardBody{min-height:148px!important;padding:18px!important;justify-content:center!important}
+ .cardBody strong{font-size:clamp(1.35rem,6vw,1.75rem)!important;line-height:1.08!important;overflow-wrap:normal!important;word-break:normal!important}
+ .cardBody small{margin:8px 0 10px!important;font-size:.92rem!important;line-height:1.45!important;overflow-wrap:normal!important;word-break:normal!important}
+ .cardBody i{margin-top:auto!important}
+ .closing{margin-top:18px!important;padding:48px 22px!important;border-top-width:14px!important;border-bottom-width:14px!important}
+ .closing h2{max-width:10ch!important;color:#FFFDF8!important}
+ .closing>div>p:last-child{font-size:1rem!important;line-height:1.55!important}
+}
+@media(max-width:520px){
+ .approach{padding-inline:14px!important}
+ .card{grid-template-columns:34% minmax(0,1fr)!important;min-height:158px!important}
+ .cardBody{min-height:158px!important;padding:16px 15px!important}
+ .cardBody strong{font-size:1.35rem!important}
+ .cardBody small{font-size:.88rem!important}
+ .closing{margin-top:16px!important;padding:44px 20px!important}
+ .closing h2{font-size:clamp(2.7rem,12vw,4rem)!important;line-height:.96!important}
+}
