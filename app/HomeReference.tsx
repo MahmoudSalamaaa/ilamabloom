@@ -28,13 +28,16 @@ export default function HomeReference({go,ar}:Props){
    </div>
    <div className={styles.heroBloom} aria-hidden="true"><span>{ar?"الأكل":"FOOD"}</span><i>·</i><span>{ar?"الجسم":"BODY"}</span><i>·</i><span>{ar?"السياق":"CONTEXT"}</span></div>
    <div className={styles.heroCopy}>
-    <p className={styles.eyebrow}>{ar?"تغذية أفضل":"GOOD NUTRITION BRINGS"}</p>
-    <h1>{ar?<>لحياة <em>أكثر إشراقًا</em></>:<>A Brighter <em>You</em></>}</h1>
-    <p className={styles.lead}>{ar?"معرفة أوضح، اختيارات أفضل، وعادات صغيرة لحياة أكثر صحة وسعادة.":"Knowledge, better choices, and small habits for a healthier, happier life."}</p>
-    <button type="button" className={styles.primary} onClick={()=>document.getElementById("ilama-world")?.scrollIntoView({behavior:"smooth"})}>{ar?"اكتشف عالمنا":"Explore Our World"} <span>→</span></button>
+    <p className={styles.eyebrow}>{ar?"دليل مفتوح للغذاء والجسد والحياة":"AN OPEN FIELD GUIDE TO FOOD, BODY & LIFE"}</p>
+    <h1>{ar?<>الأشياء الجميلة <em>تنمو</em></>:<>Good things <em>grow</em></>}<br/>{ar?"حين نتأمل عن قرب.":"when we look closer."}</h1>
+    <p className={styles.lead}>{ar?"عالم حيّ من الطعام والجسد وكل ما يصوغ تفاصيل يومنا.":"A living world of food, body and the many things that shape a day."}</p>
+    <button type="button" className={styles.primary} onClick={()=>go("atlas")}>{ar?"ادخل إلى الأطلس":"Enter the atlas"} <span>↗</span></button>
    </div>
-   <figure className={styles.heroImage}><div className={styles.heroImageTrack}><img src="https://images.pexels.com/photos/5966431/pexels-photo-5966431.jpeg?auto=compress&cs=tinysrgb&w=1800" alt={ar?"فاكهة ومكونات طبيعية على مائدة":"Natural fruit and ingredients on a table"}/></div><figcaption className={styles.heroCaption}><b>ILAMA / 01</b><span>{ar?"طعام حقيقي · حياة حقيقية":"REAL FOOD · REAL LIFE"}</span></figcaption></figure>
+   <p className={styles.heroSideNote}>{ar?"جذوره فضول · صُمم للحياة كما هي":"ROOTED IN CURIOSITY · MADE FOR REAL LIFE"}</p>
+   <div className={styles.heroFolio} aria-hidden="true">{ar?"٠١ — الجذور":"01 — ROOT"}</div>
+   <figure className={styles.heroImage}><div className={styles.heroImageTrack}><img src="https://images.pexels.com/photos/5966431/pexels-photo-5966431.jpeg?auto=compress&cs=tinysrgb&w=1800" alt={ar?"ضوء الشمس يستقر فوق طبقات من الأوراق الخضراء في غابة هادئة":"Sunlight resting on layers of green leaves in a quiet forest"}/></div><figcaption className={styles.heroCaption}><b>ILAMA / 01</b><span>{ar?"طعام حقيقي · حياة حقيقية":"REAL FOOD · REAL LIFE"}</span></figcaption></figure>
   </section>
+  <div className={styles.heroFootline}><span>{ar?"ملاحظة افتتاحية · ابدأ بما ينمو":"AN OPENING NOTE · BEGIN WITH WHAT IS GROWING"}</span><button type="button" onClick={()=>document.getElementById("ilama-world")?.scrollIntoView({behavior:"smooth"})}>{ar?"اقرأ الافتتاحية ↓":"Read the opening note ↓"}</button></div>
 
   <section className={styles.approach} id="ilama-world">
    <div className={styles.approachTop}>
