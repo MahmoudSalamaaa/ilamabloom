@@ -2339,3 +2339,70 @@ h1,h2,h3,.v3FooterStatement h2,.v3FooterDoctor b{font-family:var(--ilama-display
 button,a,input,textarea,select{font-family:inherit}
 .brandHeader .desktopBrandNav button,.brandHeader .menuToggle{font-family:var(--ilama-ui)!important}
 .v3FooterNav button,.v3FooterNav a,.v3FooterBase{font-family:var(--ilama-ui)!important}
+
+
+/* ILAMA BLOOM — sitewide feminine editorial visual system */
+:root{
+ --ilama-display:"Cormorant Garamond",Georgia,serif;
+ --ilama-ui:"DM Sans","Tajawal",Arial,sans-serif;
+ --ilama-ar:"Tajawal","Noto Sans Arabic",Arial,sans-serif;
+ --ilama-blush:#F2C7C2;
+ --ilama-blush-soft:#F8E2DE;
+ --ilama-blush-pale:#FFF2EF;
+ --ilama-berry:#8F435B;
+ --ilama-berry-deep:#713447;
+ --ilama-cream:#FFF9F3;
+}
+body{font-family:var(--ilama-ui)!important}
+html[dir="rtl"] body,[dir="rtl"]{font-family:var(--ilama-ar)!important}
+html:not([dir="rtl"]) h1,html:not([dir="rtl"]) h2,html:not([dir="rtl"]) h3,
+html:not([dir="rtl"]) h4,html:not([dir="rtl"]) .pageHero h1,
+html:not([dir="rtl"]) .magHero h1,html:not([dir="rtl"]) .magStatement h2,
+html:not([dir="rtl"]) .magFeature h2,html:not([dir="rtl"]) .magJournal h2,
+html:not([dir="rtl"]) .magTitle h2,html:not([dir="rtl"]) .footerMark{
+ font-family:var(--ilama-display)!important;font-weight:500
+}
+html[dir="rtl"] h1,html[dir="rtl"] h2,html[dir="rtl"] h3,html[dir="rtl"] h4{
+ font-family:var(--ilama-ar)!important;font-weight:700;letter-spacing:0!important
+}
+button,input,textarea,select,.brandHeader,.mobileNav,.desktopBrandNav{font-family:var(--ilama-ui)!important}
+html[dir="rtl"] button,html[dir="rtl"] input,html[dir="rtl"] textarea,html[dir="rtl"] select{font-family:var(--ilama-ar)!important}
+
+/* Primary actions: warm blush rather than hard green/white blocks */
+main button:not(.menuToggle):not(.langToggle):not(.questionDelete):not(.textBtn):not([class*="textLink"])[class*="primary"],
+main a[class*="primary"]{
+ background:var(--ilama-blush)!important;color:#203128!important;border-color:rgba(143,67,91,.22)!important;
+ box-shadow:0 8px 22px rgba(113,52,71,.10);font-weight:650
+}
+main button[class*="primary"]:hover,main a[class*="primary"]:hover{background:#F6D8D3!important;color:#203128!important}
+
+/* Selected controls retain strong contrast but move into the berry family */
+button[aria-pressed="true"],button[class*="active"],button[class*="Active"],.mobileNav button.active{
+ background:var(--ilama-berry)!important;color:#fff!important;border-color:var(--ilama-berry)!important
+}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{
+ outline-color:var(--ilama-blush)!important
+}
+
+/* Form surfaces and chips become warmer and softer without changing layout */
+input,textarea,select{accent-color:var(--ilama-berry)}
+::selection{background:var(--ilama-blush);color:#203128}
+.topicSearch,.search,.formCard,.authCard{--focus-ring:var(--ilama-blush)}
+.exploreStarts button,.quickPicks button,.typeRow button,.filters button,.range button{
+ border-color:rgba(143,67,91,.25)!important
+}
+.exploreStarts button:hover,.quickPicks button:hover,.typeRow button:hover,.filters button:hover,.range button:hover{
+ background:var(--ilama-blush-pale)!important;border-color:var(--ilama-berry)!important
+}
+
+/* Footer and editorial accents */
+.v3FooterStatement em,.credentials,.hero h1 em,.pageHero h1 em{color:var(--ilama-berry)!important}
+.v3FooterNav button:hover,.v3FooterNav a:hover{color:var(--ilama-berry)!important}
+@media(max-width:800px){
+ .mobileNav button.log{background:var(--ilama-berry)!important;color:#fff!important}
+}
+
+/* Kids remains intentionally playful; only inherit the softer family type, not the adult CTA treatment */
+.kidsWorld{font-family:var(--ilama-ui)!important}
+.kidsWorld h1,.kidsWorld h2,.kidsWorld h3{font-family:var(--ilama-ui)!important}
+.kidsWorld button[class*="active"],.kidsWorld button[aria-pressed="true"]{background:#A94B65!important;color:#fff!important}
