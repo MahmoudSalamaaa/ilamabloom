@@ -16,3 +16,9 @@
 [dir="rtl"] .foodSafety>div{direction:rtl}
 @media(max-width:800px){.hero h1{max-width:14ch}.pregnancy,.performance,.pathways{padding-block:4.5rem}.pregnancy>header{margin-bottom:3rem}.editorialList article{padding-block:1.35rem}.performance nav{margin-top:2.5rem;overflow-x:auto;overscroll-behavior-inline:contain}.performance nav button{flex:0 0 9.5rem;padding:.9rem .8rem;font-size:1.65rem}.performanceFeature{gap:2.5rem;padding-block:2.5rem}.performanceFeature h3{font-size:clamp(4rem,21vw,7rem)}.foodSafety{margin-inline:18px;padding-block:3rem}.foodSafety>div{margin-block:2rem}.foodSafety article{padding:1.25rem}.crossroads{margin-inline:18px;padding-block:2.3rem}.guardrail{margin-inline:18px;margin-bottom:4.5rem}.newParent{margin-top:1rem}}
 @media(prefers-reduced-motion:reduce){.performance nav button{transition:none}}
+
+
+/* Life-stages refinement — navigation and long-form readability */
+.performance nav button,.jump a,.egypt button,.guardrail button,.foodSafety>button,.crossroads button{min-height:44px}.editorialList article,.lactationGrid>*,.performanceFeature>*,.pathways article{min-width:0}
+.editorialList p,.editorialList li,.lactationGrid p,.pathways p,.crossroads p{overflow-wrap:anywhere}
+@media(max-width:800px){.performance nav{scroll-snap-type:x proximity;overscroll-behavior-inline:contain}.performance nav button{scroll-snap-align:start}.jump{gap:.75rem}.jump a{display:inline-flex;align-items:center}.crossroads{gap:2rem}}
