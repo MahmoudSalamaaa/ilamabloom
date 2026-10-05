@@ -2066,3 +2066,44 @@ body{overflow-wrap:break-word}
 
 /* Keep the full navigation from colliding at medium desktop widths. */
 @media(max-width:1300px){.desktopBrandNav{display:none!important}.brandHeader{grid-template-columns:auto 1fr auto!important;justify-content:space-between!important}.headerActions{margin-inline-start:auto}.menuToggle{display:block!important}.brandDrawer{top:74px!important}}
+
+/* 2026-10 mobile/tablet polish — keep the editorial chrome legible and predictable. */
+@media(max-width:1300px){
+ .desktopBrandNav{display:none!important}
+ .brandHeader{grid-template-columns:auto 1fr auto!important}
+ .menuToggle{display:block!important}
+}
+@media(max-width:767px){
+ .brandHeader{min-height:74px!important;height:74px!important;padding:10px 16px!important}
+ .brandLogo{width:128px!important}
+ .brandLogo img{max-height:52px!important}
+ .menuToggle{width:48px!important;height:48px!important}
+}
+
+/* The drawer intentionally uses the deep forest panel; every nested label must stay light. */
+.brandDrawer,
+.brandDrawer .drawerHeader,
+.brandDrawer .drawerHeader strong,
+.brandDrawer .drawerGroup>span,
+.brandDrawer .drawerGroup button,
+.brandDrawer .drawerHeader button{color:#F5EFE5!important}
+.brandDrawer .drawerGroup>span{color:#DCE89D!important}
+.brandDrawer .drawerGroup button:hover{color:#18382F!important;background:#F0E4DA!important}
+.brandDrawer{top:74px!important;max-height:calc(100dvh - 74px)!important;z-index:700!important}
+@media(max-width:520px){.brandDrawer{top:64px!important;max-height:calc(100dvh - 64px)!important}}
+
+/* Footer contrast pass — no inherited muted text should disappear on the forest surface. */
+.v3Footer .v3FooterStatement h2,
+.v3Footer .v3FooterStatement p,
+.v3Footer .v3FooterNav button,
+.v3Footer .v3FooterNav a,
+.v3Footer .v3FooterDoctor b,
+.v3Footer .v3FooterDoctor p,
+.v3Footer .v3FooterBase span,
+.v3Footer .v3FooterBase p,
+.v3Footer .v3FooterBase button{color:#FFFFFF!important}
+.v3Footer .v3FooterStatement h2 em{color:#E9B8B0!important}
+.v3Footer .v3FooterStatement small,
+.v3Footer .v3FooterNav span,
+.v3Footer .v3FooterDoctor>span{color:#DCE89D!important}
+.v3Footer .v3FooterDoctor a{color:#DCE89D!important}
