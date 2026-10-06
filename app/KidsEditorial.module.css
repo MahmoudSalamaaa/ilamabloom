@@ -60,3 +60,6 @@
 @media(max-width:900px){.passport{grid-template-columns:1fr}.atlasCards{grid-template-columns:repeat(2,minmax(0,1fr))}.bloomGarden{min-height:210px}}
 @media(max-width:520px){.atlasCards{grid-template-columns:1fr}.atlasCards button{min-height:110px}.passportStats{display:grid}.bloomGarden{min-height:180px;border-radius:22px}}
 @media(prefers-reduced-motion:reduce){.atlasCards button{transition:none}}
+
+.routeStrip{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin:0 0 20px}.routeStrip span{border:2px solid var(--kid-ink);border-radius:16px;background:#FFF7E8;padding:12px 8px;text-align:center;font-weight:800;font-size:.82rem;display:grid;gap:5px}.routeStrip b{font-size:1.35rem}
+@media(max-width:700px){.routeStrip{grid-template-columns:repeat(2,minmax(0,1fr))}.routeStrip span:last-child{grid-column:1/-1}}
