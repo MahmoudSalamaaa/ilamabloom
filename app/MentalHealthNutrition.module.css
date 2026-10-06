@@ -21,3 +21,12 @@
 .topics p,.topics li,.gentle p,.observe p,.medication p,.pattern p,.safety p{overflow-wrap:anywhere}.observationForm input,.observationForm textarea{min-height:44px}
 .actions a,.actions button,.gentleLinks button,.edSupport button{min-height:44px;display:inline-flex;align-items:center}
 @media(max-width:800px){.mode{top:64px;scroll-snap-type:x proximity}.mode button{scroll-snap-align:start}.topics article{gap:1rem}.gentle article{padding-block:1.5rem}.gentle aside{padding-inline-start:1.25rem}.actions a,.actions button{width:100%;justify-content:flex-start}}
+
+
+/* ILAMA feminine editorial page treatment */
+.page{font-family:"DM Sans","Tajawal",Arial,sans-serif!important}
+.page h1,.page h2,.page h3,.page h4{font-family:"Cormorant Garamond",Georgia,serif!important;font-weight:500}
+[dir="rtl"] .page,[dir="rtl"] .page h1,[dir="rtl"] .page h2,[dir="rtl"] .page h3,[dir="rtl"] .page h4{font-family:"Tajawal","Noto Sans Arabic",Arial,sans-serif!important}
+.page button{font-family:inherit}
+.page button[class*="active"],.page button[class*="Active"],.page button[aria-pressed="true"]{background:#8F435B!important;color:#fff!important;border-color:#8F435B!important}
+.page button:focus-visible,.page a:focus-visible,.page input:focus-visible,.page textarea:focus-visible,.page select:focus-visible{outline-color:#F2C7C2!important}

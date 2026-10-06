@@ -10,3 +10,12 @@
 .picker button{min-height:40px;padding:.5rem .15rem;color:#F0F3F1}.picker button.selected{color:#F2F5E9}
 .builder aside,.teenGrid article,.rhythmGrid>*{min-width:0}.teenGrid p,.builder aside p,.egyptLife p{overflow-wrap:anywhere}
 @media(max-width:800px){.modes{padding-inline:18px}.modes>div,.egyptTabs,.teenTopics{flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-inline:contain;padding-bottom:.6rem}.modes>div button,.egyptTabs button,.teenTopics button{flex:0 0 auto}.budgetCopy input,.metric input{width:min(100%,220px)}.builder{gap:1.4rem}.teenGrid article{padding-block:1.25rem}}
+
+
+/* ILAMA feminine editorial page treatment */
+.page{font-family:"DM Sans","Tajawal",Arial,sans-serif!important}
+.page h1,.page h2,.page h3,.page h4{font-family:"Cormorant Garamond",Georgia,serif!important;font-weight:500}
+[dir="rtl"] .page,[dir="rtl"] .page h1,[dir="rtl"] .page h2,[dir="rtl"] .page h3,[dir="rtl"] .page h4{font-family:"Tajawal","Noto Sans Arabic",Arial,sans-serif!important}
+.page button{font-family:inherit}
+.page button[class*="active"],.page button[class*="Active"],.page button[aria-pressed="true"]{background:#8F435B!important;color:#fff!important;border-color:#8F435B!important}
+.page button:focus-visible,.page a:focus-visible,.page input:focus-visible,.page textarea:focus-visible,.page select:focus-visible{outline-color:#F2C7C2!important}

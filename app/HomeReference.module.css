@@ -94,3 +94,125 @@
 [dir="rtl"] .heroFolio{right:auto;left:clamp(24px,5.7vw,88px);transform:rotate(12deg)}
 @media(max-width:900px){.heroSideNote{right:16px;top:auto;bottom:102px;font-size:8px}.heroFolio{right:18px;bottom:82px;width:68px;height:68px;font-size:12px}.heroFolio:before{inset:4px}.heroFootline{align-items:flex-start;flex-direction:column;gap:8px;padding-block:13px}}
 @media(max-width:520px){.heroSideNote{display:none}.heroFolio{right:16px;bottom:78px}}
+
+/* Keep the homepage header compact when the surrounding shell has a stronger nav rule. */
+@media(max-width:1300px){:global(main.homeRefShell .desktopBrandNav){display:none!important}:global(main.homeRefShell .menuToggle){display:block!important}:global(main.homeRefShell .brandHeader){grid-template-columns:auto 1fr auto!important;justify-content:space-between!important}}
+
+
+
+/* Editorial refinement — make the hero read as one confident composition */
+.heroCopy h1{
+  max-width:10ch!important;
+  margin:1.35rem 0 1.25rem!important;
+  font-size:clamp(3.8rem,6.2vw,6.8rem)!important;
+  line-height:.86!important;
+  letter-spacing:-.075em!important;
+  text-wrap:balance!important;
+}
+.heroCopy h1 em{
+  display:block!important;
+  color:#F1C3BC!important;
+  font-size:1.02em!important;
+  line-height:.86!important;
+  letter-spacing:-.08em!important;
+}
+.heroCopy .lead{
+  max-width:34ch!important;
+  font-size:clamp(.95rem,1.25vw,1.2rem)!important;
+  line-height:1.45!important;
+}
+@media(max-width:900px){
+  .heroCopy h1{max-width:9ch!important;font-size:clamp(3.6rem,14vw,6rem)!important;line-height:.88!important}
+  .heroCopy .lead{max-width:31ch!important}
+}
+@media(max-width:520px){
+  .heroCopy h1{font-size:clamp(3.45rem,15vw,5rem)!important;letter-spacing:-.07em!important}
+  .heroCopy .lead{font-size:1rem!important}
+}
+
+
+/* 2026-10-05 mobile composition repair */
+.closing{position:relative!important;border-top:18px solid var(--paper)!important;border-bottom:18px solid var(--paper)!important;background:#17382F!important;color:#FFFDF8!important}
+.closing .eyebrow{color:#F2C7C2!important}
+.closing h2{color:#FFFDF8!important}
+.closing>div>p:last-child{color:#E7EDE9!important}
+.closing>button{background:#FFF9F0!important;color:#17382F!important;border:1px solid #FFF9F0!important}
+@media(max-width:900px){
+ .approach{padding-inline:18px!important}
+ .cardGrid{display:grid!important;grid-template-columns:1fr!important;overflow:visible!important;gap:12px!important;padding:0!important}
+ .card{min-width:0!important;width:100%!important;display:grid!important;grid-template-columns:38% minmax(0,1fr)!important;min-height:148px!important;overflow:hidden!important}
+ .cardImage{height:100%!important;aspect-ratio:auto!important}
+ .cardBody{min-height:148px!important;padding:18px!important;justify-content:center!important}
+ .cardBody strong{font-size:clamp(1.35rem,6vw,1.75rem)!important;line-height:1.08!important;overflow-wrap:normal!important;word-break:normal!important}
+ .cardBody small{margin:8px 0 10px!important;font-size:.92rem!important;line-height:1.45!important;overflow-wrap:normal!important;word-break:normal!important}
+ .cardBody i{margin-top:auto!important}
+ .closing{margin-top:18px!important;padding:48px 22px!important;border-top-width:14px!important;border-bottom-width:14px!important}
+ .closing h2{max-width:10ch!important;color:#FFFDF8!important}
+ .closing>div>p:last-child{font-size:1rem!important;line-height:1.55!important}
+}
+@media(max-width:520px){
+ .approach{padding-inline:14px!important}
+ .card{grid-template-columns:34% minmax(0,1fr)!important;min-height:158px!important}
+ .cardBody{min-height:158px!important;padding:16px 15px!important}
+ .cardBody strong{font-size:1.35rem!important}
+ .cardBody small{font-size:.88rem!important}
+ .closing{margin-top:16px!important;padding:44px 20px!important}
+ .closing h2{font-size:clamp(2.7rem,12vw,4rem)!important;line-height:.96!important}
+}
+
+
+/* Feminine editorial typography + softer CTA system */
+.page{
+ --blush:#F2C7C2;
+ --blushSoft:#F8E2DE;
+ --berry:#8F435B;
+ --cream:#FFF8F1;
+ font-family:"Cormorant Garamond",Georgia,"Times New Roman",serif!important;
+}
+.page button,.page input,.page textarea,.page select,.lead,.cardBody small,.atlasCopy>p:not(.eyebrow),.kids>div>p:not(.eyebrow),.closing>div>p:last-child{
+ font-family:"DM Sans","Tajawal",Arial,sans-serif!important;
+}
+.heroCopy h1,.approachTop h2,.atlasCopy h2,.kids h2,.closing h2,.cardBody strong{
+ font-family:"Cormorant Garamond",Georgia,serif!important;
+ font-weight:500!important;
+}
+.heroCopy h1{
+ max-width:8.8ch!important;
+ font-size:clamp(4rem,6vw,6.45rem)!important;
+ line-height:.9!important;
+ letter-spacing:-.055em!important;
+}
+.heroCopy h1 em{
+ color:var(--blush)!important;
+ font-weight:500!important;
+ letter-spacing:-.05em!important;
+}
+.heroCopy .lead{max-width:32ch!important;font-size:1.05rem!important;line-height:1.65!important;font-weight:400!important}
+.eyebrow,.heroBloom,.heroFootline,.heroCaption{font-family:"DM Sans","Tajawal",Arial,sans-serif!important}
+.primary{
+ background:var(--blush)!important;
+ color:#203128!important;
+ border:1px solid rgba(143,67,91,.18)!important;
+ padding:15px 24px!important;
+ box-shadow:0 10px 26px rgba(95,48,62,.16)!important;
+ font-weight:600!important;
+ letter-spacing:.01em!important;
+}
+.primary:hover{background:#F6D7D2!important;transform:translateY(-1px)}
+.textLink{color:var(--berry)!important;border-bottom-color:rgba(143,67,91,.55)!important;font-weight:600!important}
+.closing>button{background:var(--blush)!important;color:#203128!important;border-color:var(--blush)!important;font-weight:600!important}
+.closing>button:hover{background:#F7D9D4!important}
+.atlasImage figcaption button{border-color:rgba(143,67,91,.5)!important;color:var(--berry)!important;background:var(--cream)!important}
+@media(max-width:900px){
+ .heroCopy{padding-inline:24px!important}
+ .heroCopy h1{max-width:8.5ch!important;font-size:clamp(3.75rem,13.5vw,5.75rem)!important;line-height:.91!important;letter-spacing:-.045em!important}
+ .heroCopy .lead{max-width:29ch!important;font-size:1rem!important;line-height:1.55!important}
+ .primary{padding:14px 20px!important}
+}
+@media(max-width:520px){
+ .heroCopy{padding-left:20px!important;padding-right:20px!important}
+ .heroCopy h1{font-size:clamp(3.55rem,14.5vw,4.8rem)!important;max-width:8.4ch!important;line-height:.92!important}
+ .heroCopy h1 em{line-height:.9!important}
+ .heroCopy .lead{font-size:.98rem!important;line-height:1.55!important}
+ .primary{width:auto!important;min-width:190px!important}
+}
