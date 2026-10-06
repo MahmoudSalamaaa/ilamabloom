@@ -1,6 +1,18 @@
 # ILAMA BLOOM — Product & Experience Roadmap
 
-Last updated: 2026-10-02
+Last updated: 2026-10-06
+
+## Current redesign audit — 2026-10-06
+
+The active redesign is being reviewed on PR #80 (`redesign/foundation-and-discovery-20261006`).
+
+- Latest branch commit: `533f0e7f03b2ac8c3f5dc897fdedea8535cb393a`.
+- GitHub build checks for the latest commit are passing.
+- The latest available READY Preview is older than the latest branch commit because Vercel's free daily deployment quota is exhausted; it is not being treated as proof of the latest branch state.
+- Production has not been changed by this redesign batch.
+- Homepage, Food Atlas and Kids have narrow Preview evidence recorded; Life Stages and Mental Health still require a fresh matching Preview after the latest mobile headline corrections.
+- Authenticated and populated account/parent interaction states remain pending because they require an authenticated test session.
+- The full redesign matrix is tracked in `work/ilama-redesign-matrix.md`; external Notion synchronization remains pending because Notion access is not available in this workspace.
 
 ## Product idea
 ILAMA BLOOM is a bilingual nutrition and healthy-living experience built around **Food · Body · Context**. It should help people understand what is useful for the life they actually have rather than impose a perfect routine.
