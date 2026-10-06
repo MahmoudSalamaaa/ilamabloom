@@ -63,3 +63,10 @@
 
 .routeStrip{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin:0 0 20px}.routeStrip span{border:2px solid var(--kid-ink);border-radius:16px;background:#FFF7E8;padding:12px 8px;text-align:center;font-weight:800;font-size:.82rem;display:grid;gap:5px}.routeStrip b{font-size:1.35rem}
 @media(max-width:700px){.routeStrip{grid-template-columns:repeat(2,minmax(0,1fr))}.routeStrip span:last-child{grid-column:1/-1}}
+
+/* Food Passport depth — exploration milestones, filters and accessible states */
+.passportTrail{display:flex;flex-wrap:wrap;gap:10px;margin:1.5rem 0}.passportTrail span{display:flex;align-items:baseline;gap:6px;border:2px solid var(--kid-ink);border-radius:18px;background:#FFF7E8;box-shadow:3px 4px 0 var(--kid-ink);padding:10px 13px;font-weight:800}.passportTrail b{font:900 1.45rem/1 "Trebuchet MS",Arial,sans-serif}
+.atlasFilters{display:flex;gap:9px;overflow-x:auto;padding:4px 4px 10px;margin:0 -4px 1rem;scrollbar-width:thin}.atlasFilters button{flex:0 0 auto;border:2px solid var(--kid-ink);border-radius:999px;background:#FFFDF8;padding:9px 14px;font-weight:850;box-shadow:2px 3px 0 var(--kid-ink)}.atlasFilters button.filterOn,.atlasFilters button[aria-pressed="true"]{background:var(--kid-yellow);transform:translateY(1px);box-shadow:1px 2px 0 var(--kid-ink)}
+.atlasCards button:focus-visible,.atlasFilters button:focus-visible{outline:4px solid #A94B65;outline-offset:3px}.emptyAtlas{border:2px dashed var(--kid-ink);border-radius:18px;padding:18px;background:#FFF7E8;font-weight:750}
+@media(max-width:520px){.passportTrail{display:grid;grid-template-columns:1fr}.passportTrail span{justify-content:space-between}.atlasFilters{margin-inline:-1rem;padding-inline:1rem;scroll-padding-inline:1rem}.atlasCards button{min-height:116px}}
+@media(prefers-reduced-motion:reduce){.atlasFilters button{transition:none;transform:none!important}}
