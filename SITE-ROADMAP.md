@@ -6,11 +6,12 @@ Last updated: 2026-10-06
 
 The active redesign is being reviewed on PR #80 (`redesign/foundation-and-discovery-20261006`).
 
-- Latest branch commit: `533f0e7f03b2ac8c3f5dc897fdedea8535cb393a`.
+- Latest branch commit: `54764d9` (`chore: remove disabled legacy kids css block`).
 - GitHub build checks for the latest commit are passing.
 - The latest available READY Preview is older than the latest branch commit because Vercel's free daily deployment quota is exhausted; it is not being treated as proof of the latest branch state.
 - Production has not been changed by this redesign batch.
-- Homepage, Food Atlas and Kids have narrow Preview evidence recorded; Life Stages and Mental Health still require a fresh matching Preview after the latest mobile headline corrections.
+- Homepage source now clears the mobile consent surface, but that final correction still requires a matching Preview; Food Atlas and Kids have narrow Preview evidence recorded; Life Stages and Mental Health have matching narrow EN evidence.
+- The disabled legacy Kids block was removed from `app/globals.css`; the active Kids experience remains module-scoped.
 - Authenticated and populated account/parent interaction states remain pending because they require an authenticated test session.
 - The full redesign matrix is tracked in `work/ilama-redesign-matrix.md`; external Notion synchronization remains pending because Notion access is not available in this workspace.
 
