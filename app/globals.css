@@ -1027,7 +1027,7 @@ img{max-width:100%}
 .parentDanger,.accountDanger button{border-radius:0!important}
 .privacyCard h1,.parentCard h1,.accountCard h1{font-family:Georgia,"Times New Roman",serif!important;color:#173d31!important}
 [dir="rtl"] .privacyCard h1,[dir="rtl"] .parentCard h1,[dir="rtl"] .accountCard h1{font-family:Tahoma,Arial,sans-serif!important}
-@media(max-width:650px){.analyticsConsent{align-items:stretch!important;flex-direction:column!important;gap:.55rem!important;padding:.75rem .85rem!important;bottom:.65rem!important}.analyticsConsent p{font-size:.68rem!important;line-height:1.3!important}.analyticsConsent>div{width:100%!important}.analyticsConsent button{flex:1!important;min-height:42px!important;font-size:.68rem!important;line-height:1.15!important;padding:.45rem .3rem!important}}
+@media(max-width:650px){.analyticsConsent{align-items:center!important;flex-direction:row!important;gap:.65rem!important;padding:.55rem .65rem!important;bottom:.5rem!important}.analyticsConsent p{font-size:.62rem!important;line-height:1.25!important}.analyticsConsent>div{width:46%!important;display:grid!important;grid-template-columns:1fr 1fr!important;gap:.3rem!important}.analyticsConsent button{min-width:0!important;min-height:36px!important;font-size:.58rem!important;line-height:1.1!important;padding:.3rem .2rem!important}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 
 
