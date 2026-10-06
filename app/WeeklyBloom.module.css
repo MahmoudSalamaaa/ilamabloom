@@ -1,20 +1,42 @@
-.page{--paper:#FAF6F0;--ink:#203128;--green:#2D4236;--brown:#8A5B48;--rose:#A94B65;--line:#DED3C8;background:var(--paper);color:var(--ink);padding:clamp(52px,7vw,100px);font-family:Georgia,"Times New Roman",serif}.page header{max-width:900px;margin-bottom:55px}.page header p,.page aside p,.reflect>p{color:var(--brown);font:700 10px Arial,sans-serif;letter-spacing:.22em}.page h1{font-size:clamp(52px,7vw,94px);font-weight:400;line-height:.92;letter-spacing:-.045em;margin:14px 0 24px}.page header>span{font-size:18px;line-height:1.5;max-width:55ch;display:block}.totals{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line)}.totals article{padding:32px}.totals article+article{border-left:1px solid var(--line)}.totals b{display:block;font-size:72px;font-weight:400;line-height:1}.totals span{font:12px Arial,sans-serif}.grid{display:grid;grid-template-columns:repeat(4,1fr);border-left:1px solid var(--line)}.grid article{padding:28px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:220px}.grid small{font:11px Arial,sans-serif}.grid h2{font-size:28px;font-weight:400;margin:34px 0 12px}.grid b{font-size:52px;font-weight:400}.page aside{margin-top:48px;background:var(--green);color:white;padding:38px}.page aside p{color:#ded1bf}.page aside h2{font-size:clamp(32px,4vw,52px);font-weight:400;margin:12px 0 28px}.page button{border:0;background:#f8f2e8;color:#18251e;padding:13px 18px;font:inherit}.reflect{max-width:850px;margin:65px auto 0}.reflect h2{font-size:clamp(34px,4vw,52px);font-weight:400;line-height:1.05}.reflect textarea{box-sizing:border-box;width:100%;min-height:130px;border:1px solid var(--line);background:#fbf7f0;padding:18px;resize:vertical;font:inherit}.reflect button{display:block;margin:12px 0 0 auto;background:var(--green);color:#fff}.reflect button:disabled{opacity:.4}[dir="rtl"] .page h1{letter-spacing:0;line-height:1.12}[dir="rtl"] .totals article+article{border-left:0;border-right:1px solid var(--line)}@media(max-width:850px){.page{padding:48px 18px}.totals{grid-template-columns:1fr}.totals article+article,[dir="rtl"] .totals article+article{border-left:0;border-right:0;border-top:1px solid var(--line)}.grid{grid-template-columns:1fr 1fr}}@media(max-width:520px){.grid{grid-template-columns:1fr}.page h1{font-size:52px}.totals b{font-size:58px}}
-/* FINAL DESIGN LOCK — rectangular editorial photography; approved ILAMA theme */
-.page figure,.page figure img,.hero figure,.hero figure img{border-radius:0!important}
-.wellbeing{margin:0 7vw 4rem;padding:2.5rem 0;border-top:1px solid #A94B65;border-bottom:1px solid #A94B65}.wellbeing>p{font-size:.68rem;font-weight:700;letter-spacing:.14em}.wellbeing>h2{font:500 clamp(2rem,4vw,4rem)/1 "Cormorant Garamond",Georgia,serif;margin:.7rem 0 1rem}.wellbeing>span{display:block;max-width:68ch;line-height:1.7}.wellbeing>div{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:2rem;background:#29423635}.wellbeing article{background:#faf6ef;padding:1rem;display:grid;gap:.5rem}.wellbeing small{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em}.wellbeing b{font-weight:500;line-height:1.4}@media(max-width:760px){.wellbeing>div{grid-template-columns:1fr 1fr}}
+.page{
+  --paper:#faf6ef;
+  --ink:#173c32;
+  --muted:#725d50;
+  --green:#123f34;
+  --rose:#b45d76;
+  --line:#d9cbbd;
+  background:var(--paper);
+  color:var(--ink);
+  padding:clamp(48px,7vw,104px) clamp(20px,7vw,112px);
+  font-family:Georgia,"Times New Roman",serif;
+}
+.page header{max-width:860px;margin-bottom:clamp(36px,5vw,64px)}
+.page header p,.page aside p,.reflect>p,.wellbeing>p{margin:0;color:var(--muted);font:700 10px/1.4 Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase}
+.page h1{max-width:10ch;margin:16px 0 24px;font-size:clamp(50px,7vw,94px);font-weight:400;line-height:.94;letter-spacing:-.05em}
+.page header>span{display:block;max-width:57ch;font-size:18px;line-height:1.55;color:#4d554d}
+.totals{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border:1px solid var(--line)}
+.totals article{min-width:0;padding:clamp(24px,3vw,38px)}
+.totals article+article{border-inline-start:1px solid var(--line)}
+.totals b{display:block;font-size:clamp(56px,6vw,78px);font-weight:400;line-height:1}
+.totals span,.grid small,.wellbeing small{font:12px/1.5 Arial,sans-serif}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-inline-start:1px solid var(--line)}
+.grid article{min-width:0;min-height:220px;padding:clamp(22px,2.5vw,32px);border-inline-end:1px solid var(--line);border-bottom:1px solid var(--line)}
+.grid h2{margin:34px 0 12px;font-size:clamp(24px,2.4vw,32px);font-weight:400;line-height:1.05}
+.grid b{display:block;font-size:clamp(42px,4.5vw,58px);font-weight:400;line-height:1;overflow-wrap:anywhere}
+.page aside{margin-top:clamp(36px,5vw,62px);padding:clamp(28px,4vw,46px);border:1px solid rgba(255,255,255,.18);background:var(--green);color:#fff}
+.page aside p{color:#e4d4c2}.page aside h2{max-width:18ch;margin:14px 0 28px;font-size:clamp(32px,4.4vw,56px);font-weight:400;line-height:1.02}
+.page button{min-height:46px;border:1px solid transparent;background:#f8f1e7;color:#19372e;padding:12px 18px;font:inherit;cursor:pointer}
+.page button:focus-visible,.reflect textarea:focus-visible{outline:3px solid var(--rose);outline-offset:4px}
+.page button:disabled{cursor:not-allowed;opacity:.45}
+.reflect{max-width:850px;margin:clamp(48px,7vw,82px) auto 0}.reflect h2{max-width:18ch;margin:14px 0 24px;font-size:clamp(34px,4.2vw,54px);font-weight:400;line-height:1.04}
+.reflect textarea{box-sizing:border-box;width:100%;min-height:140px;border:1px solid var(--line);background:#fffaf3;color:var(--ink);padding:18px;resize:vertical;font:18px/1.5 inherit}.reflect textarea::placeholder{color:#987f70}
+.reflect button{display:block;margin:14px 0 0 auto;background:var(--green);color:#fff}
+.wellbeing{margin:clamp(44px,6vw,78px) 0 0;padding:clamp(28px,4vw,48px) 0;border-block:1px solid var(--rose)}
+.wellbeing>p{color:var(--rose)}.wellbeing>h2{max-width:17ch;margin:14px 0 16px;font-size:clamp(34px,4.5vw,60px);font-weight:400;line-height:1}
+.wellbeing>span{display:block;max-width:68ch;color:#4d554d;line-height:1.65}.wellbeing>div{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;margin-top:30px;background:var(--line)}
+.wellbeing article{min-width:0;min-height:120px;padding:18px;background:var(--paper)}.wellbeing small{display:block;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}.wellbeing b{display:block;margin-top:18px;font-weight:400;line-height:1.45;overflow-wrap:anywhere}
+[dir="rtl"] .page h1,[dir="rtl"] .reflect h2,[dir="rtl"] .wellbeing>h2{max-width:14ch;letter-spacing:0;line-height:1.1}[dir="rtl"] .page header>span,[dir="rtl"] .wellbeing>span{line-height:1.8}[dir="rtl"] .reflect button{margin-inline-start:0;margin-inline-end:auto}
+@media(max-width:900px){.page{padding-inline:28px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.grid article:nth-child(2n){border-inline-end:0}.wellbeing>div{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.page{padding:44px 16px}.page h1{max-width:12ch;font-size:clamp(46px,14vw,62px)}.page header>span{font-size:16px}.totals{grid-template-columns:1fr}.totals article+article{border-inline-start:0;border-top:1px solid var(--line)}.grid{grid-template-columns:1fr}.grid article,.grid article:nth-child(2n){min-height:0;padding:24px 20px;border-inline-end:0}.grid h2{margin-top:24px}.wellbeing>div{grid-template-columns:1fr}.reflect button{width:100%}}
+@media(prefers-reduced-motion:reduce){.page *{scroll-behavior:auto!important;transition-duration:0.01ms!important;animation-duration:0.01ms!important}}
 
-/* Weekly Bloom usability refinement */
-.page button,.reflect textarea{min-height:44px}.reflect textarea:focus-visible,.page button:focus-visible{outline:3px solid var(--rose);outline-offset:4px}
-.grid article,.totals article,.wellbeing article{min-width:0}.grid h2,.grid b,.totals b{overflow-wrap:anywhere}.page aside{border:1px solid rgba(255,255,255,.16)}
-.wellbeing>div{gap:1px}.wellbeing article{min-height:120px}
-@media(max-width:850px){.page header{margin-bottom:38px}.totals article{padding:24px}.grid article{min-height:190px;padding:22px}.page aside{padding:28px 22px}.reflect{margin-top:48px}}
-@media(max-width:520px){.page{padding-inline:16px}.page h1{font-size:clamp(46px,15vw,58px)}.wellbeing{margin-inline:0}.wellbeing>div{grid-template-columns:1fr}.grid article{min-height:0}.reflect button{width:100%}}
-
-
-/* ILAMA feminine editorial page treatment */
-.page{font-family:"DM Sans","Tajawal",Arial,sans-serif!important}
-.page h1,.page h2,.page h3,.page h4{font-family:"Cormorant Garamond",Georgia,serif!important;font-weight:500}
-[dir="rtl"] .page,[dir="rtl"] .page h1,[dir="rtl"] .page h2,[dir="rtl"] .page h3,[dir="rtl"] .page h4{font-family:"Tajawal","Noto Sans Arabic",Arial,sans-serif!important}
-.page button{font-family:inherit}
-.page button[class*="active"],.page button[class*="Active"],.page button[aria-pressed="true"]{background:#8F435B!important;color:#fff!important;border-color:#8F435B!important}
-.page button:focus-visible,.page a:focus-visible,.page input:focus-visible,.page textarea:focus-visible,.page select:focus-visible{outline-color:#F2C7C2!important}
