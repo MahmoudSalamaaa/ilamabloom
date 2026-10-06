@@ -750,14 +750,6 @@ body{background:var(--ib-paper)!important;color:var(--ib-ink)!important}
 .siteMapGrid button{position:relative!important;width:100%!important;display:block!important;text-align:left!important;padding:1rem 2rem 1rem 0!important;border:0!important;border-top:1px solid var(--ib-line)!important;background:transparent!important}
 .siteMapGrid button i{position:absolute;right:0;top:1rem!important}.siteMapGrid button p{color:var(--ib-muted)!important}
 
-/* Kids: playful content, grown-up shell */
-.kidsWorld{background:var(--ib-paper)!important}
-.kidsHero{border-radius:0!important;background:var(--ib-sand)!important;color:var(--ib-ink)!important}
-.gameWorldTabs button,.kidsMission,.miniGame,.plateGame,.nutritionCard{
- border-radius:0!important;box-shadow:none!important;border:1px solid var(--ib-line)!important
-}
-.gameWorldTabs button{background:var(--ib-white)!important;color:var(--ib-ink)!important}
-.gameWorldTabs button.active{background:var(--ib-green)!important;color:#fff!important}
 
 /* Unified footer in the same printed-editorial language */
 .unifiedFooter{margin:0!important;padding:0!important;background:var(--ib-ink)!important;color:#f8f1e6!important;border:0!important}
@@ -937,60 +929,6 @@ body{background:var(--ib-paper)!important;color:var(--ib-ink)!important}
 .foodActions{margin-top:auto!important;width:100%!important}.foodActions button{width:100%!important;padding:.75rem!important;border:1px solid var(--ib-ink)!important;background:transparent!important}.foodActions button:hover{background:var(--ib-ink)!important;color:#fff!important}
 .atlasBridge{width:min(calc(100% - 2.5rem),var(--ib-max))!important;margin:clamp(2rem,5vw,5rem) auto clamp(4rem,8vw,8rem)!important;padding:clamp(2rem,5vw,4.5rem)!important;background:var(--ib-green)!important;color:#fff!important;display:flex!important;justify-content:space-between!important;align-items:flex-end!important;gap:2rem!important}
 .atlasBridge small{letter-spacing:.14em!important;color:#e7d8c3!important}.atlasBridge h2{max-width:760px!important;margin:.6rem 0 0!important;font:400 clamp(2rem,4vw,4rem)/1 Georgia,serif!important;color:#fff!important}.atlasBridge button{flex:0 0 auto!important;border:1px solid rgba(255,255,255,.5)!important;border-radius:0!important;background:transparent!important;color:#fff!important;padding:.9rem 1.1rem!important}
-
-/* Kids shell */
-.kidsWorld{overflow:hidden!important;padding-bottom:clamp(4rem,8vw,8rem)!important}
-.kidsHero{position:relative!important;min-height:620px!important;padding:clamp(4rem,8vw,8rem) max(clamp(1.25rem,7vw,7rem),calc((100vw - var(--ib-max))/2))!important;display:flex!important;flex-direction:column!important;justify-content:center!important;background:linear-gradient(120deg,#f2e0b9 0%,#efd6c9 50%,#dce5d6 100%)!important;border:0!important}
-.kidsHero:after{content:"PLAY";position:absolute;right:-.02em;bottom:-.18em;font:700 clamp(10rem,24vw,24rem)/.8 Georgia,serif;color:rgba(21,45,39,.055)!important;pointer-events:none}
-.kidsHero>*{position:relative;z-index:1}.kidsBadge{width:max-content!important;max-width:100%!important;padding:.45rem .65rem!important;border:1px solid rgba(21,45,39,.25)!important;border-radius:0!important;background:rgba(255,255,255,.35)!important;color:var(--ib-ink)!important;font-size:.62rem!important;letter-spacing:.12em!important}
-.kidsHero h1{max-width:900px!important;margin:1rem 0!important;font:700 clamp(4rem,8vw,8rem)/.84 Georgia,serif!important;letter-spacing:-.06em!important;color:var(--ib-ink)!important}.kidsHero h1 b{color:#9b5d59!important}
-.kidsHero>p{font-size:1rem!important;color:var(--ib-muted)!important}.kidsEmoji{font-size:clamp(1.8rem,4vw,3.5rem)!important;letter-spacing:.12em!important;margin:1.5rem 0!important}
-.kidsPromise{display:flex!important;flex-wrap:wrap!important;gap:0!important}.kidsPromise span{padding:.7rem .9rem!important;border:1px solid rgba(21,45,39,.2)!important;background:rgba(255,255,255,.3)!important;font-size:.7rem!important;font-weight:800!important}
-
-/* Kids chapter navigation */
-.kidsJump{width:min(calc(100% - 2.5rem),var(--ib-max))!important;margin:2rem auto!important;display:grid!important;grid-template-columns:repeat(5,1fr)!important;gap:0!important;border-left:1px solid var(--ib-line)!important}
-.kidsJump button{min-height:105px!important;padding:1rem!important;text-align:left!important;border:0!important;border-top:1px solid var(--ib-line)!important;border-right:1px solid var(--ib-line)!important;border-bottom:1px solid var(--ib-line)!important;border-radius:0!important;background:var(--ib-white)!important;color:var(--ib-ink)!important;font-size:.72rem!important}
-.kidsJump button span{display:block!important;color:var(--ib-gold)!important;font:600 1.35rem Georgia,serif!important;margin-bottom:.5rem!important}.kidsJump button.on{background:var(--ib-ink)!important;color:#fff!important}
-.siteAr .kidsJump button{text-align:right!important}
-
-/* Learning chapters */
-.kidsPanel{width:min(calc(100% - 2.5rem),var(--ib-max))!important;margin:0 auto 1px!important;padding:clamp(2rem,5vw,4rem)!important;border:1px solid var(--ib-line)!important;border-radius:0!important;box-shadow:none!important;background:var(--ib-white)!important}
-.kidsPanel.focus{outline:0!important}.kidsPanel .kidsNum{color:var(--ib-gold)!important;font:600 1.3rem Georgia,serif!important}.kidsPanel>h2{max-width:900px!important;margin:.5rem 0 2rem!important;font:600 clamp(2.2rem,4.5vw,4.4rem)/1 Georgia,serif!important;letter-spacing:-.04em!important;color:var(--ib-ink)!important}
-.kidsPanel.blue,.kidsPanel.green,.kidsPanel.yellow,.kidsPanel.peach,.kidsPanel.pink{background:var(--ib-white)!important}
-.kidsGroupGrid,.handGrid,.egyptGrid{display:grid!important;gap:0!important;border-top:1px solid var(--ib-line)!important;border-left:1px solid var(--ib-line)!important}
-.kidsGroupGrid{grid-template-columns:repeat(5,1fr)!important}.kidsGroupGrid.four,.handGrid{grid-template-columns:repeat(4,1fr)!important}.egyptGrid{grid-template-columns:repeat(4,1fr)!important}
-.kidsGroupGrid article,.handGrid article,.egyptGrid article{min-height:180px!important;padding:1.25rem!important;border:0!important;border-right:1px solid var(--ib-line)!important;border-bottom:1px solid var(--ib-line)!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}
-.kidsGroupGrid article>b,.handGrid article>b,.egyptGrid article>b{font-size:2rem!important}.kidsGroupGrid h3,.handGrid h3,.egyptGrid h3{font-family:Georgia,serif!important;font-weight:500!important;color:var(--ib-ink)!important}
-.kidsGroupGrid p,.handGrid p,.egyptGrid small{color:var(--ib-muted)!important}
-.egyptGrid strong{display:block!important;margin-top:auto!important;color:var(--ib-rose)!important}
-.kidsTip,.kidsLimit,.estimateNote,.kidsLead{margin:1.5rem 0 0!important;padding:1.25rem!important;border-radius:0!important;border-left:3px solid var(--ib-gold)!important;background:var(--ib-cream)!important;color:var(--ib-ink)!important}
-
-/* Label lesson */
-.labelLesson{display:grid!important;grid-template-columns:minmax(260px,.75fr) 1.25fr!important;gap:0!important;border:1px solid var(--ib-line)!important}.fakeLabel{padding:2rem!important;background:var(--ib-white)!important;border-right:1px solid var(--ib-line)!important}.fakeLabel>span{display:block!important;color:var(--ib-muted)!important}.fakeLabel p{display:flex!important;justify-content:space-between!important;padding:.7rem 0!important;border-bottom:1px solid var(--ib-line)!important}.fakeLabel p.highlight{background:var(--ib-sand)!important;padding:.7rem!important}
-.labelSteps{padding:2rem!important;background:var(--ib-cream)!important}.labelSteps p{display:grid!important;grid-template-columns:34px 1fr!important;gap:.8rem!important;align-items:start!important}.labelSteps p i{display:grid!important;place-items:center!important;width:30px!important;height:30px!important;border-radius:50%!important;background:var(--ib-ink)!important;color:#fff!important;font-style:normal!important}.mathBox{margin-top:1.5rem!important;padding:1rem!important;background:var(--ib-ink)!important;color:#fff!important}
-
-/* Game world as a real product hub */
-.gameWorld,.plateGame,.miniGame,.kidsMission{width:min(calc(100% - 2.5rem),var(--ib-max))!important;margin-inline:auto!important}
-.gameWorld{margin-top:clamp(3rem,7vw,7rem)!important;padding:clamp(2rem,5vw,4rem)!important;background:var(--ib-green)!important;color:#fff!important;border-radius:0!important}
-.gameWorld>div:first-child>span{color:#e7d8c3!important;font-size:.65rem!important;letter-spacing:.14em!important}.gameWorld>div:first-child h2{font:500 clamp(2.5rem,5vw,5rem)/1 Georgia,serif!important;color:#fff!important}
-.gameCatalogStatus{margin:1rem 0!important;border:0!important;border-radius:0!important;background:transparent!important;color:#dbe6df!important;padding:0!important;text-align:left!important}.siteAr .gameCatalogStatus{text-align:right!important}
-.gameWorldTabs{display:grid!important;grid-template-columns:repeat(5,1fr)!important;gap:0!important;border-left:1px solid rgba(255,255,255,.2)!important}
-.gameWorldTabs button{min-height:150px!important;padding:1rem!important;text-align:left!important;border:0!important;border-top:1px solid rgba(255,255,255,.2)!important;border-right:1px solid rgba(255,255,255,.2)!important;border-bottom:1px solid rgba(255,255,255,.2)!important;background:transparent!important;color:#fff!important}
-.gameWorldTabs button b{display:block!important;margin:.8rem 0 .35rem!important;font-family:Georgia,serif!important;font-size:1rem!important}.gameWorldTabs button small{display:block!important;color:#c9d6d0!important;line-height:1.4!important}.gameWorldTabs button.on{background:#fff!important;color:var(--ib-ink)!important}.gameWorldTabs button.on small{color:var(--ib-muted)!important}
-.siteAr .gameWorldTabs button{text-align:right!important}
-
-/* Plate + mini games */
-.plateGame,.miniGame,.kidsMission{margin-top:1px!important;padding:clamp(1.5rem,4vw,3rem)!important;border:1px solid var(--ib-line)!important;border-radius:0!important;background:var(--ib-white)!important;box-shadow:none!important}
-.plateGameHead{display:flex!important;justify-content:space-between!important;gap:2rem!important;padding-bottom:1.5rem!important;border-bottom:1px solid var(--ib-line)!important}.plateGameHead>div>span,.miniGameTitle>span{color:var(--ib-rose)!important;font-size:.65rem!important;font-weight:900!important;letter-spacing:.12em!important}.plateGameHead h2,.miniGameTitle h2{font:500 clamp(2rem,4vw,4rem)/1 Georgia,serif!important;color:var(--ib-ink)!important}.plateGameHead h2 i{display:block!important;margin-top:.45rem!important;color:var(--ib-muted)!important;font:500 .85rem/1.4 sans-serif!important}
-.gameSteps{display:flex!important;align-items:start!important;gap:0!important}.gameSteps b{padding:.6rem .75rem!important;border:1px solid var(--ib-line)!important;color:var(--ib-muted)!important;font-size:.65rem!important}.gameSteps b.on{background:var(--ib-ink)!important;color:#fff!important}
-.gameStage{display:grid!important;grid-template-columns:minmax(240px,.34fr) 1fr!important;gap:0!important;margin-top:1.5rem!important;border:1px solid var(--ib-line)!important}.foodShelf{padding:1.25rem!important;background:var(--ib-cream)!important;border-right:1px solid var(--ib-line)!important}.foodShelf>small{font-size:.6rem!important;letter-spacing:.12em!important;color:var(--ib-muted)!important}.foodShelf>div{display:grid!important;grid-template-columns:1fr 1fr!important;gap:0!important;margin-top:1rem!important}.foodShelf button,.lunchShelf button,.ingredientRail button{border:1px solid var(--ib-line)!important;border-radius:0!important;background:var(--ib-white)!important;box-shadow:none!important;padding:.8rem!important}.foodShelf button span,.lunchShelf button span,.ingredientRail button span{font-size:1.7rem!important}
-.plateZone{padding:clamp(1rem,3vw,2rem)!important;background:#faf7ef!important}.plateRim{border-radius:50%!important;background:#fff!important;border:1px solid var(--ib-line)!important;box-shadow:0 14px 40px rgba(21,45,39,.08)!important}.plateInner button{box-shadow:none!important}.plateControls,.detectCard,.plateWin,.gameMessage{border-radius:0!important;box-shadow:none!important}
-.detectCard,.plateWin,.gameMessage{background:var(--ib-cream)!important;border:1px solid var(--ib-line)!important;color:var(--ib-ink)!important;padding:1rem!important}.plateControls button,.detectCard button,.plateWin button{border-radius:0!important;background:var(--ib-ink)!important;color:#fff!important}
-.gameReset{border-radius:0!important;margin-top:1rem!important}
-.miniGameTitle{max-width:800px!important;margin-bottom:2rem!important}.miniGameTitle p{color:var(--ib-muted)!important}
-.productBox{display:grid!important;grid-template-columns:.8fr 1.2fr!important;border:1px solid var(--ib-line)!important}.boxArt{display:grid!important;place-items:center!important;min-height:340px!important;background:var(--ib-sand)!important;font-size:5rem!important}.boxArt b{display:block!important;font-size:.75rem!important;letter-spacing:.08em!important}.nutritionCard{border:0!important;padding:1.5rem!important}.nutritionCard button{border-radius:0!important;box-shadow:none!important}
-.lunchShelf,.ingredientRail{display:grid!important;grid-template-columns:repeat(7,1fr)!important;gap:0!important}.lunchBox{border-radius:0!important;border:1px solid var(--ib-line)!important;background:var(--ib-cream)!important}
-.missionAnswers button{border-radius:0!important;box-shadow:none!important}
 
 /* Arabic kids typography */
 .kidsAr .kidsHero h1,.kidsAr .kidsPanel>h2,.kidsAr .gameWorld h2,.kidsAr .plateGameHead h2,.kidsAr .miniGameTitle h2,.kidsAr .kidsGroupGrid h3,.kidsAr .handGrid h3,.kidsAr .egyptGrid h3{
