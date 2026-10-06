@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700;800&family=Noto+Sans+Arabic:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700;800&family=Noto+Kufi+Arabic:wght@400;500;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800;900&display=swap");
 html,body{max-width:100%;overflow-x:hidden}.authCard{max-width:100%;overflow:hidden}.authCard [data-slot="card"]{max-width:100%}.atlasPage,.kidsWorld{overflow-x:clip}
 @media(max-width:800px){body{padding-bottom:72px}.nav{height:64px;padding:0 1rem}.nav nav{display:none}.logBtn{padding:.65rem .9rem}.mobileNav{position:fixed;display:grid;grid-template-columns:repeat(5,1fr);left:0;right:0;bottom:0;height:72px;background:var(--cream);border-top:1px solid var(--forest)33;z-index:100;padding:6px max(6px,env(safe-area-inset-right)) calc(6px + env(safe-area-inset-bottom)) max(6px,env(safe-area-inset-left));box-shadow:0 -8px 24px var(--forest)14}.mobileNav button{border:0;background:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:.58rem;font-weight:900;min-width:0;border-radius:14px}.mobileNav b{font-size:1.2rem;line-height:1}.mobileNav button.active{background:var(--line)}.mobileNav button.log{background:var(--forest);color:white}.journeyStrip{grid-template-columns:1fr}.journeyStrip button{min-height:105px;border-right:0;border-bottom:1px solid var(--forest)33;padding:1rem}.journeyStrip b{font-size:1.35rem}.magHero{height:780px;min-height:0}.magHeroNav{left:1rem;right:1rem}.magHeroNav span:last-child{display:none}.magShade{background:linear-gradient(0deg,rgba(10,28,22,.8),rgba(10,28,22,.04) 75%)}.magHeroCopy{left:1rem;right:1rem;bottom:2.5rem}.magHero h1{font-size:clamp(4.7rem,22vw,7rem)}.magHeroCopy p{font-size:.88rem}.magStatement{grid-template-columns:1fr;padding:5rem 1rem;gap:1.5rem}.magStatement h2{font-size:3.8rem}.magFeature,.magJournal{grid-template-columns:1fr;min-height:0}.magFeatureImage img,.magJournalPhoto img{min-height:500px;height:500px}.magFeatureCopy,.magJournalCopy{padding:5rem 1rem}.magFeature h2,.magJournal h2{font-size:4rem}.magEdit{padding:5rem 1rem}.magTitle{grid-template-columns:1fr;gap:1rem}.magTitle h2{font-size:5rem}.magCards{grid-template-columns:1fr}.magCards img,.magCards button:first-child img{height:420px}.magCards button{margin-bottom:2.5rem}.magFinal{padding:6rem 1rem}.page{padding:5rem 1rem}.pageHero h1{font-size:clamp(4.5rem,21vw,7rem)}.libraryGrid{grid-template-columns:1fr}.callout{padding:3rem 1.5rem;display:block}.journal article{grid-template-columns:1fr;gap:.5rem}.visitSheet,.about{grid-template-columns:1fr}.aboutImage{min-height:520px}.aboutText{padding:5rem 1rem}.footerMark{font-size:20vw}}
 
@@ -2023,3 +2023,14 @@ main[lang="en"] :where(p,li,label,input,textarea,select,button,a,small,span){
 }
 main[lang="en"] :where(input,textarea,select,button){font-family:Georgia,"Times New Roman",serif!important}
 .siteAr,.siteAr :where(p,li,label,input,textarea,select,button,a,small,span){font-family:"Tajawal","Noto Sans Arabic",Arial,sans-serif}
+
+
+/* 2026-10 — Arabic editorial type pairing: Tajawal body + Noto Kufi Arabic headings. */
+.siteAr :where(h1,h2,h3,h4,h5,h6),
+.siteAr :where(.novaHeadline h1,.novaRoutes h2,.novaRoutes button strong,.novaFeatureCopy h2,.novaManifesto h2,.novaDinaTitle h2,.novaPersonal h2,.pageHero h1){
+  font-family:"Noto Kufi Arabic","Tajawal","Noto Sans Arabic",Arial,sans-serif!important;
+  letter-spacing:0!important;
+}
+.siteAr :where(p,li,label,input,textarea,select,button,a,small,span){
+  font-family:"Tajawal","Noto Sans Arabic",Arial,sans-serif;
+}
