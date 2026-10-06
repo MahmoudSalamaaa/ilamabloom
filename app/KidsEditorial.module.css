@@ -60,3 +60,13 @@
 @media(max-width:900px){.passport{grid-template-columns:1fr}.atlasCards{grid-template-columns:repeat(2,minmax(0,1fr))}.bloomGarden{min-height:210px}}
 @media(max-width:520px){.atlasCards{grid-template-columns:1fr}.atlasCards button{min-height:110px}.passportStats{display:grid}.bloomGarden{min-height:180px;border-radius:22px}}
 @media(prefers-reduced-motion:reduce){.atlasCards button{transition:none}}
+
+
+/* Egyptian Food Adventure — regional discovery, not ranking */
+.egyptJourney{padding:clamp(3.5rem,6vw,6rem) max(1.25rem,7vw);background:#D9EEF7;border-bottom:3px solid var(--kid-ink)}
+.egyptJourney>div:first-child{max-width:880px}.egyptJourney h2{font:900 clamp(2.3rem,4.5vw,4.7rem)/.96 "Trebuchet MS",Arial,sans-serif;letter-spacing:-.045em;margin:.7rem 0 1rem}.egyptJourney p{max-width:65ch;line-height:1.65}
+.routeProgress{height:16px;border:2px solid var(--kid-ink);border-radius:999px;background:#FFFDF8;overflow:hidden;margin:1.5rem 0 .55rem}.routeProgress span{display:block;height:100%;background:#A94B65;transition:width .25s ease}
+.routeGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:2rem}.routeGrid button{min-height:210px;border:2px solid var(--kid-ink);border-radius:22px;background:#FFFDF8;box-shadow:5px 6px 0 var(--kid-ink);padding:20px;text-align:start;display:grid;grid-template-rows:auto auto 1fr auto;gap:9px;font-family:inherit}.routeGrid button:nth-child(3n+1){background:#FFE39A}.routeGrid button:nth-child(3n+2){background:#F7BDD0}.routeGrid button:nth-child(3n){background:#CDECCF}.routeGrid button>b{font-size:2.25rem}.routeGrid button>strong{font-size:1.2rem}.routeGrid button>span{line-height:1.45}.routeGrid button>small{font-weight:900}.routeGrid button.routeDone{outline:4px solid #A94B65;outline-offset:-7px;transform:translateY(2px);box-shadow:2px 3px 0 var(--kid-ink)}
+@media(max-width:800px){.routeGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.routeGrid{grid-template-columns:1fr}.routeGrid button{min-height:165px}}
+@media(prefers-reduced-motion:reduce){.routeProgress span{transition:none}}
