@@ -2013,3 +2013,13 @@ body{overflow-wrap:break-word}
  .homeRefShell #content :where(.heroBloom,.heroCaption),
  #content :where(.kicker,[class*="eyebrow"]){font-size:max(.7rem,11px)}
 }
+
+
+/* 2026-10 — English body typography aligned with the ILAMA logotype. Arabic remains independently typeset. */
+html[lang="en"] body,
+main[lang="en"],
+main[lang="en"] :where(p,li,label,input,textarea,select,button,a,small,span){
+  font-family:Georgia,"Times New Roman",serif;
+}
+main[lang="en"] :where(input,textarea,select,button){font-family:Georgia,"Times New Roman",serif!important}
+.siteAr,.siteAr :where(p,li,label,input,textarea,select,button,a,small,span){font-family:"Tajawal","Noto Sans Arabic",Arial,sans-serif}
