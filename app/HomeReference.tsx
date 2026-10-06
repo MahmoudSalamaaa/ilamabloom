@@ -34,7 +34,6 @@ export default function HomeReference({go,ar}:Props){
     <button type="button" className={styles.primary} onClick={()=>go("atlas")}>{ar?"ادخل إلى الأطلس":"Enter the atlas"} <span>↗</span></button>
    </div>
    <p className={styles.heroSideNote}>{ar?"جذوره فضول · صُمم للحياة كما هي":"ROOTED IN CURIOSITY · MADE FOR REAL LIFE"}</p>
-   <div className={styles.heroFolio} aria-hidden="true">{ar?"٠١ — الجذور":"01 — ROOT"}</div>
    <figure className={styles.heroImage}><div className={styles.heroImageTrack}><img src="https://images.pexels.com/photos/5966431/pexels-photo-5966431.jpeg?auto=compress&cs=tinysrgb&w=1800" alt={ar?"ضوء الشمس يستقر فوق طبقات من الأوراق الخضراء في غابة هادئة":"Sunlight resting on layers of green leaves in a quiet forest"}/></div><figcaption className={styles.heroCaption}><b>ILAMA / 01</b><span>{ar?"طعام حقيقي · حياة حقيقية":"REAL FOOD · REAL LIFE"}</span></figcaption></figure>
   </section>
   <div className={styles.heroFootline}><span>{ar?"ملاحظة افتتاحية · ابدأ بما ينمو":"AN OPENING NOTE · BEGIN WITH WHAT IS GROWING"}</span><button type="button" onClick={()=>document.getElementById("ilama-world")?.scrollIntoView({behavior:"smooth"})}>{ar?"اقرأ الافتتاحية ↓":"Read the opening note ↓"}</button></div>
