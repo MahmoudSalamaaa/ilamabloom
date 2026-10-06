@@ -60,4 +60,3 @@ export default function HomeReference({go,ar}:Props){
   <section className={styles.closing}><div><p className={styles.eyebrow}>{ar?"أنت أكثر صحة وإشراقًا":"A HEALTHIER, BRIGHTER YOU"}</p><h2>{ar?"ننمو معًا نحو غدٍ أكثر صحة":"Let’s Grow a Healthier Tomorrow"}</h2><p>{ar?"معرفة حقيقية. اختيارات أفضل. حياة أكثر إشراقًا.":"Real knowledge. Better choices. A brighter you."}</p></div><button type="button" onClick={()=>go("learn")}>{ar?"ابدأ رحلتك":"Start Your Journey"} <span>→</span></button></section>
  </div>
 }
-
