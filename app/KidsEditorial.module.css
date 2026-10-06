@@ -63,3 +63,9 @@
 
 .routeStrip{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin:0 0 20px}.routeStrip span{border:2px solid var(--kid-ink);border-radius:16px;background:#FFF7E8;padding:12px 8px;text-align:center;font-weight:800;font-size:.82rem;display:grid;gap:5px}.routeStrip b{font-size:1.35rem}
 @media(max-width:700px){.routeStrip{grid-template-columns:repeat(2,minmax(0,1fr))}.routeStrip span:last-child{grid-column:1/-1}}
+
+.contextTabs{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.contextTabs button{min-height:44px;border:2px solid var(--kid-ink);border-radius:999px;background:#fff;padding:8px 13px;font-weight:900}.contextHint{border-inline-start:5px solid var(--kid-ink);padding:10px 14px;background:#FFF7E8;border-radius:0 14px 14px 0;line-height:1.55}
+.scenarioBar{margin:0 0 18px;padding:18px;border:2px solid var(--kid-ink);border-radius:18px;background:#E7E0F3;box-shadow:4px 5px 0 var(--kid-ink)}.scenarioBar>b{font:900 .75rem Arial,sans-serif;letter-spacing:.1em}.scenarioBar p{font-weight:800;line-height:1.5}.scenarioBar button{min-height:44px;border:2px solid var(--kid-ink);border-radius:999px;background:#fff;padding:8px 14px;font-weight:900}
+[dir="rtl"] .contextHint{border-inline-start:5px solid var(--kid-ink);border-radius:14px 0 0 14px}
+.gameTabs button:focus-visible,.contextTabs button:focus-visible,.atlasCards button:focus-visible,.scenarioBar button:focus-visible{outline:4px solid #111;outline-offset:3px}
+@media(max-width:520px){.contextTabs{display:grid;grid-template-columns:1fr 1fr}.contextTabs button{width:100%}.scenarioBar{box-shadow:3px 4px 0 var(--kid-ink)}}
