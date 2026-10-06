@@ -1,1 +1,24 @@
-export default function sitemap(){return [{url:"https://www.ilamabloom.com",lastModified:new Date(),changeFrequency:"weekly" as const,priority:1},{url:"https://www.ilamabloom.com/privacy",lastModified:new Date(),changeFrequency:"monthly" as const,priority:.4}]}
+const base="https://www.ilamabloom.com";
+const publicRoutes=[
+  ["", "weekly", 1],
+  ["/explore", "weekly", .8],
+  ["/food-atlas", "weekly", .8],
+  ["/journal", "daily", .7],
+  ["/visit", "weekly", .7],
+  ["/kids", "weekly", .7],
+  ["/lens", "monthly", .6],
+  ["/account", "monthly", .4],
+  ["/privacy", "monthly", .4],
+  ["/about", "monthly", .4],
+] as const;
+
+export default function sitemap(){
+  const lastModified=new Date();
+  return publicRoutes.map(([path,changeFrequency,priority])=>({
+    url:base+path,
+    lastModified,
+    changeFrequency,
+    priority,
+  }));
+}
+
