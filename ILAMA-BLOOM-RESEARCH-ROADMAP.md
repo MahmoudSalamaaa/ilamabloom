@@ -1,5 +1,9 @@
 # Ilama Bloom: research-led product roadmap
 
+Last updated: 2026-10-06
+
+Current implementation note: the redesign batch keeps these safety and privacy constraints in scope. Family/child accounts, clinician-facing exports and any new learning game remain roadmap work; they are not represented as shipped functionality.
+
 ## What the global scan suggests
 
 The strongest pattern in pediatric diabetes education is learning-by-doing: children build meals, identify carbohydrate clues, solve short scenarios, and receive immediate explanations. A 2025 scoping review found gamified interventions promising but still unevenly evaluated, while participatory co-design work such as MyDiabetic centered the experience on carbohydrate counting and practical diabetes skills.
