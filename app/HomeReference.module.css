@@ -40,3 +40,8 @@
  .page .kids h2{font-size:clamp(45px,11vw,64px)!important}
  .page .atlasImage figcaption strong{font-size:clamp(38px,9vw,58px)!important}
 }
+
+/* English editorial body copy: Lora complements Cormorant headings; Arabic Tajawal remains unchanged. */
+.page :where(.lead,.approachTop>div>p:last-child,.approachTop aside p,.atlasCopy>p:not(.eyebrow),.kids>div>p:not(.eyebrow),.closing p:last-child,.cardBody small,.atlasImage figcaption small){font-family:"Lora",Georgia,serif!important;font-weight:400;line-height:1.65}
+.page :where(.textLink,.approachTop aside button,.primary){font-family:"Lora",Georgia,serif!important}
+:global(.siteAr) .page :where(.lead,.approachTop>div>p:last-child,.approachTop aside p,.atlasCopy>p:not(.eyebrow),.kids>div>p:not(.eyebrow),.closing p:last-child,.cardBody small,.atlasImage figcaption small,.textLink,.approachTop aside button,.primary){font-family:"Tajawal","Noto Sans Arabic",sans-serif!important}
