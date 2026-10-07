@@ -227,6 +227,19 @@ input:focus,select:focus,textarea:focus{border-color:var(--focus)!important;box-
 .rangeSwitch span{color:var(--muted)!important}.rangeSwitch button{color:var(--forest)!important}.rangeSwitch button.on{background:var(--forest)!important;color:#fff!important}
 ::selection{background:#f0c5c2;color:#102f27}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* Auth surface: the route owns a distinct editorial shell, so keep its layout
+   explicit instead of letting the story column and form fall into raw flow. */
+.authV3{min-height:100svh;display:grid;grid-template-rows:auto 1fr auto;background:linear-gradient(140deg,#f7eee6 0%,var(--cream) 52%,#e8eee7 100%);color:var(--ink)}
+.authV3Header{display:flex;align-items:center;justify-content:space-between;padding:1.25rem clamp(1rem,5vw,4rem);border-bottom:1px solid var(--line)}
+.authV3Logo{display:inline-flex;align-items:center;min-height:44px}.authV3Logo img{width:148px;height:auto;display:block}
+.authV3Home{color:var(--forest);font:800 .78rem/1 "DM Sans",Arial,sans-serif;text-decoration:none;border-bottom:1px solid currentColor;padding:.35rem 0}
+.authV3Stage{width:min(1120px,calc(100% - 2rem));margin:clamp(1.5rem,6vw,5rem) auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,460px);gap:clamp(2rem,8vw,8rem);align-items:center}
+.authV3Story{max-width:520px}.authV3Story>span{display:block;color:var(--roseDeep);font:900 .66rem/1 "DM Sans",Arial,sans-serif;letter-spacing:.16em}.authV3Story h2{margin:.8rem 0 1rem;color:var(--forest);font:400 clamp(3rem,7vw,6.5rem)/.88 Georgia,serif;letter-spacing:-.05em}.authV3Story h2 em{color:var(--roseDeep);font-style:italic}.authV3Story p{max-width:34ch;color:var(--muted);font:400 1rem/1.6 "DM Sans",Arial,sans-serif}
+.authV3Form{background:rgba(255,253,249,.92);border:1px solid var(--line);border-radius:24px;padding:clamp(1.25rem,4vw,2.5rem);box-shadow:var(--shadow)}
+.authForm{position:relative}.authForm h1{margin:0;color:var(--forest);font:400 clamp(2.4rem,6vw,4.6rem)/.9 Georgia,serif;letter-spacing:-.05em}.authForm>p{color:var(--muted);line-height:1.55}.authLang{position:absolute;inset-inline-end:0;top:0;border:1px solid var(--line);border-radius:999px;background:var(--paper);color:var(--forest);padding:.45rem .7rem;font-weight:800;cursor:pointer}.authForm form{display:grid;gap:1rem;margin-top:1.5rem}.authForm label{display:grid;gap:.4rem;color:var(--ink);font-weight:800}.authForm input{width:100%;min-height:48px;padding:.8rem .9rem;border:1px solid #b9aea0;border-radius:12px;background:var(--paper);color:var(--ink);font:inherit}.authForm input:focus-visible,.authForm button:focus-visible,.authForm a:focus-visible{outline:3px solid var(--focus);outline-offset:3px}.authForm form>button{min-height:48px;border:0;border-radius:999px;background:var(--forest);color:#fff;padding:.8rem 1rem;font-weight:900;cursor:pointer}.authForm button:disabled{opacity:.55;cursor:not-allowed}.authSocial{margin-top:1.25rem;padding-top:1rem;border-top:1px solid var(--line);color:var(--muted);font-size:.82rem}.authSocial>div{display:flex;gap:.6rem;margin-top:.7rem}.authSocial button{min-height:42px;flex:1;border:1px solid var(--line);border-radius:999px;background:var(--paper);color:var(--forest);font-weight:800;cursor:pointer}.authMessage{margin:1rem 0 0;padding:.8rem;border:1px solid #d79a91;border-radius:12px;background:#fff0eb;color:#7b3148;line-height:1.45}.authSwitch{display:block;margin-top:1.25rem;color:var(--roseDeep);font-weight:800}.authV3Footer{display:flex;justify-content:space-between;gap:1rem;padding:1rem clamp(1rem,5vw,4rem);border-top:1px solid var(--line);color:var(--muted);font-size:.72rem}
+.authForm[dir="rtl"] h1,.authForm[dir="rtl"]>p{text-align:right}.authForm[dir="rtl"] input{text-align:right}
+@media(max-width:760px){.authV3Header{padding:1rem}.authV3Logo img{width:118px}.authV3Stage{grid-template-columns:1fr;gap:1.5rem;margin:1.25rem auto 2rem}.authV3Story{max-width:none}.authV3Story h2{font-size:clamp(2.8rem,13vw,5rem)}.authV3Story p{margin-bottom:0}.authV3Form{border-radius:18px;padding:1.15rem}.authV3Footer{align-items:flex-start;flex-direction:column;gap:.35rem}}
 @media(prefers-contrast:more){:root{--muted:#35483f;--line:#8f8478}.nav,.mobileNav{background:#fffdf9!important}button,input,select,textarea{border-width:2px!important}}
 
 /* Arabic typography */
@@ -2030,3 +2043,4 @@ body{overflow-wrap:break-word}
  .homeRefShell #content :where(.heroBloom,.heroCaption),
  #content :where(.kicker,[class*="eyebrow"]){font-size:max(.7rem,11px)}
 }
+
