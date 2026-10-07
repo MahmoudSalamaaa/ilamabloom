@@ -1819,7 +1819,7 @@ html.ilama-large-text{font-size:112.5%}html.ilama-high-contrast body{filter:cont
 :where(.budget,.bridge,.closing,.result,.easySafety,.signatureFooter,.bloomFooter,small,span){text-shadow:none}
 :where(.signatureFooter,.bloomFooter,small){color:#E7EDE9!important}
 :where(.signatureFooter,.bloomFooter,button){color:#fff}
-:where(.signatureFooter,.bloomFooter,.bloomFooterNav span,.footerLinks span{color:#F2C7C2!important}
+:where(.signatureFooter,.bloomFooter,.bloomFooterNav span,.footerLinks span){color:#F2C7C2!important}
 .navMorePanel button{background:#FFFDFC!important;color:#203128!important;font-size:.8rem!important;font-weight:700!important}
 .navMorePanel button:hover{background:#F0E4DA!important;color:#203128!important}
 .headerActions{gap:.45rem!important}.readAloud{color:#203128!important}.signInPill{border-color:#203128!important;color:#203128!important;background:#FFFDFC!important}.signInPill:hover{background:#203128!important;color:#fff!important}
