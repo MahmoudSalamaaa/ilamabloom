@@ -24,7 +24,7 @@
 .page .atlasImage figcaption small{color:#fff!important;font-family:Georgia,"Times New Roman",serif!important;text-shadow:0 2px 12px rgba(0,0,0,.75)}
 .page .atlasImage:after{background:linear-gradient(0deg,rgba(10,32,25,.87) 0%,rgba(10,32,25,.36) 42%,transparent 76%)}
 .page .approach h2,.page .atlasCopy h2,.page .kids h2,.page .closing h2{font-family:"Cormorant Garamond",Georgia,serif!important;font-weight:500!important;letter-spacing:-.025em;line-height:1.02}
-.page .approach h2{font-size:clamp(30px,4.1vw,65px)!important;max-width:none;white-space:nowrap;letter-spacing:-.045em}
+.page .approach h2{font-size:clamp(48px,6vw,92px)!important;max-width:100%;white-space:normal;letter-spacing:-.035em;text-wrap:balance;overflow-wrap:normal}
 .page .kids{border-block:10px solid #f7f1e8;isolation:isolate}
 .page .kids figure{position:relative;overflow:hidden}
 .page .kids>div{background:#f2e2df;position:relative}
@@ -33,7 +33,7 @@
 :global(.siteAr) .page :where(.approach h2,.atlasCopy h2,.kids h2,.closing h2,.atlasImage figcaption strong){font-family:"Noto Kufi Arabic","Tajawal",sans-serif!important;letter-spacing:0!important}
 @media(max-width:720px){
  .page .approach{padding-inline:22px}
- .page .approach h2{font-size:clamp(23px,6vw,35px)!important;white-space:nowrap;letter-spacing:-.055em}
+ .page .approach h2{font-size:clamp(48px,12vw,72px)!important;max-width:100%;white-space:normal;letter-spacing:-.035em;line-height:1.02;text-wrap:balance}
  .page .kids{display:flex;flex-direction:column;border-top:12px solid #f7f1e8;border-bottom:12px solid #f7f1e8}
  .page .kids figure{height:290px;min-height:290px;aspect-ratio:auto}
  .page .kids>div{padding:34px 24px 46px;background:#f2e2df}
