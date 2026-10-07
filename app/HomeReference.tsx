@@ -52,8 +52,8 @@ export default function HomeReference({go,ar}:Props){
   </section>
 
   <section className={styles.kids}>
-   <figure><img src="https://images.pexels.com/photos/296301/pexels-photo-296301.jpeg?auto=compress&cs=tinysrgb&w=1800" alt={ar?"طفل سعيد في الخارج":"Happy child outdoors"}/></figure>
-   <div><p className={styles.eyebrow}>{ar?"الأطفال والعائلة":"KIDS · FAMILY"}</p><h2>{ar?"لعقول وأجسام تنمو":"For Growing Minds & Bodies"}</h2><p>{ar?"محتوى وأدوات مرحة ومناسبة للعمر تساعد الأطفال على بناء علاقة إيجابية مع الطعام — اليوم وبكرة.":"Fun, age-appropriate content and tools to help kids build a positive relationship with food — for today and tomorrow."}</p><button type="button" className={styles.textLink} onClick={()=>go("kids")}>{ar?"اكتشف الأطفال":"Discover Kids"} <span>→</span></button></div>
+   <figure><img src="https://images.pexels.com/photos/296301/pexels-photo-296301.jpeg?auto=compress&cs=tinysrgb&w=1800" alt={ar?"طفل سعيد في الخارج":"Happy child outdoors"}/><figcaption className={styles.kidsOverlay}><p className={styles.eyebrow}>{ar?"الأطفال والعائلة":"KIDS · FAMILY"}</p><h2>{ar?"لعقول وأجسام تنمو":"For Growing Minds & Bodies"}</h2></figcaption></figure>
+   <div className={styles.kidsCopy}><p>{ar?"محتوى وأدوات مرحة ومناسبة للعمر تساعد الأطفال على بناء علاقة إيجابية مع الطعام — اليوم وبكرة.":"Fun, age-appropriate content and tools to help kids build a positive relationship with food — for today and tomorrow."}</p><button type="button" className={styles.textLink} onClick={()=>go("kids")}>{ar?"اكتشف الأطفال":"Discover Kids"} <span>→</span></button></div>
   </section>
 
   <section className={styles.closing}><div><p className={styles.eyebrow}>{ar?"أنت أكثر صحة وإشراقًا":"A HEALTHIER, BRIGHTER YOU"}</p><h2>{ar?"ننمو معًا نحو غدٍ أكثر صحة":"Let’s Grow a Healthier Tomorrow"}</h2><p>{ar?"معرفة حقيقية. اختيارات أفضل. حياة أكثر إشراقًا.":"Real knowledge. Better choices. A brighter you."}</p></div><button type="button" onClick={()=>go("learn")}>{ar?"ابدأ رحلتك":"Start Your Journey"} <span>→</span></button></section>
