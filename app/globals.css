@@ -1490,11 +1490,6 @@ body{background:var(--color-cream);color:var(--color-ink);font-family:var(--ilam
 @media(prefers-reduced-motion:reduce){.scrollProgress{display:none}.homePage.v2 [data-reveal]{opacity:1!important;transform:none!important}.v2Specimen,.v2HeroType>*{animation:none!important}}
 
 /* ===== ILAMA V3 — art direction over UI ===== */
-.v3Footer{position:relative;background:#123121;color:#fff;overflow:hidden;padding:clamp(7rem,12vw,13rem) 0 1.5rem}
-.v3FooterStage{position:relative;display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(4rem,9vw,10rem);z-index:1}.v3FooterMark{position:absolute;width:min(44vw,620px);right:-8%;top:-22%;opacity:.055;pointer-events:none}.v3FooterMark img{width:100%}
-.v3FooterStatement small,.v3FooterNav span{font:800 .55rem/1.2 Inter,Arial,sans-serif;letter-spacing:.2em;color:#D09A98}.v3FooterStatement h2{font:400 clamp(4.5rem,8.5vw,9rem)/.8 Georgia,serif;letter-spacing:-.065em;margin:2rem 0 2.5rem;max-width:900px}.v3FooterStatement h2 em{font-weight:400;color:#D09A98}.v3FooterStatement>p{max-width:480px;color:rgba(255,255,255,.62);line-height:1.75}
-.v3FooterNav{display:grid;grid-template-columns:1fr 1fr;gap:3rem 2rem;align-content:start;padding-top:1rem}.v3FooterNav nav,.v3FooterDoctor{display:flex;flex-direction:column;align-items:flex-start;gap:.85rem}.v3FooterNav button,.v3FooterNav a{border:0;background:none;padding:0;color:#fff;text-decoration:none;font:400 1rem/1.4 Inter,Arial,sans-serif;opacity:.78}.v3FooterNav button:hover,.v3FooterNav a:hover{opacity:1}.v3FooterDoctor{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.15);padding-top:2rem}.v3FooterDoctor b{font:400 1.7rem/1.1 Georgia,serif}.v3FooterDoctor p{margin:0;color:rgba(255,255,255,.55)}
-.v3FooterBase{display:grid;grid-template-columns:1fr 2fr auto;gap:2rem;align-items:center;border-top:1px solid rgba(255,255,255,.14);margin-top:clamp(5rem,9vw,9rem);padding-top:1.4rem;font-size:.62rem;letter-spacing:.05em;color:rgba(255,255,255,.48)}.v3FooterBase p{margin:0;text-align:center}.v3FooterBase button{border:0;background:none;color:inherit;padding:0}
 
 .homePage.v2 .v2Hero{position:relative;background:linear-gradient(115deg,#F8F1E7 0%,#F8F1E7 63%,#F4E9DF 63%,#F4E9DF 100%)}
 .homePage.v2 .v2Hero:after{content:"";position:absolute;width:34vw;height:34vw;max-width:520px;max-height:520px;right:4vw;top:14%;border:1px solid rgba(155,83,96,.13);border-radius:50%;pointer-events:none}
@@ -1727,10 +1722,6 @@ body{background:var(--color-cream);color:var(--color-ink);font-family:var(--ilam
 .headerActions{display:flex!important;align-items:center!important;gap:.55rem!important}.globalLang{border:1px solid rgba(24,56,47,.25)!important;border-radius:999px!important;padding:2px!important;background:transparent!important;display:flex!important}.globalLang button{min-width:38px!important;height:28px!important;padding:0 .55rem!important;border:0!important;border-radius:999px!important;background:transparent!important;font:800 .58rem Arial!important;color:#18382f!important}.globalLang button.on{background:#18382f!important;color:#fff!important}.authLink{font:800 .6rem Arial!important;letter-spacing:.05em!important;color:#18382f!important;text-decoration:none!important}.signInPill{border:1px solid #18382f!important;border-radius:999px!important;padding:.62rem .8rem!important}
 .menuToggle{border:0!important;background:none!important}.brandDrawer{background:#18382f!important;color:#f5efe5!important;padding:1.2rem!important;border:0!important}.brandDrawer button{color:inherit!important;font:400 clamp(2rem,9vw,3.8rem)/1 Georgia,serif!important;border-bottom:1px solid rgba(255,255,255,.18)!important;padding:1rem 0!important}
 .scrollProgress{height:2px!important;background:transparent!important}.scrollProgress i{background:#A94B65!important}.backToTop{background:#18382f!important;color:#fff!important;border:0!important;box-shadow:none!important}
-.v3Footer{background:#18382f!important;color:#f5efe5!important;border:0!important;padding-top:clamp(5rem,9vw,9rem)!important}.v3FooterStage{display:grid!important;grid-template-columns:.35fr 1fr 1.1fr!important;gap:5vw!important;align-items:start!important}.v3FooterMark{width:min(18vw,180px)!important;opacity:.9!important}.v3FooterMark img{width:100%!important;filter:brightness(0) invert(1)!important}.v3FooterStatement small,.v3FooterNav span{font:800 .58rem Arial!important;letter-spacing:.15em!important;color:#dce89d!important}.v3FooterStatement h2{font:400 clamp(3.1rem,5.5vw,6rem)/.85 Georgia,serif!important;letter-spacing:-.055em!important;margin:.8rem 0 1.4rem!important;color:#fff!important}.v3FooterStatement h2 em{color:#e9b8b0!important;font-weight:400!important}.v3FooterStatement p{max-width:500px!important;line-height:1.6!important;color:#d9e0db!important}.v3FooterNav{display:grid!important;grid-template-columns:1fr 1fr!important;gap:2.5rem!important}.v3FooterNav nav{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:.7rem!important}.siteAr .v3FooterNav nav{align-items:flex-end!important}.v3FooterNav button,.v3FooterNav a{background:none!important;border:0!important;color:#fff!important;text-decoration:none!important;padding:0!important;font:400 1.05rem Georgia,serif!important}.v3FooterDoctor{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.2)!important;padding-top:1.5rem!important;margin-top:1rem!important}.v3FooterDoctor b{display:block!important;font:400 1.7rem Georgia,serif!important;margin:.55rem 0!important}.v3FooterDoctor p{color:#d9e0db!important}.v3FooterDoctor a{display:inline-block!important;margin-top:.6rem!important;color:#dce89d!important;text-decoration:none!important;border-bottom:1px solid currentColor!important}
-.v3FooterBase{border-top:1px solid rgba(255,255,255,.2)!important;margin-top:4rem!important;padding:1.25rem 0 2rem!important;display:grid!important;grid-template-columns:auto 1fr auto!important;gap:2rem!important;align-items:center!important;font:700 .58rem Arial!important;letter-spacing:.06em!important;color:#cbd4ce!important}.v3FooterBase p{margin:0!important;text-align:center!important}.v3FooterBase button{background:none!important;border:0!important;color:inherit!important;font:inherit!important}
-@media(max-width:900px){.desktopBrandNav{display:none!important}.brandHeader{grid-template-columns:auto 1fr auto!important}.headerActions{grid-column:3}.v3FooterStage{grid-template-columns:1fr!important}.v3FooterMark{width:90px!important}.v3FooterNav{grid-template-columns:1fr 1fr!important}.v3FooterBase{grid-template-columns:1fr!important;text-align:center!important;gap:.7rem!important}.v3FooterBase p{text-align:center!important}}
-@media(max-width:520px){.brandHeader{height:64px!important;padding-inline:14px!important;gap:.5rem!important}.brandLogo{width:116px!important}.authLink{display:none!important}.globalLang button{min-width:32px!important;padding:0 .35rem!important}.v3FooterNav{grid-template-columns:1fr!important}.v3FooterStatement h2{font-size:clamp(3rem,14vw,4.6rem)!important}}
 
 
 /* ILAMA BIG BATCH — CONTEXT / WORLDS / KITCHEN / LIFE STAGES */
@@ -1884,17 +1875,6 @@ html.ilama-large-text{font-size:112.5%}html.ilama-high-contrast body{filter:cont
 .bloomFooterNav span,.footerLinks span,.footerClinician>span{margin-bottom:.2rem!important}
 .bloomFooterNav button,.bloomFooterNav a,.footerLinks button,.footerLinks a{font-size:.82rem!important;line-height:1.25!important}
 .bloomFooterBottom,.footerLegal{min-height:54px!important;padding-block:.65rem!important}
-.v3Footer{padding-top:clamp(3rem,5vw,5rem)!important;padding-bottom:.7rem!important}
-.v3FooterStage{grid-template-columns:.24fr .9fr 1.35fr!important;gap:3vw!important}
-.v3FooterMark{width:min(11vw,110px)!important}
-.v3FooterStatement h2{font-size:clamp(2.4rem,4vw,4.4rem)!important;margin:.45rem 0 .8rem!important;line-height:.9!important}
-.v3FooterStatement p{font-size:.84rem!important;line-height:1.45!important}
-.v3FooterNav{gap:1.4rem 2rem!important}
-.v3FooterNav nav{gap:.42rem!important}.v3FooterNav button,.v3FooterNav a{font-size:.9rem!important;line-height:1.25!important}
-.v3FooterDoctor{padding-top:1rem!important}.v3FooterDoctor p{font-size:.8rem!important}
-.v3FooterBase{margin-top:2rem!important;padding:.8rem 0 1rem!important}
-@media(max-width:900px){.bloomFooterMain,.footerEditorial,.v3FooterStage{grid-template-columns:1fr!important}.bloomFooterNav,.footerLinks,.v3FooterNav{grid-template-columns:repeat(2,minmax(0,1fr))!important}.v3FooterMark{display:none!important}}
-@media(max-width:520px){.bloomFooter{padding-top:28px!important}.bloomFooterMain,.footerEditorial{gap:1.5rem!important;padding-bottom:24px!important}.bloomFooterNav,.footerLinks,.v3FooterNav{gap:1.2rem!important}.bloomFooterStatement p,.footerSlogan{font-size:1.75rem!important}.v3Footer{padding-top:2.5rem!important}.v3FooterStatement h2{font-size:2.65rem!important}.v3FooterBase{margin-top:1.4rem!important}}
 
 /* Final contrast harmonization — dark surfaces and compact legacy footer variants */
 :where(.budget,.bridge,.closing,.result,.easySafety,.signatureFooter,.bloomFooter,.v3Footer) :where(p,small,span){text-shadow:none}
@@ -1960,20 +1940,6 @@ html.ilama-large-text{font-size:112.5%}html.ilama-high-contrast body{filter:cont
 @media(max-width:520px){.brandDrawer{top:64px!important;max-height:calc(100dvh - 64px)!important}}
 
 /* Footer contrast pass — no inherited muted text should disappear on the forest surface. */
-.v3Footer .v3FooterStatement h2,
-.v3Footer .v3FooterStatement p,
-.v3Footer .v3FooterNav button,
-.v3Footer .v3FooterNav a,
-.v3Footer .v3FooterDoctor b,
-.v3Footer .v3FooterDoctor p,
-.v3Footer .v3FooterBase span,
-.v3Footer .v3FooterBase p,
-.v3Footer .v3FooterBase button{color:#FFFFFF!important}
-.v3Footer .v3FooterStatement h2 em{color:#E9B8B0!important}
-.v3Footer .v3FooterStatement small,
-.v3Footer .v3FooterNav span,
-.v3Footer .v3FooterDoctor>span{color:#DCE89D!important}
-.v3Footer .v3FooterDoctor a{color:#DCE89D!important}
 
 /* OCT 2026 — SITE-WIDE UI/UX REFINEMENT LAYER
    Preserve the approved art direction; normalize usability, rhythm and accessibility. */
@@ -2044,3 +2010,45 @@ body{overflow-wrap:break-word}
  #content :where(.kicker,[class*="eyebrow"]){font-size:max(.7rem,11px)}
 }
 
+
+
+/* ILAMA 2026-10-07 — canonical footer system; replaces legacy v3Footer layers */
+.v3Footer{position:relative!important;overflow:hidden!important;background:#17382f!important;color:#fffaf3!important;padding:64px 0 0!important;border:0!important}
+.v3Footer .v3FooterStage{position:relative!important;display:grid!important;grid-template-columns:minmax(300px,.9fr) minmax(460px,1.25fr)!important;gap:clamp(56px,7vw,110px)!important;align-items:start!important;z-index:1!important}
+.v3Footer .v3FooterMark{position:absolute!important;right:-28px!important;top:-70px!important;width:220px!important;opacity:.045!important;pointer-events:none!important}
+.v3Footer .v3FooterMark img{display:block!important;width:100%!important;filter:brightness(0) invert(1)!important}
+.v3Footer .v3FooterStatement{max-width:520px!important}
+.v3Footer .v3FooterStatement small,.v3Footer .v3FooterNav span,.v3Footer .v3FooterDoctor>span{display:block!important;font:700 10px/1.2 "DM Sans",Arial,sans-serif!important;letter-spacing:.18em!important;color:#f0c8c2!important}
+.v3Footer .v3FooterStatement h2{margin:14px 0 18px!important;max-width:8.5ch!important;font:500 clamp(48px,5vw,76px)/.86 "Cormorant Garamond",Georgia,serif!important;letter-spacing:-.045em!important;color:#fffaf3!important}
+.v3Footer .v3FooterStatement h2 em{display:block!important;color:#f1bdb8!important;font-weight:500!important}
+.v3Footer .v3FooterStatement>p{max-width:40ch!important;margin:0!important;font:400 14px/1.65 "DM Sans",Arial,sans-serif!important;color:#e3ebe6!important}
+.v3Footer .v3FooterNav{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:32px!important;padding-top:5px!important}
+.v3Footer .v3FooterNav nav,.v3Footer .v3FooterDoctor{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:9px!important;min-width:0!important}
+.v3Footer .v3FooterNav button,.v3Footer .v3FooterNav a{margin:0!important;padding:0!important;border:0!important;background:none!important;box-shadow:none!important;color:#fffaf3!important;text-decoration:none!important;font:500 15px/1.35 "DM Sans",Arial,sans-serif!important;opacity:.84!important;text-align:start!important}
+.v3Footer .v3FooterNav button:hover,.v3Footer .v3FooterNav a:hover{opacity:1!important;transform:none!important;text-decoration:underline!important;text-underline-offset:4px!important}
+.v3Footer .v3FooterDoctor{grid-column:auto!important;border:0!important;margin:0!important;padding:0!important}
+.v3Footer .v3FooterDoctor b{display:block!important;margin:3px 0 2px!important;font:500 25px/1.05 "Cormorant Garamond",Georgia,serif!important;color:#fffaf3!important}
+.v3Footer .v3FooterDoctor p{margin:0!important;font:400 13px/1.45 "DM Sans",Arial,sans-serif!important;color:#dce6e0!important}
+.v3Footer .v3FooterDoctor a{margin-top:7px!important;color:#f0c8c2!important;opacity:1!important}
+.v3Footer .v3FooterBase{display:grid!important;grid-template-columns:auto 1fr auto!important;gap:28px!important;align-items:center!important;margin-top:46px!important;padding:18px 0 22px!important;border-top:1px solid rgba(255,255,255,.16)!important;color:#cfdad4!important;font:600 10px/1.35 "DM Sans",Arial,sans-serif!important;letter-spacing:.04em!important}
+.v3Footer .v3FooterBase p{margin:0!important;text-align:center!important;color:#cfdad4!important}
+.v3Footer .v3FooterBase button{padding:0!important;border:0!important;background:none!important;color:#fffaf3!important;font:inherit!important}
+.siteAr .v3Footer .v3FooterStatement h2{font-family:"Noto Naskh Arabic","Noto Sans Arabic",serif!important;letter-spacing:0!important;line-height:1.05!important}
+.siteAr .v3Footer .v3FooterNav nav,.siteAr .v3Footer .v3FooterDoctor{align-items:flex-end!important}
+@media(max-width:980px){
+ .v3Footer{padding-top:52px!important}
+ .v3Footer .v3FooterStage{grid-template-columns:1fr!important;gap:38px!important}
+ .v3Footer .v3FooterStatement{max-width:680px!important}
+ .v3Footer .v3FooterStatement h2{max-width:10ch!important}
+ .v3Footer .v3FooterNav{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ .v3Footer .v3FooterMark{display:none!important}
+}
+@media(max-width:620px){
+ .v3Footer{padding-top:42px!important;padding-bottom:calc(74px + env(safe-area-inset-bottom))!important}
+ .v3Footer .v3FooterStage{gap:30px!important}
+ .v3Footer .v3FooterStatement h2{font-size:48px!important}
+ .v3Footer .v3FooterNav{grid-template-columns:1fr 1fr!important;gap:26px 20px!important}
+ .v3Footer .v3FooterDoctor{grid-column:1/-1!important;padding-top:22px!important;border-top:1px solid rgba(255,255,255,.14)!important}
+ .v3Footer .v3FooterBase{grid-template-columns:1fr!important;gap:8px!important;margin-top:34px!important;text-align:start!important}
+ .v3Footer .v3FooterBase p{text-align:start!important}
+}
