@@ -88,3 +88,30 @@
 @keyframes fall{0%{opacity:0;transform:translate3d(0,0,0) rotate(0)}10%{opacity:.7}100%{opacity:0;transform:translate3d(-8rem,115vh,0) rotate(520deg)}}
 @media(prefers-reduced-motion:reduce){.petals{display:none}}
 .page figure,.page figure img{border-radius:0!important}
+
+
+/* 2026-10-07 visual QA closeout: mobile hierarchy, RTL and section separation */
+.page{max-width:100%;overflow-x:clip}
+.heroCopy{box-sizing:border-box}
+.approachTop h2{white-space:nowrap!important}
+.kids{position:relative}
+.kids:before{content:"KIDS · FAMILY";position:absolute;z-index:3;top:18px;inset-inline-start:clamp(20px,3vw,44px);padding:7px 10px;border:1px solid rgba(25,56,47,.28);background:#f7f1e8;color:#19382f;font:700 9px/1 "DM Sans",Arial,sans-serif;letter-spacing:.16em}
+:global(.siteAr) .page .kids:before{content:"الأطفال · العائلة";font-family:"Tajawal",sans-serif;letter-spacing:0}
+@media(max-width:720px){
+ .hero{min-height:clamp(600px,82svh,690px)}
+ .heroCopy{min-height:inherit;padding:112px 20px 92px}
+ .heroCopy h1{font-size:clamp(50px,13.2vw,64px);line-height:.92;max-width:9ch}
+ .heroBloom{max-width:calc(100% - 40px);flex-wrap:nowrap;white-space:nowrap}
+ .approachTop h2{font-size:clamp(38px,10vw,52px)!important;white-space:nowrap!important;letter-spacing:-.04em!important}
+ .kids{margin-block:12px;border-block:0!important;box-shadow:0 0 0 12px #f7f1e8}
+ .kids:before{top:14px;inset-inline-start:16px}
+ .kidsOverlay{bottom:24px}
+ .kidsCopy{padding-top:36px!important}
+ .closing h2{font-size:clamp(42px,11vw,60px)!important}
+}
+@media(max-width:390px){
+ .approachTop h2{font-size:clamp(34px,9.4vw,44px)!important}
+ .heroCaption span{max-width:54%}
+}
+:global(.siteAr) .page .approachTop h2{white-space:nowrap!important;font-size:clamp(40px,5vw,74px)!important}
+@media(max-width:720px){:global(.siteAr) .page .approachTop h2{font-size:clamp(31px,8.4vw,42px)!important}}
