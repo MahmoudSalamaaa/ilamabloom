@@ -18,7 +18,7 @@ const pages={
   about:["About","Meet ILAMA BLOOM and its approach to practical nutrition education."],
   privacy:["Privacy","How ILAMA BLOOM handles privacy and personal information."],
   sitemap:["Sitemap","Explore all ILAMA BLOOM sections and tools."]
-} as const;
+} as const;\n\nconst views:Record<Slug,string>={explore:"learn","life-stages":"life","mental-health-nutrition":"mind",kids:"kids",everyday:"everyday","weekly-bloom":"weekly","easy-mode":"easy","food-lens":"lens","food-atlas":"atlas","quick-log":"log",journal:"journal","visit-prep":"visit",about:"about",privacy:"privacy",sitemap:"sitemap"};
 
 type Slug=keyof typeof pages;
 const base="https://www.ilamabloom.com";
@@ -46,5 +46,5 @@ export async function generateMetadata({params}:{params:Promise<{slug:string}>})
 export default async function EditorialRoute({params}:{params:Promise<{slug:string}>}){
   const {slug}=await params;
   if(!(slug in pages)) notFound();
-  return <HomePage/>;
+  return <HomePage initialView={views[slug as Slug] as any}/>;
 }
