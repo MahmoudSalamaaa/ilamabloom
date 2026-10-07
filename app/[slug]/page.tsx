@@ -1,6 +1,6 @@
 import type {Metadata} from "next";
 import {notFound} from "next/navigation";
-import Page from "../page";
+import IlamaApp from "../IlamaApp";
 
 const pages={
   explore:["Explore","Practical nutrition knowledge for everyday choices."],
@@ -46,5 +46,5 @@ export async function generateMetadata({params}:{params:Promise<{slug:string}>})
 export default async function EditorialRoute({params}:{params:Promise<{slug:string}>}){
   const {slug}=await params;
   if(!(slug in pages)) notFound();
-  return <Page initialView={views[slug as Slug] as any}/>;
+  return <IlamaApp initialView={views[slug as Slug] as any}/>;
 }
