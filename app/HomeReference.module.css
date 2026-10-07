@@ -45,3 +45,21 @@
 .page :where(.lead,.approachTop>div>p:last-child,.approachTop aside p,.atlasCopy>p:not(.eyebrow),.kids>div>p:not(.eyebrow),.closing p:last-child,.cardBody small,.atlasImage figcaption small){font-family:"Lora",Georgia,serif!important;font-weight:400;line-height:1.65}
 .page :where(.textLink,.approachTop aside button,.primary){font-family:"Lora",Georgia,serif!important}
 :global(.siteAr) .page :where(.lead,.approachTop>div>p:last-child,.approachTop aside p,.atlasCopy>p:not(.eyebrow),.kids>div>p:not(.eyebrow),.closing p:last-child,.cardBody small,.atlasImage figcaption small,.textLink,.approachTop aside button,.primary){font-family:"Tajawal","Noto Sans Arabic",sans-serif!important}
+
+
+/* Kids editorial story: title belongs to the photograph; supporting copy continues below/beside it. */
+.page .kids figure:after{content:"";position:absolute;z-index:1;inset:0;background:linear-gradient(0deg,rgba(20,48,39,.88) 0%,rgba(20,48,39,.42) 42%,rgba(20,48,39,.04) 76%);pointer-events:none}
+.page .kidsOverlay{position:absolute;z-index:2;inset-inline:clamp(24px,5vw,72px);bottom:clamp(28px,5vw,64px);color:#fff;max-width:min(680px,82%)}
+.page .kidsOverlay .eyebrow{color:#f7c7d1!important;text-shadow:0 2px 12px rgba(0,0,0,.35)}
+.page .kidsOverlay h2{max-width:9ch!important;margin:12px 0 0!important;color:#fff!important;text-shadow:0 3px 24px rgba(0,0,0,.38)}
+.page .kidsCopy{background:#f2e2df!important;justify-content:center}
+.page .kidsCopy>p{font-family:"Lora",Georgia,serif!important;font-size:clamp(17px,1.45vw,21px);line-height:1.65;max-width:40ch!important;color:#19382f!important}
+:global(.siteAr) .page .kidsCopy>p{font-family:"Tajawal","Noto Sans Arabic",sans-serif!important;line-height:1.8}
+@media(max-width:720px){
+ .page .kids figure{height:390px;min-height:390px}
+ .page .kids figure img{object-position:center 42%}
+ .page .kidsOverlay{inset-inline:22px;bottom:26px;max-width:calc(100% - 44px)}
+ .page .kidsOverlay h2{font-size:clamp(44px,12vw,62px)!important;max-width:8ch!important;line-height:.98}
+ .page .kidsCopy{padding:30px 24px 42px!important}
+ .page .kidsCopy>p{font-size:17px}
+}
