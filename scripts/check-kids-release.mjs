@@ -42,9 +42,13 @@ for(const [label,token] of [["Mobile layout","@media(max-width:540px)"],["Reduce
 for(const name of ["ilama-family","ilamo","ilama","grandpa","grandma"]){
  const path="public/kids/"+name+".webp";
  try{
-  const header=fs.readFileSync(path).subarray(0,12);
-  assert.equal(header.toString("ascii",0,4),"RIFF");
-  assert.equal(header.toString("ascii",8,12),"WEBP");
+  const data=fs.readFileSync(path);
+  assert.ok(data.length>=30 && data.length<=5*1024*1024,"Invalid artwork file size");
+  assert.equal(data.toString("ascii",0,4),"RIFF");
+  assert.equal(data.toString("ascii",8,12),"WEBP");
+  assert.equal(data.readUInt32LE(4)+8,data.length,"Truncated or malformed RIFF payload");
+  const format=data.toString("ascii",12,16);
+  assert.ok(["VP8 ","VP8L","VP8X"].includes(format),"Unsupported WebP format");
   console.log("PASS approved artwork",name);
  }catch{console.error("FAIL approved artwork missing or invalid:",path);failures++}
 }
