@@ -98,7 +98,8 @@ useEffect(()=>{
     }catch{setProgressNotice(true)}
     return;
   }
-  fetch("/api/progress").then(r=>r.ok?r.json():Promise.reject(new Error("progress unavailable"))).then(d=>{
+  const progressController=new AbortController();
+  fetch("/api/progress",{signal:progressController.signal}).then(r=>r.ok?r.json():Promise.reject(new Error("progress unavailable"))).then(d=>{
     if(!active)return;
     if(!Array.isArray(d?.progress))throw new Error("invalid progress");
     const seenProgress=new Set<string>();
@@ -113,7 +114,7 @@ useEffect(()=>{
     setPetals(savedTotal+newlySaved);
     setPassport(v=>Array.from(new Set([...v,...rows.filter((r:{game_key:string})=>r.game_key.startsWith("atlas:")).map((r:{game_key:string})=>r.game_key.slice(6))])));
   }).catch(()=>{if(active)setProgressNotice(true)});
-  return()=>{active=false};
+  return()=>{active=false;progressController.abort()};
  },[signedIn]);
  const local:Mission={id:"local-carb",title_en:"Carb clue",title_ar:"دليل الكربوهيدرات",prompt_en:"Which one contains carbohydrate?",prompt_ar:"أنهي واحد فيهم فيه كربوهيدرات؟",options_en:["Chicken","Baladi bread","Egg"],options_ar:["فراخ","عيش بلدي","بيضة"],answer:1,explanation_en:"Bread is a grain food and contains carbohydrate.",explanation_ar:"العيش من الحبوب ويحتوي على كربوهيدرات."}; const list=missions.length?missions:[local],m=list[mission%list.length],opts=ar?m.options_ar:m.options_en;
  const fallback:Game[]=[
