@@ -984,7 +984,7 @@ button:disabled{cursor:not-allowed!important;opacity:.5!important}
 img{max-width:100%}
 [aria-live="polite"],[role="status"]{min-height:1.2em}
 .analyticsConsent{position:fixed!important;z-index:1000!important;left:50%!important;bottom:1rem!important;transform:translateX(-50%)!important;width:min(calc(100% - 2rem),720px)!important;padding:1rem 1.2rem!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:1rem!important;background:#173d31!important;color:#fbf7ef!important;border:1px solid rgba(255,255,255,.18)!important;box-shadow:0 18px 60px rgba(23,61,49,.2)!important}
-.analyticsConsent p{margin:0!important;font-size:.78rem!important;line-height:1.55!important}.analyticsConsent>div{display:flex!important;gap:.4rem!important;flex:0 0 auto!important}.analyticsConsent button{border:1px solid rgba(255,255,255,.45)!important;border-radius:0!important;background:transparent!important;color:#fff!important;padding:.65rem .8rem!important}.analyticsConsent button:last-child{background:#fbf7ef!important;color:#173d31!important}
+.analyticsConsent p{margin:0!important;font-size:.78rem!important;line-height:1.55!important;color:inherit}.analyticsConsent>div{display:flex!important;gap:.4rem!important;flex:0 0 auto!important}.analyticsConsent button{border:1px solid rgba(255,255,255,.45)!important;border-radius:0!important;background:transparent!important;color:#fff!important;padding:.65rem .8rem!important}.analyticsConsent button:last-child{background:#fbf7ef!important;color:#173d31!important}
 .authBrand{display:inline-flex!important;align-items:baseline!important;gap:.35rem!important;color:#173d31!important;text-decoration:none!important;font:600 1.05rem Georgia,"Times New Roman",serif!important;letter-spacing:.12em!important}.authBrand span{color:#a94f62!important}
 .accountPage,.parentPage,.privacyPage{background:#f5efe5!important;color:#173d31!important}
 .accountCard,.parentCard,.privacyCard{background:#fbf7ef!important;border-color:rgba(23,61,49,.16)!important;box-shadow:none!important}
@@ -1820,7 +1820,7 @@ html.ilama-large-text{font-size:112.5%}html.ilama-high-contrast body{filter:cont
 
 /* Final contrast harmonization — dark surfaces and compact legacy footer variants */
 :where(.budget,.bridge,.closing,.result,.easySafety,.signatureFooter,.bloomFooter,small,span){text-shadow:none}
-:where(.signatureFooter,.bloomFooter,small){color:#E7EDE9!important}
+:where(.signatureFooter,.bloomFooter){color:#E7EDE9!important}
 :where(.signatureFooter,.bloomFooter,button){color:#fff}
 :where(.signatureFooter,.bloomFooter,.bloomFooterNav span,.footerLinks span){color:#F2C7C2!important}
 .navMorePanel button{background:#FFFDFC!important;color:#203128!important;font-size:.8rem!important;font-weight:700!important}
