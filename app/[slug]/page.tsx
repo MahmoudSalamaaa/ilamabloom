@@ -18,12 +18,29 @@ const pages={
   about:["About","Meet ILAMA BLOOM and its approach to practical nutrition education."],
   privacy:["Privacy","How ILAMA BLOOM handles privacy and personal information."],
   sitemap:["Sitemap","Explore all ILAMA BLOOM sections and tools."]
-} as const;\n\ntype Slug=keyof typeof pages;
+} as const;
+
+type Slug=keyof typeof pages;
 type View="home"|"learn"|"life"|"mind"|"kids"|"everyday"|"weekly"|"easy"|"lens"|"atlas"|"log"|"journal"|"visit"|"about"|"privacy"|"sitemap";
 
-const views:Record<Slug,View>={explore:"learn","life-stages":"life","mental-health-nutrition":"mind",kids:"kids",everyday:"everyday","weekly-bloom":"weekly","easy-mode":"easy","food-lens":"lens","food-atlas":"atlas","quick-log":"log",journal:"journal","visit-prep":"visit",about:"about",privacy:"privacy",sitemap:"sitemap"};
+const views:Record<Slug,View>={
+  explore:"learn",
+  "life-stages":"life",
+  "mental-health-nutrition":"mind",
+  kids:"kids",
+  everyday:"everyday",
+  "weekly-bloom":"weekly",
+  "easy-mode":"easy",
+  "food-lens":"lens",
+  "food-atlas":"atlas",
+  "quick-log":"log",
+  journal:"journal",
+  "visit-prep":"visit",
+  about:"about",
+  privacy:"privacy",
+  sitemap:"sitemap"
+};
 
-type Slug=keyof typeof pages;\ntype View="home"|"learn"|"life"|"mind"|"kids"|"everyday"|"weekly"|"easy"|"lens"|"atlas"|"log"|"journal"|"visit"|"about"|"privacy"|"sitemap";
 const base="https://www.ilamabloom.com";
 
 export async function generateMetadata({params}:{params:Promise<{slug:string}>}):Promise<Metadata>{
@@ -34,13 +51,7 @@ export async function generateMetadata({params}:{params:Promise<{slug:string}>})
   return {
     title,
     description,
-    alternates:{
-      canonical:path,
-      languages:{
-        en:base+path+"?lang=en",
-        ar:base+path+"?lang=ar"
-      }
-    },
+    alternates:{canonical:path,languages:{en:base+path+"?lang=en",ar:base+path+"?lang=ar"}},
     openGraph:{title:title+" · ILAMA BLOOM",description,url:base+path,siteName:"ILAMA BLOOM",type:"website"},
     twitter:{card:"summary_large_image",title:title+" · ILAMA BLOOM",description}
   };
