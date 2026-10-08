@@ -169,3 +169,26 @@
 .progressNotice{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:12px auto;padding:13px 20px;max-width:1080px;border:1px solid #dbbd78;border-radius:15px;background:#fff5d9;color:#594a27;font:600 14px/1.5 "Plus Jakarta Sans",sans-serif}.progressNotice button{border:0;background:transparent;color:inherit;font-size:25px;cursor:pointer;line-height:1}[dir="rtl"] .progressNotice{font-family:"Tajawal",sans-serif}
 
 .loadingGames{max-width:1080px;margin:10px auto;padding:8px 20px;color:#53664e;font:600 13px/1.5 "Plus Jakarta Sans",sans-serif}[dir="rtl"] .loadingGames{font-family:"Tajawal",sans-serif}
+
+/* ILAMA Kids visual direction: warm storybook garden, legible cards, and clear hierarchy. */
+.page{--paper:#fff9ed;--ink:#304d35;--green:#3e704c;--rose:#b95872;--line:#e8dcc7;background:var(--paper);overflow-x:clip}
+.hero{position:relative;isolation:isolate;grid-template-columns:minmax(0,46%) minmax(0,54%);min-height:620px;background:linear-gradient(115deg,#fff8e8 0%,#fff4e6 45%,#e8f2df 100%);border-bottom:8px solid #e2edcf}
+.heroContent{position:relative;z-index:2;align-items:flex-start;padding:clamp(40px,5vw,86px)!important}
+.heroContent h1{font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(60px,6.2vw,105px);font-weight:700;line-height:.95;letter-spacing:-.035em;color:#315a39;text-wrap:balance}
+.heroContent h1 em{color:#bb6678;font-style:italic}
+.heroContent>p:not(.kicker){font:500 clamp(15px,1.3vw,19px)/1.75 "Plus Jakarta Sans",sans-serif;max-width:48ch;color:#4c634e}
+.characterScene{min-height:620px;background:radial-gradient(circle at 54% 37%,#fff7ce 0%,#f9e8d1 30%,#e2efdb 78%);border-radius:0;isolation:isolate}
+.characterScene:before,.characterScene:after{opacity:.35}
+.gardenFamily{width:min(90%,590px);min-height:410px;border-radius:44px;background:linear-gradient(180deg,#fff8d3 0%,#e1edc8 65%,#c5dea9 100%);box-shadow:0 28px 80px #3d6b3826,0 0 0 9px #fff9e9a8}
+.gardenPeople{gap:clamp(6px,1vw,18px)}
+.gardenPeople span{filter:drop-shadow(0 8px 8px #4d633e24)}
+.familyCards>button,.familyCards>article{border-radius:24px;box-shadow:0 12px 28px #775d3c14;min-height:240px}
+.familyCards>button:hover,.familyCards>button:focus-visible{transform:translateY(-5px)}
+.familyStoryChoices button{min-height:175px;border-radius:22px}
+.familyStoryChoices button[aria-pressed="true"]{outline:3px solid #3e704c;outline-offset:2px;box-shadow:0 10px 24px #386f4525}
+.familyStoryPanel{border-radius:25px}
+.page button,.page a{-webkit-tap-highlight-color:transparent}
+[dir="rtl"] .heroContent h1{font-family:"Tajawal",sans-serif;letter-spacing:0;line-height:1.2}
+[dir="rtl"] .heroContent>p:not(.kicker){font-family:"Tajawal",sans-serif}
+@media(max-width:900px){.hero{grid-template-columns:1fr;min-height:0}.heroContent{padding:40px 22px 22px!important}.heroContent h1{font-size:clamp(49px,11vw,80px)}.characterScene{min-height:450px;padding:26px 14px}.gardenFamily{min-height:330px}.familyCards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:540px){.heroContent h1{font-size:clamp(46px,12vw,67px)}.characterScene{min-height:350px}.gardenFamily{min-height:290px;width:100%;padding:20px 10px}.familyCards>button,.familyCards>article{min-height:180px;padding:15px 9px}.familyStoryChoices{grid-template-columns:1fr}.heroContent>p:not(.kicker){font-size:15px}}
