@@ -1,0 +1,50 @@
+{
+  "source": "Four user-approved ILAMA Kids scenes supplied 2026-10-08. The five assets below are resized/cropped from these scenes; no new imagery generated.",
+  "assets": [
+    {
+      "name": "grandma.webp",
+      "bytes": 31314,
+      "dimensions": [
+        480,
+        480
+      ],
+      "sha256": "84af9d4eef123e6ea439096e2d9cd83d2bbba0d68e409c5e0bbb59e3ba68a092"
+    },
+    {
+      "name": "grandpa.webp",
+      "bytes": 37352,
+      "dimensions": [
+        480,
+        480
+      ],
+      "sha256": "323094fe84b703b40c5b8b10001628363942ee67d0cb6b006fd0ee499087e902"
+    },
+    {
+      "name": "ilama-family.webp",
+      "bytes": 221706,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "sha256": "369336c4fb216420e876aa198a6e19d76e419d5d2c7ac7eef25a0406b1d00752"
+    },
+    {
+      "name": "ilama.webp",
+      "bytes": 44290,
+      "dimensions": [
+        480,
+        480
+      ],
+      "sha256": "465360e99f4438da5604f091dcce02ac6a3bbbde9137821978cc839eafa50617"
+    },
+    {
+      "name": "ilamo.webp",
+      "bytes": 38026,
+      "dimensions": [
+        480,
+        480
+      ],
+      "sha256": "9a65b8e26cba25a6ebef83468b544721f2fd34409809f14814ada02d825e84f2"
+    }
+  ]
+}

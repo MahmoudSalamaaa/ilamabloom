@@ -1,6 +1,7 @@
 // ILAMA Kids release gate. Run: node scripts/check-kids-release.mjs
 import fs from "node:fs";
 import assert from "node:assert/strict";
+import {createHash} from "node:crypto";
 const component=fs.readFileSync("app/KidsEditorial.tsx","utf8");
 const css=fs.readFileSync("app/KidsEditorial.module.css","utf8");
 const required=[
@@ -41,6 +42,9 @@ for(const [label,token] of required){
 for(const [label,token] of [["Mobile layout","@media(max-width:540px)"],["Reduced motion","prefers-reduced-motion:reduce"],["Hidden help",".page [hidden]{display:none!important}"]]){
  if(css.includes(token))console.log("PASS",label);else{console.error("FAIL",label);failures++}
 }
+// Five cropped/optimized WebP assets are derived only from the four approved source scenes.
+// The pinned hashes prevent accidental substitutions during release.
+const approvedAssets=JSON.parse(fs.readFileSync("scripts/kids-assets.manifest.json","utf8"));
 // Approved original family art is a hard prerequisite for release.
 for(const name of ["ilama-family","ilamo","ilama","grandpa","grandma"]){
  const path="public/kids/"+name+".webp";
@@ -50,6 +54,10 @@ for(const name of ["ilama-family","ilamo","ilama","grandpa","grandma"]){
   assert.equal(data.toString("ascii",0,4),"RIFF");
   assert.equal(data.toString("ascii",8,12),"WEBP");
   assert.equal(data.readUInt32LE(4)+8,data.length,"Truncated or malformed RIFF payload");
+  const expected=approvedAssets.assets.find(x=>x.name===name+".webp");
+  assert.ok(expected,"Missing approved manifest entry");
+  assert.equal(data.length,expected.bytes,"Unexpected artwork byte length");
+  assert.equal(createHash("sha256").update(data).digest("hex"),expected.sha256,"Artwork does not match approved source");
   const format=data.toString("ascii",12,16);
   assert.ok(["VP8 ","VP8L","VP8X"].includes(format),"Unsupported WebP format");
   console.log("PASS approved artwork",name);
