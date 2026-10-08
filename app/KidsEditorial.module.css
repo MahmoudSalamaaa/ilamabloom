@@ -133,9 +133,9 @@
 .familyAdventure{padding:clamp(40px,5vw,76px) max(20px,5vw);background:#f4f6df;color:#34512e;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:22px 40px}
 .familyAdventureIntro h2{font:700 clamp(35px,4vw,60px)/1.06 "Cormorant Garamond",Georgia,serif;margin:12px 0;color:#385b36}
 .familyAdventureIntro p:last-child{font:500 16px/1.65 "Plus Jakarta Sans",sans-serif}
-.familyStoryChoices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.familyStoryChoices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 .familyStoryChoices button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:170px;border-radius:24px;border:2px solid #e3d8b9;background:#fff7dc;color:#3b5935;padding:18px;text-align:center}
-.familyStoryChoices button+button{background:#ffe5dd}.familyStoryChoices button[aria-pressed="true"]{border-color:#4b8047;box-shadow:0 0 0 3px #85b77650}
+.familyStoryChoices button:nth-child(2){background:#ffe5dd}.familyStoryChoices button:nth-child(3){background:#e4f0d7}.familyStoryChoices button[aria-pressed="true"]{border-color:#4b8047;box-shadow:0 0 0 3px #85b77650}
 .familyStoryChoices span{font-size:55px}.familyStoryChoices strong{font:800 17px "Plus Jakarta Sans",sans-serif}.familyStoryChoices small{font:500 12px "Plus Jakarta Sans",sans-serif}
 .familyStoryPanel{grid-column:1/-1;display:grid;grid-template-columns:100px minmax(0,1fr);align-items:center;gap:22px;background:#fffdf3;border:1px solid #e6dfc8;border-radius:25px;padding:25px;box-shadow:0 10px 24px #34512e12}
 .familyStoryPanel>span{font-size:72px;text-align:center}.familyStoryPanel h3{font:700 clamp(25px,3vw,38px) "Cormorant Garamond",Georgia,serif;margin:0 0 10px}.familyStoryPanel p{font:500 15px/1.65 "Plus Jakarta Sans",sans-serif;max-width:75ch}
@@ -154,3 +154,5 @@
 .page[data-audience="teens"] .ageBand{background:#eef1ec}
 
 .familyTip{margin:14px 0 0;padding:13px 17px;background:#e5efd8;border:1px solid #a6c79c;border-radius:15px;color:#31542d;font-weight:650}
+
+@media(max-width:540px){.familyStoryChoices{grid-template-columns:1fr}.familyStoryChoices button{min-height:90px;display:grid;grid-template-columns:55px 1fr;justify-items:start;text-align:start;gap:4px 12px}.familyStoryChoices button span{grid-row:span 2}.familyStoryChoices button strong,.familyStoryChoices button small{align-self:center}}
