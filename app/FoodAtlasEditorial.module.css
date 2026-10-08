@@ -7,3 +7,21 @@
 @media(max-width:420px){.gentleIdeas{grid-template-columns:1fr}.grid dl{font-size:14px}}
 @media(prefers-reduced-motion:reduce){.grid article,.cats button,.gentleFilters button{transition:none}}
 
+
+
+/* 2026-10-08 atlas correction: no generic category photos masquerading as specific foods */
+.page{font-family:"Lora",Georgia,serif}.page :where(h1,h2){font-family:"Cormorant Garamond",Georgia,serif}
+.grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.grid article{min-height:285px}.grid article>div{padding:20px}.grid h2{font-size:29px;margin:10px 0 16px}.meta{min-height:0}
+@media(max-width:1100px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:900px){
+ .hero>div{padding:46px 20px 34px}.hero h1{font-size:clamp(48px,14vw,64px);margin:10px 0}.hero>div>p:last-child{font-family:"Lora",Georgia,serif;font-size:15px;line-height:1.6}
+ .hero figure{aspect-ratio:1.55}.controls{padding:22px 18px}.search{margin-bottom:14px}
+ .cats{margin-inline:-18px;padding-inline:18px}.grid{grid-template-columns:1fr;padding:26px 18px 46px;gap:10px}
+ .grid article{min-height:0}.grid article>div{padding:18px}.grid h2{font-size:32px;margin:8px 0 12px}
+ .grid dl>div{padding:10px 0}.meta{margin:12px 0}.grid article button{margin-top:4px}
+ .gentleCollection{margin:10px 18px 46px;padding:30px 0;gap:22px}.gentleCollection h2{font-size:42px}
+ .gentleCollection p{font-family:"Lora",Georgia,serif;font-size:15px}.gentleFilters{margin-inline:-18px;padding-inline:18px}
+ .gentleIdeas{grid-template-columns:1fr 1fr}.gentleIdeas button{min-height:74px;padding:10px}
+}
+[dir="rtl"] .page{font-family:"Tajawal","Noto Sans Arabic",Arial,sans-serif}[dir="rtl"] .page :where(h1,h2){font-family:"Tajawal","Noto Sans Arabic",Arial,sans-serif}
