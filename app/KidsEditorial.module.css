@@ -218,3 +218,6 @@
 .familyCards .familyPortrait{display:block;width:min(100%,170px);height:160px;object-fit:contain;object-position:center;border-radius:18px;margin:0 auto 4px}
 .familyCards :is(button,article):has(.familyPortrait:not([style*="display: none"]))>span{display:none}
 @media(max-width:540px){.gardenPeople{min-height:175px}.familyCards .familyPortrait{height:120px}}
+@media(max-width:400px){.familyCards{grid-template-columns:minmax(0,1fr)}.familyCards>button,.familyCards>article{min-height:190px}.familyCards .familyPortrait{height:150px}.gameTabs{grid-template-columns:repeat(2,minmax(0,1fr))}.gameTabs button{min-width:0;padding-inline:10px}}
+
+.page .completionNote{margin:16px 0;padding:12px 16px;border:1px solid #7eab88;background:#eaf4e6;color:#264a35;border-radius:14px;font-weight:700;line-height:1.6}

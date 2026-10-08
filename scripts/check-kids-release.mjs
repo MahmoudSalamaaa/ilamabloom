@@ -14,6 +14,12 @@ const required=[
  ["Learning games", "gameTabs"],
  ["Food passport", "passport"],
  ["Progress persistence", "saveProgress"],
+ ["Reward only after persistence", "if(!saved){setProgressNotice(true);return false}"],
+ ["Guest local storage", "localStorage.setItem(GUEST_PROGRESS_KEY"],
+ ["Atlas stamp after save", "if(await complete(key,1))setPassport"],
+ ["Progress refresh merge", "sessionRewards.current.entries()"],
+ ["Option selection accessibility", "aria-pressed={pick===String(i)}"],
+ ["Saved game feedback", "completionNote"],
  ["Help disclosure", 'hidden={!showHelp}'],
  ["Mission feedback", "missionNotice"],
  ["Keyboard focus", ":focus-visible"],
@@ -26,5 +32,15 @@ for(const [label,token] of required){
 }
 for(const [label,token] of [["Mobile layout","@media(max-width:540px)"],["Reduced motion","prefers-reduced-motion:reduce"],["Hidden help",".page [hidden]{display:none!important}"]]){
  if(css.includes(token))console.log("PASS",label);else{console.error("FAIL",label);failures++}
+}
+// Approved original family art is a hard prerequisite for release.
+for(const name of ["ilama-family","ilamo","ilama","grandpa","grandma"]){
+ const path="public/kids/"+name+".webp";
+ try{
+  const header=fs.readFileSync(path).subarray(0,12);
+  assert.equal(header.toString("ascii",0,4),"RIFF");
+  assert.equal(header.toString("ascii",8,12),"WEBP");
+  console.log("PASS approved artwork",name);
+ }catch{console.error("FAIL approved artwork missing or invalid:",path);failures++}
 }
 if(failures){console.error(failures+" release checks failed");process.exitCode=1}else console.log("Kids structural release checks passed; manual visual and interactive QA still required.");
