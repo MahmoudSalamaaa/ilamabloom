@@ -90,14 +90,17 @@
 @media(max-width:900px){.hero{grid-template-columns:1fr;min-height:0}.heroContent{padding:46px 22px 34px!important}.hero h1{font-size:clamp(50px,11vw,72px)}.characterScene{min-height:370px}.characterPlaceholder{width:215px}.characterStory{grid-template-columns:1fr 1fr;padding:24px 20px;gap:24px}.characterStory strong{font-size:22px}}
 @media(max-width:520px){.characterScene{min-height:330px}.characterPlaceholder{width:190px}.characterPlaceholder>span{font-size:65px}.characterPlaceholder strong{font-size:21px}.characterStory{grid-template-columns:1fr;gap:16px}.characterStory>div{padding-bottom:12px;border-bottom:1px solid #ffffff30}.heroActions a{flex:1}}
 
-/* Two companions; activities remain open to every child */
-.buddyChoice{padding:42px max(22px,5vw);background:#fff2d8;display:grid;grid-template-columns:1fr 1.2fr;gap:20px 40px;align-items:center}
-.buddyChoice h2{font:500 clamp(34px,4vw,58px)/1.05 "Cormorant Garamond",Georgia,serif;margin:12px 0}.buddyChoice p{line-height:1.6}
-.buddyButtons{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.buddyButtons button{min-height:170px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;border:2px solid #e3d8c8;border-radius:20px;background:#dcebc2;color:#2d5540;padding:18px;transition:transform .2s,border-color .2s}
-.buddyButtons button+button{background:#ffd6d0;color:#8a4d61}
-.buddyButtons button[aria-pressed="true"]{border-color:#2e7254;box-shadow:0 0 0 3px #a2c9a355;transform:translateY(-3px)}
-.buddyButtons button>span{font-size:42px}.buddyButtons strong{font:700 17px "Plus Jakarta Sans",sans-serif}.buddyButtons small{font:500 12px "Plus Jakarta Sans",sans-serif}
-.buddyGreeting{grid-column:1/-1;background:#f4ecdc;border-radius:12px;padding:12px 18px;margin:0;font-weight:600}
-[dir="rtl"] .buddyChoice h2{font-family:"Tajawal",sans-serif}
-@media(max-width:750px){.buddyChoice{grid-template-columns:1fr;padding:36px 20px}.buddyButtons button{min-height:145px;padding:12px}.buddyButtons strong{font-size:13px}.buddyGreeting{grid-column:1}}
+/* ILAMA family garden: one coherent component, shared experiences */
+.buddyChoice{padding:clamp(32px,5vw,70px) max(20px,5vw);background:#fff5df;display:grid;grid-template-columns:1fr;gap:24px;position:relative}
+.familyIntro{max-width:900px}.familyIntro h2{font:700 clamp(32px,4vw,58px)/1.08 "Cormorant Garamond",Georgia,serif;color:#37522c;margin:10px 0}.familyIntro p:not(.kicker){font:500 16px/1.65 "Lora",Georgia,serif;max-width:68ch}
+.familyCards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.familyCards>button,.familyCards>article{min-width:0;min-height:215px;border:1px solid #e9d6b9;border-radius:26px;padding:22px 14px;background:#fffdf4;box-shadow:0 12px 24px #75532d12;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:10px;text-align:center;color:#344c2f;transition:transform .2s ease,box-shadow .2s ease}
+.familyCards>button{cursor:pointer}.familyCards>button:first-child{background:#e6f1d5}.familyCards>button:nth-child(2){background:#ffe2e1}.familyCards>article:nth-child(3){background:#fff0d5}.familyCards>article:nth-child(4){background:#fbe8dc}
+.familyCards>button:hover{transform:translateY(-4px)}.familyCards>button[aria-pressed="true"]{outline:3px solid #56854b;outline-offset:3px}
+.familyCards span{display:grid;place-items:center;width:90px;height:90px;border-radius:50%;background:#ffffffa6;font-size:55px;line-height:1}.familyCards strong{font:800 19px "Plus Jakarta Sans",sans-serif}.familyCards small{font:500 12px/1.5 "Plus Jakarta Sans",sans-serif;max-width:20ch}
+.buddyGreeting{margin:0;background:#e9efd8;border:1px solid #cbd9b9;border-radius:18px;padding:16px 22px;font:700 14px/1.6 "Plus Jakarta Sans",sans-serif;color:#365633}
+#ilama-games,#ilama-discover{scroll-margin-top:100px}
+[dir="rtl"] .familyIntro h2,[dir="rtl"] .familyIntro p:not(.kicker),[dir="rtl"] .familyCards strong,[dir="rtl"] .familyCards small,[dir="rtl"] .buddyGreeting{font-family:"Tajawal",sans-serif}
+@media(max-width:900px){.familyCards{grid-template-columns:repeat(2,minmax(0,1fr))}.familyCards>button,.familyCards>article{min-height:190px}}
+@media(max-width:480px){.buddyChoice{padding:36px 18px}.familyCards{gap:10px}.familyCards>button,.familyCards>article{padding:18px 9px;min-height:185px;border-radius:20px}.familyCards span{width:70px;height:70px;font-size:44px}.familyCards strong{font-size:15px}.familyCards small{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.familyCards>button{transition:none}}
