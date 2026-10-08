@@ -101,7 +101,11 @@ useEffect(()=>{
   fetch("/api/progress").then(r=>r.ok?r.json():Promise.reject(new Error("progress unavailable"))).then(d=>{
     if(!active)return;
     if(!Array.isArray(d?.progress))throw new Error("invalid progress");
-    const rows=d.progress.filter((r:{game_key:string;score:number;completed:boolean})=>r&&r.completed&&typeof r.game_key==="string"&&Number.isFinite(Number(r.score)));
+    const seenProgress=new Set<string>();
+    const rows=d.progress.slice(0,1000).filter((r:{game_key:string;score:number;completed:boolean})=>{
+      if(!r||!r.completed||typeof r.game_key!=="string"||!/^[a-z0-9:-]{1,60}$/i.test(r.game_key)||!Number.isInteger(Number(r.score))||Number(r.score)<0||Number(r.score)>10000||seenProgress.has(r.game_key))return false;
+      seenProgress.add(r.game_key);return true;
+    });
     setCompleted(v=>Array.from(new Set([...v,...rows.map((r:{game_key:string})=>r.game_key)])));
     const savedKeys=new Set<string>(rows.map((r:{game_key:string})=>r.game_key));
     const savedTotal=rows.reduce((n:number,r:{score:number})=>n+Math.max(0,Number(r.score)||0),0);
