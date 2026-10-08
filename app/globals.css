@@ -139,7 +139,10 @@ html[lang="en"] .pageHero h1{font-family:Inter,Arial,sans-serif;letter-spacing:-
 /* Typography lock — one intentional family per language */
 .siteAr,.siteAr *{font-family:"Tajawal","Noto Sans Arabic",Tahoma,sans-serif!important}
 .siteAr h1,.siteAr h2,.siteAr h3,.siteAr h4,.siteAr p,.siteAr small,.siteAr label,.siteAr button,.siteAr input,.siteAr textarea,.siteAr select{font-family:"Tajawal","Noto Sans Arabic",Tahoma,sans-serif!important}
-html[lang="en"],html[lang="en"] *{font-family:Inter,Arial,sans-serif!important}
+html[lang="en"] body{font-family:"Lora",Georgia,serif!important}
+html[lang="en"] :where(p,li,label,input,textarea,select){font-family:"Lora",Georgia,serif}
+html[lang="en"] :where(h1,h2,h3,h4,h5,h6){font-family:"Cormorant Garamond",Georgia,serif}
+html[lang="en"] :where(button,small,.kicker,.eyebrow){font-family:"DM Sans",Arial,sans-serif}
 html[lang="en"] code,html[lang="en"] pre{font-family:ui-monospace,SFMono-Regular,Consolas,monospace!important}
 
 
@@ -2056,4 +2059,14 @@ main[lang="en"] :where(input,textarea,select,button){font-family:"Lora",Georgia,
     text-align: start;
   }
   .v3FooterBase p { text-align: start; }
+}
+
+
+/* 2026-10-08 mobile shell repair: preserve sticky navigation without letting content/footer paint through it */
+.nav.brandHeader{isolation:isolate;contain:paint;background:#fbf7ef!important}
+#content{position:relative;z-index:1}
+.siteFooter.v3Footer{position:relative;z-index:2}
+@media(max-width:800px){
+  .nav.brandHeader{z-index:1000!important}
+  .siteFooter.v3Footer{z-index:3}
 }
