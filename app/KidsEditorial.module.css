@@ -211,3 +211,10 @@
 @media(prefers-reduced-motion:reduce){.gameTabs button,.familyCards>button{transition:none}.gameTabs button:hover,.familyCards>button:hover{transform:none}}
 
 .page [hidden]{display:none!important}
+
+/* Approved character asset slots: the fallback emojis remain usable if assets are unavailable. */
+.gardenPeople .familyHeroImage{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 38%;border-radius:26px;z-index:2}
+.gardenPeople{position:relative;min-height:200px;overflow:hidden;border-radius:26px}
+.familyCards .familyPortrait{display:block;width:min(100%,170px);height:160px;object-fit:contain;object-position:center;border-radius:18px;margin:0 auto 4px}
+.familyCards :is(button,article):has(.familyPortrait:not([style*="display: none"]))>span{display:none}
+@media(max-width:540px){.gardenPeople{min-height:175px}.familyCards .familyPortrait{height:120px}}
