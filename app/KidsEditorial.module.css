@@ -209,3 +209,5 @@
 @media(max-width:900px){.hero{grid-template-columns:1fr;min-height:0}.heroContent{padding:40px 22px 22px!important}.heroContent h1{font-size:clamp(49px,11vw,80px)}.characterScene{min-height:450px;padding:26px 14px}.gardenFamily{min-height:330px}.familyCards{grid-template-columns:repeat(2,minmax(0,1fr))}.ageBand{grid-template-columns:1fr}.familyAdventure{grid-template-columns:1fr}}
 @media(max-width:540px){.heroContent h1{font-size:clamp(46px,12vw,67px)}.characterScene{min-height:350px}.gardenFamily{min-height:290px;width:100%;padding:20px 10px}.familyCards>button,.familyCards>article{min-height:180px;padding:15px 9px}.familyStoryChoices{grid-template-columns:1fr}.heroContent>p:not(.kicker){font-size:15px}.gameTabs{gap:10px}.gameTabs button{min-height:150px}.page section{scroll-margin-top:72px}}
 @media(prefers-reduced-motion:reduce){.gameTabs button,.familyCards>button{transition:none}.gameTabs button:hover,.familyCards>button:hover{transform:none}}
+
+.page [hidden]{display:none!important}
