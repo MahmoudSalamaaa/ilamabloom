@@ -12,7 +12,8 @@ const cleanGuestRecords=(raw:unknown):GuestRecord[]=>{
   .filter(r=>{if(seen.has(r.key))return false;seen.add(r.key);return true}).slice(0,500);
 };
 const validRemoteGame=(x:Game):boolean=>{
- if(!x||typeof x.key!=="string"||typeof x.title_en!=="string"||typeof x.title_ar!=="string"||typeof x.subtitle_en!=="string"||typeof x.subtitle_ar!=="string"||typeof x.icon!=="string"||!x.payload||typeof x.payload!=="object")return false;
+ if(!x||typeof x.key!=="string"||!["plate","lunch","shop","koshari","portion"].includes(x.key)||typeof x.title_en!=="string"||typeof x.title_ar!=="string"||typeof x.subtitle_en!=="string"||typeof x.subtitle_ar!=="string"||typeof x.icon!=="string"||!x.payload||typeof x.payload!=="object"||Array.isArray(x.payload))return false;
+ if([x.title_en,x.title_ar,x.subtitle_en,x.subtitle_ar,x.icon].some(v=>v.length>160))return false;
  const p=x.payload;
  const tuples=(value:unknown,size:number)=>Array.isArray(value)&&value.length>0&&value.length<=40&&value.every((row:unknown)=>Array.isArray(row)&&row.length>=size&&row.length<=8&&row.slice(0,size).every((v:unknown)=>typeof v==="string"&&v.length<=300));
  if(x.key==="plate"||x.key==="lunch")return tuples(p.foods,3)&&p.foods.every((row:unknown)=>Array.isArray(row)&&typeof row[3]==="boolean");
