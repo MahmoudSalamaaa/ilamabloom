@@ -40,3 +40,20 @@
 @media(max-width:560px){.page{padding:44px 16px}.page h1{max-width:12ch;font-size:clamp(46px,14vw,62px)}.page header>span{font-size:16px}.totals{grid-template-columns:1fr}.totals article+article{border-inline-start:0;border-top:1px solid var(--line)}.grid{grid-template-columns:1fr}.grid article,.grid article:nth-child(2n){min-height:0;padding:24px 20px;border-inline-end:0}.grid h2{margin-top:24px}.wellbeing>div{grid-template-columns:1fr}.reflect button{width:100%}}
 @media(prefers-reduced-motion:reduce){.page *{scroll-behavior:auto!important;transition-duration:0.01ms!important;animation-duration:0.01ms!important}}
 
+
+
+/* 2026-10-08 mobile weekly reflection refinement */
+.page{font-family:"Lora",Georgia,serif}.page :where(h1,h2){font-family:"Cormorant Garamond",Georgia,serif}
+@media(max-width:560px){
+ .page{padding:40px 18px 48px}
+ .page header{margin-bottom:28px}.page h1{font-size:clamp(46px,13vw,60px);line-height:.9;margin:10px 0 16px}
+ .page header>span{font-size:15px;line-height:1.6}
+ .totals{grid-template-columns:1fr 1fr}.totals article{padding:18px 14px}.totals article+article{border-top:0;border-inline-start:1px solid var(--line)}
+ .totals b{font-size:48px}.totals span{font-size:10px}
+ .grid{grid-template-columns:1fr 1fr}.grid article,.grid article:nth-child(2n){min-height:132px;padding:18px 14px;border-inline-end:1px solid var(--line)}
+ .grid article:nth-child(2n){border-inline-end:0}.grid h2{font-size:25px;margin:14px 0 8px}.grid b{font-size:38px}
+ .wellbeing{margin-top:34px;padding:30px 0}.wellbeing>h2,.reflect h2{font-size:40px;line-height:.95}
+ .page aside{margin-top:32px;padding:24px 20px}.page aside h2{font-size:36px;margin:10px 0 20px}
+ .reflect{margin-top:38px}.reflect textarea{min-height:108px;font-size:16px}
+}
+[dir="rtl"] .page{font-family:"Tajawal","Noto Sans Arabic",Arial,sans-serif}[dir="rtl"] .page :where(h1,h2){font-family:"Tajawal","Noto Sans Arabic",Arial,sans-serif}
