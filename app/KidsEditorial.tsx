@@ -153,7 +153,7 @@ useEffect(()=>{
  const activeGame=catalog.some(x=>x.key===game)?game:(catalog[0]?.key||merged[0].key); const g=catalog.find(x=>x.key===activeGame)||merged[0]; const foods=(g?.payload?.foods||fallback.find(x=>x.key==="plate")?.payload?.foods||[]) as [string,string,string,boolean][]; const reset=()=>{setPick(null);setMulti([]);setPlate([])};
  useEffect(()=>{const allowed=ageGames[ageBand]||[];if(!allowed.includes(game))setGame(allowed[0]||"plate");setPick(null);setMulti([]);setPlate([])},[ageBand]);
  const complete=async(key:string,score=1):Promise<boolean>=>{
-  if(rewardLocks.current.has(key)||completed.includes(key))return false;
+  if(!/^[a-z0-9:-]{1,60}$/i.test(key)||rewardLocks.current.has(key)||completed.includes(key)||sessionRewards.current.has(key))return false;
   rewardLocks.current.add(key);
   const n=Math.max(1,Math.min(10000,Math.round(score)));
   try{
