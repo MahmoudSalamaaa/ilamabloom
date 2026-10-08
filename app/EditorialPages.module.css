@@ -69,3 +69,42 @@
  .bridge h2{font-size:clamp(38px,11vw,52px)!important;line-height:.92!important}
 }
 [dir="rtl"] .page,[dir="rtl"] .page p,[dir="rtl"] .page li,[dir="rtl"] .page input,[dir="rtl"] .page textarea,[dir="rtl"] .page h1,[dir="rtl"] .page h2,[dir="rtl"] .page h3,[dir="rtl"] .page h4{font-family:"Tajawal","Noto Sans Arabic",Arial,sans-serif!important;letter-spacing:0!important}
+
+
+/* 2026-10-08 personal-tools mobile redesign: compact editorial rhythm */
+@media(max-width:850px){
+ .journal,.visit{padding:38px 18px 48px}
+ .journalTop{display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;margin-bottom:26px}
+ .journalTop .filters{grid-column:1/-1;display:flex;flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px}
+ .journalTop>button{grid-row:1;grid-column:2;white-space:nowrap}
+ .empty{padding:38px 0 24px}
+ .empty h2{font-size:clamp(38px,11vw,50px);line-height:.95;margin:8px 0 12px}
+ .easyHero{padding:48px 20px 34px}
+ .easyHero h1{font-size:clamp(48px,13vw,64px);line-height:.9;margin:10px 0 18px}
+ .easyHero>p:last-child{font-size:16px;line-height:1.65}
+ .easyActions{margin-inline:18px;border:1px solid var(--line)}
+ .easyActions button{min-height:72px!important;padding:14px 16px!important;display:grid!important;grid-template-columns:28px 1fr auto;align-items:center;gap:10px}
+ .easyActions button b{margin:0!important;font-size:25px;line-height:1}
+ .easyActions button small{font-size:9px}
+ .easyActions button span{font-size:18px}
+ .wellAge{padding:42px 20px;gap:30px}
+ .wellAge h2{font-size:clamp(38px,11vw,50px);line-height:.95}
+ .wellAge p{font-size:16px;line-height:1.65}
+ .wellAge textarea{min-height:112px}
+ .easySafety{padding:26px 20px}
+ .policy{padding:34px 20px 46px}
+ .policy article{padding:22px 0}
+ .policy h2{font-size:32px;margin:12px 0 8px}
+ .policy p{font-size:15px;line-height:1.65}
+ .mapGrid{padding:26px 20px 46px}
+ .mapGrid button{padding:20px 0;min-height:92px}
+ .mapGrid h2{font-size:30px;line-height:1;margin:8px 0 4px}
+ .mapGrid p{font-size:14px;line-height:1.45;padding-right:32px}
+ [dir="rtl"] .mapGrid p{padding-right:0;padding-left:32px}
+ .careTools{margin-bottom:34px}
+ .careTools article{padding:22px 18px}
+ .careTools h2{font-size:34px;margin:8px 0 18px}
+ .visitGrid{gap:20px}
+ .visitGrid aside{padding:24px 20px}
+ .visitGrid aside h2{font-size:34px;margin:8px 0 16px}
+}
