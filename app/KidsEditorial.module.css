@@ -165,3 +165,5 @@
 .familyStoryChoices button:nth-child(4){background:#f6e5f1}
 
 .kidsHelp{margin:22px auto;max-width:1040px;padding:0 20px}.kidsHelp>button{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;border:1px solid #d2ddc6;border-radius:18px;padding:16px 22px;background:#f2f6e9;color:#375735;text-align:start;font:700 16px/1.5 "Plus Jakarta Sans",sans-serif}.kidsHelp>button span{font-size:25px}.kidsHelp>div{padding:16px 22px;background:#fffdf4;border:1px solid #e6e3d1;border-radius:0 0 18px 18px}.kidsHelp p{margin:0 0 10px;line-height:1.65;color:#3f5540}.kidsHelp p:last-child{margin:0}[dir="rtl"] .kidsHelp button,[dir="rtl"] .kidsHelp p{font-family:"Tajawal",sans-serif}
+
+.progressNotice{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:12px auto;padding:13px 20px;max-width:1080px;border:1px solid #dbbd78;border-radius:15px;background:#fff5d9;color:#594a27;font:600 14px/1.5 "Plus Jakarta Sans",sans-serif}.progressNotice button{border:0;background:transparent;color:inherit;font-size:25px;cursor:pointer;line-height:1}[dir="rtl"] .progressNotice{font-family:"Tajawal",sans-serif}
