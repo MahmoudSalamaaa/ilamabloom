@@ -21,6 +21,14 @@ const validRemoteGame=(x:Game):boolean=>{
  if(x.key==="portion")return Array.isArray(p.options_en)&&Array.isArray(p.options_ar)&&p.options_en.length>=2&&p.options_en.length<=20&&p.options_en.length===p.options_ar.length&&p.options_en.every((v:unknown)=>typeof v==="string"&&v.length<=300)&&p.options_ar.every((v:unknown)=>typeof v==="string"&&v.length<=300)&&Number.isInteger(p.answer)&&p.answer>=0&&p.answer<p.options_en.length;
  return false;
 };
+const validRemoteMission=(x:Mission):boolean=>!!x&&typeof x.id==="string"&&/^[a-z0-9:-]{1,50}$/i.test(x.id)&&
+ ["title_en","title_ar","prompt_en","prompt_ar","explanation_en","explanation_ar"].every(k=>typeof x[k as keyof Mission]==="string"&&(x[k as keyof Mission] as string).length<=1000)&&
+ Array.isArray(x.options_en)&&Array.isArray(x.options_ar)&&x.options_en.length>=2&&x.options_en.length<=8&&x.options_en.length===x.options_ar.length&&
+ x.options_en.every(v=>typeof v==="string"&&v.length<=300)&&x.options_ar.every(v=>typeof v==="string"&&v.length<=300)&&
+ Number.isInteger(x.answer)&&x.answer>=0&&x.answer<x.options_en.length;
+const validAtlasFood=(f:{id:string;name:string;name_en?:string;category:string}):boolean=>!!f&&
+ typeof f.id==="string"&&/^[a-z0-9:-]{1,50}$/i.test(f.id)&&typeof f.name==="string"&&f.name.length<=150&&
+ (f.name_en===undefined||(typeof f.name_en==="string"&&f.name_en.length<=150))&&typeof f.category==="string"&&f.category.length<=80;
 export default function KidsEditorial({ar,signedIn,saveProgress}:{ar:boolean;signedIn:boolean;saveProgress:(key:string,score:number)=>Promise<boolean>}){
  const [ageBand,setAgeBand]=useState("6-9");
  const [buddy,setBuddy]=useState<"ilamo"|"ilama">("ilamo");
@@ -34,7 +42,48 @@ export default function KidsEditorial({ar,signedIn,saveProgress}:{ar:boolean;sig
  const rewardLocks=useRef(new Set<string>());
  const sessionRewards=useRef(new Map<string,number>());
  const [missions,setMissions]=useState<Mission[]>([]),[mission,setMission]=useState(0),[answer,setAnswer]=useState<number|null>(null),[plate,setPlate]=useState<string[]>([]),[games,setGames]=useState<Game[]>([]),[game,setGame]=useState("plate"),[pick,setPick]=useState<string|null>(null),[multi,setMulti]=useState<string[]>([]),[petals,setPetals]=useState(0),[completed,setCompleted]=useState<string[]>([]),[passport,setPassport]=useState<string[]>([]),[atlasFoods,setAtlasFoods]=useState<{id:string;name:string;name_en?:string;category:string}[]>([]);
- useEffect(()=>{fetch("/api/foods").then(r=>r.ok?r.json():null).then(d=>Array.isArray(d?.foods)&&setAtlasFoods(d.foods.filter((f:{id:string;name:string;category:string})=>f&&typeof f.id==="string"&&typeof f.name==="string"&&typeof f.category==="string").slice(0,24))).catch(()=>{});fetch("/api/learning-missions").then(r=>r.ok?r.json():Promise.reject(new Error("missions unavailable"))).then(d=>Array.isArray(d?.missions)&&setMissions(d.missions.slice(0,60).filter((x:Mission)=>x&&typeof x.id==="string"&&typeof x.prompt_en==="string"&&typeof x.prompt_ar==="string"&&Array.isArray(x.options_en)&&Array.isArray(x.options_ar)&&x.options_en.length>=2&&x.options_ar.length>=2&&Number.isInteger(x.answer)&&x.answer>=0&&x.answer<x.options_en.length&&x.answer<x.options_ar.length&&x.options_en.every(v=>typeof v==="string")&&x.options_ar.every(v=>typeof v==="string")))).catch(()=>setMissionNotice(true));fetch("/api/learning-games").then(r=>r.ok?r.json():Promise.reject(new Error("games unavailable"))).then(d=>Array.isArray(d?.games)&&setGames(d.games.slice(0,30).filter(validRemoteGame))).catch(()=>setLoadNotice(true)).finally(()=>setLoadingGames(false))},[]);
+ useEffect(()=>{
+  const controller=new AbortController();
+  const getJson=async(url:string)=>{
+    const response=await fetch(url,{signal:controller.signal});
+    if(!response.ok)throw new Error("Request failed: "+url);
+    return response.json();
+  };
+  void getJson("/api/foods").then(d=>{
+    if(controller.signal.aborted)return;
+    if(Array.isArray(d?.foods)){
+      const ids=new Set<string>();
+      setAtlasFoods(d.foods.slice(0,100).filter((f:{id:string;name:string;name_en?:string;category:string})=>{
+        if(!validAtlasFood(f)||ids.has(f.id))return false;
+        ids.add(f.id);return true;
+      }).slice(0,24));
+    }
+  }).catch(()=>{});
+  void getJson("/api/learning-missions").then(d=>{
+    if(controller.signal.aborted)return;
+    if(!Array.isArray(d?.missions))throw new Error("Invalid missions response");
+    const ids=new Set<string>();
+    const items:Mission[]=d.missions.slice(0,100).filter((x:Mission)=>{
+      if(!validRemoteMission(x)||ids.has(x.id))return false;
+      ids.add(x.id);return true;
+    }).slice(0,60);
+    if(!items.length)throw new Error("No valid missions");
+    setMissions(items);
+  }).catch(()=>{if(!controller.signal.aborted)setMissionNotice(true)});
+  void getJson("/api/learning-games").then(d=>{
+    if(controller.signal.aborted)return;
+    if(!Array.isArray(d?.games))throw new Error("Invalid games response");
+    const keys=new Set<string>();
+    const items:Game[]=d.games.slice(0,60).filter((x:Game)=>{
+      if(!validRemoteGame(x)||keys.has(x.key))return false;
+      keys.add(x.key);return true;
+    }).slice(0,30);
+    if(!items.length)throw new Error("No valid games");
+    setGames(items);
+  }).catch(()=>{if(!controller.signal.aborted)setLoadNotice(true)})
+    .finally(()=>{if(!controller.signal.aborted)setLoadingGames(false)});
+  return()=>controller.abort();
+ },[]);
 useEffect(()=>{
   let active=true;
   rewardLocks.current.clear();
