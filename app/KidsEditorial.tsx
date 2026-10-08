@@ -14,11 +14,11 @@ const cleanGuestRecords=(raw:unknown):GuestRecord[]=>{
 const validRemoteGame=(x:Game):boolean=>{
  if(!x||typeof x.key!=="string"||typeof x.title_en!=="string"||typeof x.title_ar!=="string"||typeof x.subtitle_en!=="string"||typeof x.subtitle_ar!=="string"||typeof x.icon!=="string"||!x.payload||typeof x.payload!=="object")return false;
  const p=x.payload;
- const tuples=(value:unknown,size:number)=>Array.isArray(value)&&value.length>0&&value.every((row:unknown)=>Array.isArray(row)&&row.length>=size&&row.slice(0,size).every((v:unknown)=>typeof v==="string"));
+ const tuples=(value:unknown,size:number)=>Array.isArray(value)&&value.length>0&&value.length<=40&&value.every((row:unknown)=>Array.isArray(row)&&row.length>=size&&row.length<=8&&row.slice(0,size).every((v:unknown)=>typeof v==="string"&&v.length<=300));
  if(x.key==="plate"||x.key==="lunch")return tuples(p.foods,3)&&p.foods.every((row:unknown)=>Array.isArray(row)&&typeof row[3]==="boolean");
  if(x.key==="shop")return tuples(p.rows,4)&&typeof p.answer==="string"&&p.rows.some((row:string[])=>row[0]===p.answer);
  if(x.key==="koshari")return tuples(p.ingredients,3);
- if(x.key==="portion")return Array.isArray(p.options_en)&&Array.isArray(p.options_ar)&&p.options_en.length>=2&&p.options_en.length===p.options_ar.length&&p.options_en.every((v:unknown)=>typeof v==="string")&&p.options_ar.every((v:unknown)=>typeof v==="string")&&Number.isInteger(p.answer)&&p.answer>=0&&p.answer<p.options_en.length;
+ if(x.key==="portion")return Array.isArray(p.options_en)&&Array.isArray(p.options_ar)&&p.options_en.length>=2&&p.options_en.length<=20&&p.options_en.length===p.options_ar.length&&p.options_en.every((v:unknown)=>typeof v==="string"&&v.length<=300)&&p.options_ar.every((v:unknown)=>typeof v==="string"&&v.length<=300)&&Number.isInteger(p.answer)&&p.answer>=0&&p.answer<p.options_en.length;
  return false;
 };
 export default function KidsEditorial({ar,signedIn,saveProgress}:{ar:boolean;signedIn:boolean;saveProgress:(key:string,score:number)=>Promise<boolean>}){
