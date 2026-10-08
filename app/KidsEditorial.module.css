@@ -152,3 +152,5 @@
 .page[data-audience="teens"] .gameTabs button.active{border-color:#3f705d}
 .page[data-audience="teens"] .gameTabs button em{color:#426b58}
 .page[data-audience="teens"] .ageBand{background:#eef1ec}
+
+.familyTip{margin:14px 0 0;padding:13px 17px;background:#e5efd8;border:1px solid #a6c79c;border-radius:15px;color:#31542d;font-weight:650}
