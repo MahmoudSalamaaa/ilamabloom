@@ -6,3 +6,26 @@
 /* Keep the first editorial headline clear of the fixed consent surface. */
 .hero h1{max-width:14ch;font-size:clamp(3.8rem,7vw,7rem);line-height:.86}
 @media(max-width:800px){.hero h1{max-width:14ch;font-size:clamp(3rem,12vw,4.8rem);line-height:.92}}
+
+/* 2026-10-08 mobile editorial reset */
+.page{font-family:"Lora",Georgia,serif}
+.kicker,.mode button,.page button,.page a,.observationForm label{font-family:"DM Sans",Arial,sans-serif}
+.hero h1,.topics h2,.gentle h2,.observe h2,.medication h2,.pattern h2,.gentle h3,.safety strong{font-family:"Cormorant Garamond",Georgia,serif}
+@media(max-width:800px){
+ .hero{padding:72px 22px 48px}
+ .hero h1{max-width:10ch!important;font-size:clamp(54px,14.5vw,72px)!important;line-height:.88!important;letter-spacing:-.045em}
+ .hero>p:last-child{max-width:34ch;font-size:16px;line-height:1.65}
+ .mode{padding-inline:10px}
+ .mode button{flex:1 0 auto;min-width:104px;padding:14px 12px}
+ .topics{padding:24px 22px 64px}
+ .topics article{grid-template-columns:34px 1fr;gap:14px;padding:32px 0}
+ .topics article>span{font-size:24px}
+ .topics h2{font-size:clamp(34px,10vw,46px);line-height:.96;margin:0 0 12px}
+ .topics p,.topics li{font-size:15.5px;line-height:1.65}
+ .topics ul{margin-top:10px}
+ .gentle,.observe,.medication,.pattern{padding:64px 22px}
+ .gentle h2,.observe h2,.medication h2,.pattern h2{font-size:clamp(38px,11vw,52px);line-height:.94}
+ .medication{gap:24px}
+ .safety{margin:52px 22px 64px}
+}
+[dir="rtl"] .page,[dir="rtl"] .page p,[dir="rtl"] .page li,[dir="rtl"] .hero h1,[dir="rtl"] .topics h2,[dir="rtl"] .gentle h2,[dir="rtl"] .observe h2,[dir="rtl"] .medication h2,[dir="rtl"] .pattern h2{font-family:"Tajawal","Noto Sans Arabic",Arial,sans-serif}
