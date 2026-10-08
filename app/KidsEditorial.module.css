@@ -116,3 +116,16 @@
 @media(max-width:1050px){.discoveryRibbon{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}}
 @media(max-width:560px){.discoveryRibbon{grid-template-columns:repeat(2,minmax(0,1fr));padding:14px;gap:8px}.discoveryRibbon a{min-height:70px;justify-content:flex-start}.discoveryRibbon span{width:38px;height:38px;font-size:21px}.discoveryRibbon strong{font-size:12px}}
 @media(prefers-reduced-motion:reduce){.discoveryRibbon a{transition:none}}
+
+.gardenFamily{position:relative;z-index:1;width:min(90%,540px);min-height:350px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:12px;padding:35px 16px 25px;border-radius:42% 42% 22px 22px;background:linear-gradient(180deg,#f9f0c1aa 0%,#d7e8bcdd 70%,#b7d397 100%);border:3px solid #fff8dc;box-shadow:0 24px 55px #456b3430;text-align:center}
+.gardenSky{position:absolute;top:12px;font-size:35px;letter-spacing:12px;opacity:.85}
+.gardenPeople{display:flex;align-items:flex-end;justify-content:center;gap:clamp(0px,1vw,9px);width:100%;padding-top:60px}
+.gardenPeople span{display:inline-grid;place-items:center;width:24%;font-size:clamp(52px,6.2vw,94px);filter:drop-shadow(0 8px 5px #42632e30);transition:transform .2s ease}
+.gardenPeople span:nth-child(2){transform:translateY(-13px)}.gardenPeople span:nth-child(4){transform:translateY(-8px)}
+.gardenTable{width:95%;border-radius:40px;padding:13px 4px;background:#b77d4b;border:5px solid #d8a675;box-shadow:0 10px 0 #8f633c;font-size:clamp(25px,3vw,43px);letter-spacing:4px}
+.gardenFamily strong{font:800 clamp(14px,1.8vw,21px) "Plus Jakarta Sans",sans-serif;color:#35562c;letter-spacing:.03em}
+.gardenFamily small{font:600 13px/1.4 "Plus Jakarta Sans",sans-serif;color:#48633b}
+[dir="rtl"] .gardenFamily strong,[dir="rtl"] .gardenFamily small{font-family:"Tajawal",sans-serif}
+@media(max-width:900px){.gardenFamily{min-height:330px;margin:15px auto}.gardenPeople span{font-size:clamp(54px,12vw,92px)}}
+@media(max-width:480px){.gardenFamily{width:94%;min-height:290px;padding:24px 10px 18px}.gardenPeople{padding-top:48px}.gardenPeople span{font-size:clamp(49px,13vw,69px)}.gardenTable{font-size:27px;letter-spacing:0}.gardenSky{font-size:25px}}
+@media(prefers-reduced-motion:reduce){.gardenPeople span{transition:none}}
