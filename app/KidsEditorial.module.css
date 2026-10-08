@@ -143,3 +143,12 @@
 [dir="rtl"] .familyAdventure h2,[dir="rtl"] .familyAdventure h3,[dir="rtl"] .familyAdventure p,[dir="rtl"] .familyAdventure button,[dir="rtl"] .familyAdventure strong,[dir="rtl"] .familyAdventure small{font-family:"Tajawal",sans-serif}
 @media(max-width:850px){.familyAdventure{grid-template-columns:1fr}.familyStoryPanel{grid-column:1}}
 @media(max-width:520px){.familyStoryChoices{gap:9px}.familyStoryChoices button{padding:13px 8px;min-height:145px}.familyStoryChoices span{font-size:43px}.familyStoryChoices strong{font-size:13px}.familyStoryPanel{grid-template-columns:1fr;padding:20px;gap:6px}.familyStoryPanel>span{font-size:50px}}
+
+/* A more mature visual treatment for the teen learning lab, without removing any activities. */
+.page[data-audience="teens"] .game{background:#e9eee8}
+.page[data-audience="teens"] .gameTabs button{border-radius:13px;min-height:160px;background:#f9faf5;border-color:#ccd7cb;box-shadow:0 5px 0 #b9c8bb44}
+.page[data-audience="teens"] .gameTabs button:nth-child(2n){background:#edf3f0}
+.page[data-audience="teens"] .gameTabs button b{font-size:32px}
+.page[data-audience="teens"] .gameTabs button.active{border-color:#3f705d}
+.page[data-audience="teens"] .gameTabs button em{color:#426b58}
+.page[data-audience="teens"] .ageBand{background:#eef1ec}
