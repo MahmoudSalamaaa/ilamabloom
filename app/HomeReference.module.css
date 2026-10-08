@@ -115,3 +115,28 @@
 }
 :global(.siteAr) .page .approachTop h2{white-space:nowrap!important;font-size:clamp(40px,5vw,74px)!important}
 @media(max-width:720px){:global(.siteAr) .page .approachTop h2{font-size:clamp(31px,8.4vw,42px)!important}}
+
+/* 2026-10-08 feminine mobile hierarchy reset */
+.page{font-family:"Lora",Georgia,serif}
+.approachTop>div>p:last-child,.atlasCopy>p:not(.eyebrow),.kids>div>p:not(.eyebrow),.closing p:last-child,.approachTop aside p,.cardBody small{font-family:"Lora",Georgia,serif}
+.approach h2,.atlasCopy h2,.kids h2,.closing h2,.cardBody strong{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500}
+@media(max-width:720px){
+ .hero{min-height:680px}
+ .heroCopy{min-height:680px;padding:116px 22px 94px;justify-content:flex-end}
+ .heroCopy h1{font-size:clamp(58px,15vw,76px);line-height:.86;max-width:8ch}
+ .lead{max-width:31ch;font-size:16px;line-height:1.6}
+ .approach{padding:72px 22px}
+ .approachTop{display:block;margin-bottom:36px}
+ .approachTop h2{white-space:normal!important;font-size:clamp(48px,13vw,64px)!important;line-height:.88!important;max-width:10ch}
+ .approachTop>div>p:last-child,.atlasCopy>p:not(.eyebrow),.kids>div>p:not(.eyebrow),.closing p:last-child{font-size:16px;line-height:1.65}
+ .approachTop aside{margin-top:28px}
+ .cardGrid{grid-template-columns:1fr!important;gap:14px}
+ .card,.card:nth-child(2),.card:nth-child(4){transform:none!important}
+ .card{display:grid;grid-template-columns:42% 1fr}
+ .cardImage{aspect-ratio:1/1.12}
+ .cardBody{min-height:0;padding:18px 16px}
+ .cardBody strong{font-size:30px;line-height:.95}
+ .cardBody small{font-size:14px;line-height:1.5}
+}
+:global(.siteAr) .page{font-family:"Tajawal",sans-serif}
+:global(.siteAr) .page .approach h2,:global(.siteAr) .page .atlasCopy h2,:global(.siteAr) .page .kids h2,:global(.siteAr) .page .closing h2,:global(.siteAr) .page .cardBody strong{font-family:"Tajawal",sans-serif!important;letter-spacing:0}
