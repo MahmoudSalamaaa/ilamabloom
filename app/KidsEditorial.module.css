@@ -129,3 +129,17 @@
 @media(max-width:900px){.gardenFamily{min-height:330px;margin:15px auto}.gardenPeople span{font-size:clamp(54px,12vw,92px)}}
 @media(max-width:480px){.gardenFamily{width:94%;min-height:290px;padding:24px 10px 18px}.gardenPeople{padding-top:48px}.gardenPeople span{font-size:clamp(49px,13vw,69px)}.gardenTable{font-size:27px;letter-spacing:0}.gardenSky{font-size:25px}}
 @media(prefers-reduced-motion:reduce){.gardenPeople span{transition:none}}
+
+.familyAdventure{padding:clamp(40px,5vw,76px) max(20px,5vw);background:#f4f6df;color:#34512e;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:22px 40px}
+.familyAdventureIntro h2{font:700 clamp(35px,4vw,60px)/1.06 "Cormorant Garamond",Georgia,serif;margin:12px 0;color:#385b36}
+.familyAdventureIntro p:last-child{font:500 16px/1.65 "Plus Jakarta Sans",sans-serif}
+.familyStoryChoices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.familyStoryChoices button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:170px;border-radius:24px;border:2px solid #e3d8b9;background:#fff7dc;color:#3b5935;padding:18px;text-align:center}
+.familyStoryChoices button+button{background:#ffe5dd}.familyStoryChoices button[aria-pressed="true"]{border-color:#4b8047;box-shadow:0 0 0 3px #85b77650}
+.familyStoryChoices span{font-size:55px}.familyStoryChoices strong{font:800 17px "Plus Jakarta Sans",sans-serif}.familyStoryChoices small{font:500 12px "Plus Jakarta Sans",sans-serif}
+.familyStoryPanel{grid-column:1/-1;display:grid;grid-template-columns:100px minmax(0,1fr);align-items:center;gap:22px;background:#fffdf3;border:1px solid #e6dfc8;border-radius:25px;padding:25px;box-shadow:0 10px 24px #34512e12}
+.familyStoryPanel>span{font-size:72px;text-align:center}.familyStoryPanel h3{font:700 clamp(25px,3vw,38px) "Cormorant Garamond",Georgia,serif;margin:0 0 10px}.familyStoryPanel p{font:500 15px/1.65 "Plus Jakarta Sans",sans-serif;max-width:75ch}
+.familyStoryPanel button{border:0;border-radius:50px;background:#4d7c42;color:#fff;padding:12px 20px;font:800 13px "Plus Jakarta Sans",sans-serif}.familyStoryPanel button:disabled{background:#e1ead8;color:#34512e;cursor:default}
+[dir="rtl"] .familyAdventure h2,[dir="rtl"] .familyAdventure h3,[dir="rtl"] .familyAdventure p,[dir="rtl"] .familyAdventure button,[dir="rtl"] .familyAdventure strong,[dir="rtl"] .familyAdventure small{font-family:"Tajawal",sans-serif}
+@media(max-width:850px){.familyAdventure{grid-template-columns:1fr}.familyStoryPanel{grid-column:1}}
+@media(max-width:520px){.familyStoryChoices{gap:9px}.familyStoryChoices button{padding:13px 8px;min-height:145px}.familyStoryChoices span{font-size:43px}.familyStoryChoices strong{font-size:13px}.familyStoryPanel{grid-template-columns:1fr;padding:20px;gap:6px}.familyStoryPanel>span{font-size:50px}}
