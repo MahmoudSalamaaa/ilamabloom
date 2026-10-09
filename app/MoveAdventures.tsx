@@ -1,0 +1,47 @@
+"use client";
+import {useEffect,useRef,useState} from "react";
+type L={ar:string;en:string};
+type Move={id:string;icon:string;title:L;instruction:L;alternative:L;goal:number;action:L};
+const games:Move[]=[
+{id:"butterfly",icon:"🦋",title:{ar:"صيد الفراشات",en:"Butterfly Garden"},instruction:{ar:"افرد دراعك يمين وشمال براحتك.",en:"Reach gently left and right."},alternative:{ar:"حرك إيد واحدة أو بص للاتجاه.",en:"Move one hand or look toward a side."},goal:6,action:{ar:"فراشة وصلت للزهرة",en:"Butterfly reached a flower"}},
+{id:"forest",icon:"🌳",title:{ar:"مغامرة الغابة",en:"Forest Adventure"},instruction:{ar:"امشي في مكانك أو حرك رجليك وأنت قاعد.",en:"March in place or move your legs while seated."},alternative:{ar:"حرك دراعك بالتبادل.",en:"Alternate your arms."},goal:8,action:{ar:"خطوة في الغابة",en:"Forest step"}},
+{id:"dance",icon:"🎵",title:{ar:"ارقص مع إيلاما",en:"Dance with Ilama"},instruction:{ar:"اتحرك على الإيقاع بطريقتك.",en:"Move to the rhythm your own way."},alternative:{ar:"حرك إيديك أو كتافك.",en:"Move hands or shoulders."},goal:8,action:{ar:"حركة رقص",en:"Dance move"}},
+{id:"fish",icon:"🐟",title:{ar:"اتحرك زي السمكة",en:"Swim Like a Fish"},instruction:{ar:"حرك دراعاتك برفق كأنك بتسبح.",en:"Gently move your arms like swimming."},alternative:{ar:"حرك كفوف إيديك.",en:"Move your hands."},goal:6,action:{ar:"موجة جديدة",en:"New wave"}},
+{id:"flower",icon:"🌻",title:{ar:"زهرة الشمس",en:"Growing Sunflower"},instruction:{ar:"افرد جسمك وارفع دراعاتك بالراحة من غير ألم.",en:"Stretch comfortably and lift your arms without pain."},alternative:{ar:"افتح كفوفك وارفع إيد واحدة.",en:"Open your hands or lift one arm."},goal:5,action:{ar:"الزهرة كبرت",en:"Flower grew"}},
+{id:"harvest",icon:"🧺",title:{ar:"رقصة الحصاد",en:"Harvest Dance"},instruction:{ar:"امد إيدك ناحية المحصول الخيالي.",en:"Reach gently for imaginary crops."},alternative:{ar:"مد إيد واحدة وأنت قاعد.",en:"Reach with one arm while seated."},goal:6,action:{ar:"محصول اتحصد",en:"Crop collected"}},
+{id:"mirror",icon:"🪞",title:{ar:"مراية إيلامو",en:"Mirror Me"},instruction:{ar:"قلد الحركة: إيد فوق، إيد جنب، خطوة بسيطة.",en:"Copy: arm up, arm sideways, a small step."},alternative:{ar:"قلد بإيد واحدة أو حركة رأس.",en:"Copy with one arm or a head movement."},goal:6,action:{ar:"حركة اتقلدت",en:"Move copied"}},
+{id:"family",icon:"👨‍👩‍👧",title:{ar:"حفلة حركة الأسرة",en:"Family Movement Party"},instruction:{ar:"اختاروا حركة لطيفة واعملوها سوا.",en:"Choose a gentle move and do it together."},alternative:{ar:"صفقوا أو حركوا إيديكم سوا.",en:"Clap or move hands together."},goal:6,action:{ar:"حركة جماعية",en:"Family move"}}
+];
+export default function MoveAdventures({ar}:{ar:boolean}){
+const [selected,setSelected]=useState<Move|null>(null),[count,setCount]=useState(0),[running,setRunning]=useState(false),[seconds,setSeconds]=useState(0),[mode,setMode]=useState<"manual"|"camera">("manual"),[camera,setCamera]=useState<"off"|"loading"|"ready"|"error">("off");
+const video=useRef<HTMLVideoElement|null>(null),stream=useRef<MediaStream|null>(null);
+const t=(x:L)=>ar?x.ar:x.en;
+const stopCamera=()=>{stream.current?.getTracks().forEach(track=>track.stop());stream.current=null;setCamera("off")};
+useEffect(()=>{return()=>{stream.current?.getTracks().forEach(track=>track.stop())}},[]);
+useEffect(()=>{if(!running||!selected||count>=selected.goal)return;const id=window.setInterval(()=>setSeconds(s=>s+1),1000);return()=>window.clearInterval(id)},[running,selected,count]);
+useEffect(()=>{if(camera==="ready"&&video.current&&stream.current){video.current.srcObject=stream.current;video.current.play().catch(()=>{})}},[camera]);
+const begin=(g:Move)=>{setSelected(g);setCount(0);setSeconds(0);setRunning(false);stopCamera();setMode("manual")};
+const cameraOn=async()=>{if(!navigator.mediaDevices?.getUserMedia){setCamera("error");return}setCamera("loading");try{const s=await navigator.mediaDevices.getUserMedia({video:{facingMode:"user",width:{ideal:640},height:{ideal:480}},audio:false});stream.current=s;setCamera("ready")}catch{setCamera("error")}};
+const close=()=>{setRunning(false);stopCamera();setSelected(null)};
+const finish=selected&&count>=selected.goal;
+return <section dir={ar?"rtl":"ltr"} aria-label={ar?"مغامرات الحركة":"Movement adventures"} style={{padding:"clamp(14px,3vw,30px)",margin:"28px 0",background:"#eaf3e5",color:"#2e503c",borderRadius:24}}>
+<h2 style={{fontSize:"clamp(26px,4vw,42px)"}}>{ar?"💃 مغامرات إيلاما المتحركة":"💃 ILAMA Move Adventures"}</h2>
+<p>{ar?"ثماني ألعاب تشجعك تتحرك بطريقتك. مفيش سباق أو خسارة.":"Eight movement adventures. Move your way, with no races or penalties."}</p>
+{!selected?<div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(180px,1fr))",gap:12}}>{games.map(g=><button key={g.id} type="button" onClick={()=>begin(g)} style={{background:"white",color:"#2d503b",border:"2px solid #96ba99",borderRadius:20,padding:18,textAlign:ar?"right":"left",cursor:"pointer",minHeight:132}}><span style={{fontSize:38,display:"block"}}>{g.icon}</span><strong>{t(g.title)}</strong><small style={{display:"block",marginTop:7}}>{t(g.instruction)}</small></button>)}</div>:<article style={{background:"white",borderRadius:20,padding:18}}>
+<button type="button" onClick={close} style={{border:"1px solid #96ba99",borderRadius:12,padding:10,background:"#fff"}}>{ar?"← كل الألعاب":"← All games"}</button>
+<h3 style={{fontSize:25}}>{selected.icon} {t(selected.title)}</h3>
+<p>{t(selected.instruction)}</p><p><strong>{ar?"بديل مناسب: ":"Accessible alternative: "}</strong>{t(selected.alternative)}</p>
+<div style={{display:"flex",flexWrap:"wrap",gap:10,margin:"14px 0"}}>
+<button type="button" aria-pressed={mode==="manual"} onClick={()=>{setMode("manual");stopCamera()}} style={{padding:12,borderRadius:13,background:mode==="manual"?"#356d4d":"#f5f5f5",color:mode==="manual"?"white":"#294a36"}}>{ar?"العب بدون كاميرا":"Play without camera"}</button>
+<button type="button" aria-pressed={mode==="camera"} onClick={()=>setMode("camera")} style={{padding:12,borderRadius:13,background:mode==="camera"?"#356d4d":"#f5f5f5",color:mode==="camera"?"white":"#294a36"}}>{ar?"معاينة الكاميرا (اختياري)":"Camera preview (optional)"}</button></div>
+{mode==="camera"&&<div style={{padding:12,background:"#f0f8f3",borderRadius:16}}><p>{ar?"الكاميرا للمعاينة المحلية فقط؛ لا يتم تسجيل الفيديو أو تحليل وضعية الجسم في هذه النسخة. استخدم زر تأكيد الحركة بعد أدائها. اطلب موافقة ولي الأمر أولًا.":"Camera is local preview only: no recording or pose tracking in this version. Confirm each move after performing it. Ask a guardian first."}</p>{camera==="off"&&<button type="button" onClick={cameraOn}>{ar?"شغّل الكاميرا بموافقة ولي الأمر":"Enable camera with guardian consent"}</button>}{camera==="loading"&&<p role="status">{ar?"جاري طلب الإذن":"Requesting permission"}</p>}{camera==="error"&&<p role="status">{ar?"الكاميرا غير متاحة؛ اللعب بدونها شغال.":"Camera unavailable; camera-free play still works."}</p>}{camera==="ready"&&<><video ref={video} autoPlay muted playsInline style={{width:"100%",maxWidth:360,transform:"scaleX(-1)",borderRadius:15}}/><button type="button" onClick={stopCamera}>{ar?"اقفل الكاميرا":"Turn camera off"}</button></>}</div>}
+<div style={{margin:"20px 0",background:"#e9f5e9",borderRadius:18,padding:16}}>
+<div role="status" aria-live="polite"><strong>{count} / {selected.goal}</strong> · {seconds} {ar?"ثانية":"seconds"}</div>
+<div aria-hidden="true" style={{height:14,borderRadius:20,background:"#c7ddc8",marginTop:10,overflow:"hidden"}}><div style={{width:(count/selected.goal*100)+"%",height:"100%",background:"#4c9564",transition:"width .2s"}}/></div>
+<div style={{fontSize:48,textAlign:"center",padding:20}}>{finish?"🌟":selected.icon}</div></div>
+{finish?<div role="status"><h4>{ar?"أحسنت! خلصت المغامرة 🌟":"Adventure complete! 🌟"}</h4><p>{ar?"خد راحة واشرب مياه لو محتاج. مش لازم تبدأ لعبة تانية دلوقتي.":"Take a break and drink water if needed. There's no need to start another game now."}</p><button type="button" onClick={close}>{ar?"العودة للألعاب":"Back to games"}</button></div>:<div style={{display:"flex",gap:10,flexWrap:"wrap"}}>
+{!running?<button type="button" onClick={()=>setRunning(true)} style={{padding:15,borderRadius:14,background:"#356d4d",color:"white",border:0}}>{ar?"ابدأ الحركة":"Start moving"}</button>:<><button type="button" onClick={()=>setCount(n=>Math.min(selected.goal,n+1))} style={{padding:15,borderRadius:14,background:"#356d4d",color:"white",border:0}}>{ar?"✓ عملت الحركة":"✓ I did the move"}</button><button type="button" onClick={()=>setRunning(false)} style={{padding:15,borderRadius:14,background:"#fff",border:"1px solid #356d4d"}}>{ar?"استراحة":"Pause"}</button></>}</div>}
+</article>}
+<p style={{fontSize:13,marginTop:15}}>{ar?"اختار مساحة آمنة وخليك مع شخص بالغ لو محتاج. توقف عند الألم أو الدوخة. مفيش حركات إجبارية، والجلوس مسموح.":"Use a safe space and adult help when needed. Stop if you feel pain or dizzy. No mandatory movements; seated alternatives are welcome."}</p>
+</section>
+}
