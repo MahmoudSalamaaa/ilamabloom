@@ -4,6 +4,7 @@ import styles from "./KidsWorld.module.css";
 import FarmWorld from "./FarmWorld";
 import EgyptAdventures from "./EgyptAdventures";
 import AquaWorld from "./AquaWorld";
+import DiscoveryLab from "./DiscoveryLab";
 
 type Zone="garden"|"market"|"kitchen"|"body"|"family";
 type Localized={en:string;ar:string};
@@ -73,6 +74,7 @@ return <section data-kids-world="true" aria-label={ar?"عالم إيلاما ل�
 <FarmWorld ar={ar} userId={signedIn?userId:undefined}/>
 <EgyptAdventures ar={ar} userId={signedIn?userId:undefined}/>
 <AquaWorld ar={ar}/>
+<DiscoveryLab ar={ar}/>
 <section className={styles.parents} id="kids-parents"><div><p className={styles.eyebrow}>{ar?"للأهل":"FOR PARENTS"}</p><h2>{ar?"التعلّم بيكبر باللعب":"Little discoveries grow into healthy habits"}</h2><p>{ar?"الألعاب دي بتشجع الفضول والحركة واكتشاف الأطعمة من غير أحكام أو ضغط. العبوا مع أطفالكم، واحكوا عن الألوان والروائح والطعم.":"Our games encourage curiosity, movement, food exploration and family conversation — without labeling foods as good or bad. Join in, ask questions and celebrate discovery."}</p><small>{ar?"محتوى تعليمي فقط، وليس نصيحة طبية.":"Educational content only, not medical advice."}</small></div><img src="/kids/grandpa.webp" loading="lazy" alt=""/></section>
 <footer className={styles.footer}>{ar?"إيلاما كيدز · نكتشف ونكبر سوا 🌿":"ILAMA Kids · Little wonders grow here 🌿"}</footer>
 </section>
