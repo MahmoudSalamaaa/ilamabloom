@@ -11,6 +11,8 @@ const checks=[
 ["Five distinct adventures",["garden","market","kitchen","body","family"].every(id=>component.includes('id:"'+id+'"'))],
 ["Approved family artwork",["ilama-family.webp","ilamo.webp","ilama.webp","grandpa.webp","grandma.webp"].every(name=>component.includes("/kids/"+name))],
 ["Garden planting",component.includes("gardenPlots")&&component.includes("setGardenSeeds")],
+["Account-scoped hydration",component.includes("hydratedKey!==storageKey")&&component.includes("setHydratedKey(storageKey)")],
+["Fruit round variety",component.includes("marketRound")],
 ["Fruit market hunt",component.includes("marketShelf")&&component.includes("marketFinds")],
 ["Interactive plate builder",component.includes("basketItems")&&component.includes("setBasket")],
 ["Movement adventure",component.includes("moveFigure")&&component.includes("progressTrack")],
