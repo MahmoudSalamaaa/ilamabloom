@@ -33,10 +33,30 @@ const titles={en:["Grow with Ilama","Food Explorer","Build a Happy Plate","My Am
      if(index===3){const move=world.locator('[class*="bodyGame"] [class*="rewardButton"]').first();for(let i=0;i<3;i++)await move.click()}
      if(index===4){const next=world.locator('[class*="storyControls"] [class*="rewardButton"]');await next.click();await next.click()}
      const id=["garden","market","kitchen","body","family"][index];const reward=world.locator('[data-reward-zone="'+id+'"]');await reward.click();assert(await reward.isDisabled(),"earned reward cannot be collected twice");
-     assert.equal(await world.locator('[class*="navStars"] strong').innerText(),(index+1)+"/5","star "+index);assert.equal(await world.locator('[data-active-game]').getAttribute("data-active-game"),id);assert(await world.locator('[role="status"]').innerText(),"reward status announced");
+     assert.equal(await world.locator('[class*="navStars"] strong').innerText(),(index+1)+"/5","star "+index);assert.equal(await world.locator('[data-active-game]').getAttribute("data-active-game"),id);assert(await world.locator('[role="status"]').first().innerText(),"reward status announced");
     }
     await page.reload();await world.waitFor();await page.waitForFunction(()=>document.querySelector('[data-kids-world="true"] [class*="navStars"] strong')?.textContent?.trim()==="5/5");
     assert.equal(await world.locator('[class*="navStars"] strong').innerText(),"5/5","stars persist after reload");
+   }
+   if(width===390){
+    const farm=world.locator('section[aria-label="'+(lang==="ar"?"استكشف مزرعة جدو وتيتا التفاعلية":"Explore Grandpa and Grandma's interactive farm")+'"]');
+    assert.equal(await farm.locator("canvas").count(),1,"farm canvas exists");
+    await farm.getByRole("button",{name:lang==="ar"?/حوض فارغ 1/:/Empty plot 1/}).click();
+    for(let n=0;n<4;n++)await farm.getByRole("button",{name:lang==="ar"?/حوض 1،/:/Plot 1,/}).click();
+    await farm.getByRole("button",{name:lang==="ar"?/مطبخ تيتا/:/Grandma's kitchen/}).first().click();
+    assert((await farm.innerText()).includes(lang==="ar"?"طماطم: 1":"Tomato: 1"),"farm harvest appears in kitchen");
+    const lab=world.locator('section[aria-label="'+(lang==="ar"?"معمل إيلاما للتغذية والطبيعة":"Ilama food and nature lab")+'"]');
+    await lab.getByRole("button",{name:/3-5/}).click();
+    for(const origin of ["plant","animal","plant"])await lab.getByRole("button",{name:origin==="plant"?(lang==="ar"?/نبات/:/Plant/):(lang==="ar"?/حيوان/:/Animal/)}).click();
+    assert(await lab.getByText(lang==="ar"?/خلصت المغامرة/:/Adventure complete/).first().isVisible(),"food origin discovery completes");
+    const weather=world.locator('section[aria-label="'+(lang==="ar"?"معمل النباتات والطقس":"Plant and weather science lab")+'"]');
+    for(const choice of (lang==="ar"?[/كمية مياه مناسبة/,/ضوء مناسب/,/المياه الزيادة تتصرف/]:[/suitable amount of water/i,/Suitable light/,/excess water drain/]))await weather.getByRole("button",{name:choice}).click();
+    assert(await weather.getByText(lang==="ar"?/اكتشاف جميل/:/Wonderful discovery/).first().isVisible(),"plant science game completes");
+    const egypt=world.locator('section[aria-label="'+(lang==="ar"?"مغامرات محافظات مصر":"Egypt governorate adventures")+'"]');
+    await egypt.getByRole("button",{name:lang==="ar"?/الدقهلية/:/Dakahlia/}).click();
+    await egypt.getByRole("button",{name:lang==="ar"?/العب تحدي الطعام/:/Play the food challenge/}).click();
+    await egypt.getByRole("button",{name:lang==="ar"?/الأرز والخضروات/:/Rice and vegetables/}).click();
+    assert((await egypt.getByRole("status").first().innerText()).includes("1 / 27"),"Egypt stamp earned");
    }
    if(process.env.QA_SCREENSHOTS&&(width===390||width===1440))await page.screenshot({path:"qa-kids-"+lang+"-"+width+".png",fullPage:true});
    reports.push({lang,width,errors,accessibility});
