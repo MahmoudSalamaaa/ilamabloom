@@ -18,7 +18,7 @@ const titles={en:["Grow with Ilama","Food Explorer","Build a Happy Plate","My Am
    const world=page.locator('[data-kids-world="true"]');
    assert.equal(await page.locator("main").count(),1,"nested main landmark");
    assert.equal(await world.getAttribute("dir"),lang==="ar"?"rtl":"ltr");
-   assert.equal(await world.getAttribute("lang"),lang);
+   assert.equal(await world.getAttribute("lang"),lang);assert.equal(await world.locator("nav").count(),1,"Kids navigation landmark");
    const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>window.innerWidth+1);
    assert.equal(overflow,false,"horizontal overflow "+lang+" "+width);
    for(const name of names){const img=world.locator('img[src="/kids/'+name+'.webp"]').first();await img.scrollIntoViewIfNeeded();await img.evaluate(async el=>{await Promise.race([el.decode(),new Promise((_,reject)=>setTimeout(()=>reject(new Error("Image decode timed out")),10000))])});assert(await img.evaluate(el=>el.naturalWidth>0),"missing artwork "+name)}
@@ -27,13 +27,13 @@ const titles={en:["Grow with Ilama","Food Explorer","Build a Happy Plate","My Am
    if(width===390){
     for(let index=0;index<5;index++){
      await page.getByRole("button",{name:new RegExp(titles[lang][index])}).first().click();
-     if(index===0){const plots=world.locator('[class*="gardenPlots"] button');for(const i of [2,0,1])await plots.nth(i).click()}
+     if(index===0){const plots=world.locator('[class*="gardenPlots"] button');for(const i of [2,0,1])await plots.nth(i).click();assert.equal(await plots.locator(":disabled").count(),3,"all garden plots planted")}
      if(index===1){for(const fruit of (lang==="ar"?["تفاح","موز","فراولة"]:["Apple","Banana","Strawberry"]))await world.locator('[class*="marketShelf"] button').filter({hasText:fruit}).click()}
      if(index===2){const items=world.locator('[class*="basketItems"] button');for(let i=0;i<3;i++)await items.nth(i).click()}
      if(index===3){const move=world.locator('[class*="bodyGame"] [class*="rewardButton"]').first();for(let i=0;i<3;i++)await move.click()}
      if(index===4){const next=world.locator('[class*="storyControls"] [class*="rewardButton"]');await next.click();await next.click()}
-     const reward=world.locator('[class*="gameContent"] [class*="rewardButton"]').last();await reward.click();
-     assert.equal(await world.locator('[class*="navStars"] strong').innerText(),(index+1)+"/5","star "+index);
+     const id=["garden","market","kitchen","body","family"][index];const reward=world.locator('[data-reward-zone="'+id+'"]');await reward.click();assert(await reward.isDisabled(),"earned reward cannot be collected twice");
+     assert.equal(await world.locator('[class*="navStars"] strong').innerText(),(index+1)+"/5","star "+index);assert.equal(await world.locator('[data-active-game]').getAttribute("data-active-game"),id);assert(await world.locator('[role="status"]').innerText(),"reward status announced");
     }
     await page.reload();await world.waitFor();await page.waitForFunction(()=>document.querySelector('[data-kids-world="true"] [class*="navStars"] strong')?.textContent?.trim()==="5/5");
     assert.equal(await world.locator('[class*="navStars"] strong').innerText(),"5/5","stars persist after reload");
