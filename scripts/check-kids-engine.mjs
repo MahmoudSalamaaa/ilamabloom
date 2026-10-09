@@ -40,6 +40,8 @@ check("No game timer, leaderboard or punitive points",![discovery,weatherLab].so
 check("No vet games or child-facing clinic promotion",!names.some(name=>/veterinar|animal clinic|pet diagnosis|clinic discount|medical coupon|streak|leaderboard|in-app purchase/i.test(files[name])));
 const quests=files["app/KidsQuestTrail.tsx"],kitchen=files["app/KidsKitchenStudio.tsx"];
 check("Three playable story quests integrated",kids.includes('import KidsQuestTrail from "./KidsQuestTrail"')&&kids.includes("<KidsQuestTrail ")&&quests.includes('id:"seed"')&&quests.includes('id:"fish"')&&quests.includes('id:"egypt"'));
+const questSteps=[...quests.matchAll(/\{question:L\(([\s\S]*?)\],correct:"([^"]+)"/g)];
+check("All nine quest scenes have exactly three choices and a valid answer",questSteps.length===9&&questSteps.every(match=>{const ids=[...match[1].matchAll(/\{id:"([^"]+)",label:/g)].map(m=>m[1]);return ids.length===3&&new Set(ids).size===3&&ids.includes(match[2])}));
 check("Quest choices show explanations before progression",quests.includes("choice===step.correct?t(step.explain)")&&quests.includes("continueStory"));
 check("Quest progress is local and gated after hydration",quests.includes("loaded===key")&&quests.includes("localStorage.setItem(key,JSON.stringify(progress))"));
 check("Quest contains family offline activity and no pressure",quests.includes("Optional family activity away from the screen")&&quests.includes("No financial points, ads or absence penalties."));

@@ -8,7 +8,11 @@ ILAMA Kids is a bilingual, child-first food-literacy, nature, science, agricultu
 - FarmCanvas: procedural animated 2D canvas world, Ilama movement by pointer and keyboard, four existing approved character WebPs, pond with moving fish, selectable destinations, zoom, pan buttons, pause and reduced-motion behavior. The garden now reflects actual plot growth, and offscreen/hidden rendering is suspended to reduce battery use.
 - FarmWorld: garden planting/watering/harvesting, device-local inventory, kitchen vegetable-side activity, freshwater-vs-sea fish exploration with variable-nutrient caution.
 - EgyptAdventures: all 27 governorates grouped into six discoverable regions, food/crop facts, short quiz, device-local noncompetitive discovery stamps.
-- KidsDiscoveryLab: food-source classification (six foods, selectable 3–5 / 6–8 / 9–12 activity levels) and Nile tilapia river-to-table sequencing, with noncompetitive local discovery stamps.\n- KidsWeatherLab: three plant-science puzzles on water, light and drainage, with an optional adult-supervised offline experiment.\n- Static TSX syntax and safety checks in `npm run check:kids` (requires local dependencies). The Playwright QA script now includes farm harvest-to-kitchen, both discovery games, weather puzzles and Egypt stamps, but HAS NOT BEEN EXECUTED on these detached commits.
+- KidsDiscoveryLab: food-source classification (six foods, selectable 3–5 / 6–8 / 9–12 activity levels) and Nile tilapia river-to-table sequencing, with noncompetitive local discovery stamps.
+- KidsWeatherLab: three plant-science puzzles on water, light and drainage, with an optional adult-supervised offline experiment.
+- KidsQuestTrail: three independent replayable story quests (Grandpa's seeds, Nile fish and safe food preparation, Egyptian food geography), each with three interactive steps, explanations before advancing, offline family prompts and device-local noncommercial progress.
+- KidsKitchenStudio: 12 ingredients across five food groups, accessible plate creation, an adult cooking safety checkpoint, a local-only capped gallery of eight saved meal ideas, and a clear-delete control.
+- Static TSX syntax and safety checks in `npm run check:kids` (requires local dependencies). The Playwright QA script now includes farm harvest-to-kitchen, discovery games, weather puzzles, Egypt stamps, story-quest scenes and kitchen meal-saving, but HAS NOT BEEN EXECUTED on these detached commits.
 
 ## Mandatory release gates
 1. **Build:** `npm ci && npm run check:kids && npm run build` must pass on the exact commit to publish. Existing check:kids checks must remain passing.
@@ -22,8 +26,9 @@ ILAMA Kids is a bilingual, child-first food-literacy, nature, science, agricultu
 9. **Deployment:** No branch ref changes or Preview/Production deployment until explicit user approval and all applicable checks pass. Prefer one cohesive release over many tiny deploys.
 
 ## Known limitations / next engineering milestones
-- Canvas scene is a playable **prototype**, not a complete game engine with collisions, NPC pathfinding, quests, inventory synchronization or sound.
+- Canvas scene is a playable **prototype**, not a complete game engine with collisions, NPC pathfinding, shared quest/inventory synchronization or sound.
 - Egypt uses a **region selector**, not yet accurate GIS governorate boundary polygons; obtain openly licensed ADM1 polygons (e.g. geoBoundaries gbOpen EGY ADM1, CC BY 4.0) and provide attribution before describing it as an accurate map.
 - Fish challenge has four species and simplified habitat classification; clinical-nutrition and ecology review pending.
+- The story quests and kitchen studio use device-local progress only; this must not be used as a secure balance for clinic vouchers.
 - Browser/Next.js QA has not yet been executed on these detached staged commits. Source-only structural assertions have passed; they are NOT substitutes for TSX compilation, browser rendering or accessibility audits.
 - The earlier production five-game QA does **not** establish QA for these new components.
