@@ -14,8 +14,8 @@ const titles={en:["Grow with Ilama","Food Explorer","Build a Happy Plate","My Am
   const context=await browser.newContext({viewport:{width,height:900},reducedMotion:"reduce"});
   try{
    const page=await context.newPage();const errors=[];page.on("pageerror",e=>errors.push(e.message));
-   await page.goto(base+"/kids?lang="+lang,{waitUntil:"domcontentloaded"});await page.locator("main[lang]").waitFor();
-   const world=page.locator("main[lang]");
+   await page.goto(base+"/kids?lang="+lang,{waitUntil:"domcontentloaded"});await page.locator("main[lang]").last().waitFor();
+   const world=page.locator("main[lang]").last();
    assert.equal(await world.getAttribute("dir"),lang==="ar"?"rtl":"ltr");
    assert.equal(await world.getAttribute("lang"),lang);
    const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>window.innerWidth+1);
@@ -27,7 +27,7 @@ const titles={en:["Grow with Ilama","Food Explorer","Build a Happy Plate","My Am
     for(let index=0;index<5;index++){
      await page.getByRole("button",{name:new RegExp(titles[lang][index])}).first().click();
      if(index===0){const plots=world.locator('[class*="gardenPlots"] button');for(let i=0;i<3;i++)await plots.nth(i).click()}
-     if(index===1){const items=world.locator('[class*="marketShelf"] button');for(const i of [0,2,4])await items.nth(i).click()}
+     if(index===1){for(const fruit of (lang==="ar"?["تفاح","موز","فراولة"]:["Apple","Banana","Strawberry"]))await world.locator('[class*="marketShelf"] button').filter({hasText:fruit}).click()}
      if(index===2){const items=world.locator('[class*="basketItems"] button');for(let i=0;i<3;i++)await items.nth(i).click()}
      if(index===3){const move=world.locator('[class*="bodyGame"] [class*="rewardButton"]').first();for(let i=0;i<3;i++)await move.click()}
      if(index===4){const next=world.locator('[class*="storyControls"] [class*="rewardButton"]');await next.click();await next.click()}
