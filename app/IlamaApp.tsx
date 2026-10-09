@@ -7,7 +7,7 @@ import ProgressBeacon from "./ProgressBeacon";
 import HomeReference from "./HomeReference";
 import {LearnEditorial,LensEditorial,LogEditorial,EasyEditorial,JournalEditorial,VisitEditorial,AboutEditorial,PrivacyEditorial,SitemapEditorial} from "./EditorialPages";
 import FoodAtlasEditorial from "./FoodAtlasEditorial";
-import KidsEditorial from "./KidsEditorial";
+import KidsEditorial from "./KidsWorld";
 import EverydayEditorial from "./EverydayEditorial";
 import LifeStagesEditorial from "./LifeStagesEditorial";
 import MentalHealthNutrition from "./MentalHealthNutrition";
