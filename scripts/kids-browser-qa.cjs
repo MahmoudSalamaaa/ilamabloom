@@ -57,6 +57,22 @@ const titles={en:["Grow with Ilama","Food Explorer","Build a Happy Plate","My Am
     await egypt.getByRole("button",{name:lang==="ar"?/العب تحدي الطعام/:/Play the food challenge/}).click();
     await egypt.getByRole("button",{name:lang==="ar"?/الأرز والخضروات/:/Rice and vegetables/}).click();
     assert((await egypt.getByRole("status").first().innerText()).includes("1 / 27"),"Egypt stamp earned");
+
+    const quest=world.locator('section[aria-label="'+(lang==="ar"?"مغامرات إيلاما التعليمية":"Ilama learning adventures")+'"]');
+    const questChoices=lang==="ar"?[/في تربة مناسبة/,/كمية مناسبة من الماء/,/نغسلها بماء جارٍ/]:[/In suitable soil/,/A suitable amount of water/,/Rinse with safe running water/];
+    for(const choice of questChoices){
+     await quest.getByRole("button",{name:choice}).click();
+     assert(await quest.getByRole("status").first().innerText(),"quest explains successful choice");
+     await quest.getByRole("button",{name:lang==="ar"?/نكمل الحكاية/:/Continue the story/}).click();
+    }
+    assert(await quest.getByText(lang==="ar"?/خلصت المغامرة/:/You explored the whole story/).first().isVisible(),"story quest finishes");
+    const kitchen=world.locator('section[aria-label="'+(lang==="ar"?"استوديو مطبخ تيتا":"Grandma's kitchen studio")+'"]');
+    for(const ingredient of (lang==="ar"?[/طماطم/,/عيش/,/عدس/]:[/Tomato/,/Bread/,/Lentils/]))await kitchen.getByRole("button",{name:ingredient}).first().click();
+    await kitchen.getByRole("button",{name:lang==="ar"?/نكمل وصفتي/:/Continue my recipe/}).click();
+    await kitchen.getByRole("button",{name:lang==="ar"?/شخص بالغ/:/A grown-up/}).click();
+    await kitchen.getByRole("button",{name:lang==="ar"?/احفظ فكرتي/:/Save my meal idea/}).click();
+    assert(await kitchen.getByText(lang==="ar"?/جهزت فكرة وجبة/:/You created a varied meal idea/).first().isVisible(),"kitchen meal saved safely");
+
    }
    if(process.env.QA_SCREENSHOTS&&(width===390||width===1440))await page.screenshot({path:"qa-kids-"+lang+"-"+width+".png",fullPage:true});
    reports.push({lang,width,errors,accessibility});
