@@ -5,7 +5,7 @@ import styles from "./KidsWorld.module.css";
 type Zone="garden"|"market"|"kitchen"|"body"|"family";
 type Localized={en:string;ar:string};
 type Game={id:Zone;icon:string;title:Localized;description:Localized;image:string;guide:string};
-type Props={ar:boolean;signedIn:boolean;saveProgress:(key:string,score:number)=>Promise<unknown>};
+type Props={ar:boolean;signedIn:boolean;userId?:string;saveProgress:(key:string,score:number)=>Promise<unknown>};
 
 const games:Game[]=[
 {id:"garden",icon:"🌱",title:{en:"Grow with Ilama",ar:"ازرع مع إيلاما"},description:{en:"Plant a magical little garden",ar:"ازرع حديقة صغيرة مليانة مفاجآت"},image:"/kids/ilama.webp",guide:"/kids/ilama.webp"},
@@ -18,9 +18,10 @@ const fruits=[{id:"apple",icon:"🍎",en:"Apple",ar:"تفاح",fruit:true},{id:"
 const foods=[{id:"apple",icon:"🍎",en:"Apple",ar:"تفاح"},{id:"carrot",icon:"🥕",en:"Carrot",ar:"جزر"},{id:"bread",icon:"🍞",en:"Bread",ar:"عيش"},{id:"egg",icon:"🥚",en:"Egg",ar:"بيض"},{id:"tomato",icon:"🍅",en:"Tomato",ar:"طماطم"},{id:"cheese",icon:"🧀",en:"Cheese",ar:"جبنة"}];
 const family=[{id:"ilamo",image:"/kids/ilamo.webp",en:"Ilamo",ar:"إيلامو",enAbout:"The curious explorer",arAbout:"المستكشف الفضولي"},{id:"ilama",image:"/kids/ilama.webp",en:"Ilama",ar:"إيلاما",enAbout:"The creative adventurer",arAbout:"المغامرة المبدعة"},{id:"grandpa",image:"/kids/grandpa.webp",en:"Grandpa Ilama",ar:"جدو إيلاما",enAbout:"Stories from the garden",arAbout:"حكايات من الحديقة"},{id:"grandma",image:"/kids/grandma.webp",en:"Grandma Ilama",ar:"تيتا إيلاما",enAbout:"Warm stories to share",arAbout:"حكايات دافية بنحكيها سوا"}];
 const discoveries=[{icon:"🍎",en:"Discover Foods",ar:"اكتشف الأطعمة"},{icon:"👀",en:"Explore Your Senses",ar:"اكتشف حواسك"},{icon:"🌻",en:"Grow Together",ar:"نزرع سوا"},{icon:"💃",en:"Move & Play",ar:"اتحرك والعب"},{icon:"📚",en:"Enjoy Stories",ar:"استمتع بالحكايات"},{icon:"💚",en:"Build Happy Habits",ar:"عادات مبهجة"}];
-const storageKey="ilama-world-stars-v1";
+const guestStorageKey="ilama-world-stars-v1";
 
-export default function KidsWorld({ar,signedIn,saveProgress}:Props){
+export default function KidsWorld({ar,signedIn,userId,saveProgress}:Props){
+const storageKey=userId?"ilama-world-stars-v2:"+userId:guestStorageKey;
 const [zone,setZone]=useState<Zone|null>(null);
 const [earned,setEarned]=useState<Zone[]>([]);
 const [hydrated,setHydrated]=useState(false);
@@ -36,7 +37,7 @@ const saving=useRef(false);
 const adventureRef=useRef<HTMLElement|null>(null);
 const label=(v:Localized)=>ar?v.ar:v.en;
 const selected=zone?games.find(g=>g.id===zone):undefined;
-useEffect(()=>{try{const saved=JSON.parse(localStorage.getItem(storageKey)||"[]");if(Array.isArray(saved))setEarned(games.map(g=>g.id).filter(id=>saved.includes(id)))}catch{}finally{setHydrated(true)}},[]);
+useEffect(()=>{try{const saved=JSON.parse(localStorage.getItem(storageKey)||"[]");if(Array.isArray(saved))setEarned(games.map(g=>g.id).filter(id=>saved.includes(id)))}catch{}finally{setHydrated(true)}},[storageKey]);
 useEffect(()=>{if(!hydrated)return;try{localStorage.setItem(storageKey,JSON.stringify(earned))}catch{}},[earned,hydrated]);
 function resetGame(){setGardenSeeds(0);setMarketFinds([]);setBasket([]);setMovement(0);setStoryPage(0);setNotice("");setCelebrate(false)}
 function openGame(id:Zone){if(saving.current)return;resetGame();setZone(id);window.setTimeout(()=>{adventureRef.current?.scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});adventureRef.current?.focus({preventScroll:true})},40)}
@@ -44,7 +45,7 @@ async function complete(id:Zone){if(saving.current||earned.includes(id))return;s
 const replay=()=>resetGame();
 return <main className={styles.world} dir={ar?"rtl":"ltr"} lang={ar?"ar":"en"}>
 <div className={styles.sky} aria-hidden="true"><span>🌼</span><span>✨</span><span>🍃</span><span>🌸</span></div>
-<nav className={styles.kidsNav} aria-label={ar?"تنقل عالم الأطفال":"Kids world navigation"}><a className={styles.kidsLogo} href="#kids-home"><span>ILAMA</span> <em>Kids</em><span aria-hidden="true"> 🌿</span></a><div className={styles.navLinks}><a href="#kids-games">{ar?"الألعاب":"Games"}</a><a href="#kids-family">{ar?"العيلة":"Our Family"}</a><a href="#kids-parents">{ar?"للأهل":"For Parents"}</a></div><div className={styles.navStars} aria-live="polite">⭐ <strong>{earned.length}/{games.length}</strong><span className={styles.visuallyHidden}>{ar?"نجومك":"Adventure stars"}</span></div></nav>
+<nav className={styles.kidsNav} aria-label={ar?"تنقل عالم الأطفال":"Kids world navigation"}><a className={styles.kidsLogo} href="#kids-home"><span>ILAMA</span> <em>Kids</em><span aria-hidden="true"> 🌿</span></a><div className={styles.navLinks}><a href="#kids-home">{ar?"الرئيسية":"Home"}</a><a href="#kids-games">{ar?"الألعاب":"Games"}</a><button type="button" onClick={()=>openGame("market")}>{ar?"أطلس الطعام":"Food Atlas"}</button><button type="button" onClick={()=>openGame("family")}>{ar?"الحكايات":"Stories"}</button><button type="button" onClick={()=>openGame("body")}>{ar?"الأنشطة":"Activities"}</button><a href="#kids-family">{ar?"العيلة":"Our Family"}</a><a href="#kids-parents">{ar?"للأهل":"For Parents"}</a></div><div className={styles.navStars} aria-live="polite">⭐ <strong>{earned.length}/{games.length}</strong><span className={styles.visuallyHidden}>{ar?"نجومك":"Adventure stars"}</span></div></nav>
 <header id="kids-home" className={styles.hero}><div className={styles.heroCopy}><p className={styles.eyebrow}>{ar?"أهلًا بيك في عالم إيلاما":"WELCOME TO ILAMA KIDS"}</p><h1>{ar?"عجايب صغيرة، اكتشافات كبيرة!":"Little Wonders. Big Discoveries."}</h1><p>{ar?"اكتشف الأكل والطبيعة وجسمك مع إيلامو وإيلاما وجدو وتيتا. كل يوم فيه مغامرة جديدة!":"Explore food, discover your body, and grow with joy — alongside Ilamo, Ilama, Grandpa and Grandma!"}</p><div className={styles.heroActions}><button type="button" onClick={()=>openGame("market")}>{ar?"العب مع إيلامو":"Explore with Ilamo"} <span aria-hidden="true">✦</span></button><button type="button" className={styles.coralButton} onClick={()=>openGame("garden")}>{ar?"العب مع إيلاما":"Explore with Ilama"} <span aria-hidden="true">✿</span></button></div></div><div className={styles.heroArt}><img src="/kids/ilama-family.webp" alt={ar?"إيلامو وإيلاما وجدو وتيتا في حديقة خضراء":"Ilamo, Ilama, Grandpa and Grandma in their garden"}/><span className={styles.heroFlower} aria-hidden="true">🌼</span></div></header>
 <section className={styles.discoveryStrip} aria-label={ar?"رحلتنا":"Our discoveries"}>{discoveries.map(item=><div key={item.en}><span aria-hidden="true">{item.icon}</span><strong>{ar?item.ar:item.en}</strong></div>)}</section>
 <section className={styles.map} id="kids-games"><p className={styles.eyebrow}>{ar?"العب واكتشف":"FUN GAMES"}</p><h2>{ar?"العب، اتعلم، واكتشف!":"Play, Learn & Explore!"}</h2><p className={styles.sectionLead}>{ar?"خمس مغامرات، كل واحدة فيها حاجة جديدة تعملها مع شخصياتنا.":"Five playful adventures, each with a different way to discover something new."}</p><div className={styles.zones}>{games.map((game,i)=><button type="button" key={game.id} className={styles.zone} onClick={()=>openGame(game.id)} aria-label={label(game.title)+". "+label(game.description)}><div className={styles.zoneArt}><img src={game.image} loading="lazy" alt=""/><span aria-hidden="true">{game.icon}</span></div><span className={styles.zoneTitle}>{label(game.title)} {earned.includes(game.id)?"⭐":""}</span><small>{label(game.description)}</small><span className={styles.enter}>{ar?"العب دلوقتي ←":"Play now →"}</span></button>)}</div></section>
