@@ -13,14 +13,14 @@ const initial:Farm={plots:[null,null,null,null,null,null],harvest:{},visits:0};
 const safe=(value:unknown):Farm=>{if(!value||typeof value!=="object")return initial;const x=value as Partial<Farm>;return {plots:Array.isArray(x.plots)?Array.from({length:6},(_,i)=>{const p=x.plots?.[i];return p&&typeof p.crop==="string"&&crops.some(c=>c.id===p.crop)?{crop:p.crop,water:Math.min(3,Math.max(0,Number(p.water)||0))}:null}):initial.plots,harvest:x.harvest&&typeof x.harvest==="object"?Object.fromEntries(crops.map(c=>[c.id,Math.max(0,Math.min(999,Number(x.harvest?.[c.id])||0))])):{},visits:Math.max(0,Math.min(999,Number(x.visits)||0))}};
 export default function FarmWorld({ar,userId}:{ar:boolean;userId?:string}){
  const [farm,setFarm]=useState<Farm>(initial);
- const [ready,setReady]=useState(false);
+ const [loadedKey,setLoadedKey]=useState<string|null>(null);
  const [crop,setCrop]=useState("tomato");
  const [message,setMessage]=useState("");
  const [zone,setZone]=useState<"field"|"pond"|"kitchen">("field");
  const key="ilama-farm-v1:"+(userId||"guest");
  const t=(x:L)=>ar?x.ar:x.en;
- useEffect(()=>{try{setFarm(safe(JSON.parse(localStorage.getItem(key)||"null")))}catch{setFarm(initial)}setReady(true)},[key]);
- useEffect(()=>{if(ready)try{localStorage.setItem(key,JSON.stringify(farm))}catch{}},[farm,key,ready]);
+ useEffect(()=>{try{setFarm(safe(JSON.parse(localStorage.getItem(key)||"null")))}catch{setFarm(initial)}setLoadedKey(key)},[key]);
+ useEffect(()=>{if(loadedKey===key)try{localStorage.setItem(key,JSON.stringify(farm))}catch{}},[farm,key,loadedKey]);
  const change=(i:number)=>{const selected=crops.find(c=>c.id===crop)!;const p=farm.plots[i];if(!p){setFarm(f=>({...f,plots:f.plots.map((v,j)=>j===i?{crop,water:0}:v)}));setMessage(t({en:"A seed is planted. Water it to grow!",ar:"زرعنا بذرة! اسقيها علشان تكبر."}));return}
  const item=crops.find(c=>c.id===p.crop)!;
  if(p.water>=item.steps){setFarm(f=>({...f,plots:f.plots.map((v,j)=>j===i?null:v),harvest:{...f.harvest,[p.crop]:(f.harvest[p.crop]||0)+1}}));setMessage(t({en:"Harvest collected! Visit Grandma's kitchen.",ar:"جمعنا المحصول! يلا مطبخ تيتا."}));return}

@@ -16,10 +16,10 @@ const entries:Entry[]=[
 ];
 const valid=(s:string):s is Zone=>entries.some(e=>e.id===s);
 export default function KidsAdventureHub({ar,userId}:{ar:boolean;userId?:string}){
-const [zone,setZone]=useState<Zone>("farm");const [visited,setVisited]=useState<Zone[]>([]);const [ready,setReady]=useState(false);
+const [zone,setZone]=useState<Zone>("farm");const [visited,setVisited]=useState<Zone[]>([]);const [loadedKey,setLoadedKey]=useState<string|null>(null);
 const storageKey="ilama-kids-hub-v1:"+(userId||"guest");
-useEffect(()=>{try{const x=JSON.parse(localStorage.getItem(storageKey)||"{}");if(x&&valid(x.zone))setZone(x.zone);if(Array.isArray(x.visited))setVisited(x.visited.filter((s:unknown):s is Zone=>typeof s==="string"&&valid(s)))}catch{}setReady(true)},[storageKey]);
-useEffect(()=>{if(!ready)return;try{localStorage.setItem(storageKey,JSON.stringify({zone,visited}))}catch{}},[storageKey,zone,visited,ready]);
+useEffect(()=>{try{const x=JSON.parse(localStorage.getItem(storageKey)||"{}");if(x&&valid(x.zone))setZone(x.zone);if(Array.isArray(x.visited))setVisited(x.visited.filter((s:unknown):s is Zone=>typeof s==="string"&&valid(s)))}catch{}setLoadedKey(storageKey)},[storageKey]);
+useEffect(()=>{if(loadedKey!==storageKey)return;try{localStorage.setItem(storageKey,JSON.stringify({zone,visited}))}catch{}},[storageKey,zone,visited,loadedKey]);
 const choose=(z:Zone)=>{setZone(z);setVisited(v=>v.includes(z)?v:[...v,z])};
 const active=entries.find(e=>e.id===zone)!;
 return <section id="kids-adventure-hub" dir={ar?"rtl":"ltr"} aria-label={ar?"عالم مغامرات إيلاما":"ILAMA adventure world"} style={{margin:"32px 0",padding:"clamp(12px,3vw,30px)",borderRadius:28,background:"#f7f3e9",color:"#294b3c"}}>
