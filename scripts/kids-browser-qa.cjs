@@ -18,7 +18,7 @@ const titles={en:["Grow with Ilama","Food Explorer","Build a Happy Plate","My Am
    const world=page.locator('[data-kids-world="true"]');
    assert.equal(await page.locator("main").count(),1,"nested main landmark");
    assert.equal(await world.getAttribute("dir"),lang==="ar"?"rtl":"ltr");
-   assert.equal(await world.getAttribute("lang"),lang);assert.equal(await world.locator("nav").count(),1,"Kids navigation landmark");
+   assert.equal(await world.getAttribute("lang"),lang);assert((await world.locator("nav").count())>=1,"Kids navigation landmark");
    const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>window.innerWidth+1);
    assert.equal(overflow,false,"horizontal overflow "+lang+" "+width);
    for(const name of names){const img=world.locator('img[src="/kids/'+name+'.webp"]').first();await img.scrollIntoViewIfNeeded();await img.evaluate(async el=>{await Promise.race([el.decode(),new Promise((_,reject)=>setTimeout(()=>reject(new Error("Image decode timed out")),10000))])});assert(await img.evaluate(el=>el.naturalWidth>0),"missing artwork "+name)}
@@ -39,6 +39,8 @@ const titles={en:["Grow with Ilama","Food Explorer","Build a Happy Plate","My Am
     assert.equal(await world.locator('[class*="navStars"] strong').innerText(),"5/5","stars persist after reload");
    }
    if(width===390){
+    const hub=world.locator("#kids-adventure-hub");
+    await hub.locator("nav").getByRole("button",{name:/Farm|المزرعة/}).click();
     const farm=world.locator('section[aria-label="'+(lang==="ar"?"استكشف مزرعة جدو وتيتا التفاعلية":"Explore Grandpa and Grandma's interactive farm")+'"]');
     assert.equal(await farm.locator("canvas").count(),1,"farm canvas exists");
     await farm.getByRole("button",{name:lang==="ar"?/حوض فارغ 1/:/Empty plot 1/}).click();
@@ -52,6 +54,7 @@ const titles={en:["Grow with Ilama","Food Explorer","Build a Happy Plate","My Am
     const weather=world.locator('section[aria-label="'+(lang==="ar"?"معمل النباتات والطقس":"Plant and weather science lab")+'"]');
     for(const choice of (lang==="ar"?[/كمية مياه مناسبة/,/ضوء مناسب/,/المياه الزيادة تتصرف/]:[/suitable amount of water/i,/Suitable light/,/excess water drain/]))await weather.getByRole("button",{name:choice}).click();
     assert(await weather.getByText(lang==="ar"?/اكتشاف جميل/:/Wonderful discovery/).first().isVisible(),"plant science game completes");
+    await hub.locator("nav").getByRole("button",{name:/Egypt Adventures|مغامرات مصر/}).click();
     const egypt=world.locator('section[aria-label="'+(lang==="ar"?"مغامرات محافظات مصر":"Egypt governorate adventures")+'"]');
     await egypt.getByRole("button",{name:lang==="ar"?/الدقهلية/:/Dakahlia/}).click();
     await egypt.getByRole("button",{name:lang==="ar"?/العب تحدي الطعام/:/Play the food challenge/}).click();

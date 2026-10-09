@@ -3,7 +3,7 @@ import fs from "node:fs";
 import assert from "node:assert/strict";
 import ts from "typescript";
 
-const names=["app/KidsWorld.tsx","app/FarmWorld.tsx","app/FarmCanvas.tsx","app/EgyptAdventures.tsx","app/KidsDiscoveryLab.tsx","app/KidsWeatherLab.tsx","app/KidsQuestTrail.tsx","app/KidsKitchenStudio.tsx"];
+const names=["app/KidsWorld.tsx","app/FarmWorld.tsx","app/FarmCanvas.tsx","app/EgyptAdventures.tsx","app/KidsDiscoveryLab.tsx","app/KidsWeatherLab.tsx","app/KidsQuestTrail.tsx","app/KidsKitchenStudio.tsx","app/KidsAdventureHub.tsx","app/AquaWorld.tsx","app/DiscoveryLab.tsx","app/MoveAdventures.tsx","app/PoseMotionTracker.tsx"];
 const files=Object.fromEntries(names.map(name=>[name,fs.readFileSync(name,"utf8")]));
 let count=0;
 const check=(label,ok)=>{assert.ok(ok,label);count++;console.log("✓ "+label)};
@@ -14,7 +14,7 @@ for(const [name,content] of Object.entries(files)){
  if(diagnostics.length)for(const d of diagnostics)console.error(ts.flattenDiagnosticMessageText(d.messageText,"\n"));
 }
 const kids=files["app/KidsWorld.tsx"],farm=files["app/FarmWorld.tsx"],canvas=files["app/FarmCanvas.tsx"],egypt=files["app/EgyptAdventures.tsx"];
-check("Farm and Egypt discovery integrated",kids.includes('import FarmWorld from "./FarmWorld"')&&kids.includes('import EgyptAdventures from "./EgyptAdventures"')&&kids.includes("<FarmWorld ")&&kids.includes("<EgyptAdventures "));
+check("Farm, Egypt and motion connected through adventure hub",kids.includes('import KidsAdventureHub from "./KidsAdventureHub"')&&kids.includes("<KidsAdventureHub ")&&["FarmWorld","EgyptAdventures","AquaWorld","DiscoveryLab","MoveAdventures"].every(name=>files["app/KidsAdventureHub.tsx"].includes("<"+name+" ")));
 check("Canvas world with requestAnimationFrame",canvas.includes("requestAnimationFrame")&&canvas.includes("getContext(\"2d\")"));
 check("Accessible keyboard movement and touch navigation",canvas.includes("onPointerDown={click}")&&canvas.includes("onKeyDown={keys}")&&canvas.includes("tabIndex={0}"));
 check("Motion preference and manual pause",canvas.includes("prefers-reduced-motion")&&canvas.includes("setPaused"));
@@ -48,6 +48,8 @@ check("Quest contains family offline activity and no pressure",quests.includes("
 check("Kitchen studio integrated with 12 ingredients",kids.includes('import KidsKitchenStudio from "./KidsKitchenStudio"')&&kids.includes("<KidsKitchenStudio ")&&([...kitchen.matchAll(/\{id:"[a-z]+",icon:/g)].length===12));
 check("Kitchen studio includes safe adult preparation and local-only ideas",kitchen.includes('safety!=="adult"')&&kitchen.includes("localStorage.setItem(key,JSON.stringify(saved))")&&kitchen.includes("Clear saved ideas"));
 check("No monetary rewards, clinic pressure or veterinary games in new components",![quests,kitchen].some(s=>/voucher|clinic discount|veterinar|in-app purchase|leaderboard|streak/i.test(s)));
+check("Motion camera opt-in and manual fallback",files["app/MoveAdventures.tsx"].includes("getUserMedia")&&files["app/MoveAdventures.tsx"].includes("completeMove")&&files["app/MoveAdventures.tsx"].includes("stopCamera"));
+check("Camera processing excludes recording and upload APIs",!["app/MoveAdventures.tsx","app/PoseMotionTracker.tsx"].some(name=>/MediaRecorder|XMLHttpRequest|sendBeacon|toDataURL|toBlob/.test(files[name])));
 const approved=new Set(["ilama-family.webp","ilamo.webp","ilama.webp","grandpa.webp","grandma.webp"]);
 for(const [name,content] of Object.entries(files)){
  const found=[...content.matchAll(/\/kids\/([\w-]+\.(?:webp|png|jpg|jpeg))/g)].map(x=>x[1]);
