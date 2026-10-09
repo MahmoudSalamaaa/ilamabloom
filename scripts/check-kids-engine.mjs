@@ -3,7 +3,7 @@ import fs from "node:fs";
 import assert from "node:assert/strict";
 import ts from "typescript";
 
-const names=["app/KidsWorld.tsx","app/FarmWorld.tsx","app/FarmCanvas.tsx","app/EgyptAdventures.tsx","app/KidsDiscoveryLab.tsx","app/KidsWeatherLab.tsx"];
+const names=["app/KidsWorld.tsx","app/FarmWorld.tsx","app/FarmCanvas.tsx","app/EgyptAdventures.tsx","app/KidsDiscoveryLab.tsx","app/KidsWeatherLab.tsx","app/KidsQuestTrail.tsx","app/KidsKitchenStudio.tsx"];
 const files=Object.fromEntries(names.map(name=>[name,fs.readFileSync(name,"utf8")]));
 let count=0;
 const check=(label,ok)=>{assert.ok(ok,label);count++;console.log("✓ "+label)};
@@ -38,6 +38,14 @@ check("Weather experiment has three scenarios",([...weatherLab.matchAll(/answer:
 check("Weather supports reduced motion and offline family activity",weatherLab.includes("prefers-reduced-motion")&&weatherLab.includes("Optional family experiment"));
 check("No game timer, leaderboard or punitive points",![discovery,weatherLab].some(s=>/setInterval|leaderboard|streak|deductPoints|negativeScore/i.test(s)));
 check("No vet games or child-facing clinic promotion",!names.some(name=>/veterinar|animal clinic|pet diagnosis|clinic discount|medical coupon|streak|leaderboard|in-app purchase/i.test(files[name])));
+const quests=files["app/KidsQuestTrail.tsx"],kitchen=files["app/KidsKitchenStudio.tsx"];
+check("Three playable story quests integrated",kids.includes('import KidsQuestTrail from "./KidsQuestTrail"')&&kids.includes("<KidsQuestTrail ")&&quests.includes('id:"seed"')&&quests.includes('id:"fish"')&&quests.includes('id:"egypt"'));
+check("Quest choices show explanations before progression",quests.includes("choice===step.correct?t(step.explain)")&&quests.includes("continueStory"));
+check("Quest progress is local and gated after hydration",quests.includes("loaded===key")&&quests.includes("localStorage.setItem(key,JSON.stringify(progress))"));
+check("Quest contains family offline activity and no pressure",quests.includes("Optional family activity away from the screen")&&quests.includes("No financial points, ads or absence penalties."));
+check("Kitchen studio integrated with 12 ingredients",kids.includes('import KidsKitchenStudio from "./KidsKitchenStudio"')&&kids.includes("<KidsKitchenStudio ")&&([...kitchen.matchAll(/\{id:"[a-z]+",icon:/g)].length===12));
+check("Kitchen studio includes safe adult preparation and local-only ideas",kitchen.includes('safety!=="adult"')&&kitchen.includes("localStorage.setItem(key,JSON.stringify(saved))")&&kitchen.includes("Clear saved ideas"));
+check("No monetary rewards, clinic pressure or veterinary games in new components",![quests,kitchen].some(s=>/voucher|clinic discount|veterinar|in-app purchase|leaderboard|streak/i.test(s)));
 const approved=new Set(["ilama-family.webp","ilamo.webp","ilama.webp","grandpa.webp","grandma.webp"]);
 for(const [name,content] of Object.entries(files)){
  const found=[...content.matchAll(/\/kids\/([\w-]+\.(?:webp|png|jpg|jpeg))/g)].map(x=>x[1]);
