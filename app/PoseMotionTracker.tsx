@@ -35,13 +35,13 @@ if(disposed){detector.close();detector=null;return;}
 message("ready");
 const loop=(now:number)=>{if(disposed)return;frame=requestAnimationFrame(loop);if(busy||now-tick.current<110||video.readyState<2||video.currentTime===lastVideo)return;tick.current=now;lastVideo=video.currentTime;busy=true;
 try{const result=detector?.detectForVideo(video,now);const p=result?.landmarks?.[0];const m=p?classify(p):null;if(!m){phase.current=false;return}
-const active=kind==="reach"||kind==="harvest"?m.leftReach||m.rightReach:kind==="stretch"?m.leftHandRaised||m.rightHandRaised:kind==="swim"?m.armsWide:kind==="mirror"?m.leftHandRaised||m.rightHandRaised:kind==="dance"||kind==="family"?m.armsWide||Math.abs(m.bodyShift-prevShift.current)>.06:Math.abs(m.bodyShift-prevShift.current)>.045;
+const shifted=Math.abs(m.bodyShift-prevShift.current);const active=kind==="reach"||kind==="harvest"?(m.leftReach||m.rightReach)&&shifted>.012:kind==="stretch"?(m.leftHandRaised||m.rightHandRaised)&&shifted>.012:kind==="swim"?m.armsWide&&shifted>.012:kind==="mirror"?(m.leftHandRaised||m.rightHandRaised)&&shifted>.012:kind==="dance"||kind==="family"?shifted>.045:shifted>.045;
 prevShift.current=m.bodyShift;
 if(active&&!phase.current&&now-last.current>1200){last.current=now;cb.current();phase.current=true}else if(!active){phase.current=false}
 }catch{message("tracking-error")}finally{busy=false}};
 frame=requestAnimationFrame(loop);
 }catch{message("unavailable")}})();
-return()=>{disposed=true;cancelAnimationFrame(frame);detector?.close();phase.current=false};
+return()=>{disposed=true;cancelAnimationFrame(frame);detector?.close();phase.current=false;prevShift.current=0};
 },[enabled,video,kind]);
 if(!enabled)return null;
 return <div role="status" aria-live="polite" style={{padding:10,borderRadius:12,background:"#e9f4ee",margin:"8px 0"}}>{status==="ready"?(ar?"تتبع الحركة شغال على الجهاز. لو الحركة مش بتتسجل استخدم زر التأكيد.":"On-device motion tracking is active. Use the confirm button if tracking misses a move."):status==="loading"?(ar?"تحميل نموذج تتبع الحركة...":"Loading motion model..."):status==="unavailable"||status==="tracking-error"?(ar?"التتبع غير متاح حاليًا. استخدم التأكيد اليدوي.":"Tracking unavailable. Use manual confirmation."):(ar?"شغّل الكاميرا لبدء التتبع.":"Enable camera to start tracking.")}</div>;
