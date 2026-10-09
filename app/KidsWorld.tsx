@@ -35,7 +35,7 @@ family:{en:"Caring for something together can make a lovely story.",ar:"لما �
 
 export default function KidsWorld(props:Props){
 const journey=useKidsJourney();
-return <KidsWorldView key={journey.scope} {...props}/>;
+return <KidsWorldView key={journey.gameKey} {...props}/>;
 }
 function KidsWorldView({ar,signedIn,userId,saveProgress}:Props){
 const journey=useKidsJourney();const childScope=journey.scope;

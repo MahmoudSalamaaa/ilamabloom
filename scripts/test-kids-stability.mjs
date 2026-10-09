@@ -26,4 +26,4 @@ const src=readFileSync("app/KidsWorld.tsx","utf8");
 for(const name of ["ilama-family.webp","ilamo.webp","ilama.webp","grandpa.webp","grandma.webp"])assert.ok(src.includes("/kids/"+name),name);
 });
 
-test("motion tracking uses shared movement rules and cleans up model",()=>{const pose=readFileSync("app/PoseMotionTracker.tsx","utf8");assert.match(pose,/moved\(kind,m,previousSample.current\)/);assert.match(pose,/if\(disposed\)\{detector.close\(\);detector=null;return;\}/);assert.match(pose,/previousSample.current=null/);});
+test("motion tracking uses shared movement rules and cleans up model",()=>{const pose=readFileSync("app/PoseMotionTracker.tsx","utf8");assert.match(pose,/moved\(kind,m,previousSample.current\)/);assert.match(pose,/if\(disposed\)\{release\(\);return;\}/);assert.match(pose,/previousSample.current=null/);});

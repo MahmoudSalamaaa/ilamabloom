@@ -9,7 +9,7 @@ export function farmAction(farm:FarmState,action:FarmAction):FarmState{
   const needed:Record<string,number>={};for(const id of action.ingredients)needed[id]=(needed[id]||0)+1;
   if(Object.entries(needed).some(([id,n])=>(farm.harvest[id]||0)<n))return farm;
   const harvest={...farm.harvest};for(const [id,n] of Object.entries(needed))harvest[id]-=n;
-  return {...farm,harvest};
+  return {...farm,harvest,visits:Math.min(999,farm.visits+1)};
  }
  if(!Number.isInteger(action.plot)||action.plot<0||action.plot>=6||!(action.crop in steps))return farm;
  const plot=farm.plots[action.plot];const plots=[...farm.plots];
@@ -35,4 +35,14 @@ export function moved(kind:MovementMode,now:MotionSample,previous:MotionSample|n
 }
 export function moveGoal(base:number,pace:'gentle'|'regular'|'extended'){
  return pace==='gentle'?Math.max(3,Math.ceil(base/2)):pace==='extended'?Math.min(12,base+2):base;
+}
+
+export type PlantCondition='dry'|'dark'|'flooded'|'balanced';
+/** A deliberately simple toy, never a watering prescription for a real species. */
+export function simulatePlant(water:number,light:number,drain:boolean):PlantCondition{
+ if(!Number.isFinite(water)||!Number.isFinite(light))return 'dry';
+ if(water<=0)return 'dry';
+ if(water>=2&&!drain)return 'flooded';
+ if(light<=0)return 'dark';
+ return 'balanced';
 }

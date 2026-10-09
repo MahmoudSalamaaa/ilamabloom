@@ -1,34 +1,40 @@
-# ILAMA Kids — product, ethics and release gates
+# ILAMA Kids: product, ethics and release gates
 
-## Scope and product promise
-ILAMA Kids is a bilingual, child-first food-literacy, nature, science, agriculture and Egypt-discovery world. Animals are part of the living farm and ecosystem; **not** a veterinary-care simulator. Children learn through agency, play, gentle feedback and offline family activities.
+## Scope
 
-## Current implementation (staged; NOT production)
-- Existing five React games remain.
-- FarmCanvas: procedural animated 2D canvas world, Ilama movement by pointer and keyboard, four existing approved character WebPs, pond with moving fish, selectable destinations, zoom, pan buttons, pause and reduced-motion behavior. The garden now reflects actual plot growth, and offscreen/hidden rendering is suspended to reduce battery use.
-- FarmWorld: garden planting/watering/harvesting, device-local inventory, kitchen vegetable-side activity, freshwater-vs-sea fish exploration with variable-nutrient caution.
-- EgyptAdventures: all 27 governorates grouped into six discoverable regions, food/crop facts, short quiz, device-local noncompetitive discovery stamps.
-- KidsDiscoveryLab: food-source classification (six foods, selectable 3–5 / 6–8 / 9–12 activity levels) and Nile tilapia river-to-table sequencing, with noncompetitive local discovery stamps.
-- KidsWeatherLab: three plant-science puzzles on water, light and drainage, with an optional adult-supervised offline experiment.
-- KidsQuestTrail: three independent replayable story quests (Grandpa's seeds, Nile fish and safe food preparation, Egyptian food geography), each with three interactive steps, explanations before advancing, offline family prompts and device-local noncommercial progress.
-- KidsKitchenStudio: 12 ingredients across five food groups, accessible plate creation, an adult cooking safety checkpoint, a local-only capped gallery of eight saved meal ideas, and a clear-delete control.
-- Static TSX syntax and safety checks in `npm run check:kids` (requires local dependencies). The Playwright QA script now includes farm harvest-to-kitchen, discovery games, weather puzzles, Egypt stamps, story-quest scenes and kitchen meal-saving, but HAS NOT BEEN EXECUTED on these detached commits.
+ILAMA Kids is a bilingual food-literacy, nature, science, agriculture and Egypt-discovery world. Children learn through play, gentle feedback and optional family activities. Animals appear as part of the ecosystem and food stories, never as a veterinary-care simulator.
 
-## Mandatory release gates
-1. **Build:** `npm ci && npm run check:kids && npm run build` must pass on the exact commit to publish. Existing check:kids checks must remain passing.
-2. **Browser:** Real Chrome/Android viewport and desktop QA: Arabic RTL, English LTR, pointer and keyboard, zoom, pan, pause, reduced motion, images, farm -> kitchen harvest, fish challenge, Egypt 27 locations, passport persistence, discovery lab age bands and quiz, weather science, guest/sign-in switching, no horizontal overflow or runtime errors. Run `scripts/kids-browser-qa.cjs` with Playwright and axe-core on the exact staged commit after a successful Next build.
-3. **Accessibility:** Keyboard focus visible; meaningful button labels; status announcements; touch targets; sufficient contrast; reduced motion; readable zoom; no forced timers.
-4. **Scientific/editorial review:** Nutrition statements verified by pediatric/clinical-nutrition editor; no food morality, body shaming, diagnoses or medical advice. Governorate crop associations are examples, never claims of exclusivity; no veterinary medicine.
-5. **Child safeguarding:** No child-to-stranger chat, public profile, personalized ads, purchases, dark patterns, streak punishment, shame, coercive characters, fear, endless loops or unnecessary care incentives. Clear stopping points and guardian controls.
-6. **Data:** Only minimal learning state; device-local progress is not server-backed or protected from other users of the device. Do not market it as private cloud storage. Signed-in account-scoped progress requires authenticated, authorized server storage and deletion before claiming account sync.
-7. **Rewards:** No child-facing clinic discounts. Bloom Points must be tied to verified, meaningful learning events with rate caps and no punitive deductions. Guardian wallet, clinic service campaigns, single-use vouchers, atomic ledger/redemption, audit logs, expiry and clinic verification must all be implemented and security-tested before financial rewards are enabled. Admin authority is controlled by the clinic owners and enforced server-side, not a client flag.
-8. **Legal and consent:** Parent/guardian consent where applicable, age-appropriate privacy notices, data deletion and retention, local medical-advertising and consumer rules reviewed before any real clinic promotion.
-9. **Deployment:** No branch ref changes or Preview/Production deployment until explicit user approval and all applicable checks pass. Prefer one cohesive release over many tiny deploys.
+## Implemented experience
 
-## Known limitations / next engineering milestones
-- Canvas scene is a playable **prototype**, not a complete game engine with collisions, NPC pathfinding, shared quest/inventory synchronization or sound.
-- Egypt uses a **region selector**, not yet accurate GIS governorate boundary polygons; obtain openly licensed ADM1 polygons (e.g. geoBoundaries gbOpen EGY ADM1, CC BY 4.0) and provide attribution before describing it as an accurate map.
-- Fish challenge has four species and simplified habitat classification; clinical-nutrition and ecology review pending.
-- The story quests and kitchen studio use device-local progress only; this must not be used as a secure balance for clinic vouchers.
-- Browser/Next.js QA has not yet been executed on these detached staged commits. Source-only structural assertions have passed; they are NOT substitutes for TSX compilation, browser rendering or accessibility audits.
-- The earlier production five-game QA does **not** establish QA for these new components.
+- The original five games and five approved character WebPs remain. Artwork hashes are release-gated; do not generate or replace artwork without an explicit request.
+- Farm World has an animated procedural canvas, keyboard/pointer/touch navigation, zoom, pan, pause, reduced motion, offscreen suspension, live growing plots and harvest-to-kitchen inventory. Atomic current-state actions prevent double harvest/spending.
+- Egypt Adventures includes all 27 governorates, six region groups, illustrative crop facts, food challenges and discovery stamps. This is a region selector, not a GIS boundary map.
+- Aqua World includes six Nile/sea fish, habitat and nutrient clues, and safe preparation/allergy-aware family language. Nutrient amounts vary by species; there is no pressure to taste fish.
+- Food Discovery includes six food-source examples, three optional difficulty bands and tilapia’s river-to-table sequence. The Discovery Lab adds 15 food/science/Egypt/nature/family activities, hints and nonpunitive feedback.
+- Weather Lab includes three plant-science challenges and a keyboard/touch-controlled toy plant with water, light and drainage observations. It is explicitly a simple illustration, not a prescription for caring for a real plant.
+- Three replayable story quests have explanations before progression. Kitchen Studio has 12 ingredients, preparation/safety checkpoints and up to eight saved meal ideas.
+- Eight movement games have character scenes, alternating gentle prompts, seated/manual alternatives, three round lengths and optional on-device experimental pose tracking. Camera acquisition, model loading, cancellation, device loss, pause, hidden/offscreen view and completion have explicit cleanup paths. No media is recorded or uploaded.
+- Four optional journeys record 12 milestones from real learning activity. Every destination stays open; there is no required order, daily obligation, ranking, penalty or financial reward. Consuming harvest or replaying an activity does not erase learning evidence.
+- Guardians can create up to five minimal learning profiles, switch/edit/delete them, export the current device’s bounded learning state and explicitly start a fresh journey. Parent summaries show discoveries and journey steps without comparisons.
+
+## Data and privacy boundaries
+
+The new learning APIs authorize every child operation by the server-authenticated account. PostgreSQL stores scoped snapshots with revisions and a profile-level progress generation. A guardian reset deletes snapshots and advances that generation; older requests cannot recreate cleared progress, even at revision zero. Same-generation learning evidence can merge, while inventory and recipe conflicts require a visible choice. Device caches include the generation and are invalidated when the server reports a reset. Deleted profiles cannot authorize reads/writes.
+
+Device caches are not encrypted and may remain on other devices until they reconnect. Exports explicitly identify current-device progress and pending edits. Do not describe device storage as protection from other people using the device. No camera frames, body measurements, health notes or public child profiles are in the learning schema. Children’s/parent spaces suppress site analytics even with prior public-site consent. A blocked storage API must not crash play.
+
+## Required verification before release
+
+1. Run `npm ci`, `npx tsc --noEmit`, `npm run check:kids` and `npm run build` on the reviewed source.
+2. Execute `qa:kids:browser`, `qa:kids:journey`, `qa:kids:camera`, `qa:kids:play` and `qa:kids:camera-resilience` against the optimized local build. Record actual results; structural assertions alone are not browser QA.
+3. Check English LTR/Arabic RTL, 320/375/390/768/1440px layouts, keyboard focus, native range controls, touch targets, contrast, reduced motion, approved image decoding, games, mission persistence, account/sibling isolation, download contents, reset/delete boundaries and stale/late responses.
+4. Verify PostgreSQL ownership, input bounds, streamed-body/origin checks, migrations, revision conflicts and reset generations. No account sync claim without authenticated storage/deletion implementation.
+5. Physical-camera, real model/CDN loading, live authentication/database permissions, human screen-reader and pediatric/clinical-editor reviews remain environment/editorial checks. Synthetic camera/API tests must be labeled as such. Automated axe checks are not accessibility certification.
+6. Cloud-outage tests do not establish fresh offline navigation/install support. The app may continue playing in an already loaded page; document delivery still requires a network or an appropriate offline shell.
+7. Consolidate ordinary development into reviewable integration updates. Keep automatic deployment disabled for this integration branch. Production deployment requires explicit approval and applicable release checks; avoid unnecessary preview/production deployments.
+
+## Disabled and future scope
+
+No public child-to-stranger chat, personalized advertising, purchases, clinic discounts, monetary points, vouchers or redemption are implemented. Any future clinic reward requires guardian-facing terms, clinic-owner server authorization, atomic ledger/redemption, rate caps, audit logs, consumer/privacy/editorial review and dedicated security tests before enabling it. No child-facing financial pressure or punishment is permitted.
+
+The canvas remains a lightweight procedural game scene. Accurate governorate polygons need a suitable licensed dataset and attribution. Camera thresholds need testing with actual devices, lighting, body positions and mobility differences. See the dated release reports in `docs/releases` for executed validation and remaining limits.

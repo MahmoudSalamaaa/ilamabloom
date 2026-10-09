@@ -21,12 +21,13 @@ const knee=(index:number)=>p[index]&&(p[index].visibility??1)>.45?p[index].y:nul
 return {leftHand:{x:p[15].x,y:p[15].y},rightHand:{x:p[16].x,y:p[16].y},leftKneeY:knee(25),rightKneeY:knee(26),leftUp:p[15].y<p[11].y-.06,rightUp:p[16].y<p[12].y-.06,leftReach:Math.abs(p[15].x-mid)>shoulder*.95,rightReach:Math.abs(p[16].x-mid)>shoulder*.95,armsWide:Math.abs(p[15].x-p[16].x)>shoulder*1.6,lean:(p[23].x+p[24].x)/2-mid};
 }
 export default function PoseMotionTracker({enabled,video,kind,onMove,onStatus,ar}:Props){
-const [status,setStatus]=useState("idle");const cb=useRef(onMove);const sb=useRef(onStatus);const last=useRef(0);const phase=useRef(false);const previousSample=useRef<MotionSample|null>(null);const tick=useRef(0);
+const [status,setStatus]=useState("idle");const [attempt,setAttempt]=useState(0);const cb=useRef(onMove);const sb=useRef(onStatus);const last=useRef(0);const previousSample=useRef<MotionSample|null>(null);const tick=useRef(0);
 useEffect(()=>{cb.current=onMove;sb.current=onStatus},[onMove,onStatus]);
 useEffect(()=>{if(!enabled||!video)return;
 let disposed=false;let detector:Landmarker|null=null;let frame=0;let busy=false;let lastVideo=-1;
+const release=()=>{const active=detector;detector=null;try{active?.close()}catch{}};
 const message=(s:string)=>{if(disposed)return;setStatus(s);sb.current(s)};
-const timeout=window.setTimeout(()=>{message("unavailable");disposed=true;cancelAnimationFrame(frame);detector?.close();detector=null},15000);
+const timeout=window.setTimeout(()=>{message("unavailable");disposed=true;cancelAnimationFrame(frame);release()},15000);
 (async()=>{try{
 message("loading");
 const api=await import(/* webpackIgnore: true */ CDN) as unknown as Api;
@@ -34,17 +35,17 @@ if(disposed)return;
 const vision=await api.FilesetResolver.forVisionTasks(WASM);
 if(disposed)return;
 detector=await api.PoseLandmarker.createFromOptions(vision,{baseOptions:{modelAssetPath:MODEL,delegate:"CPU"},runningMode:"VIDEO",numPoses:1,minPoseDetectionConfidence:.55,minPosePresenceConfidence:.55,minTrackingConfidence:.55});
-if(disposed){detector.close();detector=null;return;}
+if(disposed){release();return;}
 clearTimeout(timeout);message("ready");
 const loop=(now:number)=>{if(disposed)return;frame=requestAnimationFrame(loop);if(busy||now-tick.current<110||video.readyState<2||video.currentTime===lastVideo)return;tick.current=now;lastVideo=video.currentTime;busy=true;
-try{const result=detector?.detectForVideo(video,now);const p=result?.landmarks?.[0];const m=p?classify(p):null;if(!m||!p){phase.current=false;previousSample.current=null;return}
+try{const result=detector?.detectForVideo(video,now);const p=result?.landmarks?.[0];const m=p?classify(p):null;if(!m||!p){previousSample.current=null;return}
 const active=moved(kind,m,previousSample.current);previousSample.current=m;
-if(active&&now-last.current>1200){last.current=now;cb.current();phase.current=true}else if(!active){phase.current=false}
-}catch{message("tracking-error");cancelAnimationFrame(frame);detector?.close();detector=null}finally{busy=false}};
+if(active&&now-last.current>1200){last.current=now;cb.current();}
+}catch{message("tracking-error");cancelAnimationFrame(frame);release()}finally{busy=false}};
 frame=requestAnimationFrame(loop);
-}catch{message("unavailable")}})();
-return()=>{clearTimeout(timeout);disposed=true;cancelAnimationFrame(frame);detector?.close();phase.current=false;previousSample.current=null;last.current=0;tick.current=0};
-},[enabled,video,kind]);
+}catch{clearTimeout(timeout);message("unavailable");release()}})();
+return()=>{clearTimeout(timeout);disposed=true;cancelAnimationFrame(frame);release();previousSample.current=null;last.current=0;tick.current=0};
+},[enabled,video,kind,attempt]);
 if(!enabled)return null;
-return <div role="status" aria-live="polite" style={{padding:10,borderRadius:12,background:"#e9f4ee",margin:"8px 0"}}>{status==="ready"?(ar?"تتبع الحركة شغال على الجهاز. لو الحركة مش بتتسجل استخدم زر التأكيد.":"On-device motion tracking is active. Use the confirm button if tracking misses a move."):status==="loading"?(ar?"تحميل نموذج تتبع الحركة...":"Loading motion model..."):status==="unavailable"||status==="tracking-error"?(ar?"التتبع غير متاح حاليًا. استخدم التأكيد اليدوي.":"Tracking unavailable. Use manual confirmation."):(ar?"شغّل الكاميرا لبدء التتبع.":"Enable camera to start tracking.")}</div>;
+return <div><div role="status" aria-live="polite" style={{padding:10,borderRadius:12,background:"#e9f4ee",margin:"8px 0"}}>{status==="ready"?(ar?"تتبع الحركة شغال على الجهاز. لو الحركة مش بتتسجل استخدم زر التأكيد.":"On-device motion tracking is active. Use the confirm button if tracking misses a move."):status==="loading"?(ar?"تحميل نموذج تتبع الحركة...":"Loading motion model..."):status==="unavailable"||status==="tracking-error"?(ar?"التتبع غير متاح حاليًا. استخدم التأكيد اليدوي.":"Tracking unavailable. Use manual confirmation."):(ar?"شغّل الكاميرا لبدء التتبع.":"Enable camera to start tracking.")}</div>{(status==="unavailable"||status==="tracking-error")&&<button type="button" onClick={()=>setAttempt(n=>n+1)}>{ar?"حاول تحميل التتبع تاني":"Retry motion tracking"}</button>}</div>;
 }
