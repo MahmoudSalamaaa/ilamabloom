@@ -1,5 +1,5 @@
 "use client";
-import {useEffect,useRef,useState} from "react";
+import {useEffect,useRef,useState,type PointerEvent,type KeyboardEvent} from "react";
 
 type Zone="field"|"pond"|"kitchen";
 type SceneProps={ar:boolean;onZone:(zone:Zone)=>void};
@@ -17,6 +17,7 @@ const oval=(c:CanvasRenderingContext2D,x:number,y:number,rx:number,ry:number,fil
 const round=(c:CanvasRenderingContext2D,x:number,y:number,w:number,h:number,r:number,fill:string)=>{c.beginPath();c.roundRect(x,y,w,h,r);c.fillStyle=fill;c.fill()};
 export default function FarmCanvas({ar,onZone}:SceneProps){
  const canvasRef=useRef<HTMLCanvasElement>(null);
+ const sprites=useRef<Record<string,HTMLImageElement>>({});
  const callback=useRef(onZone);callback.current=onZone;
  const world=useRef<World>({avatar:{x:345,y:360},target:{x:345,y:360},zoom:1,offset:{x:0,y:0},paused:false});
  const [motion,setMotion]=useState(true);
@@ -30,12 +31,13 @@ export default function FarmCanvas({ar,onZone}:SceneProps){
  useEffect(()=>{
   const canvas=canvasRef.current;if(!canvas)return;
   const ctx=canvas.getContext("2d");if(!ctx)return;
-  const images:Record<string,HTMLImageElement>={};
-  for(const [id,url] of Object.entries({ilama:"/kids/ilama.webp",ilamo:"/kids/ilamo.webp",grandpa:"/kids/grandpa.webp",grandma:"/kids/grandma.webp"})){const img=new window.Image();img.src=url;images[id]=img}
+  const images=sprites.current;
+  for(const [id,url] of Object.entries({ilama:"/kids/ilama.webp",ilamo:"/kids/ilamo.webp",grandpa:"/kids/grandpa.webp",grandma:"/kids/grandma.webp"})){if(!images[id]){const img=new window.Image();img.src=url;images[id]=img}}
   let frame=0,last=0,alive=true;
   const draw=(now:number)=>{
    if(!alive)return;
    const w=world.current;const dt=Math.min((now-last)/1000||0,0.05);last=now;
+   if(!motion)w.avatar={...w.target};
    if(motion&&!w.paused){const d=dist(w.avatar,w.target);if(d>2){const s=Math.min(d,dt*150);w.avatar.x+=(w.target.x-w.avatar.x)*s/d;w.avatar.y+=(w.target.y-w.avatar.y)*s/d}}
    ctx.clearRect(0,0,WIDTH,HEIGHT);ctx.fillStyle="#cdebe3";ctx.fillRect(0,0,WIDTH,HEIGHT);
    ctx.save();ctx.translate(WIDTH/2,HEIGHT/2);ctx.scale(w.zoom,w.zoom);ctx.translate(-WIDTH/2+w.offset.x,-HEIGHT/2+w.offset.y);
@@ -66,17 +68,22 @@ export default function FarmCanvas({ar,onZone}:SceneProps){
   frame=requestAnimationFrame(draw);
   return()=>{alive=false;cancelAnimationFrame(frame)};
  },[ar,motion,paused,selected]);
- const click=(e:React.PointerEvent<HTMLCanvasElement>)=>{
+ const click=(e:PointerEvent<HTMLCanvasElement>)=>{
   if(paused)return;const r=e.currentTarget.getBoundingClientRect();const w=world.current;const x=((e.clientX-r.left)/r.width*WIDTH-WIDTH/2)/w.zoom+WIDTH/2-w.offset.x;const y=((e.clientY-r.top)/r.height*HEIGHT-HEIGHT/2)/w.zoom+HEIGHT/2-w.offset.y;
   const d=destinations.find(d=>dist({x,y},d.point)<105);if(d)pick(d.id);else move(x,y)
  };
- const keys=(e:React.KeyboardEvent<HTMLCanvasElement>)=>{const w=world.current;const k=e.key.toLowerCase();const dx=k==="arrowright"||k==="d"?35:k==="arrowleft"||k==="a"?-35:0;const dy=k==="arrowdown"||k==="s"?35:k==="arrowup"||k==="w"?-35:0;if(dx||dy){e.preventDefault();move(w.avatar.x+dx,w.avatar.y+dy)}};
+ const keys=(e:KeyboardEvent<HTMLCanvasElement>)=>{const w=world.current;const k=e.key.toLowerCase();const dx=k==="arrowright"||k==="d"?35:k==="arrowleft"||k==="a"?-35:0;const dy=k==="arrowdown"||k==="s"?35:k==="arrowup"||k==="w"?-35:0;if(dx||dy){e.preventDefault();move(w.avatar.x+dx,w.avatar.y+dy)}};
+ const pan=(dx:number,dy:number)=>{const w=world.current;w.offset={x:clamp(w.offset.x+dx,-180,180),y:clamp(w.offset.y+dy,-130,130)}};
  const zoom=(delta:number)=>{world.current.zoom=clamp(Math.round((world.current.zoom+delta)*10)/10,0.8,1.6);setZoomLabel(Math.round(world.current.zoom*100))};
  return <div style={{borderRadius:22,overflow:"hidden",border:"2px solid #c5ddba",background:"#cdebe3"}}>
   <canvas ref={canvasRef} width={WIDTH} height={HEIGHT} tabIndex={0} onPointerDown={click} onKeyDown={keys} aria-label={ar?"عالم مزرعة تفاعلي. اضغط مكان للتحرك، أو استخدم الأسهم، أو اختار وجهة من الأزرار.":"Interactive farm world. Tap to walk, use arrow keys, or select a destination button."} style={{display:"block",width:"100%",height:"auto",touchAction:"manipulation",outlineOffset:-5}}/>
   <div style={{display:"flex",gap:8,alignItems:"center",justifyContent:"space-between",flexWrap:"wrap",padding:10,background:"#eff6e5"}}>
    <div style={{display:"flex",gap:7,flexWrap:"wrap"}}>{destinations.map(d=><button key={d.id} type="button" onClick={()=>pick(d.id)} aria-pressed={selected===d.id} style={{borderRadius:15,padding:"9px 12px",border:"1px solid #598768",background:selected===d.id?"#396d53":"white",color:selected===d.id?"white":"#294b36",fontWeight:700}}>{d.emoji} {ar?d.label.ar:d.label.en}</button>)}</div>
    <div style={{display:"flex",gap:7,alignItems:"center"}}>
+    <button type="button" onClick={()=>pan(-45,0)} aria-label={ar?"حرّك الخريطة يسار":"Pan left"}>←</button>
+    <button type="button" onClick={()=>pan(45,0)} aria-label={ar?"حرّك الخريطة يمين":"Pan right"}>→</button>
+    <button type="button" onClick={()=>pan(0,-40)} aria-label={ar?"حرّك الخريطة أعلى":"Pan up"}>↑</button>
+    <button type="button" onClick={()=>pan(0,40)} aria-label={ar?"حرّك الخريطة أسفل":"Pan down"}>↓</button>
     <button type="button" onClick={()=>zoom(-0.2)} aria-label={ar?"تصغير":"Zoom out"}>−</button><output aria-live="off">{zoomLabel}%</output><button type="button" onClick={()=>zoom(0.2)} aria-label={ar?"تكبير":"Zoom in"}>+</button>
     <button type="button" onClick={()=>setPaused(x=>!x)} aria-pressed={paused}>{paused?(ar?"▶ استكمال":"▶ Resume"):(ar?"⏸ إيقاف":"⏸ Pause")}</button>
    </div>
