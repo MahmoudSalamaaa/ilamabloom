@@ -38,7 +38,9 @@ const saving=useRef(false);
 const adventureRef=useRef<HTMLElement|null>(null);
 const label=(v:Localized)=>ar?v.ar:v.en;
 const selected=zone?games.find(g=>g.id===zone):undefined;
-useEffect(()=>{setHydratedKey(null);let restored:Zone[]=[];try{const saved=JSON.parse(localStorage.getItem(storageKey)||"[]");if(Array.isArray(saved))restored=games.map(g=>g.id).filter(id=>saved.includes(id))}catch{}setEarned(restored);setHydratedKey(storageKey)},[storageKey]);
+useEffect(()=>{let cancelled=false;const controller=new AbortController();setHydratedKey(null);const restore=async()=>{let stars:Zone[]=[];try{const cached=JSON.parse(localStorage.getItem(storageKey)||"[]");if(Array.isArray(cached))stars=games.map(g=>g.id).filter(id=>cached.includes(id))}catch{}
+if(signedIn&&userId){try{const response=await fetch("/api/progress",{cache:"no-store",signal:controller.signal});if(response.ok){const data=await response.json();if(Array.isArray(data.progress))stars=games.map(g=>g.id).filter(id=>data.progress.some((entry:{game_key?:string;completed?:boolean})=>entry.game_key==="world:"+id&&entry.completed===true))}}catch{/* Offline: use account-specific cache */}}
+if(!cancelled){setEarned(stars);setHydratedKey(storageKey)}};void restore();return()=>{cancelled=true;controller.abort()}},[storageKey,signedIn,userId]);
 useEffect(()=>{if(hydratedKey!==storageKey)return;try{localStorage.setItem(storageKey,JSON.stringify(earned))}catch{}},[earned,hydratedKey,storageKey]);
 function resetGame(){setGardenSeeds(0);setMarketFinds([]);setMarketRound(v=>v+1);setBasket([]);setMovement(0);setStoryPage(0);setNotice("");setCelebrate(false)}
 function openGame(id:Zone){if(saving.current)return;resetGame();setZone(id);window.setTimeout(()=>{adventureRef.current?.scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});adventureRef.current?.focus({preventScroll:true})},40)}

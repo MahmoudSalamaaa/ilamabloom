@@ -12,6 +12,7 @@ const checks=[
 ["Approved family artwork",["ilama-family.webp","ilamo.webp","ilama.webp","grandpa.webp","grandma.webp"].every(name=>component.includes("/kids/"+name))],
 ["Garden planting",component.includes("gardenPlots")&&component.includes("setGardenSeeds")],
 ["Account-scoped hydration",component.includes("hydratedKey!==storageKey")&&component.includes("setHydratedKey(storageKey)")],
+["Signed-in server progress sync",component.includes('fetch("/api/progress"')&&component.includes('entry.game_key==="world:"+id')&&component.includes("controller.abort()")],
 ["Fruit round variety",component.includes("marketRound")],
 ["Fruit market hunt",component.includes("marketShelf")&&component.includes("marketFinds")],
 ["Interactive plate builder",component.includes("basketItems")&&component.includes("setBasket")],
