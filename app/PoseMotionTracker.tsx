@@ -31,7 +31,7 @@ if(disposed)return;
 const vision=await api.FilesetResolver.forVisionTasks(WASM);
 if(disposed)return;
 detector=await api.PoseLandmarker.createFromOptions(vision,{baseOptions:{modelAssetPath:MODEL,delegate:"CPU"},runningMode:"VIDEO",numPoses:1,minPoseDetectionConfidence:.55,minPosePresenceConfidence:.55,minTrackingConfidence:.55});
-if(disposed)return;
+if(disposed){detector.close();detector=null;return;}
 message("ready");
 const loop=(now:number)=>{if(disposed)return;frame=requestAnimationFrame(loop);if(busy||now-tick.current<110||video.readyState<2||video.currentTime===lastVideo)return;tick.current=now;lastVideo=video.currentTime;busy=true;
 try{const result=detector?.detectForVideo(video,now);const p=result?.landmarks?.[0];const m=p?classify(p):null;if(!m){phase.current=false;return}
