@@ -8,7 +8,7 @@ test("TypeScript parser: "+file,()=>{const source=readFileSync(file,"utf8");cons
 }
 test("one navigable hub, five destinations",()=>{
 const app=readFileSync("app/KidsWorld.tsx","utf8");const hub=readFileSync("app/KidsAdventureHub.tsx","utf8");
-assert.match(app,/<KidsAdventureHub ar=\{ar\}/);
+assert.match(app,/<KidsAdventureHub[^>]* ar=\{ar\}/);
 for(const name of ["FarmWorld","EgyptAdventures","AquaWorld","DiscoveryLab","MoveAdventures"])assert.match(hub,new RegExp("<"+name+"\\b"));
 assert.doesNotMatch(app,/<FarmWorld\b|<MoveAdventures\b/);
 });

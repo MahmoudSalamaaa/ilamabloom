@@ -26,7 +26,7 @@ const checks=[
 ["Guest stars persisted after hydration",component.includes("hydratedKey!==storageKey")&&component.includes("localStorage.setItem(storageKey")],
 ["Account-specific progress cache",component.includes('"ilama-world-stars-v2:"+userId')&&app.includes("userId={session?.user?.id}")],
 ["Kids navigation destinations",["Food Atlas","Stories","Activities","For Parents"].every(x=>component.includes(x))],
-["Remote save before reward",component.includes('await saveProgress("world:"+id,1)')&&component.includes("setEarned(old=>")],
+["Remote save before reward",component.includes('await Promise.race([saveProgress("world:"+id,1)')&&component.includes('if(result!==true)throw')&&component.includes("setEarned(old=>")],
 ["Duplicate-save guard and bounded save",component.includes("saving.current")&&component.includes("earned.includes(id)")&&component.includes("Promise.race")&&component.includes("result!==true")],
 ["Accessible feedback and pressed states",component.includes('role="status"')&&component.includes("aria-pressed")],
 ["Reduced motion",css.includes("prefers-reduced-motion:reduce")],

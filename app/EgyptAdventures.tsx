@@ -31,9 +31,10 @@ const places:Place[]=[
 ["wadi","الوادي الجديد","New Valley","desert","التمور","Dates","واحات وزراعة صحراوية","Oases and desert agriculture"]
 ].map(([id,ar,en,region,foodAr,foodEn,factAr,factEn])=>({id,ar,en,region:region as Place["region"],foodAr,foodEn,factAr,factEn}));
 const regions=[{id:"delta",ar:"دلتا النيل",en:"Nile Delta",icon:"🌾"},{id:"cairo",ar:"القاهرة الكبرى",en:"Greater Cairo",icon:"🏙️"},{id:"coast",ar:"السواحل",en:"Coasts",icon:"🐟"},{id:"canal",ar:"مدن القناة",en:"Canal cities",icon:"⛵"},{id:"upper",ar:"وادي النيل والصعيد",en:"Nile Valley",icon:"🌴"},{id:"desert",ar:"سيناء والواحات",en:"Sinai and oases",icon:"🏜️"}] as const;
-export default function EgyptAdventures({ar,userId}:{ar:boolean;userId?:string}){
+export default function EgyptAdventures({ar,userId,onComplete}:{ar:boolean;userId?:string;onComplete?:()=>void}){
  const [region,setRegion]=useState<string>("delta");const [place,setPlace]=useState<Place|null>(null);const [quiz,setQuiz]=useState(false);const [answer,setAnswer]=useState<string|null>(null);
  const [stamps,setStamps]=useState<string[]>([]);const [loadedKey,setLoadedKey]=useState<string|null>(null);
+ useEffect(()=>{if(stamps.length>0)onComplete?.()},[stamps,onComplete]);
  const key="ilama-egypt-passport-v1:"+(userId||"guest");
  useEffect(()=>{try{const v:unknown=JSON.parse(localStorage.getItem(key)||"[]");setStamps(Array.isArray(v)?v.filter((id):id is string=>typeof id==="string"&&places.some(p=>p.id===id)).slice(0,27):[])}catch{setStamps([])}setLoadedKey(key)},[key]);
  useEffect(()=>{if(loadedKey===key)try{localStorage.setItem(key,JSON.stringify(stamps))}catch{}},[stamps,key,loadedKey]);

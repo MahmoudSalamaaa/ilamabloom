@@ -13,7 +13,7 @@ const MODEL="https://storage.googleapis.com/mediapipe-models/pose_landmarker/pos
 function classify(p:Landmark[]):MotionSignal|null{
 if(p.length<29)return null;
 const visible=[11,12,13,14,15,16,23,24].every(i=>(p[i]?.visibility??1)>.45);
-if(!visible)return null;
+if(!visible||p.some(point=>!Number.isFinite(point.x)||!Number.isFinite(point.y)))return null;
 const shoulder=Math.max(.08,Math.abs(p[11].x-p[12].x));
 const mid=(p[11].x+p[12].x)/2;
 return {leftHandRaised:p[15].y<p[11].y-.06,rightHandRaised:p[16].y<p[12].y-.06,leftReach:Math.abs(p[15].x-mid)>shoulder*.95,rightReach:Math.abs(p[16].x-mid)>shoulder*.95,armsWide:Math.abs(p[15].x-p[16].x)>shoulder*1.6,bodyShift:(p[23].x+p[24].x)/2-mid,confidence:1};
@@ -34,11 +34,11 @@ detector=await api.PoseLandmarker.createFromOptions(vision,{baseOptions:{modelAs
 if(disposed){detector.close();detector=null;return;}
 message("ready");
 const loop=(now:number)=>{if(disposed)return;frame=requestAnimationFrame(loop);if(busy||now-tick.current<110||video.readyState<2||video.currentTime===lastVideo)return;tick.current=now;lastVideo=video.currentTime;busy=true;
-try{const result=detector?.detectForVideo(video,now);const p=result?.landmarks?.[0];const m=p?classify(p):null;if(!m){phase.current=false;previousHands.current=null;return}
+try{const result=detector?.detectForVideo(video,now);const p=result?.landmarks?.[0];const m=p?classify(p):null;if(!m||!p){phase.current=false;previousHands.current=null;prevShift.current=0;return}
 const shifted=Math.abs(m.bodyShift-prevShift.current);const hands={lx:p[15].x,ly:p[15].y,rx:p[16].x,ry:p[16].y};const oldHands=previousHands.current;const handDelta=oldHands?Math.max(Math.hypot(hands.lx-oldHands.lx,hands.ly-oldHands.ly),Math.hypot(hands.rx-oldHands.rx,hands.ry-oldHands.ry)):0;previousHands.current=hands;const moving=shifted>.012||handDelta>.022;const active=kind==="reach"||kind==="harvest"?(m.leftReach||m.rightReach)&&moving:kind==="stretch"?(m.leftHandRaised||m.rightHandRaised)&&moving:kind==="swim"?m.armsWide&&moving:kind==="mirror"?(m.leftHandRaised||m.rightHandRaised)&&moving:kind==="dance"||kind==="family"?shifted>.045:shifted>.045;
 prevShift.current=m.bodyShift;
 if(active&&!phase.current&&now-last.current>1200){last.current=now;cb.current();phase.current=true}else if(!active){phase.current=false}
-}catch{message("tracking-error")}finally{busy=false}};
+}catch{message("tracking-error");cancelAnimationFrame(frame);detector?.close();detector=null}finally{busy=false}};
 frame=requestAnimationFrame(loop);
 }catch{message("unavailable")}})();
 return()=>{disposed=true;cancelAnimationFrame(frame);detector?.close();phase.current=false;prevShift.current=0;previousHands.current=null};

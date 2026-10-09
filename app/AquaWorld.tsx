@@ -1,13 +1,14 @@
 "use client";
-import {useState} from "react";
+import {useEffect,useState} from "react";
 const species=[
 {id:"tilapia",ar:"البلطي النيلي",en:"Nile tilapia",home:"river",arFact:"سمكة مياه عذبة ومصدر للبروتين.",enFact:"A freshwater fish and a source of protein."},
 {id:"catfish",ar:"القرموط",en:"Catfish",home:"river",arFact:"يعيش في المياه العذبة.",enFact:"Lives in freshwater."},
 {id:"sardine",ar:"السردين",en:"Sardine",home:"sea",arFact:"من الأسماك الدهنية التي قد توفر أوميجا ٣.",enFact:"An oily fish that can provide omega-3."},
 {id:"mullet",ar:"البوري",en:"Mullet",home:"sea",arFact:"يعيش في مياه ساحلية وبعض المياه قليلة الملوحة.",enFact:"Lives in coastal and some brackish waters."}
 ];
-export default function AquaWorld({ar}:{ar:boolean}){
+export default function AquaWorld({ar,onComplete}:{ar:boolean;onComplete?:()=>void}){
 const [home,setHome]=useState("river");const [picked,setPicked]=useState<string|null>(null);const [found,setFound]=useState<string[]>([]);
+useEffect(()=>{if(found.length===species.length)onComplete?.()},[found,onComplete]);
 const t=(a:string,b:string)=>ar?a:b;
 return <section dir={ar?"rtl":"ltr"} style={{background:"#e5f5f5",color:"#174758",padding:"clamp(12px,3vw,28px)",borderRadius:24,margin:"24px 0"}}>
 <h2>{t("🐟 عالم الأسماك","🐟 Aqua World")}</h2><p>{t("اكتشف أسماك النيل والبحر وما يميزها.","Discover fish from the Nile and the sea.")}</p>

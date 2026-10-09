@@ -1,3 +1,4 @@
+import {randomBytes} from "node:crypto";
 import {betterAuth} from "better-auth";
 import {PostgresDialect} from "kysely";
 import {Pool} from "pg";
@@ -13,10 +14,12 @@ const socialProviders={
  ...(process.env.X_CLIENT_ID&&process.env.X_CLIENT_SECRET?{twitter:{clientId:process.env.X_CLIENT_ID,clientSecret:process.env.X_CLIENT_SECRET}}:{})
 };
 
+const authSecret=process.env.BETTER_AUTH_SECRET||(process.env.NODE_ENV==="production"?randomBytes(32).toString("hex"):"ilama-bloom-development-secret-change-me-32-chars");
+
 export const auth=betterAuth({
  database:pool?new PostgresDialect({pool}):undefined,
  baseURL:siteUrl,
- secret:process.env.BETTER_AUTH_SECRET||"ilama-bloom-development-secret-change-me-32-chars",
+ secret:authSecret,
  trustedOrigins:Array.from(new Set([siteUrl,"https://ilamabloom.com","https://www.ilamabloom.com"])),
  account:{accountLinking:{enabled:true,requireLocalEmailVerified:false,trustedProviders:["google","facebook"]}},
  emailAndPassword:{enabled:true},
@@ -24,6 +27,7 @@ export const auth=betterAuth({
 });
 
 export async function currentUser(){
+ if(process.env.NODE_ENV==="production"&&!process.env.BETTER_AUTH_SECRET)return null;
  const session=await auth.api.getSession({headers:await headers()});
  return session?.user??null;
 }

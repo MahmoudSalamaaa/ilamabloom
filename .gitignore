@@ -1,0 +1,9 @@
+node_modules/
+.next/
+.env*
+!.env.example
+qa-results.json
+qa-screenshots/
+*.tsbuildinfo
+qa-kids-*.png
+qa-kids-results.json
