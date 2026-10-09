@@ -2,7 +2,8 @@
 import {useEffect,useRef,useState,type PointerEvent,type KeyboardEvent} from "react";
 
 type Zone="field"|"pond"|"kitchen";
-type SceneProps={ar:boolean;onZone:(zone:Zone)=>void};
+type Plot={crop:string;water:number}|null;
+type SceneProps={ar:boolean;onZone:(zone:Zone)=>void;plots:Plot[]};
 type Point={x:number;y:number};
 type World={avatar:Point;target:Point;zoom:number;offset:Point;paused:boolean};
 const WIDTH=960,HEIGHT=540;
@@ -15,9 +16,10 @@ const clamp=(n:number,min:number,max:number)=>Math.min(max,Math.max(min,n));
 const dist=(a:Point,b:Point)=>Math.hypot(a.x-b.x,a.y-b.y);
 const oval=(c:CanvasRenderingContext2D,x:number,y:number,rx:number,ry:number,fill:string)=>{c.beginPath();c.ellipse(x,y,rx,ry,0,0,Math.PI*2);c.fillStyle=fill;c.fill()};
 const round=(c:CanvasRenderingContext2D,x:number,y:number,w:number,h:number,r:number,fill:string)=>{c.beginPath();c.roundRect(x,y,w,h,r);c.fillStyle=fill;c.fill()};
-export default function FarmCanvas({ar,onZone}:SceneProps){
+export default function FarmCanvas({ar,onZone,plots}:SceneProps){
  const canvasRef=useRef<HTMLCanvasElement>(null);
  const sprites=useRef<Record<string,HTMLImageElement>>({});
+ const plotsRef=useRef(plots);plotsRef.current=plots;
  const callback=useRef(onZone);callback.current=onZone;
  const world=useRef<World>({avatar:{x:345,y:360},target:{x:345,y:360},zoom:1,offset:{x:0,y:0},paused:false});
  const [motion,setMotion]=useState(true);
@@ -33,10 +35,12 @@ export default function FarmCanvas({ar,onZone}:SceneProps){
   const ctx=canvas.getContext("2d");if(!ctx)return;
   const images=sprites.current;
   for(const [id,url] of Object.entries({ilama:"/kids/ilama.webp",ilamo:"/kids/ilamo.webp",grandpa:"/kids/grandpa.webp",grandma:"/kids/grandma.webp"})){if(!images[id]){const img=new window.Image();img.src=url;images[id]=img}}
-  let frame=0,last=0,alive=true;
+  let frame=0,last=0,alive=true,visible=true;
+  const observer=new IntersectionObserver(entries=>{visible=entries[0]?.isIntersecting??true});observer.observe(canvas);
   const draw=(now:number)=>{
    if(!alive)return;
    const w=world.current;const dt=Math.min((now-last)/1000||0,0.05);last=now;
+   if(!visible||document.hidden){if(!w.paused)frame=requestAnimationFrame(draw);return;}
    if(!motion)w.avatar={...w.target};
    if(motion&&!w.paused){const d=dist(w.avatar,w.target);if(d>2){const s=Math.min(d,dt*150);w.avatar.x+=(w.target.x-w.avatar.x)*s/d;w.avatar.y+=(w.target.y-w.avatar.y)*s/d}}
    ctx.clearRect(0,0,WIDTH,HEIGHT);ctx.fillStyle="#cdebe3";ctx.fillRect(0,0,WIDTH,HEIGHT);
@@ -51,7 +55,7 @@ export default function FarmCanvas({ar,onZone}:SceneProps){
    round(ctx,80,177,235,177,13,"#f8d7a5");ctx.beginPath();ctx.moveTo(60,190);ctx.lineTo(194,85);ctx.lineTo(338,190);ctx.closePath();ctx.fillStyle="#b66b61";ctx.fill();
    round(ctx,181,271,55,83,5,"#92634d");round(ctx,101,212,57,49,8,"#a9d7d7");round(ctx,250,212,44,49,8,"#a9d7d7");
    // Vegetable plots
-   for(let i=0;i<6;i++){const x=364+(i%3)*76,y=245+Math.floor(i/3)*66;round(ctx,x,y,62,50,9,"#a37a55");for(let k=0;k<3;k++){oval(ctx,x+14+k*16,y+24,8,11,k%2?"#8abb62":"#72ad5b")}}
+   for(let i=0;i<6;i++){const x=364+(i%3)*76,y=245+Math.floor(i/3)*66;round(ctx,x,y,62,50,9,"#a37a55");const p=plotsRef.current[i];if(p){const grow=Math.min(3,Math.max(0,p.water));for(let k=0;k<3;k++){const px=x+14+k*16;if(grow===0){oval(ctx,px,y+28,4,3,"#e6c791")}else{ctx.strokeStyle="#3f8153";ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(px,y+38);ctx.lineTo(px,y+34-grow*7);ctx.stroke();oval(ctx,px-5,y+31-grow*5,7+grow,4+grow,"#70ad61");if(grow>=2)oval(ctx,px+4,y+26-grow*4,7,5,p.crop==="tomato"?"#dd755f":p.crop==="carrot"?"#e4a05a":"#94ca75")}}}}
    // Pond, fish and reeds
    oval(ctx,764,335,164,105,"#e5dfad");oval(ctx,764,335,152,94,"#69bed1");oval(ctx,764,335,133,75,"#8ed3dc");
    for(let i=0;i<4;i++){const t=motion&&!w.paused?now/1400:0;const x=680+i*52+Math.sin(t+i)*14;const y=315+(i%2)*43+Math.cos(t+i)*8;oval(ctx,x,y,17,9,i%2?"#f7c678":"#ed986b");ctx.beginPath();ctx.moveTo(x-16,y);ctx.lineTo(x-27,y-8);ctx.lineTo(x-27,y+8);ctx.closePath();ctx.fill()}
@@ -66,7 +70,7 @@ export default function FarmCanvas({ar,onZone}:SceneProps){
    if(!w.paused)frame=requestAnimationFrame(draw)
   };
   frame=requestAnimationFrame(draw);
-  return()=>{alive=false;cancelAnimationFrame(frame)};
+  return()=>{alive=false;observer.disconnect();cancelAnimationFrame(frame)};
  },[ar,motion,paused,selected]);
  const click=(e:PointerEvent<HTMLCanvasElement>)=>{
   if(paused)return;const r=e.currentTarget.getBoundingClientRect();const w=world.current;const x=((e.clientX-r.left)/r.width*WIDTH-WIDTH/2)/w.zoom+WIDTH/2-w.offset.x;const y=((e.clientY-r.top)/r.height*HEIGHT-HEIGHT/2)/w.zoom+HEIGHT/2-w.offset.y;

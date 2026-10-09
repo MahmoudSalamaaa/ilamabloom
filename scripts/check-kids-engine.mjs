@@ -19,6 +19,8 @@ check("Canvas world with requestAnimationFrame",canvas.includes("requestAnimatio
 check("Accessible keyboard movement and touch navigation",canvas.includes("onPointerDown={click}")&&canvas.includes("onKeyDown={keys}")&&canvas.includes("tabIndex={0}"));
 check("Motion preference and manual pause",canvas.includes("prefers-reduced-motion")&&canvas.includes("setPaused"));
 check("Zoom controls and bounded world",canvas.includes("setZoomLabel")&&canvas.includes("clamp("));
+check("Canvas garden reflects live plot state",canvas.includes("plotsRef.current[i]")&&farm.includes("plots={farm.plots}"));
+check("Canvas pauses offscreen rendering",canvas.includes("IntersectionObserver")&&canvas.includes("document.hidden"));
 check("Farm planting, watering, harvesting",farm.includes("setFarm")&&farm.includes("harvest")&&farm.includes("water:Math.min"));
 check("Farm save guarded by hydrated key",farm.includes("loadedKey===key")&&farm.includes("setLoadedKey(key)"));
 check("Garden harvest links to kitchen",farm.includes("setPlate")&&farm.includes("Make my dish"));
