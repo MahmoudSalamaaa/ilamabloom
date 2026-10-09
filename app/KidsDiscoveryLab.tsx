@@ -1,5 +1,5 @@
 "use client";
-import {useEffect,useState} from "react";
+import {useEffect,useState,type CSSProperties} from "react";
 
 type Age="3-5"|"6-8"|"9-12";
 type Item={icon:string;ar:string;en:string;origin:"plant"|"animal";whyAr:string;whyEn:string};
@@ -12,7 +12,7 @@ const items:Item[]=[
 {icon:"🥛",ar:"لبن",en:"Milk",origin:"animal",whyAr:"اللبن البقري مصدره الأبقار.",whyEn:"Cow's milk comes from cows."}
 ];
 const steps=[{icon:"🏞️",ar:"المياه العذبة",en:"Freshwater habitat"},{icon:"🧺",ar:"سوق السمك",en:"Fish market"},{icon:"🍳",ar:"شخص بالغ يجهز ويطبخ بأمان",en:"Adult prepares and cooks safely"},{icon:"🍽️",ar:"مائدة الأسرة",en:"Family table"}];
-const button:React.CSSProperties={border:"2px solid #699476",background:"#fffdf5",color:"#284d39",padding:"12px 15px",minHeight:48,borderRadius:14,fontWeight:700,cursor:"pointer"};
+const button:CSSProperties={border:"2px solid #699476",background:"#fffdf5",color:"#284d39",padding:"12px 15px",minHeight:48,borderRadius:14,fontWeight:700,cursor:"pointer"};
 export default function KidsDiscoveryLab({ar,userId}:{ar:boolean;userId?:string}){
  const [age,setAge]=useState<Age>("6-8"),[game,setGame]=useState<"origins"|"river">("origins"),[index,setIndex]=useState(0),[message,setMessage]=useState(""),[done,setDone]=useState(false),[stamps,setStamps]=useState<string[]>([]),[loaded,setLoaded]=useState<string|null>(null);
  const key="ilama-discovery-v1:"+(userId||"guest");

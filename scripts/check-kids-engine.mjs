@@ -3,7 +3,7 @@ import fs from "node:fs";
 import assert from "node:assert/strict";
 import ts from "typescript";
 
-const names=["app/KidsWorld.tsx","app/FarmWorld.tsx","app/FarmCanvas.tsx","app/EgyptAdventures.tsx"];
+const names=["app/KidsWorld.tsx","app/FarmWorld.tsx","app/FarmCanvas.tsx","app/EgyptAdventures.tsx","app/KidsDiscoveryLab.tsx","app/KidsWeatherLab.tsx"];
 const files=Object.fromEntries(names.map(name=>[name,fs.readFileSync(name,"utf8")]));
 let count=0;
 const check=(label,ok)=>{assert.ok(ok,label);count++;console.log("✓ "+label)};
@@ -28,6 +28,13 @@ check("Egypt passport saves only discovered ids",egypt.includes("setStamps")&&eg
 check("Governorates represented exactly 27 times",([...egypt.matchAll(/^\["[a-z]+","/gm)].length===27));
 check("Egypt distractors have distinct food labels",egypt.includes("const used=new Set([place.foodEn])")&&egypt.includes("!used.has(p.foodEn)"));
 check("Egypt question is about featured food, not exclusive ownership",egypt.includes("Which food or crop did we discover at this stop?"));
+const discovery=files["app/KidsDiscoveryLab.tsx"],weatherLab=files["app/KidsWeatherLab.tsx"];
+check("Food origins and Nile-to-table interactive choices",discovery.includes('choose("plant")')&&discovery.includes('choose("animal")')&&discovery.includes('game==="river"'));
+check("Age bands without collecting birth date",discovery.includes('"3-5"')&&discovery.includes('"6-8"')&&discovery.includes('"9-12"')&&!discovery.includes("birthDate"));
+check("Discovery stamps saved after hydration",discovery.includes("loaded===key")&&discovery.includes("setLoaded(key)"));
+check("Weather experiment has three scenarios",([...weatherLab.matchAll(/answer:"(?:water|light|drain)"/g)].length===3));
+check("Weather supports reduced motion and offline family activity",weatherLab.includes("prefers-reduced-motion")&&weatherLab.includes("Optional family experiment"));
+check("No game timer, leaderboard or punitive points",![discovery,weatherLab].some(s=>/setInterval|leaderboard|streak|deductPoints|negativeScore/i.test(s)));
 check("No vet games or child-facing clinic promotion",!names.some(name=>/veterinar|animal clinic|pet diagnosis|clinic discount|medical coupon|streak|leaderboard|in-app purchase/i.test(files[name])));
 const approved=new Set(["ilama-family.webp","ilamo.webp","ilama.webp","grandpa.webp","grandma.webp"]);
 for(const [name,content] of Object.entries(files)){
