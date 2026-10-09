@@ -37,3 +37,15 @@
 @keyframes gentleShake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
 @keyframes fall{0%{transform:translateY(-40px) rotate(0);opacity:1}100%{transform:translateY(650px) rotate(600deg);opacity:0}}
 @media(prefers-reduced-motion:reduce){.world *,.world *:before,.world *:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* Approved ILAMA Kids visual language: warm botanical storybook */
+.world{--ink:#354725;--green:#4e783b;--cream:#fff7e6;--pink:#e66d7a;--sun:#f7d56f;background:#fff7e6;color:#354725;font-family:"Trebuchet MS",Arial,sans-serif}
+.hero{background:linear-gradient(100deg,#fff9e8 0%,#fff2dc 48%,#e3efd6 100%);border-bottom:10px solid #f2e9ce;min-height:520px}
+.hero h1{color:#334b25;letter-spacing:-.045em}.heroText .eyebrow{font-size:17px;letter-spacing:0;text-transform:none;color:#567c3b}
+.hero button{background:#547c3c;box-shadow:0 6px 0 #314f2a}.hero img{border-radius:25px;box-shadow:0 12px 0 #d7dfb9}
+.map{background:radial-gradient(ellipse at top,#fff7e2 0%,#fff5e7 55%,#fff0dd 100%)}.map h2{color:#30451e}
+.zone{border:0;background:#fffaf0;border-radius:22px;box-shadow:0 8px 18px #4d62311c;gap:8px}
+.zone:nth-child(2){background:#fff7eb}.zone:nth-child(3){background:#fffaf0}.zone:nth-child(4){background:#fff7eb}
+.zone img{aspect-ratio:1.6;border-radius:17px}.zoneTitle{font-size:19px}.enter{color:#537e40}
+.adventure{background:#fcebd6}.game{border-color:#9fbc84;background:#fffaf0}.footer{background:#355a37}
+@media(max-width:600px){.zones{grid-template-columns:repeat(2,minmax(0,1fr))}}
