@@ -1,0 +1,73 @@
+{
+  "reviewedBase": "0f2105beaa870a8a4ff624d952ff99e12091457e",
+  "recoveredAncestor": "736772bea0f75de9fc33251691e7d860094d84f5",
+  "approvedAssets": {
+    "grandma.webp": "84af9d4eef123e6ea439096e2d9cd83d2bbba0d68e409c5e0bbb59e3ba68a092",
+    "grandpa.webp": "323094fe84b703b40c5b8b10001628363942ee67d0cb6b006fd0ee499087e902",
+    "ilama-family.webp": "369336c4fb216420e876aa198a6e19d76e419d5d2c7ac7eef25a0406b1d00752",
+    "ilama.webp": "465360e99f4438da5604f091dcce02ac6a3bbbde9137821978cc839eafa50617",
+    "ilamo.webp": "9a65b8e26cba25a6ebef83468b544721f2fd34409809f14814ada02d825e84f2"
+  },
+  "viewportResults": [
+    {
+      "lang": "en",
+      "width": 320,
+      "errors": [],
+      "accessibility": []
+    },
+    {
+      "lang": "en",
+      "width": 375,
+      "errors": [],
+      "accessibility": []
+    },
+    {
+      "lang": "en",
+      "width": 390,
+      "errors": [],
+      "accessibility": []
+    },
+    {
+      "lang": "en",
+      "width": 768,
+      "errors": [],
+      "accessibility": []
+    },
+    {
+      "lang": "en",
+      "width": 1440,
+      "errors": [],
+      "accessibility": []
+    },
+    {
+      "lang": "ar",
+      "width": 320,
+      "errors": [],
+      "accessibility": []
+    },
+    {
+      "lang": "ar",
+      "width": 375,
+      "errors": [],
+      "accessibility": []
+    },
+    {
+      "lang": "ar",
+      "width": 390,
+      "errors": [],
+      "accessibility": []
+    },
+    {
+      "lang": "ar",
+      "width": 768,
+      "errors": [],
+      "accessibility": []
+    },
+    {
+      "lang": "ar",
+      "width": 1440,
+      "errors": [],
+      "accessibility": []
+    }
+  ]
+}

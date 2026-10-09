@@ -1,7 +1,7 @@
 import type {KidsZone} from './domain';
 export const milestoneIds=['seed-plant','seed-harvest','seed-meal','nile-fish','nile-food','nile-story','egypt-stop','egypt-origin','egypt-story','move-play','move-science','move-observe'] as const;
 export type Milestone=typeof milestoneIds[number];
-export type Destination={hub?:'farm'|'aqua'|'egypt'|'move';anchor:string};
+export type Destination={hub?:'farm'|'aqua'|'egypt'|'move';anchor:string;quest?:'seed'|'fish'|'egypt';food?:'origins'|'river'};
 type Step={id:Milestone;ar:string;en:string;destination:Destination};
 export const trails:{id:string;icon:string;ar:string;en:string;steps:Step[]}[]=[
  {id:'seed',icon:'🌱',ar:'من البذرة إلى الطبق',en:'From seed to plate',steps:[
@@ -10,12 +10,12 @@ export const trails:{id:string;icon:string;ar:string;en:string;steps:Step[]}[]=[
   {id:'seed-meal',ar:'كوّن فكرة طبق في المطبخ',en:'Create a meal idea in the kitchen',destination:{anchor:'kids-kitchen-studio'}}]},
  {id:'nile',icon:'🐟',ar:'رحلة النيل والبحر',en:'Nile and sea journey',steps:[
   {id:'nile-fish',ar:'اكتشف سمكة وموطنها',en:'Discover a fish and its habitat',destination:{hub:'aqua',anchor:'kids-adventure-hub'}},
-  {id:'nile-food',ar:'رتّب رحلة البلطي إلى المائدة',en:'Sequence tilapia’s journey to the table',destination:{anchor:'kids-food-discovery'}},
-  {id:'nile-story',ar:'كمل حكاية سمك النيل',en:'Complete the Nile fish story',destination:{anchor:'kids-quest-trail'}}]},
+  {id:'nile-food',ar:'رتّب رحلة البلطي إلى المائدة',en:'Sequence tilapia’s journey to the table',destination:{anchor:'kids-food-discovery',food:'river'}},
+  {id:'nile-story',ar:'كمل حكاية سمك النيل',en:'Complete the Nile fish story',destination:{anchor:'kids-quest-trail',quest:'fish'}}]},
  {id:'egypt',icon:'🗺️',ar:'مستكشف مصر',en:'Egypt explorer',steps:[
   {id:'egypt-stop',ar:'اكتشف محصولًا في محافظة',en:'Discover a crop in a governorate',destination:{hub:'egypt',anchor:'kids-adventure-hub'}},
-  {id:'egypt-origin',ar:'اكتشف مصادر الطعام',en:'Explore where foods come from',destination:{anchor:'kids-food-discovery'}},
-  {id:'egypt-story',ar:'كمل حكاية الطعام في مصر',en:'Complete the Egyptian food story',destination:{anchor:'kids-quest-trail'}}]},
+  {id:'egypt-origin',ar:'اكتشف مصادر الطعام',en:'Explore where foods come from',destination:{anchor:'kids-food-discovery',food:'origins'}},
+  {id:'egypt-story',ar:'كمل حكاية الطعام في مصر',en:'Complete the Egyptian food story',destination:{anchor:'kids-quest-trail',quest:'egypt'}}]},
  {id:'move',icon:'🦋',ar:'اتحرك ولاحظ الطبيعة',en:'Move and notice nature',steps:[
   {id:'move-play',ar:'اختار حركة مناسبة ليك',en:'Choose a move that suits you',destination:{hub:'move',anchor:'kids-adventure-hub'}},
   {id:'move-science',ar:'اكتشف حاجة يحتاجها النبات',en:'Discover something plants need',destination:{anchor:'kids-weather-lab'}},

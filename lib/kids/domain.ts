@@ -52,7 +52,7 @@ export function parseProfile(body:unknown){
 }
 export function parseSnapshot(body:unknown){
  const x=object(body);
- if(!validId(x.childId)||!isZone(x.zone)||!Number.isSafeInteger(x.revision)||Number(x.revision)<0||x.state===undefined)throw new KidsError(400,'Invalid learning snapshot');
+ if(!validId(x.childId)||!isZone(x.zone)||!Number.isSafeInteger(x.revision)||Number(x.revision)<0||Number(x.revision)>2147483646||x.state===undefined)throw new KidsError(400,'Invalid learning snapshot');
  const generation=x.generation??0;
  if(!Number.isSafeInteger(generation)||Number(generation)<0||Number(generation)>2147483646)throw new KidsError(400,'Invalid journey generation');
  if(JSON.stringify(x.state).length>20000)throw new KidsError(413,'Learning state is too large');

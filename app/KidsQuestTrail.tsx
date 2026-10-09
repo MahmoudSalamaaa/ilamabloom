@@ -1,6 +1,8 @@
 "use client";
 import {useAdventureState,useKidsJourney} from "./KidsJourney";
-import {useEffect,useState} from "react";
+import {useEffect,useRef,useState} from "react";
+
+import styles from "./KidsQuestTrail.module.css";
 
 type Localized={ar:string;en:string};
 type Choice={id:string;label:Localized};
@@ -25,23 +27,26 @@ const quests:Quest[]=[
  offline:L("مع الأسرة: اختاروا محافظة على الخريطة، واتكلموا عن محصول أو أكلة مشهورة فيها.","With family: choose a governorate on a map and discuss a food or crop associated with it.")}
 ];
 type Progress=Record<string,number>;
-export default function KidsQuestTrail({ar,userId}:{ar:boolean;userId?:string}){
- const [active,setActive]=useState("seed"),[choice,setChoice]=useState<string|null>(null),[showOffline,setShowOffline]=useState(false);
+export default function KidsQuestTrail({ar}:{ar:boolean;userId?:string}){
+ const [active,setActive]=useState("seed"),[choice,setChoice]=useState<string|null>(null),[showOffline,setShowOffline]=useState(false),[replayIndex,setReplayIndex]=useState<number|null>(null);
  const [progress,setProgress,ready]=useAdventureState<Progress>("quests",{});
- const journey=useKidsJourney();const key=journey.scope,loaded=ready?key:null;const t=(v:Localized)=>ar?v.ar:v.en;
- const [replayIndex,setReplayIndex]=useState<number|null>(null);
- const quest=quests.find(q=>q.id===active)!;const stepIndex=replayIndex??(progress[active]||0);const finished=stepIndex>=quest.steps.length;const step=quest.steps[Math.min(stepIndex,quest.steps.length-1)];
- const select=(id:string)=>setChoice(id);
- const continueStory=()=>{if(choice!==step.correct)return;setProgress(p=>({...p,[active]:Math.max(p[active]||0,stepIndex+1)}));setChoice(null);if(replayIndex!==null)setReplayIndex(stepIndex+1)};
- return <section id="kids-quest-trail" dir={ar?"rtl":"ltr"} aria-label={t(L("مغامرات إيلاما التعليمية","Ilama learning adventures"))} style={{margin:"28px 0",padding:"clamp(14px,3vw,30px)",borderRadius:24,background:"#f1ecf8",color:"#3e3550"}}>
- <h2 style={{fontSize:"clamp(25px,4vw,40px)",margin:"0 0 10px"}}>{t(L("🎒 مغامرات إيلاما","🎒 Ilama's Story Quests"))}</h2>
- <p>{t(L("ثلاث حكايات تفاعلية. اختار مغامرة وامشِ على مهلك، من غير مؤقت أو منافسة.","Three interactive stories. Explore at your own pace, with no timer or competition."))}</p>
- <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(175px,1fr))",gap:10}}>{quests.map(q=><button key={q.id} type="button" onClick={()=>{setActive(q.id);setReplayIndex(null);setChoice(null);setShowOffline(false)}} aria-pressed={active===q.id} style={{padding:16,textAlign:ar?"right":"left",borderRadius:16,border:active===q.id?"3px solid #67568a":"1px solid #b6aacd",background:active===q.id?"#e3d9f5":"#fff",cursor:"pointer",fontSize:16}}><span aria-hidden="true">{q.icon}</span> <strong>{t(q.title)}</strong><div style={{fontSize:13,marginTop:6}}>{(progress[q.id]||0)===q.steps.length?t(L("مكتملة 🌟","Discovered 🌟")):t(L("مراحل مكتملة","Steps explored"))+" "+(progress[q.id]||0)+"/"+q.steps.length}</div></button>)}</div>
- <article style={{marginTop:16,padding:"clamp(14px,2vw,24px)",borderRadius:18,background:"#fff"}}>
- <h3 style={{marginTop:0}}>{quest.icon} {t(quest.title)}</h3><p>{t(quest.intro)}</p>
- {finished?<div role="status"><h4>{t(L("أحسنت! خلصت المغامرة 🌿","You explored the whole story 🌿"))}</h4><p>{t(L("تقدر تعيدها أو تكتشف مغامرة تانية في أي وقت.","Revisit this story or explore another whenever you like."))}</p><button type="button" onClick={()=>{setReplayIndex(0);setChoice(null)}}>{t(L("ابدأ الحكاية من الأول","Replay this story"))}</button></div>:<div><p style={{fontWeight:700}}>{t(L("المشهد","Scene"))} {stepIndex+1} / {quest.steps.length}</p><h4 style={{fontSize:20}}>{t(step.question)}</h4><div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(185px,1fr))",gap:9}}>{step.choices.map(c=><button type="button" key={c.id} onClick={()=>select(c.id)} disabled={loaded!==key||choice===step.correct} style={{borderRadius:14,padding:15,background:choice===c.id?"#f8edcb":"#f4f7ef",border:"2px solid #a2b8a5",cursor:"pointer",fontSize:16}}>{t(c.label)}</button>)}</div><p role="status" aria-live="polite" style={{minHeight:32}}>{choice===step.correct?t(step.explain):choice?t(step.hint):t(L("كل اختيار فرصة للتعلم. خُد وقتك.","Every choice is a chance to learn. Take your time."))}</p>{choice===step.correct&&<button type="button" onClick={continueStory} style={{padding:"12px 20px",borderRadius:12,background:"#416d52",color:"white",border:0,cursor:"pointer",fontWeight:700}}>{t(L("نكمل الحكاية ←","Continue the story →"))}</button>}<details><summary style={{cursor:"pointer"}}>{t(L("تلميح لطيف","A gentle hint"))}</summary><p>{t(step.hint)}</p></details></div>}
- <div style={{marginTop:15,borderTop:"1px solid #e6e2ef",paddingTop:14}}><button type="button" onClick={()=>setShowOffline(x=>!x)} aria-expanded={showOffline} style={{borderRadius:12,padding:12,background:"#eaf2df",border:"1px solid #90ad80"}}>{t(L("🌳 نشاط اختياري مع الأسرة بعيدًا عن الشاشة","🌳 Optional family activity away from the screen"))}</button>{showOffline&&<p>{t(quest.offline)}</p>}</div>
+ const journey=useKidsJourney(),heading=useRef<HTMLHeadingElement>(null),focusNext=useRef(false);
+ const t=(v:Localized)=>ar?v.ar:v.en;
+ const quest=quests.find(q=>q.id===active)!;
+ const stepIndex=replayIndex??(progress[active]||0),finished=stepIndex>=quest.steps.length,step=quest.steps[Math.min(stepIndex,quest.steps.length-1)];
+ const open=(id:string)=>{setActive(id);setReplayIndex(null);setChoice(null);setShowOffline(false)};
+ useEffect(()=>{const nav=journey.navigation;if(nav?.scope===journey.scope&&nav.destination.quest)open(nav.destination.quest)},[journey.navigation,journey.scope]);
+ useEffect(()=>{if(focusNext.current){heading.current?.focus({preventScroll:true});focusNext.current=false}},[active,stepIndex,finished]);
+ const continueStory=()=>{if(!ready||choice!==step.correct)return;focusNext.current=true;setProgress(p=>({...p,[active]:Math.max(p[active]||0,stepIndex+1)}));setChoice(null);if(replayIndex!==null)setReplayIndex(stepIndex+1)};
+ return <section id="kids-quest-trail" dir={ar?"rtl":"ltr"} aria-label={t(L("مغامرات إيلاما التعليمية","Ilama learning adventures"))} className={styles.world}>
+ <header className={styles.header}><div><h2>{t(L("🎒 مغامرات إيلاما","🎒 Ilama's Story Quests"))}</h2><p>{t(L("ثلاث حكايات تفاعلية. اختار مغامرة وامشِ على مهلك، من غير مؤقت أو منافسة.","Three interactive stories. Explore at your own pace, with no timer or competition."))}</p></div><img src="/kids/grandpa.webp" alt="" loading="lazy" width={96} height={96}/></header>
+ <div className={styles.stories} role="group" aria-label={t(L("اختار حكاية","Choose a story"))}>{quests.map(q=><button key={q.id} type="button" onClick={()=>open(q.id)} aria-pressed={active===q.id}><span aria-hidden="true" className={styles.icon}>{q.icon}</span><strong>{t(q.title)}</strong><span className={styles.count}>{(progress[q.id]||0)===q.steps.length?t(L("مكتملة 🌟","Discovered 🌟")):t(L("مراحل مكتملة","Steps explored"))+" "+(progress[q.id]||0)+"/"+q.steps.length}</span></button>)}</div>
+ <article className={styles.scene} aria-busy={!ready}>
+ <h3>{quest.icon} {t(quest.title)}</h3><p>{t(quest.intro)}</p>
+ <ol className={styles.scenes} aria-label={t(L("مشاهد الحكاية","Story scenes"))}>{quest.steps.map((_,i)=><li key={i} aria-current={!finished&&stepIndex===i?"step":undefined}><span aria-hidden="true">{stepIndex>i?"✓":i+1}</span><span className={styles.sceneLabel}>{t(L("المشهد","Scene"))} {i+1}{stepIndex>i?t(L("، تم اكتشافه",", explored")):""}</span></li>)}</ol>
+ {finished?<div role="status"><h4 ref={heading} tabIndex={-1}>{t(L("أحسنت! خلصت المغامرة 🌿","You explored the whole story 🌿"))}</h4><p>{t(L("تقدر تعيدها أو تكتشف مغامرة تانية في أي وقت.","Revisit this story or explore another whenever you like."))}</p><button type="button" onClick={()=>{focusNext.current=true;setReplayIndex(0);setChoice(null)}}>{t(L("ابدأ الحكاية من الأول","Replay this story"))}</button></div>:<div><p className={styles.count}>{t(L("المشهد","Scene"))} {stepIndex+1} / {quest.steps.length}</p><h4 ref={heading} tabIndex={-1}>{t(step.question)}</h4><div className={styles.choices}>{step.choices.map(c=><button type="button" key={c.id} onClick={()=>setChoice(c.id)} disabled={!ready||choice===step.correct} aria-pressed={choice===c.id}>{t(c.label)}</button>)}</div><p role="status" aria-live="polite" className={styles.feedback}>{choice===step.correct?t(step.explain):choice?t(step.hint):t(L("كل اختيار فرصة للتعلم. خُد وقتك.","Every choice is a chance to learn. Take your time."))}</p>{choice===step.correct&&<button type="button" onClick={continueStory} disabled={!ready} className={styles.primary}>{t(L("نكمل الحكاية ←","Continue the story →"))}</button>}<details><summary>{t(L("تلميح لطيف","A gentle hint"))}</summary><p>{t(step.hint)}</p></details></div>}
+ <div className={styles.family}><button type="button" onClick={()=>setShowOffline(x=>!x)} aria-expanded={showOffline}>{t(L("🌳 نشاط اختياري مع الأسرة بعيدًا عن الشاشة","🌳 Optional family activity away from the screen"))}</button>{showOffline&&<p>{t(quest.offline)}</p>}</div>
  </article>
- <p style={{fontSize:13}}>{t(L("جواز المغامرات مرتبط برحلة التعلّم المختارة. مفيش نقاط مالية أو إعلانات أو عقاب على الغياب.","Story progress belongs to the selected learning journey. No financial points, ads or absence penalties."))}</p>
- </section>
+ <p className={styles.privacy}>{t(L("جواز المغامرات مرتبط برحلة التعلّم المختارة. مفيش نقاط مالية أو إعلانات أو عقاب على الغياب.","Story progress belongs to the selected learning journey. No financial points, ads or absence penalties."))}</p>
+ </section>;
 }

@@ -11,7 +11,8 @@
     "qa:kids:camera": "node scripts/kids-camera-qa.cjs",
     "qa:kids:journey": "node scripts/kids-journey-qa.cjs",
     "qa:kids:play": "node scripts/kids-connected-play-qa.cjs",
-    "qa:kids:camera-resilience": "node scripts/kids-camera-resilience-qa.cjs"
+    "qa:kids:camera-resilience": "node scripts/kids-camera-resilience-qa.cjs",
+    "qa:kids:activities": "node scripts/kids-activity-qa.cjs"
   },
   "dependencies": {
     "@neondatabase/auth": "latest",

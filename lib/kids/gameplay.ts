@@ -1,3 +1,4 @@
+import {cleanState} from './domain';
 export type CropId='tomato'|'carrot'|'lettuce';
 export type FarmState={plots:({crop:string;water:number}|null)[];harvest:Record<string,number>;visits:number};
 export type FarmAction={kind:'plot';plot:number;crop:CropId}|{kind:'cook';ingredients:string[]};
@@ -45,4 +46,14 @@ export function simulatePlant(water:number,light:number,drain:boolean):PlantCond
  if(water>=2&&!drain)return 'flooded';
  if(light<=0)return 'dark';
  return 'balanced';
+}
+
+export type MealIdea={id:number;ingredients:string[]};
+/** Bounded ideas use unique local IDs even when two creations share a clock tick. */
+export function saveMealIdea(previous:MealIdea[],ingredients:string[],now:number):MealIdea[]{
+ const saved=cleanState('kitchen',previous) as MealIdea[];
+ let id=Number.isSafeInteger(now)&&now>0?now:1;
+ while(saved.some(idea=>idea.id===id))id=id===Number.MAX_SAFE_INTEGER?1:id+1;
+ const idea=cleanState('kitchen',[{id,ingredients}]) as MealIdea[];
+ return idea.length?[...saved,...idea].slice(-8):saved;
 }

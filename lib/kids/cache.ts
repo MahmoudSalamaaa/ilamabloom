@@ -7,7 +7,7 @@ export function generation(value:unknown):number{
 }
 export function snapshot(value:unknown,expected?:KidsZone):Snapshot{
  const raw=value as Partial<Snapshot>|null;
- if(!raw||!isZone(raw.zone)||(expected&&raw.zone!==expected)||!Number.isSafeInteger(raw.revision)||Number(raw.revision)<0)throw Error('Invalid learning snapshot');
+ if(!raw||!isZone(raw.zone)||(expected&&raw.zone!==expected)||!Number.isSafeInteger(raw.revision)||Number(raw.revision)<0||Number(raw.revision)>2147483647)throw Error('Invalid learning snapshot');
  return {zone:raw.zone,revision:raw.revision!,state:cleanState(raw.zone,raw.state)};
 }
 export function decodeCache(input:unknown):JourneyCache{

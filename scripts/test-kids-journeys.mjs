@@ -76,3 +76,28 @@ test('external device loss closes the stream, pauses play and detaches its liste
 test('camera permission rejection allows a fresh retry',async()=>{
  const m=media(),states=[];let calls=0;const c=new OptionalCamera(async()=>{if(++calls===1)throw Error('denied');return m.stream},s=>states.push(s),()=>{});await c.start(true);assert.equal(states.at(-1),'error');await c.start(true);assert.equal(states.at(-1),'ready');c.dispose();assert.equal(m.track.stops,1);
 });
+
+
+test('meal ideas are bounded and use unique IDs when the clock repeats or overflows',()=>{
+ let saved=[];for(let i=0;i<12;i++)saved=games.saveMealIdea(saved,['fish','rice','fish','unknown'],100);
+ assert.equal(saved.length,8);assert.equal(new Set(saved.map(x=>x.id)).size,8);
+ assert(saved.every(x=>JSON.stringify(x.ingredients)===JSON.stringify(['fish','rice'])));
+ const wrapped=games.saveMealIdea([{id:Number.MAX_SAFE_INTEGER,ingredients:['fish']}],['lentils'],Number.MAX_SAFE_INTEGER);
+ assert.deepEqual(wrapped.map(x=>x.id),[Number.MAX_SAFE_INTEGER,1]);
+ assert.deepEqual(games.saveMealIdea(saved,[],100),saved);
+});
+
+test('snapshot revisions reject values beyond PostgreSQL integer range before writing',()=>{
+ const valid={childId:'child',zone:'aqua',state:['tilapia'],generation:0};
+ for(const revision of [-1,0.1,2147483647,Number.MAX_SAFE_INTEGER])assert.throws(()=>domain.parseSnapshot({...valid,revision}),e=>e.status===400);
+ assert.equal(domain.parseSnapshot({...valid,revision:2147483646}).revision,2147483646);
+ assert.throws(()=>cache.snapshot({zone:'aqua',state:[],revision:2147483648}));
+});
+
+test('story trail targets select the relevant food activity and quest',()=>{
+ const nile=journeys.trails.find(x=>x.id==='nile'),egypt=journeys.trails.find(x=>x.id==='egypt');
+ assert.equal(nile.steps.find(x=>x.id==='nile-story').destination.quest,'fish');
+ assert.equal(nile.steps.find(x=>x.id==='nile-food').destination.food,'river');
+ assert.equal(egypt.steps.find(x=>x.id==='egypt-story').destination.quest,'egypt');
+ assert.equal(egypt.steps.find(x=>x.id==='egypt-origin').destination.food,'origins');
+});

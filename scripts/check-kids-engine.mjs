@@ -43,10 +43,10 @@ check("Three playable story quests integrated",kids.includes('import KidsQuestTr
 const questSteps=[...quests.matchAll(/\{question:L\(([\s\S]*?)\],correct:"([^"]+)"/g)];
 check("All nine quest scenes have exactly three choices and a valid answer",questSteps.length===9&&questSteps.every(match=>{const ids=[...match[1].matchAll(/\{id:"([^"]+)",label:/g)].map(m=>m[1]);return ids.length===3&&new Set(ids).size===3&&ids.includes(match[2])}));
 check("Quest choices show explanations before progression",quests.includes("choice===step.correct?t(step.explain)")&&quests.includes("continueStory"));
-check("Quest progress uses the journey persistence boundary",quests.includes("loaded!==key")&&quests.includes('useAdventureState<Progress>("quests"'));
+check("Quest progress uses the journey persistence boundary",quests.includes("if(!ready||choice!==step.correct)return")&&quests.includes('useAdventureState<Progress>("quests"'));
 check("Quest contains family offline activity and no pressure",quests.includes("Optional family activity away from the screen")&&quests.includes("No financial points, ads or absence penalties."));
 check("Kitchen studio integrated with 12 ingredients",kids.includes('import KidsKitchenStudio from "./KidsKitchenStudio"')&&kids.includes("<KidsKitchenStudio ")&&([...kitchen.matchAll(/\{id:"[a-z]+",icon:/g)].length===12));
-check("Kitchen studio includes safe adult preparation and scoped ideas",kitchen.includes('safety!=="adult"')&&kitchen.includes('useAdventureState<Saved[]>("kitchen"')&&kitchen.includes("Clear saved ideas"));
+check("Kitchen studio includes safe adult preparation and scoped ideas",kitchen.includes('safety!=="adult"')&&kitchen.includes('useAdventureState<MealIdea[]>("kitchen"')&&kitchen.includes("Clear saved ideas"));
 check("No monetary rewards, clinic pressure or veterinary games in new components",![quests,kitchen].some(s=>/voucher|clinic discount|veterinar|in-app purchase|leaderboard|streak/i.test(s)));
 check("Motion camera opt-in and manual fallback",files["app/MoveAdventures.tsx"].includes("getUserMedia")&&files["app/MoveAdventures.tsx"].includes("completeMove")&&files["app/MoveAdventures.tsx"].includes("stopCamera"));
 check("Camera processing excludes recording and upload APIs",!["app/MoveAdventures.tsx","app/PoseMotionTracker.tsx"].some(name=>/MediaRecorder|XMLHttpRequest|sendBeacon|toDataURL|toBlob/.test(files[name])));
