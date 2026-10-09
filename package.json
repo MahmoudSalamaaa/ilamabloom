@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "check:kids": "node scripts/check-kids-release.mjs && node scripts/check-kids-engine.mjs && node --test scripts/test-kids-integration.mjs scripts/test-kids-motion.mjs scripts/test-kids-stability.mjs scripts/test-kids-persistence.mjs scripts/test-kids-journeys.mjs",
+    "check:kids": "node scripts/check-kids-release.mjs && node scripts/check-kids-engine.mjs && node --test scripts/test-kids-integration.mjs scripts/test-kids-motion.mjs scripts/test-kids-stability.mjs scripts/test-kids-persistence.mjs scripts/test-kids-journeys.mjs scripts/test-kids-privacy.mjs",
     "qa:kids:browser": "node scripts/kids-browser-qa.cjs",
     "qa:kids:camera": "node scripts/kids-camera-qa.cjs",
     "qa:kids:journey": "node scripts/kids-journey-qa.cjs",
@@ -14,7 +14,8 @@
     "qa:kids:camera-resilience": "node scripts/kids-camera-resilience-qa.cjs",
     "qa:kids:activities": "node scripts/kids-activity-qa.cjs",
     "qa:kids:vision-assets": "node scripts/kids-vision-assets-qa.mjs",
-    "qa:kids:vision-runtime": "node scripts/kids-vision-runtime-qa.cjs"
+    "qa:kids:vision-runtime": "node scripts/kids-vision-runtime-qa.cjs",
+    "qa:kids:api-privacy": "node scripts/kids-api-privacy-qa.cjs"
   },
   "dependencies": {
     "@neondatabase/auth": "latest",

@@ -1,10 +1,20 @@
 "use client";
 import {useEffect,useState} from "react";
+import {privateAnalyticsPath} from "../lib/analytics/privacy";
 const CONSENT_KEY="ilama-bloom-analytics-consent";
 const ID_KEY="ilama-bloom-anonymous-id";
-const childSpace=()=>/^\/(kids|parent)(\/|$)/.test(location.pathname)||/^#\/?kids(?:$|[/?])/.test(location.hash);
+const childSpace=()=>privateAnalyticsPath(location.pathname+location.hash);
 export default function AnalyticsConsent(){
  const [choice,setChoice]=useState<string|null>(null);const [visible,setVisible]=useState(false);const [lang,setLang]=useState<"ar"|"en">("en");
+ useEffect(()=>{
+  const refresh=()=>{
+   if(childSpace()){setVisible(false);return}
+   try{setVisible(!(localStorage.getItem(CONSENT_KEY)||localStorage.getItem("nutclue-analytics-consent")))}catch{setVisible(false)}
+  };
+  const events=["hashchange","popstate","ilama:navigation"];
+  for(const event of events)addEventListener(event,refresh);
+  return()=>{for(const event of events)removeEventListener(event,refresh)};
+ },[]);
  useEffect(()=>{
   if(childSpace()){setVisible(false);return}
   try{
