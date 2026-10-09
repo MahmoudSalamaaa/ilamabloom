@@ -1,4 +1,5 @@
 "use client";
+import {VISION_BUNDLE as CDN,VISION_WASM as WASM,POSE_MODEL as MODEL} from "../lib/kids/vision-assets";
 import {moved,type MotionSample,type MovementMode} from "../lib/kids/gameplay";
 import {useEffect,useRef,useState} from "react";
 export type MoveKind=MovementMode;
@@ -8,9 +9,6 @@ type Result={landmarks?:Landmark[][]};
 type Landmarker={detectForVideo:(video:HTMLVideoElement,now:number)=>Result;close:()=>void};
 type Api={PoseLandmarker:{createFromOptions:(vision:unknown,options:unknown)=>Promise<Landmarker>};FilesetResolver:{forVisionTasks:(path:string)=>Promise<unknown>}};
 type Props={enabled:boolean;video:HTMLVideoElement|null;kind:MoveKind;onMove:()=>void;onStatus:(s:string)=>void;ar:boolean};
-const CDN="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.22/vision_bundle.mjs";
-const WASM="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.22/wasm";
-const MODEL="https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_lite/float16/1/pose_landmarker_lite.task";
 function classify(p:Landmark[]):MotionSample|null{
 if(p.length<29)return null;
 const visible=[11,12,13,14,15,16,23,24].every(i=>(p[i]?.visibility??1)>.45);
