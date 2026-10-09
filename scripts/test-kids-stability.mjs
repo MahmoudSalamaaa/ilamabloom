@@ -25,3 +25,5 @@ test("all approved illustrations referenced in kids world",()=>{
 const src=readFileSync("app/KidsWorld.tsx","utf8");
 for(const name of ["ilama-family.webp","ilamo.webp","ilama.webp","grandpa.webp","grandma.webp"])assert.ok(src.includes("/kids/"+name),name);
 });
+
+test("motion tracking requires temporal movement and cleans up model",()=>{const pose=readFileSync("app/PoseMotionTracker.tsx","utf8");assert.match(pose,/handDelta/);assert.match(pose,/previousHands\.current=hands/);assert.match(pose,/if\(disposed\)\{detector\.close\(\);detector=null;return;\}/);assert.match(pose,/previousHands\.current=null/);});

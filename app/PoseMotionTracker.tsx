@@ -19,7 +19,7 @@ const mid=(p[11].x+p[12].x)/2;
 return {leftHandRaised:p[15].y<p[11].y-.06,rightHandRaised:p[16].y<p[12].y-.06,leftReach:Math.abs(p[15].x-mid)>shoulder*.95,rightReach:Math.abs(p[16].x-mid)>shoulder*.95,armsWide:Math.abs(p[15].x-p[16].x)>shoulder*1.6,bodyShift:(p[23].x+p[24].x)/2-mid,confidence:1};
 }
 export default function PoseMotionTracker({enabled,video,kind,onMove,onStatus,ar}:Props){
-const [status,setStatus]=useState("idle");const cb=useRef(onMove);const sb=useRef(onStatus);const last=useRef(0);const phase=useRef(false);const prevShift=useRef(0);const tick=useRef(0);
+const [status,setStatus]=useState("idle");const cb=useRef(onMove);const sb=useRef(onStatus);const last=useRef(0);const phase=useRef(false);const prevShift=useRef(0);const previousHands=useRef<{lx:number;ly:number;rx:number;ry:number}|null>(null);const tick=useRef(0);
 useEffect(()=>{cb.current=onMove;sb.current=onStatus},[onMove,onStatus]);
 useEffect(()=>{if(!enabled||!video)return;
 let disposed=false;let detector:Landmarker|null=null;let frame=0;let busy=false;let lastVideo=-1;
@@ -34,14 +34,14 @@ detector=await api.PoseLandmarker.createFromOptions(vision,{baseOptions:{modelAs
 if(disposed){detector.close();detector=null;return;}
 message("ready");
 const loop=(now:number)=>{if(disposed)return;frame=requestAnimationFrame(loop);if(busy||now-tick.current<110||video.readyState<2||video.currentTime===lastVideo)return;tick.current=now;lastVideo=video.currentTime;busy=true;
-try{const result=detector?.detectForVideo(video,now);const p=result?.landmarks?.[0];const m=p?classify(p):null;if(!m){phase.current=false;return}
-const shifted=Math.abs(m.bodyShift-prevShift.current);const active=kind==="reach"||kind==="harvest"?(m.leftReach||m.rightReach)&&shifted>.012:kind==="stretch"?(m.leftHandRaised||m.rightHandRaised)&&shifted>.012:kind==="swim"?m.armsWide&&shifted>.012:kind==="mirror"?(m.leftHandRaised||m.rightHandRaised)&&shifted>.012:kind==="dance"||kind==="family"?shifted>.045:shifted>.045;
+try{const result=detector?.detectForVideo(video,now);const p=result?.landmarks?.[0];const m=p?classify(p):null;if(!m){phase.current=false;previousHands.current=null;return}
+const shifted=Math.abs(m.bodyShift-prevShift.current);const hands={lx:p[15].x,ly:p[15].y,rx:p[16].x,ry:p[16].y};const oldHands=previousHands.current;const handDelta=oldHands?Math.max(Math.hypot(hands.lx-oldHands.lx,hands.ly-oldHands.ly),Math.hypot(hands.rx-oldHands.rx,hands.ry-oldHands.ry)):0;previousHands.current=hands;const moving=shifted>.012||handDelta>.022;const active=kind==="reach"||kind==="harvest"?(m.leftReach||m.rightReach)&&moving:kind==="stretch"?(m.leftHandRaised||m.rightHandRaised)&&moving:kind==="swim"?m.armsWide&&moving:kind==="mirror"?(m.leftHandRaised||m.rightHandRaised)&&moving:kind==="dance"||kind==="family"?shifted>.045:shifted>.045;
 prevShift.current=m.bodyShift;
 if(active&&!phase.current&&now-last.current>1200){last.current=now;cb.current();phase.current=true}else if(!active){phase.current=false}
 }catch{message("tracking-error")}finally{busy=false}};
 frame=requestAnimationFrame(loop);
 }catch{message("unavailable")}})();
-return()=>{disposed=true;cancelAnimationFrame(frame);detector?.close();phase.current=false;prevShift.current=0};
+return()=>{disposed=true;cancelAnimationFrame(frame);detector?.close();phase.current=false;prevShift.current=0;previousHands.current=null};
 },[enabled,video,kind]);
 if(!enabled)return null;
 return <div role="status" aria-live="polite" style={{padding:10,borderRadius:12,background:"#e9f4ee",margin:"8px 0"}}>{status==="ready"?(ar?"تتبع الحركة شغال على الجهاز. لو الحركة مش بتتسجل استخدم زر التأكيد.":"On-device motion tracking is active. Use the confirm button if tracking misses a move."):status==="loading"?(ar?"تحميل نموذج تتبع الحركة...":"Loading motion model..."):status==="unavailable"||status==="tracking-error"?(ar?"التتبع غير متاح حاليًا. استخدم التأكيد اليدوي.":"Tracking unavailable. Use manual confirmation."):(ar?"شغّل الكاميرا لبدء التتبع.":"Enable camera to start tracking.")}</div>;
