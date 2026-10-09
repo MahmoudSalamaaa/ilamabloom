@@ -1,0 +1,417 @@
+=== ci ===
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: @better-auth/core@1.7.7
+npm warn Found: better-call@1.3.7
+npm warn node_modules/better-call
+npm warn   peer better-call@"1.3.7" from @better-auth/core@1.6.23
+npm warn   node_modules/@better-auth/core
+npm warn     peer @better-auth/core@"^1.6.23" from @better-auth/kysely-adapter@1.6.23
+npm warn     node_modules/@better-auth/kysely-adapter
+npm warn     6 more (@better-auth/memory-adapter, ...)
+npm warn   5 more (better-auth, @neondatabase/auth-ui, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer better-call@"1.4.0" from @better-auth/core@1.7.7
+npm warn node_modules/@neondatabase/auth-ui/node_modules/@better-auth/core
+npm warn   peer @better-auth/core@"^1.6.23" from @better-auth/passkey@1.6.23
+npm warn   node_modules/@neondatabase/auth-ui/node_modules/@better-auth/passkey
+npm warn   1 more (@better-auth/api-key)
+npm warn
+npm warn Conflicting peer dependency: better-call@1.4.0
+npm warn node_modules/better-call
+npm warn   peer better-call@"1.4.0" from @better-auth/core@1.7.7
+npm warn   node_modules/@neondatabase/auth-ui/node_modules/@better-auth/core
+npm warn     peer @better-auth/core@"^1.6.23" from @better-auth/passkey@1.6.23
+npm warn     node_modules/@neondatabase/auth-ui/node_modules/@better-auth/passkey
+npm warn     1 more (@better-auth/api-key)
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: @better-auth/passkey@1.6.23
+npm warn Found: @better-fetch/fetch@1.3.2
+npm warn node_modules/@neondatabase/auth-ui/node_modules/@better-fetch/fetch
+npm warn   peer @better-fetch/fetch@"1.3.2" from @better-auth/core@1.7.7
+npm warn   node_modules/@neondatabase/auth-ui/node_modules/@better-auth/core
+npm warn     peer @better-auth/core@"^1.6.23" from @better-auth/passkey@1.6.23
+npm warn     node_modules/@neondatabase/auth-ui/node_modules/@better-auth/passkey
+npm warn     1 more (@better-auth/api-key)
+npm warn   2 more (@daveyplate/better-auth-ui, better-call)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer @better-fetch/fetch@"1.3.1" from @better-auth/passkey@1.6.23
+npm warn node_modules/@neondatabase/auth-ui/node_modules/@better-auth/passkey
+npm warn   @better-auth/passkey@"1.6.23" from @neondatabase/auth-ui@0.3.0-beta
+npm warn   node_modules/@neondatabase/auth-ui
+npm warn   1 more (@daveyplate/better-auth-ui)
+npm warn
+npm warn Conflicting peer dependency: @better-fetch/fetch@1.3.1
+npm warn node_modules/@better-fetch/fetch
+npm warn   peer @better-fetch/fetch@"1.3.1" from @better-auth/passkey@1.6.23
+npm warn   node_modules/@neondatabase/auth-ui/node_modules/@better-auth/passkey
+npm warn     @better-auth/passkey@"1.6.23" from @neondatabase/auth-ui@0.3.0-beta
+npm warn     node_modules/@neondatabase/auth-ui
+npm warn     1 more (@daveyplate/better-auth-ui)
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: @better-auth/api-key@1.7.7
+npm warn Found: better-auth@1.6.23
+npm warn node_modules/@neondatabase/auth-ui/node_modules/better-auth
+npm warn   better-auth@"1.6.23" from @neondatabase/auth-ui@0.3.0-beta
+npm warn   node_modules/@neondatabase/auth-ui
+npm warn     @neondatabase/auth-ui@"latest" from the root project
+npm warn     1 more (@neondatabase/auth)
+npm warn   3 more (@better-auth/passkey, ...)
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer better-auth@"^1.7.7" from @better-auth/api-key@1.7.7
+npm warn node_modules/@neondatabase/auth-ui/node_modules/@daveyplate/better-auth-ui/node_modules/@better-auth/api-key
+npm warn   @better-auth/api-key@"^1.5.6" from @daveyplate/better-auth-ui@3.4.0
+npm warn   node_modules/@neondatabase/auth-ui/node_modules/@daveyplate/better-auth-ui
+npm warn
+npm warn Conflicting peer dependency: better-auth@1.7.7
+npm warn node_modules/better-auth
+npm warn   peer better-auth@"^1.7.7" from @better-auth/api-key@1.7.7
+npm warn   node_modules/@neondatabase/auth-ui/node_modules/@daveyplate/better-auth-ui/node_modules/@better-auth/api-key
+npm warn     @better-auth/api-key@"^1.5.6" from @daveyplate/better-auth-ui@3.4.0
+npm warn     node_modules/@neondatabase/auth-ui/node_modules/@daveyplate/better-auth-ui
+npm warn ERESOLVE overriding peer dependency
+npm warn While resolving: @better-auth/api-key@1.7.7
+npm warn Found: better-call@2.0.2
+npm warn node_modules/@neondatabase/auth-ui/node_modules/@daveyplate/better-auth-ui/node_modules/better-call
+npm warn   better-call@"2.0.2" from @daveyplate/better-auth-ui@3.4.0
+npm warn   node_modules/@neondatabase/auth-ui/node_modules/@daveyplate/better-auth-ui
+npm warn     @daveyplate/better-auth-ui@"3.4.0" from @neondatabase/auth-ui@0.3.0-beta
+npm warn     node_modules/@neondatabase/auth-ui
+npm warn
+npm warn Could not resolve dependency:
+npm warn peer better-call@"1.4.0" from @better-auth/api-key@1.7.7
+npm warn node_modules/@neondatabase/auth-ui/node_modules/@daveyplate/better-auth-ui/node_modules/@better-auth/api-key
+npm warn   @better-auth/api-key@"^1.5.6" from @daveyplate/better-auth-ui@3.4.0
+npm warn   node_modules/@neondatabase/auth-ui/node_modules/@daveyplate/better-auth-ui
+npm warn
+npm warn Conflicting peer dependency: better-call@1.4.0
+npm warn node_modules/better-call
+npm warn   peer better-call@"1.4.0" from @better-auth/api-key@1.7.7
+npm warn   node_modules/@neondatabase/auth-ui/node_modules/@daveyplate/better-auth-ui/node_modules/@better-auth/api-key
+npm warn     @better-auth/api-key@"^1.5.6" from @daveyplate/better-auth-ui@3.4.0
+npm warn     node_modules/@neondatabase/auth-ui/node_modules/@daveyplate/better-auth-ui
+npm warn deprecated @react-email/text@0.1.6: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+npm warn deprecated @react-email/section@0.0.17: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+npm warn deprecated @react-email/preview@0.0.14: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+npm warn deprecated @react-email/row@0.0.13: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+npm warn deprecated @react-email/markdown@0.0.18: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+npm warn deprecated @react-email/img@0.0.12: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+npm warn deprecated @react-email/html@0.0.12: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+npm warn deprecated @react-email/link@0.0.13: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+npm warn deprecated @react-email/hr@0.0.12: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+npm warn deprecated @react-email/components@1.0.12: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+npm warn deprecated @react-email/head@0.0.13: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+npm warn deprecated @react-email/font@0.0.10: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+npm warn deprecated @react-email/container@0.0.16: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+npm warn deprecated @react-email/code-inline@0.0.6: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+npm warn deprecated @react-email/heading@0.0.16: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+npm warn deprecated @react-email/body@0.3.0: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+npm warn deprecated @react-email/button@0.2.1: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+npm warn deprecated @react-email/column@0.0.14: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+npm warn deprecated @react-email/tailwind@2.0.7: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+npm warn deprecated @react-email/code-block@0.2.1: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+
+added 270 packages in 52s
+
+=== tsc ===
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+=== check ===
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> ilama-bloom@3.0.0 check:kids
+> node scripts/check-kids-release.mjs && node scripts/check-kids-engine.mjs && node --test scripts/test-kids-integration.mjs scripts/test-kids-motion.mjs scripts/test-kids-stability.mjs scripts/test-kids-persistence.mjs scripts/test-kids-journeys.mjs scripts/test-kids-privacy.mjs
+
+PASS KidsWorld rendered by app
+PASS Five distinct adventures
+PASS Approved family artwork
+PASS Garden planting is atomic
+PASS One semantic main landmark
+PASS Storybook family illustrations
+PASS Server progress request timeout
+PASS Account-scoped hydration
+PASS Signed-in server progress sync
+PASS Fruit round variety
+PASS Fruit market hunt
+PASS Interactive plate builder
+PASS Movement adventure
+PASS Family story
+PASS Arabic/English and RTL
+PASS Guest stars persisted after hydration
+PASS Account-specific progress cache
+PASS Kids navigation destinations
+PASS Remote save before reward
+PASS Duplicate-save guard and bounded save
+PASS Accessible feedback and pressed states
+PASS Reduced motion
+PASS Mobile responsive layout
+PASS Keyboard focus
+PASS Coherent character hero and discovery strip
+PASS No unreachable placeholder branches
+PASS Stable gameplay test hooks
+PASS No legacy editorial styles imported
+PASS TSX syntax app/KidsWorld.tsx
+PASS TSX syntax app/IlamaApp.tsx
+PASS approved artwork ilama-family
+PASS approved artwork ilamo
+PASS approved artwork ilama
+PASS approved artwork grandpa
+PASS approved artwork grandma
+Kids structural release checks passed; manual visual and interactive QA still required.
+✓ app/KidsWorld.tsx TSX parses
+✓ app/FarmWorld.tsx TSX parses
+✓ app/FarmCanvas.tsx TSX parses
+✓ app/EgyptAdventures.tsx TSX parses
+✓ app/KidsDiscoveryLab.tsx TSX parses
+✓ app/KidsWeatherLab.tsx TSX parses
+✓ app/KidsQuestTrail.tsx TSX parses
+✓ app/KidsKitchenStudio.tsx TSX parses
+✓ app/KidsAdventureHub.tsx TSX parses
+✓ app/AquaWorld.tsx TSX parses
+✓ app/DiscoveryLab.tsx TSX parses
+✓ app/MoveAdventures.tsx TSX parses
+✓ app/PoseMotionTracker.tsx TSX parses
+✓ Farm, Egypt and motion connected through adventure hub
+✓ Canvas world with requestAnimationFrame
+✓ Accessible keyboard movement and touch navigation
+✓ Motion preference and manual pause
+✓ Zoom controls and bounded world
+✓ Canvas garden reflects live plot state
+✓ Canvas pauses offscreen rendering
+✓ Farm planting, watering, harvesting
+✓ Farm save guarded by hydrated key
+✓ Garden harvest links to kitchen
+✓ Fish habitat and nutrition variation
+✓ No penalties, natural break
+✓ Egypt passport saves only discovered ids
+✓ Governorates represented exactly 27 times
+✓ Egypt distractors have distinct food labels
+✓ Egypt question is about featured food, not exclusive ownership
+✓ Food origins and Nile-to-table interactive choices
+✓ Age bands without collecting birth date
+✓ Discovery stamps saved after hydration
+✓ Weather experiment has three scenarios
+✓ Weather supports reduced motion and offline family activity
+✓ No game timer, leaderboard or punitive points
+✓ No vet games or child-facing clinic promotion
+✓ Three playable story quests integrated
+✓ All nine quest scenes have exactly three choices and a valid answer
+✓ Quest choices show explanations before progression
+✓ Quest progress uses the journey persistence boundary
+✓ Quest contains family offline activity and no pressure
+✓ Kitchen studio integrated with 12 ingredients
+✓ Kitchen studio includes safe adult preparation and scoped ideas
+✓ No monetary rewards, clinic pressure or veterinary games in new components
+✓ Motion camera opt-in and manual fallback
+✓ Camera processing excludes recording and upload APIs
+✓ app/KidsWorld.tsx uses only approved art
+✓ app/FarmWorld.tsx uses only approved art
+✓ app/FarmCanvas.tsx uses only approved art
+✓ app/EgyptAdventures.tsx uses only approved art
+✓ app/KidsDiscoveryLab.tsx uses only approved art
+✓ app/KidsWeatherLab.tsx uses only approved art
+✓ app/KidsQuestTrail.tsx uses only approved art
+✓ app/KidsKitchenStudio.tsx uses only approved art
+✓ app/KidsAdventureHub.tsx uses only approved art
+✓ app/AquaWorld.tsx uses only approved art
+✓ app/DiscoveryLab.tsx uses only approved art
+✓ app/MoveAdventures.tsx uses only approved art
+✓ app/PoseMotionTracker.tsx uses only approved art
+ILAMA Kids engine static checks passed: 59. Run npm run build and real browser QA before publishing.
+✔ parse app/KidsWorld.tsx (34.380062ms)
+✔ parse app/KidsAdventureHub.tsx (8.196732ms)
+✔ parse app/FarmWorld.tsx (13.886363ms)
+✔ parse app/EgyptAdventures.tsx (9.064931ms)
+✔ parse app/AquaWorld.tsx (6.864362ms)
+✔ parse app/DiscoveryLab.tsx (10.583747ms)
+✔ parse app/MoveAdventures.tsx (13.672236ms)
+✔ parse app/PoseMotionTracker.tsx (8.122111ms)
+✔ parse app/motionLogic.ts (6.298331ms)
+✔ hub integrates five worlds exactly once (3.920321ms)
+✔ no animal medicine or punitive rewards (0.345883ms)
+✔ guardian reset protects old revision-zero and populated device writes in PostgreSQL (3225.667927ms)
+✔ existing learning profiles migrate to generation zero without losing consent or state (1802.087453ms)
+✔ cache generation change clears pending achievements and inventories instead of merging them back (1.949699ms)
+✔ a lost save acknowledgement with identical inventory does not produce a false conflict (0.304731ms)
+✔ same-generation learning union keeps pending discoveries while inventory mismatch stays explicit (0.359075ms)
+✔ cache decoding and server acknowledgement reject invalid shape, generation, zone and revision (1.112537ms)
+✔ a later edit remains pending after an earlier successful save (0.185254ms)
+✔ journey milestones use real completed learning evidence and no clock or check-off input (0.753092ms)
+✔ saved milestones survive consuming the harvest and replaying a shorter step (0.422664ms)
+✔ toy plant conditions explain dry, dark, drainage and balanced settings without harming saved progress (0.492463ms)
+✔ camera consent and duplicate requests cannot acquire extra streams (1.056565ms)
+✔ cancelled and disposed permission results close their late stream without UI updates (0.349546ms)
+✔ camera timeout ignores late permission and closes its stream (25.433386ms)
+✔ external device loss closes the stream, pauses play and detaches its listener (0.59651ms)
+✔ camera permission rejection allows a fresh retry (0.452175ms)
+✔ meal ideas are bounded and use unique IDs when the clock repeats or overflows (0.529746ms)
+✔ snapshot revisions reject values beyond PostgreSQL integer range before writing (0.483704ms)
+✔ story trail targets select the relevant food activity and quest (0.121237ms)
+✔ TSX syntax app/KidsWorld.tsx (65.955511ms)
+✔ TSX syntax app/FarmWorld.tsx (13.567268ms)
+✔ TSX syntax app/EgyptAdventures.tsx (8.68504ms)
+✔ TSX syntax app/AquaWorld.tsx (17.198142ms)
+✔ TSX syntax app/DiscoveryLab.tsx (20.280829ms)
+✔ TSX syntax app/KidsAdventureHub.tsx (5.122127ms)
+✔ TSX syntax app/MoveAdventures.tsx (16.560586ms)
+✔ TSX syntax app/PoseMotionTracker.tsx (7.994164ms)
+✔ TSX syntax app/motionLogic.ts (6.954161ms)
+✔ Kids integration imports movement tracker (1.492803ms)
+✔ Movement includes eight unique game IDs (0.682958ms)
+✔ Camera must not record or upload (0.439246ms)
+✔ profile consent and input bounds are enforced (3245.340783ms)
+✔ two owners and sibling profiles have independent PostgreSQL snapshots (40.95704ms)
+✔ compare-and-swap rejects stale writes without losing farm stock (13.320648ms)
+✔ profile update uses authenticated owner and parameterized nickname (16.187009ms)
+✔ limit five profiles and deletion cascade are enforced (36.055821ms)
+✔ legacy profile import runs once and deleted records do not reappear (19.244732ms)
+✔ learning snapshots strip unexpected private fields and nonfinite counters (0.517033ms)
+✔ achievement unions preserve discoveries; inventories require an explicit choice (0.386202ms)
+✔ cross-site requests and streamed oversized bodies are rejected (9.49921ms)
+✔ farm repeated events cannot double harvest or spend missing ingredients (0.521988ms)
+✔ motion needs temporal movement; knees and seated arms both support march (0.323799ms)
+✔ server discards children and guardian analytics before database access (1.633739ms)
+✔ public counts discard queries and all free-form fragments (1.159311ms)
+✔ analytics accepts only bounded page counts and safe anonymous identifiers (1.077138ms)
+✔ TypeScript parser: app/KidsWorld.tsx (58.223567ms)
+✔ TypeScript parser: app/KidsAdventureHub.tsx (13.714982ms)
+✔ TypeScript parser: app/FarmWorld.tsx (8.189159ms)
+✔ TypeScript parser: app/EgyptAdventures.tsx (8.074072ms)
+✔ TypeScript parser: app/AquaWorld.tsx (4.200271ms)
+✔ TypeScript parser: app/DiscoveryLab.tsx (8.127877ms)
+✔ TypeScript parser: app/MoveAdventures.tsx (13.463783ms)
+✔ TypeScript parser: app/PoseMotionTracker.tsx (10.11851ms)
+✔ TypeScript parser: app/motionLogic.ts (4.812233ms)
+✔ one navigable hub, five destinations (1.088487ms)
+✔ account switching isolates the journey cache and stale requests (0.455552ms)
+✔ camera remains optional and local (0.465857ms)
+✔ all approved illustrations referenced in kids world (0.472656ms)
+✔ motion tracking uses shared movement rules and cleans up model (0.256739ms)
+ℹ tests 69
+ℹ suites 0
+ℹ pass 69
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5801.858041
+
+=== build ===
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> ilama-bloom@3.0.0 build
+> next build
+
+▲ Next.js 16.3.6 (Turbopack)
+✓ Running next.config.ts took 26ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 293ms
+  Running TypeScript ...
+  Finished TypeScript in 1894ms ...
+  Collecting page data using 8 workers ...
+  Generating static pages using 8 workers (0/46) ...
+  Generating static pages using 8 workers (11/46)
+  Generating static pages using 8 workers (22/46)
+  Generating static pages using 8 workers (34/46)
+✓ Generating static pages using 8 workers (46/46) in 430ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /[slug]
+├ ○ /account
+├ ○ /admin
+├ ƒ /api/admin/foods
+├ ƒ /api/analytics
+├ ƒ /api/auth/[...path]
+├ ƒ /api/care
+├ ƒ /api/child-profile
+├ ƒ /api/entries
+├ ƒ /api/family
+├ ƒ /api/foods
+├ ƒ /api/kids/profiles
+├ ƒ /api/kids/snapshots
+├ ƒ /api/learning-games
+├ ƒ /api/learning-guides
+├ ƒ /api/learning-missions
+├ ƒ /api/profile
+├ ƒ /api/progress
+├ ƒ /auth
+├ ƒ /auth/[path]
+├ ○ /card
+├ ○ /explore
+├ ƒ /food-atlas
+├ ○ /icon.svg
+├ ƒ /journal
+├ ○ /kids
+├ ○ /lens
+├ ○ /manifest.webmanifest
+├ ƒ /nourio
+├ ○ /parent
+├ ○ /privacy
+├ ○ /robots.txt
+├ ○ /sitemap.xml
+└ ƒ /visit
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+
+=== layout ===
+PASS layout en 320
+PASS layout en 390
+PASS layout en 768
+PASS layout en 1440
+PASS layout ar 320
+PASS layout ar 390
+PASS layout ar 768
+PASS layout ar 1440
+
+=== browser ===
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> ilama-bloom@3.0.0 qa:kids:browser
+> node scripts/kids-browser-qa.cjs
+
+PASS Kids world bilingual, five games, stars, approved artwork, responsive and WCAG checks 10
+
+=== activities ===
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> ilama-bloom@3.0.0 qa:kids:activities
+> node scripts/kids-activity-qa.cjs
+
+PASS activity en: exact mission targets, fish-story replay and keyboard focus, fish habitat matching and all six discoveries, named/bounded kitchen ideas, safety/back navigation, double-save guard, clear/cancel, touch 320px/768px, selected-state axe and reload
+PASS activity ar: exact mission targets, fish-story replay and keyboard focus, fish habitat matching and all six discoveries, named/bounded kitchen ideas, safety/back navigation, double-save guard, clear/cancel, touch 320px/768px, selected-state axe and reload
+
+=== play ===
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> ilama-bloom@3.0.0 qa:kids:play
+> node scripts/kids-connected-play-qa.cjs
+
+PASS connected play en: seed-to-dish evidence, four keyboard-driven plant observations, all round lengths, movement scene/reduced motion, mission focus and persistence, 320px and axe
+PASS connected play ar: seed-to-dish evidence, four keyboard-driven plant observations, all round lengths, movement scene/reduced motion, mission focus and persistence, 320px and axe
+
+=== camera ===
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> ilama-bloom@3.0.0 qa:kids:camera
+> node scripts/kids-camera-qa.cjs
+
+PASS synthetic pose stationary/moving detection and detector cleanup; camera consent, rejection/retry, pause cleanup, mode cleanup, unmount cleanup, late permission cleanup; eight manual movement games, aquatic passport persistence; 5 API authorization checks; Arabic play with browser storage blocked; no child analytics with prior consent
+
+=== journey ===
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> ilama-bloom@3.0.0 qa:kids:journey
+> node scripts/kids-journey-qa.cjs
+
+PASS journey en: sibling/owner isolation, cloud save, stale response, explicit conflict choice, offline/retry, consent, editing, export, cross-tab reset protection, deletion and parent summary/accessibility; 6 writes
+PASS journey ar: sibling/owner isolation, cloud save, stale response, explicit conflict choice, offline/retry, consent, editing, export, cross-tab reset protection, deletion and parent summary/accessibility; 6 writes

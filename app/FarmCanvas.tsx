@@ -1,6 +1,8 @@
 "use client";
 import {useEffect,useRef,useState,type PointerEvent,type KeyboardEvent} from "react";
 
+import styles from "./FarmCanvas.module.css";
+
 type Zone="field"|"pond"|"kitchen";
 type Plot={crop:string;water:number}|null;
 type SceneProps={ar:boolean;onZone:(zone:Zone)=>void;plots:Plot[]};
@@ -79,11 +81,11 @@ export default function FarmCanvas({ar,onZone,plots}:SceneProps){
  const keys=(e:KeyboardEvent<HTMLCanvasElement>)=>{const w=world.current;const k=e.key.toLowerCase();const dx=k==="arrowright"||k==="d"?35:k==="arrowleft"||k==="a"?-35:0;const dy=k==="arrowdown"||k==="s"?35:k==="arrowup"||k==="w"?-35:0;if(dx||dy){e.preventDefault();move(w.avatar.x+dx,w.avatar.y+dy)}};
  const pan=(dx:number,dy:number)=>{const w=world.current;w.offset={x:clamp(w.offset.x+dx,-180,180),y:clamp(w.offset.y+dy,-130,130)}};
  const zoom=(delta:number)=>{world.current.zoom=clamp(Math.round((world.current.zoom+delta)*10)/10,0.8,1.6);setZoomLabel(Math.round(world.current.zoom*100))};
- return <div style={{borderRadius:22,overflow:"hidden",border:"2px solid #c5ddba",background:"#cdebe3"}}>
-  <canvas ref={canvasRef} width={WIDTH} height={HEIGHT} tabIndex={0} onPointerDown={click} onKeyDown={keys} aria-label={ar?"عالم مزرعة تفاعلي. اضغط مكان للتحرك، أو استخدم الأسهم، أو اختار وجهة من الأزرار.":"Interactive farm world. Tap to walk, use arrow keys, or select a destination button."} style={{display:"block",width:"100%",height:"auto",touchAction:"manipulation",outlineOffset:-5}}/>
-  <div style={{display:"flex",gap:8,alignItems:"center",justifyContent:"space-between",flexWrap:"wrap",padding:10,background:"#eff6e5"}}>
-   <div style={{display:"flex",gap:7,flexWrap:"wrap"}}>{destinations.map(d=><button key={d.id} type="button" onClick={()=>pick(d.id)} aria-pressed={selected===d.id} style={{borderRadius:15,padding:"9px 12px",border:"1px solid #598768",background:selected===d.id?"#396d53":"white",color:selected===d.id?"white":"#294b36",fontWeight:700}}>{d.emoji} {ar?d.label.ar:d.label.en}</button>)}</div>
-   <div style={{display:"flex",gap:7,alignItems:"center"}}>
+ return <div className={styles.scene}>
+  <canvas ref={canvasRef} width={WIDTH} height={HEIGHT} tabIndex={0} onPointerDown={click} onKeyDown={keys} aria-label={ar?"عالم مزرعة تفاعلي. اضغط مكان للتحرك، أو استخدم الأسهم، أو اختار وجهة من الأزرار.":"Interactive farm world. Tap to walk, use arrow keys, or select a destination button."} className={styles.canvas}/>
+  <div className={styles.toolbar}>
+   <div className={styles.destinations}>{destinations.map(d=><button key={d.id} type="button" onClick={()=>pick(d.id)} aria-pressed={selected===d.id}>{d.emoji} {ar?d.label.ar:d.label.en}</button>)}</div>
+   <div className={styles.controls}>
     <button type="button" onClick={()=>pan(-45,0)} aria-label={ar?"حرّك الخريطة يسار":"Pan left"}>←</button>
     <button type="button" onClick={()=>pan(45,0)} aria-label={ar?"حرّك الخريطة يمين":"Pan right"}>→</button>
     <button type="button" onClick={()=>pan(0,-40)} aria-label={ar?"حرّك الخريطة أعلى":"Pan up"}>↑</button>
@@ -92,6 +94,6 @@ export default function FarmCanvas({ar,onZone,plots}:SceneProps){
     <button type="button" onClick={()=>setPaused(x=>!x)} aria-pressed={paused}>{paused?(ar?"▶ استكمال":"▶ Resume"):(ar?"⏸ إيقاف":"⏸ Pause")}</button>
    </div>
   </div>
-  <p style={{margin:"8px 12px 12px",fontSize:13,color:"#3d5945"}}>{ar?"اضغط على الأرض لتحريك إيلاما، أو اختار الحديقة والبحيرة والمطبخ. مفيش وقت محدد أو عقوبة.":"Tap the ground to move Ilama, or choose garden, pond and kitchen. No timer or penalties."}</p>
+  <p className={styles.hint}>{ar?"اضغط على الأرض لتحريك إيلاما، أو اختار الحديقة والبحيرة والمطبخ. مفيش وقت محدد أو عقوبة.":"Tap the ground to move Ilama, or choose garden, pond and kitchen. No timer or penalties."}</p>
  </div>
 }

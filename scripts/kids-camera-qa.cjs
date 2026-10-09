@@ -56,7 +56,7 @@ export const PoseLandmarker={createFromOptions:async()=>({detectForVideo:()=>{wi
   await move.getByRole('button',{name:'Back to games',exact:true}).click();
  }
  await hub.locator('nav').first().getByRole('button',{name:/Aqua World/}).click();
- const aqua=page.getByRole('region',{name:'Aqua World',exact:true});
+ const aqua=page.getByRole('region',{name:'Fish discovery',exact:true});
  for(const habitat of ['Nile','Sea']){await aqua.getByRole('button',{name:habitat==='Nile'?'🏞️ Nile':'🌊 Sea',exact:true}).click();const fish=aqua.locator('button').filter({hasText:/Nile tilapia|Catfish|Nile perch|Sardine|Mullet|Mackerel/});for(let n=0;n<await fish.count();n++)await fish.nth(n).click()}
  await page.waitForFunction(()=>JSON.parse(localStorage.getItem('ilama-journey-v2:guest')||'{}').hub?.state.achievements?.includes('aqua'));
  assert.match(await hub.getByRole('group',{name:'Adventure achievement passport'}).innerText(),/Aqua World.*Discovery saved/);

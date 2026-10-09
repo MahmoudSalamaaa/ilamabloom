@@ -15,7 +15,8 @@
     "qa:kids:activities": "node scripts/kids-activity-qa.cjs",
     "qa:kids:vision-assets": "node scripts/kids-vision-assets-qa.mjs",
     "qa:kids:vision-runtime": "node scripts/kids-vision-runtime-qa.cjs",
-    "qa:kids:api-privacy": "node scripts/kids-api-privacy-qa.cjs"
+    "qa:kids:api-privacy": "node scripts/kids-api-privacy-qa.cjs",
+    "qa:kids:layout": "node scripts/kids-layout-qa.cjs"
   },
   "dependencies": {
     "@neondatabase/auth": "latest",

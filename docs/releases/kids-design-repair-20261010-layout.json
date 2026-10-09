@@ -1,0 +1,66 @@
+[
+  {
+    "lang": "en",
+    "width": 320,
+    "controlsWithinViewport": true,
+    "allSixNavigationTargets": true,
+    "canvasWidth": 236,
+    "canvasHeight": 132.75
+  },
+  {
+    "lang": "en",
+    "width": 390,
+    "controlsWithinViewport": true,
+    "allSixNavigationTargets": true,
+    "canvasWidth": 306,
+    "canvasHeight": 172.125
+  },
+  {
+    "lang": "en",
+    "width": 768,
+    "controlsWithinViewport": true,
+    "allSixNavigationTargets": true,
+    "canvasWidth": 643.3125,
+    "canvasHeight": 361.859375
+  },
+  {
+    "lang": "en",
+    "width": 1440,
+    "controlsWithinViewport": true,
+    "allSixNavigationTargets": true,
+    "canvasWidth": 896,
+    "canvasHeight": 504
+  },
+  {
+    "lang": "ar",
+    "width": 320,
+    "controlsWithinViewport": true,
+    "allSixNavigationTargets": true,
+    "canvasWidth": 236,
+    "canvasHeight": 132.75
+  },
+  {
+    "lang": "ar",
+    "width": 390,
+    "controlsWithinViewport": true,
+    "allSixNavigationTargets": true,
+    "canvasWidth": 306,
+    "canvasHeight": 172.125
+  },
+  {
+    "lang": "ar",
+    "width": 768,
+    "controlsWithinViewport": true,
+    "allSixNavigationTargets": true,
+    "canvasWidth": 643.3125,
+    "canvasHeight": 361.859375
+  },
+  {
+    "lang": "ar",
+    "width": 1440,
+    "controlsWithinViewport": true,
+    "allSixNavigationTargets": true,
+    "canvasWidth": 896,
+    "canvasHeight": 504
+  }
+]
