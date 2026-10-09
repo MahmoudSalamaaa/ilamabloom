@@ -4,6 +4,7 @@ import assert from "node:assert/strict";
 import {createHash} from "node:crypto";
 import ts from "typescript";
 const component=fs.readFileSync("app/KidsWorld.tsx","utf8");
+const journey=fs.readFileSync("app/KidsJourney.tsx","utf8");
 const css=fs.readFileSync("app/KidsWorld.module.css","utf8");
 const app=fs.readFileSync("app/IlamaApp.tsx","utf8");
 let failures=0;
@@ -14,17 +15,17 @@ const checks=[
 ["Garden planting is atomic",component.includes("gardenPlots")&&component.includes("setPlantedPlots(old=>old.includes(i)?old:[...old,i])")&&!component.includes("setGardenSeeds")],
 ["One semantic main landmark",component.includes('data-kids-world="true"')&&!component.includes("return <main")],
 ["Storybook family illustrations",component.includes("storyIllustration")&&component.includes("The Ilama family")],
-["Server progress request timeout",component.includes("window.setTimeout(()=>controller.abort(),8000)")],
-["Account-scoped hydration",component.includes("hydratedKey!==storageKey")&&component.includes("setHydratedKey(storageKey)")],
-["Signed-in server progress sync",component.includes('fetch("/api/progress"')&&component.includes('entry.game_key==="world:"+id')&&component.includes("controller.abort()")],
+["Server progress request timeout",journey.includes("window.setTimeout(abort,9000)")],
+["Account-scoped hydration",journey.includes("loadedScope===scope")&&journey.includes("epoch.current!==token")],
+["Signed-in server progress sync",journey.includes("/api/kids/snapshots")&&journey.includes("revision:entry.revision")&&journey.includes("controller.abort()")],
 ["Fruit round variety",component.includes("marketRound")],
 ["Fruit market hunt",component.includes("marketShelf")&&component.includes("marketFinds")],
 ["Interactive plate builder",component.includes("basketItems")&&component.includes("setBasket")],
 ["Movement adventure",component.includes("moveFigure")&&component.includes("progressTrack")],
 ["Family story",component.includes("storyPage")&&component.includes("storyControls")],
 ["Arabic/English and RTL",component.includes('dir={ar?"rtl":"ltr"}')&&component.includes('lang={ar?"ar":"en"}')],
-["Guest stars persisted after hydration",component.includes("hydratedKey!==storageKey")&&component.includes("localStorage.setItem(storageKey")],
-["Account-specific progress cache",component.includes('"ilama-world-stars-v2:"+userId')&&app.includes("userId={session?.user?.id}")],
+["Guest stars persisted after hydration",component.includes('useAdventureState<Zone[]>("world",[])')&&journey.includes("if(!ready||loadedScope!==scope)return;try{localStorage.setItem(cacheKey")],
+["Account-specific progress cache",journey.includes("ilama-journey-v2:")&&journey.includes("userId||'guest'")&&app.includes("userId={session?.user?.id}")],
 ["Kids navigation destinations",["Food Atlas","Stories","Activities","For Parents"].every(x=>component.includes(x))],
 ["Remote save before reward",component.includes('await Promise.race([saveProgress("world:"+id,1)')&&component.includes('if(result!==true)throw')&&component.includes("setEarned(old=>")],
 ["Duplicate-save guard and bounded save",component.includes("saving.current")&&component.includes("earned.includes(id)")&&component.includes("Promise.race")&&component.includes("result!==true")],

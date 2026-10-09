@@ -1,5 +1,6 @@
 "use client";
 import {useCallback,useEffect,useState} from "react";
+import {useAdventureState,useKidsJourney} from "./KidsJourney";
 import FarmWorld from "./FarmWorld";
 import EgyptAdventures from "./EgyptAdventures";
 import AquaWorld from "./AquaWorld";
@@ -16,13 +17,11 @@ const entries:Entry[]=[
 ];
 const valid=(s:string):s is Zone=>entries.some(e=>e.id===s);
 export default function KidsAdventureHub({ar,userId}:{ar:boolean;userId?:string}){
-const [achievements,setAchievements]=useState<Zone[]>([]);
-const [zone,setZone]=useState<Zone>("farm");const [visited,setVisited]=useState<Zone[]>([]);const [loadedKey,setLoadedKey]=useState<string|null>(null);
-const storageKey="ilama-kids-hub-v1:"+(userId||"guest");
-useEffect(()=>{setZone("farm");setVisited([]);setAchievements([]);setLoadedKey(null);try{const x=JSON.parse(localStorage.getItem(storageKey)||"{}");if(x&&valid(x.zone))setZone(x.zone);if(Array.isArray(x.achievements))setAchievements([...new Set<Zone>(x.achievements.filter((s:unknown):s is Zone=>typeof s==="string"&&valid(s)))]);if(Array.isArray(x.visited))setVisited(x.visited.filter((s:unknown):s is Zone=>typeof s==="string"&&valid(s)))}catch{}setLoadedKey(storageKey)},[storageKey]);
-useEffect(()=>{if(loadedKey!==storageKey)return;try{localStorage.setItem(storageKey,JSON.stringify({zone,visited,achievements}))}catch{}},[storageKey,zone,visited,achievements,loadedKey]);
-const choose=(z:Zone)=>{if(loadedKey!==storageKey)return;setZone(z);setVisited(v=>v.includes(z)?v:[...v,z])};
-const complete=useCallback((id:Zone)=>{if(loadedKey===storageKey)setAchievements(old=>old.includes(id)?old:[...old,id])},[loadedKey,storageKey]);
+const journey=useKidsJourney();
+const [passport,setPassport,ready]=useAdventureState<{zone:Zone;visited:Zone[];achievements:Zone[]}>("hub",{zone:"farm",visited:[],achievements:[]});
+const {zone,visited,achievements}=passport;
+const choose=(z:Zone)=>{if(!ready)return;setPassport(p=>({...p,zone:z,visited:p.visited.includes(z)?p.visited:[...p.visited,z]}))};
+const complete=useCallback((id:Zone)=>setPassport(p=>p.achievements.includes(id)?p:{...p,achievements:[...p.achievements,id]}),[setPassport]);
 const active=entries.find(e=>e.id===zone)!;
 return <section id="kids-adventure-hub" dir={ar?"rtl":"ltr"} aria-label={ar?"عالم مغامرات إيلاما":"ILAMA adventure world"} style={{margin:"32px 0",padding:"clamp(12px,3vw,30px)",borderRadius:28,background:"#f7f3e9",color:"#294b3c"}}>
 <div style={{display:"flex",alignItems:"center",gap:15,flexWrap:"wrap"}}>
@@ -37,7 +36,7 @@ return <section id="kids-adventure-hub" dir={ar?"rtl":"ltr"} aria-label={ar?"ع�
 </nav>
 <div aria-live="polite" style={{display:"flex",justifyContent:"space-between",gap:12,flexWrap:"wrap",margin:"12px 0"}}>
 <strong>{active.icon} {ar?active.ar:active.en}</strong>
-<span>{ar?"أماكن زرتها على الجهاز: ":"Destinations explored on this device: "}{visited.length}/{entries.length}</span>
+<span>{ar?"أماكن اكتشفتها: ":"Destinations explored: "}{visited.length}/{entries.length}</span>
 </div>
 <div id={"kids-zone-"+zone} role="region" aria-label={ar?active.ar:active.en}>
 {zone==="farm"&&<FarmWorld ar={ar} userId={userId} onComplete={()=>complete("farm")}/>}
@@ -49,7 +48,7 @@ return <section id="kids-adventure-hub" dir={ar?"rtl":"ltr"} aria-label={ar?"ع�
 <div aria-label={ar?"دفتر إنجازات المغامرات":"Adventure achievement passport"} role="group" style={{padding:16,background:"#e3f1e5",borderRadius:18,marginTop:18}}><h3>{ar?"🌟 دفتر اكتشافاتك":"🌟 Your discovery passport"}</h3><p>{ar?"الإنجازات تذكّرنا بما اكتشفناه. كل الأماكن مفتوحة، وتقدر تعيد أي نشاط بدون نقاط إضافية.":"Achievements remember your discoveries. Every destination stays open; replay freely without extra points."}</p><ul>{entries.map(entry=><li key={entry.id}>{achievements.includes(entry.id)?"🌟":"🌱"} {ar?entry.ar:entry.en} — {achievements.includes(entry.id)?(ar?"اكتشاف محفوظ":"Discovery saved"):(ar?"استكشف وقت ما تحب":"Explore whenever you like")}</li>)}</ul></div>
 <div style={{display:"flex",gap:10,alignItems:"center",flexWrap:"wrap",marginTop:20}}>
 <button type="button" onClick={()=>choose(entries[(entries.findIndex(e=>e.id===zone)+1)%entries.length].id)} style={{border:0,borderRadius:16,background:"#396c50",color:"white",padding:"13px 20px",cursor:"pointer"}}>{ar?"المغامرة التالية ←":"Next adventure →"}</button>
-<span style={{fontSize:12}}>{ar?"تقدر توقف في أي وقت. الإنجازات المحلية ليست حسابًا سحابيًا.":"Take a break anytime. Local progress is not cloud account sync."}</span>
+<span style={{fontSize:12}}>{ar?"تقدر توقف في أي وقت. كل ملف طفل له رحلته الخاصة.":"Take a break anytime. Each child profile has its own journey."}</span>
 </div>
 </section>
 }

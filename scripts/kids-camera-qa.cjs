@@ -36,6 +36,8 @@ export const PoseLandmarker={createFromOptions:async()=>({detectForVideo:()=>{wi
  assert((await move.innerText()).includes('0 / 6'),'stationary pose cannot earn movement');
  await page.evaluate(()=>window.poseMoving=true);
  await page.waitForFunction(()=>document.querySelector('section[aria-label="Movement adventures"]').innerText.includes('1 / 6'));
+ await move.getByRole('button',{name:'Pause',exact:true}).click();
+ assert.equal(await page.evaluate(()=>window.stoppedTracks),1,'pause releases camera');await page.waitForFunction(()=>window.poseClosed>=1);
  await move.getByRole('button',{name:'Play without camera',exact:true}).click();
  assert.equal(await page.evaluate(()=>window.stoppedTracks),1);await page.waitForFunction(()=>window.poseClosed>=1);assert.equal(await move.locator('video').count(),0);
  await move.getByRole('button',{name:'Camera preview (optional)',exact:true}).click();await enable.click();await move.locator('video').waitFor();
@@ -55,11 +57,17 @@ export const PoseLandmarker={createFromOptions:async()=>({detectForVideo:()=>{wi
  }
  await hub.locator('nav').first().getByRole('button',{name:/Aqua World/}).click();
  const aqua=page.getByRole('region',{name:'Aqua World',exact:true});
- for(const habitat of ['Nile','Sea']){await aqua.getByRole('button',{name:habitat==='Nile'?'🏞️ Nile':'🌊 Sea',exact:true}).click();const fish=aqua.locator('button').filter({hasText:/Nile tilapia|Catfish|Sardine|Mullet/});for(let n=0;n<await fish.count();n++)await fish.nth(n).click()}
- await page.waitForFunction(()=>JSON.parse(localStorage.getItem('ilama-kids-hub-v1:guest')||'{}').achievements?.includes('aqua'));
+ for(const habitat of ['Nile','Sea']){await aqua.getByRole('button',{name:habitat==='Nile'?'🏞️ Nile':'🌊 Sea',exact:true}).click();const fish=aqua.locator('button').filter({hasText:/Nile tilapia|Catfish|Nile perch|Sardine|Mullet|Mackerel/});for(let n=0;n<await fish.count();n++)await fish.nth(n).click()}
+ await page.waitForFunction(()=>JSON.parse(localStorage.getItem('ilama-journey-v2:guest')||'{}').hub?.state.achievements?.includes('aqua'));
  assert.match(await hub.getByRole('group',{name:'Adventure achievement passport'}).innerText(),/Aqua World.*Discovery saved/);
  await page.reload();await page.locator('#kids-adventure-hub').waitFor();await page.waitForFunction(()=>/Aqua World.*Discovery saved/.test(document.querySelector('[aria-label="Adventure achievement passport"]')?.textContent||''));
- for(const path of ['progress','child-profile','family']){const response=await page.request.get((process.env.BASE_URL||'http://127.0.0.1:3001')+'/api/'+path);assert.equal(response.status(),401,path+' denies unauthenticated access')}
- console.log('PASS synthetic pose stationary/moving detection and detector cleanup; camera consent, rejection/retry, mode cleanup, unmount cleanup, late permission cleanup; eight manual movement games, aquatic passport persistence; 3 API authorization checks');
+ for(const path of ['progress','child-profile','family','kids/profiles','kids/snapshots?childId=noor']){const response=await page.request.get((process.env.BASE_URL||'http://127.0.0.1:3001')+'/api/'+path);assert.equal(response.status(),401,path+' denies unauthenticated access')}
+ const privatePage=await browser.newPage();let childAnalytics=0;await privatePage.addInitScript(()=>localStorage.setItem('ilama-bloom-analytics-consent','yes'));await privatePage.route('**/api/analytics',route=>{childAnalytics++;return route.fulfill({json:{ok:true}})});await privatePage.goto((process.env.BASE_URL||'http://127.0.0.1:3001')+'/kids?lang=en');await privatePage.getByRole('region',{name:'Family journey space'}).waitFor();await privatePage.waitForTimeout(200);assert.equal(childAnalytics,0,'child space never emits analytics even with prior public-site consent');await privatePage.close();
+ const restricted=await browser.newPage({viewport:{width:390,height:844}});const storageErrors=[];restricted.on('pageerror',e=>storageErrors.push(e.message));
+ await restricted.addInitScript(()=>{for(const name of ['getItem','setItem','removeItem'])Object.defineProperty(Storage.prototype,name,{value:()=>{throw new DOMException('Blocked','SecurityError')}})});
+ await restricted.goto((process.env.BASE_URL||'http://127.0.0.1:3001')+'/kids?lang=ar');
+ await restricted.getByRole('region',{name:'مساحة رحلة الأسرة'}).getByRole('status').filter({hasText:'التخزين على الجهاز غير متاح'}).waitFor();
+ await restricted.locator('#kids-adventure-hub').locator('nav').first().getByRole('button',{name:/عالم المياه/}).click();await restricted.getByRole('region',{name:'اكتشاف الأسماك'}).getByRole('button',{name:/البلطي النيلي/}).click();assert.deepEqual(storageErrors,[]);await restricted.close();
+ console.log('PASS synthetic pose stationary/moving detection and detector cleanup; camera consent, rejection/retry, pause cleanup, mode cleanup, unmount cleanup, late permission cleanup; eight manual movement games, aquatic passport persistence; 5 API authorization checks; Arabic play with browser storage blocked; no child analytics with prior consent');
  }finally{await browser.close()}
 })().catch(e=>{console.error(e);process.exit(1)});

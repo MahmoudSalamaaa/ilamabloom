@@ -1,5 +1,6 @@
 "use client";
-import {useEffect,useState,type CSSProperties} from "react";
+import {useAdventureState} from "./KidsJourney";
+import {useState,type CSSProperties} from "react";
 
 type Age="3-5"|"6-8"|"9-12";
 type Item={icon:string;ar:string;en:string;origin:"plant"|"animal";whyAr:string;whyEn:string};
@@ -14,11 +15,9 @@ const items:Item[]=[
 const steps=[{icon:"🏞️",ar:"المياه العذبة",en:"Freshwater habitat"},{icon:"🧺",ar:"سوق السمك",en:"Fish market"},{icon:"🍳",ar:"شخص بالغ يجهز ويطبخ بأمان",en:"Adult prepares and cooks safely"},{icon:"🍽️",ar:"مائدة الأسرة",en:"Family table"}];
 const button:CSSProperties={border:"2px solid #699476",background:"#fffdf5",color:"#284d39",padding:"12px 15px",minHeight:48,borderRadius:14,fontWeight:700,cursor:"pointer"};
 export default function KidsDiscoveryLab({ar,userId}:{ar:boolean;userId?:string}){
- const [age,setAge]=useState<Age>("6-8"),[game,setGame]=useState<"origins"|"river">("origins"),[index,setIndex]=useState(0),[message,setMessage]=useState(""),[done,setDone]=useState(false),[stamps,setStamps]=useState<string[]>([]),[loaded,setLoaded]=useState<string|null>(null);
- const key="ilama-discovery-v1:"+(userId||"guest");
+ const [age,setAge]=useState<Age>("6-8"),[game,setGame]=useState<"origins"|"river">("origins"),[index,setIndex]=useState(0),[message,setMessage]=useState(""),[done,setDone]=useState(false);
+ const [stamps,setStamps,ready]=useAdventureState<string[]>("food",[]);
  const t=(a:string,b:string)=>ar?a:b;
- useEffect(()=>{try{const x:unknown=JSON.parse(localStorage.getItem(key)||"[]");setStamps(Array.isArray(x)?x.filter((v):v is string=>v==="origins"||v==="river").slice(0,2):[])}catch{setStamps([])}setLoaded(key)},[key]);
- useEffect(()=>{if(loaded===key)try{localStorage.setItem(key,JSON.stringify(stamps))}catch{}},[loaded,key,stamps]);
  const total=game==="river"?4:age==="3-5"?3:age==="6-8"?5:6;
  const finish=()=>{setDone(true);setMessage(t("اكتشاف جميل! تقدر تاخد راحة دلوقتي 🌿","Lovely discovery! You can take a break now 🌿"));setStamps(old=>old.includes(game)?old:[...old,game])};
  const next=(fact:string)=>{if(index+1>=total)finish();else{setIndex(i=>i+1);setMessage(fact)}};
@@ -32,6 +31,6 @@ export default function KidsDiscoveryLab({ar,userId}:{ar:boolean;userId?:string}
  <div style={{background:"white",borderRadius:18,padding:20,minHeight:210}}><p>{t("الخطوة","Step")} {Math.min(index+1,total)} / {total}</p>
  {done?<div><h3>{t("🌟 خلصت المغامرة!","🌟 Adventure complete!")}</h3><p>{t("تقدر تكتفي بكده أو ترجع في أي وقت.","You can stop here or return whenever you like.")}</p><button type="button" style={button} onClick={()=>reset(game)}>{t("إعادة اختيارية","Replay (optional)")}</button></div>:game==="origins"?<div><h3 style={{fontSize:26}}>{items[index].icon} {t(items[index].ar,items[index].en)}</h3><p>{t("مصدره نبات ولا حيوان؟","Does it come from a plant or an animal?")}</p><div style={{display:"flex",gap:9,flexWrap:"wrap"}}><button type="button" style={button} onClick={()=>choose("plant")}>{t("🌱 نبات","🌱 Plant")}</button><button type="button" style={button} onClick={()=>choose("animal")}>{t("🐔 حيوان","🐔 Animal")}</button></div></div>:<div><h3>{t("رتّب رحلة البلطي من بيئته للمائدة","Sequence tilapia's journey from habitat to table")}</h3><p>{t("دي رحلة توضيحية. شراء السمك وتجهيزه وطهيه مسؤولية شخص بالغ.","This is an example. Buying, preparing and cooking fish are grown-up tasks.")}</p><div style={{display:"flex",gap:8,flexWrap:"wrap"}}>{steps.map((s,i)=><button type="button" key={i} disabled={i<index} style={{...button,opacity:i<index?0.5:1}} onClick={()=>choose(String(i))}>{i<index?"✓":s.icon} {t(s.ar,s.en)}</button>)}</div></div>}
  <p role="status" aria-live="polite" style={{minHeight:24,fontWeight:600}}>{message}</p></div>
- <p style={{fontSize:13}}>{t("🌿 الاكتشافات محفوظة على الجهاز فقط. مفيش إعلانات أو مكافآت مالية أو ضغط للاستمرار.","🌿 Discoveries are saved on this device only. No ads, financial rewards or pressure to continue.")}</p>
+ <p style={{fontSize:13}}>{t("🌿 الاكتشافات تتبع رحلة التعلّم المختارة. مفيش إعلانات أو مكافآت مالية أو ضغط للاستمرار.","🌿 Discoveries belong to the selected learning journey. No ads, financial rewards or pressure to continue.")}</p>
  </section>
 }

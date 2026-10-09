@@ -1,4 +1,5 @@
 "use client";
+import {useAdventureState} from "./KidsJourney";
 import {useEffect,useState,type CSSProperties} from "react";
 type Question={icon:string;ar:string;en:string;options:{id:string;ar:string;en:string}[];answer:string;whyAr:string;whyEn:string};
 const questions:Question[]=[
@@ -9,9 +10,10 @@ const questions:Question[]=[
 const button:CSSProperties={border:"2px solid #6c9b78",borderRadius:15,padding:"12px 16px",minHeight:48,background:"#fff",color:"#264a37",fontWeight:700,cursor:"pointer"};
 export default function KidsWeatherLab({ar}:{ar:boolean}){
  const [index,setIndex]=useState(0),[feedback,setFeedback]=useState(""),[done,setDone]=useState(false),[family,setFamily]=useState(false),[reduced,setReduced]=useState(false);
+ const [weather,setWeather]=useAdventureState<{completed:string[];experiments:number}>("weather",{completed:[],experiments:0});
  const t=(a:string,b:string)=>ar?a:b;
  useEffect(()=>{const media=matchMedia("(prefers-reduced-motion: reduce)");const update=()=>setReduced(media.matches);update();media.addEventListener("change",update);return()=>media.removeEventListener("change",update)},[]);
- const choose=(id:string)=>{const q=questions[index];if(id!==q.answer){setFeedback(t("تجربة جميلة! فكّر في احتياجات النبتة وجرب تاني.","Good exploration! Think about what the plant needs and try again."));return}if(index===questions.length-1){setDone(true);setFeedback(t("اكتشفت احتياجات النباتات. خد راحة وقت ما تحب 🌿","You discovered what plants need. Take a break whenever you like 🌿"))}else{setIndex(x=>x+1);setFeedback(t(q.whyAr,q.whyEn))}};
+ const choose=(id:string)=>{const q=questions[index];if(id!==q.answer){setFeedback(t("تجربة جميلة! فكّر في احتياجات النبتة وجرب تاني.","Good exploration! Think about what the plant needs and try again."));return}setWeather(old=>({...old,completed:old.completed.includes(q.answer)?old.completed:[...old.completed,q.answer],experiments:index===questions.length-1?1:old.experiments}));if(index===questions.length-1){setDone(true);setFeedback(t("اكتشفت احتياجات النباتات. خد راحة وقت ما تحب 🌿","You discovered what plants need. Take a break whenever you like 🌿"))}else{setIndex(x=>x+1);setFeedback(t(q.whyAr,q.whyEn))}};
  return <section id="kids-weather-lab" dir={ar?"rtl":"ltr"} aria-label={t("معمل النباتات والطقس","Plant and weather science lab")} style={{background:"#eaf3ed",borderRadius:24,padding:"clamp(15px,3vw,28px)",margin:"28px 0",color:"#264a37"}}>
  <h2 style={{fontSize:"clamp(25px,4vw,40px)"}}>{t("🌦️ معمل النبات والطقس","🌦️ Plant & Weather Lab")}</h2>
  <p>{t("تجارب علمية صغيرة من غير خوف أو درجات. الاختيارات الغلط جزء من التعلم.","Gentle science experiments. Wrong guesses are part of learning, not a failure.")}</p>

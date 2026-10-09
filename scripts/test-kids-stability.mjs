@@ -12,8 +12,8 @@ assert.match(app,/<KidsAdventureHub[^>]* ar=\{ar\}/);
 for(const name of ["FarmWorld","EgyptAdventures","AquaWorld","DiscoveryLab","MoveAdventures"])assert.match(hub,new RegExp("<"+name+"\\b"));
 assert.doesNotMatch(app,/<FarmWorld\b|<MoveAdventures\b/);
 });
-test("account switching cannot save previous account state",()=>{
-for(const file of ["app/FarmWorld.tsx","app/KidsAdventureHub.tsx"]){const source=readFileSync(file,"utf8");assert.match(source,/loadedKey/);assert.match(source,/loadedKey===key|loadedKey!==storageKey/);}
+test("account switching isolates the journey cache and stale requests",()=>{
+const source=readFileSync("app/KidsJourney.tsx","utf8");assert.match(source,/loadedScope===scope/);assert.match(source,/epoch.current!==token/);assert.match(source,/ilama-journey-v2:/);
 });
 test("camera remains optional and local",()=>{
 const move=readFileSync("app/MoveAdventures.tsx","utf8");
@@ -26,4 +26,4 @@ const src=readFileSync("app/KidsWorld.tsx","utf8");
 for(const name of ["ilama-family.webp","ilamo.webp","ilama.webp","grandpa.webp","grandma.webp"])assert.ok(src.includes("/kids/"+name),name);
 });
 
-test("motion tracking requires temporal movement and cleans up model",()=>{const pose=readFileSync("app/PoseMotionTracker.tsx","utf8");assert.match(pose,/handDelta/);assert.match(pose,/previousHands\.current=hands/);assert.match(pose,/if\(disposed\)\{detector\.close\(\);detector=null;return;\}/);assert.match(pose,/previousHands\.current=null/);});
+test("motion tracking uses shared movement rules and cleans up model",()=>{const pose=readFileSync("app/PoseMotionTracker.tsx","utf8");assert.match(pose,/moved\(kind,m,previousSample.current\)/);assert.match(pose,/if\(disposed\)\{detector.close\(\);detector=null;return;\}/);assert.match(pose,/previousSample.current=null/);});

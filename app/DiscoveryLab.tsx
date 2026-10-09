@@ -1,4 +1,5 @@
 "use client";
+import {useAdventureState,useKidsJourney} from "./KidsJourney";
 import {useEffect,useState} from "react";
 type L={ar:string;en:string};const tr=(ar:boolean,x:L)=>ar?x.ar:x.en;
 type Activity={id:string;icon:string;name:L;description:L;question:L;choices:L[];correct:number;explanation:L;category:"food"|"science"|"egypt"|"nature"|"family"};
@@ -22,12 +23,9 @@ const A:Activity[]=[
 type Age="little"|"middle"|"older";
 const categories=[{id:"food",ar:"الغذاء",en:"Food",icon:"🍎"},{id:"science",ar:"العلوم",en:"Science",icon:"🔬"},{id:"egypt",ar:"مصر",en:"Egypt",icon:"🗺️"},{id:"nature",ar:"الطبيعة",en:"Nature",icon:"🌿"},{id:"family",ar:"الأسرة",en:"Family",icon:"❤️"}] as const;
 export default function DiscoveryLab({ar,userId,onComplete}:{ar:boolean;userId?:string;onComplete?:()=>void}){
-const [category,setCategory]=useState<string>("food");const [active,setActive]=useState<Activity|null>(null);const [answer,setAnswer]=useState<number|null>(null);const [completed,setCompleted]=useState<string[]>([]);const [age,setAge]=useState<Age>("middle");const [showHint,setShowHint]=useState(false);
-const key="ilama-discoveries-v2:"+(userId||"guest");
-const [loadedKey,setLoadedKey]=useState<string|null>(null);
-useEffect(()=>{setActive(null);setAnswer(null);setShowHint(false);setLoadedKey(null);try{const data=JSON.parse(localStorage.getItem(key)||"[]");setCompleted(Array.isArray(data)?[...new Set(data.filter((x):x is string=>typeof x==="string"&&A.some(a=>a.id===x)))]:[])}catch{setCompleted([])}setLoadedKey(key)},[key]);
-useEffect(()=>{if(loadedKey!==key)return;try{localStorage.setItem(key,JSON.stringify(completed))}catch{}},[completed,key,loadedKey]);
-const choose=(i:number)=>{if(loadedKey!==key||!active||i<0||i>=active.choices.length)return;setAnswer(i);if(i===active.correct){onComplete?.();setCompleted(prev=>prev.includes(active.id)?prev:[...prev,active.id])}};
+const [category,setCategory]=useState<string>("food");const [active,setActive]=useState<Activity|null>(null);const [answer,setAnswer]=useState<number|null>(null);const [age,setAge]=useState<Age>("middle");const [showHint,setShowHint]=useState(false);
+const [completed,setCompleted,ready]=useAdventureState<string[]>("discover",[]);
+const choose=(i:number)=>{if(!ready||!active||i<0||i>=active.choices.length)return;setAnswer(i);if(i===active.correct){onComplete?.();setCompleted(prev=>prev.includes(active.id)?prev:[...prev,active.id])}};
 const t=(a:string,b:string)=>ar?a:b;
 const visibleChoices=active?active.choices.map((choice,index)=>({choice,index})).filter(({index})=>age!=="little"||index===active.correct||index===(active.correct+1)%active.choices.length):[];
 const offset=active?[...active.id].reduce((sum,c)=>sum+c.charCodeAt(0),0)%Math.max(1,visibleChoices.length):0;

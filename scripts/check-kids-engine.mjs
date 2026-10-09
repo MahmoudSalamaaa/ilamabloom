@@ -21,8 +21,8 @@ check("Motion preference and manual pause",canvas.includes("prefers-reduced-moti
 check("Zoom controls and bounded world",canvas.includes("setZoomLabel")&&canvas.includes("clamp("));
 check("Canvas garden reflects live plot state",canvas.includes("plotsRef.current[i]")&&farm.includes("plots={farm.plots}"));
 check("Canvas pauses offscreen rendering",canvas.includes("IntersectionObserver")&&canvas.includes("document.hidden"));
-check("Farm planting, watering, harvesting",farm.includes("setFarm")&&farm.includes("harvest")&&farm.includes("water:Math.min"));
-check("Farm save guarded by hydrated key",farm.includes("loadedKey===key")&&farm.includes("setLoadedKey(key)"));
+check("Farm planting, watering, harvesting",farm.includes("setFarm")&&farm.includes("harvest")&&farm.includes("farmAction(current"));
+check("Farm save guarded by hydrated key",farm.includes("loadedKey!==key")&&farm.includes('useAdventureState<Farm>("farm"'));
 check("Garden harvest links to kitchen",farm.includes("setPlate")&&farm.includes("Make my dish"));
 check("Fish habitat and nutrition variation",farm.includes("Nile tilapia")&&farm.includes("Sardine")&&farm.includes("Omega-3 and vitamin D amounts vary"));
 check("No penalties, natural break",farm.includes("No penalties. Take a break")&&canvas.includes("No timer or penalties"));
@@ -33,7 +33,7 @@ check("Egypt question is about featured food, not exclusive ownership",egypt.inc
 const discovery=files["app/KidsDiscoveryLab.tsx"],weatherLab=files["app/KidsWeatherLab.tsx"];
 check("Food origins and Nile-to-table interactive choices",discovery.includes('choose("plant")')&&discovery.includes('choose("animal")')&&discovery.includes('game==="river"'));
 check("Age bands without collecting birth date",discovery.includes('"3-5"')&&discovery.includes('"6-8"')&&discovery.includes('"9-12"')&&!discovery.includes("birthDate"));
-check("Discovery stamps saved after hydration",discovery.includes("loaded===key")&&discovery.includes("setLoaded(key)"));
+check("Discovery stamps saved after hydration",discovery.includes('useAdventureState<string[]>("food"'));
 check("Weather experiment has three scenarios",([...weatherLab.matchAll(/answer:"(?:water|light|drain)"/g)].length===3));
 check("Weather supports reduced motion and offline family activity",weatherLab.includes("prefers-reduced-motion")&&weatherLab.includes("Optional family experiment"));
 check("No game timer, leaderboard or punitive points",![discovery,weatherLab].some(s=>/setInterval|leaderboard|streak|deductPoints|negativeScore/i.test(s)));
@@ -43,10 +43,10 @@ check("Three playable story quests integrated",kids.includes('import KidsQuestTr
 const questSteps=[...quests.matchAll(/\{question:L\(([\s\S]*?)\],correct:"([^"]+)"/g)];
 check("All nine quest scenes have exactly three choices and a valid answer",questSteps.length===9&&questSteps.every(match=>{const ids=[...match[1].matchAll(/\{id:"([^"]+)",label:/g)].map(m=>m[1]);return ids.length===3&&new Set(ids).size===3&&ids.includes(match[2])}));
 check("Quest choices show explanations before progression",quests.includes("choice===step.correct?t(step.explain)")&&quests.includes("continueStory"));
-check("Quest progress is local and gated after hydration",quests.includes("loaded===key")&&quests.includes("localStorage.setItem(key,JSON.stringify(progress))"));
+check("Quest progress uses the journey persistence boundary",quests.includes("loaded!==key")&&quests.includes('useAdventureState<Progress>("quests"'));
 check("Quest contains family offline activity and no pressure",quests.includes("Optional family activity away from the screen")&&quests.includes("No financial points, ads or absence penalties."));
 check("Kitchen studio integrated with 12 ingredients",kids.includes('import KidsKitchenStudio from "./KidsKitchenStudio"')&&kids.includes("<KidsKitchenStudio ")&&([...kitchen.matchAll(/\{id:"[a-z]+",icon:/g)].length===12));
-check("Kitchen studio includes safe adult preparation and local-only ideas",kitchen.includes('safety!=="adult"')&&kitchen.includes("localStorage.setItem(key,JSON.stringify(saved))")&&kitchen.includes("Clear saved ideas"));
+check("Kitchen studio includes safe adult preparation and scoped ideas",kitchen.includes('safety!=="adult"')&&kitchen.includes('useAdventureState<Saved[]>("kitchen"')&&kitchen.includes("Clear saved ideas"));
 check("No monetary rewards, clinic pressure or veterinary games in new components",![quests,kitchen].some(s=>/voucher|clinic discount|veterinar|in-app purchase|leaderboard|streak/i.test(s)));
 check("Motion camera opt-in and manual fallback",files["app/MoveAdventures.tsx"].includes("getUserMedia")&&files["app/MoveAdventures.tsx"].includes("completeMove")&&files["app/MoveAdventures.tsx"].includes("stopCamera"));
 check("Camera processing excludes recording and upload APIs",!["app/MoveAdventures.tsx","app/PoseMotionTracker.tsx"].some(name=>/MediaRecorder|XMLHttpRequest|sendBeacon|toDataURL|toBlob/.test(files[name])));

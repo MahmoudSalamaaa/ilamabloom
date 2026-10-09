@@ -6,8 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "check:kids": "node scripts/check-kids-release.mjs && node scripts/check-kids-engine.mjs && node --test scripts/test-kids-integration.mjs scripts/test-kids-motion.mjs scripts/test-kids-stability.mjs",
-    "qa:kids:browser": "node scripts/kids-browser-qa.cjs"
+    "check:kids": "node scripts/check-kids-release.mjs && node scripts/check-kids-engine.mjs && node --test scripts/test-kids-integration.mjs scripts/test-kids-motion.mjs scripts/test-kids-stability.mjs scripts/test-kids-persistence.mjs",
+    "qa:kids:browser": "node scripts/kids-browser-qa.cjs",
+    "qa:kids:camera": "node scripts/kids-camera-qa.cjs",
+    "qa:kids:journey": "node scripts/kids-journey-qa.cjs"
   },
   "dependencies": {
     "@neondatabase/auth": "latest",
@@ -21,6 +23,7 @@
     "react-dom": "19.2.0"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "^0.5.8",
     "@types/node": "^22",
     "@types/pg": "^8.23.1",
     "@types/react": "^19",

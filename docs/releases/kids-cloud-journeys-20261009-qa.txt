@@ -1,0 +1,167 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> ilama-bloom@3.0.0 check:kids
+> node scripts/check-kids-release.mjs && node scripts/check-kids-engine.mjs && node --test scripts/test-kids-integration.mjs scripts/test-kids-motion.mjs scripts/test-kids-stability.mjs scripts/test-kids-persistence.mjs
+
+PASS KidsWorld rendered by app
+PASS Five distinct adventures
+PASS Approved family artwork
+PASS Garden planting is atomic
+PASS One semantic main landmark
+PASS Storybook family illustrations
+PASS Server progress request timeout
+PASS Account-scoped hydration
+PASS Signed-in server progress sync
+PASS Fruit round variety
+PASS Fruit market hunt
+PASS Interactive plate builder
+PASS Movement adventure
+PASS Family story
+PASS Arabic/English and RTL
+PASS Guest stars persisted after hydration
+PASS Account-specific progress cache
+PASS Kids navigation destinations
+PASS Remote save before reward
+PASS Duplicate-save guard and bounded save
+PASS Accessible feedback and pressed states
+PASS Reduced motion
+PASS Mobile responsive layout
+PASS Keyboard focus
+PASS Coherent character hero and discovery strip
+PASS No unreachable placeholder branches
+PASS Stable gameplay test hooks
+PASS No legacy editorial styles imported
+PASS TSX syntax app/KidsWorld.tsx
+PASS TSX syntax app/IlamaApp.tsx
+PASS approved artwork ilama-family
+PASS approved artwork ilamo
+PASS approved artwork ilama
+PASS approved artwork grandpa
+PASS approved artwork grandma
+Kids structural release checks passed; manual visual and interactive QA still required.
+✓ app/KidsWorld.tsx TSX parses
+✓ app/FarmWorld.tsx TSX parses
+✓ app/FarmCanvas.tsx TSX parses
+✓ app/EgyptAdventures.tsx TSX parses
+✓ app/KidsDiscoveryLab.tsx TSX parses
+✓ app/KidsWeatherLab.tsx TSX parses
+✓ app/KidsQuestTrail.tsx TSX parses
+✓ app/KidsKitchenStudio.tsx TSX parses
+✓ app/KidsAdventureHub.tsx TSX parses
+✓ app/AquaWorld.tsx TSX parses
+✓ app/DiscoveryLab.tsx TSX parses
+✓ app/MoveAdventures.tsx TSX parses
+✓ app/PoseMotionTracker.tsx TSX parses
+✓ Farm, Egypt and motion connected through adventure hub
+✓ Canvas world with requestAnimationFrame
+✓ Accessible keyboard movement and touch navigation
+✓ Motion preference and manual pause
+✓ Zoom controls and bounded world
+✓ Canvas garden reflects live plot state
+✓ Canvas pauses offscreen rendering
+✓ Farm planting, watering, harvesting
+✓ Farm save guarded by hydrated key
+✓ Garden harvest links to kitchen
+✓ Fish habitat and nutrition variation
+✓ No penalties, natural break
+✓ Egypt passport saves only discovered ids
+✓ Governorates represented exactly 27 times
+✓ Egypt distractors have distinct food labels
+✓ Egypt question is about featured food, not exclusive ownership
+✓ Food origins and Nile-to-table interactive choices
+✓ Age bands without collecting birth date
+✓ Discovery stamps saved after hydration
+✓ Weather experiment has three scenarios
+✓ Weather supports reduced motion and offline family activity
+✓ No game timer, leaderboard or punitive points
+✓ No vet games or child-facing clinic promotion
+✓ Three playable story quests integrated
+✓ All nine quest scenes have exactly three choices and a valid answer
+✓ Quest choices show explanations before progression
+✓ Quest progress uses the journey persistence boundary
+✓ Quest contains family offline activity and no pressure
+✓ Kitchen studio integrated with 12 ingredients
+✓ Kitchen studio includes safe adult preparation and scoped ideas
+✓ No monetary rewards, clinic pressure or veterinary games in new components
+✓ Motion camera opt-in and manual fallback
+✓ Camera processing excludes recording and upload APIs
+✓ app/KidsWorld.tsx uses only approved art
+✓ app/FarmWorld.tsx uses only approved art
+✓ app/FarmCanvas.tsx uses only approved art
+✓ app/EgyptAdventures.tsx uses only approved art
+✓ app/KidsDiscoveryLab.tsx uses only approved art
+✓ app/KidsWeatherLab.tsx uses only approved art
+✓ app/KidsQuestTrail.tsx uses only approved art
+✓ app/KidsKitchenStudio.tsx uses only approved art
+✓ app/KidsAdventureHub.tsx uses only approved art
+✓ app/AquaWorld.tsx uses only approved art
+✓ app/DiscoveryLab.tsx uses only approved art
+✓ app/MoveAdventures.tsx uses only approved art
+✓ app/PoseMotionTracker.tsx uses only approved art
+ILAMA Kids engine static checks passed: 59. Run npm run build and real browser QA before publishing.
+✔ parse app/KidsWorld.tsx (586.622484ms)
+✔ parse app/KidsAdventureHub.tsx (208.925184ms)
+✔ parse app/FarmWorld.tsx (120.62354ms)
+✔ parse app/EgyptAdventures.tsx (49.852206ms)
+✔ parse app/AquaWorld.tsx (6.942897ms)
+✔ parse app/DiscoveryLab.tsx (14.32342ms)
+✔ parse app/MoveAdventures.tsx (13.430845ms)
+✔ parse app/PoseMotionTracker.tsx (17.741516ms)
+✔ parse app/motionLogic.ts (4.835658ms)
+✔ hub integrates five worlds exactly once (1.992056ms)
+✔ no animal medicine or punitive rewards (3.356579ms)
+✔ TSX syntax app/KidsWorld.tsx (133.292925ms)
+✔ TSX syntax app/FarmWorld.tsx (39.136943ms)
+✔ TSX syntax app/EgyptAdventures.tsx (13.897974ms)
+✔ TSX syntax app/AquaWorld.tsx (6.061196ms)
+✔ TSX syntax app/DiscoveryLab.tsx (18.38335ms)
+✔ TSX syntax app/KidsAdventureHub.tsx (12.40603ms)
+✔ TSX syntax app/MoveAdventures.tsx (21.401649ms)
+✔ TSX syntax app/PoseMotionTracker.tsx (18.061341ms)
+✔ TSX syntax app/motionLogic.ts (13.963577ms)
+✔ Kids integration imports movement tracker (4.478506ms)
+✔ Movement includes eight unique game IDs (1.935139ms)
+✔ Camera must not record or upload (2.685904ms)
+✔ profile consent and input bounds are enforced (16150.574804ms)
+✔ two owners and sibling profiles have independent PostgreSQL snapshots (325.198778ms)
+✔ compare-and-swap rejects stale writes without losing farm stock (54.206825ms)
+✔ profile update uses authenticated owner and parameterized nickname (45.835407ms)
+✔ limit five profiles and deletion cascade are enforced (141.53733ms)
+✔ legacy profile import runs once and deleted records do not reappear (69.74783ms)
+✔ learning snapshots strip unexpected private fields and nonfinite counters (2.076232ms)
+✔ achievement unions preserve discoveries; inventories require an explicit choice (0.924404ms)
+✔ cross-site requests and streamed oversized bodies are rejected (56.22963ms)
+✔ farm repeated events cannot double harvest or spend missing ingredients (1.738211ms)
+✔ motion needs temporal movement; knees and seated arms both support march (2.954823ms)
+✔ TypeScript parser: app/KidsWorld.tsx (245.080055ms)
+✔ TypeScript parser: app/KidsAdventureHub.tsx (47.017312ms)
+✔ TypeScript parser: app/FarmWorld.tsx (54.379624ms)
+✔ TypeScript parser: app/EgyptAdventures.tsx (40.762399ms)
+✔ TypeScript parser: app/AquaWorld.tsx (15.171623ms)
+✔ TypeScript parser: app/DiscoveryLab.tsx (28.649315ms)
+✔ TypeScript parser: app/MoveAdventures.tsx (47.857783ms)
+✔ TypeScript parser: app/PoseMotionTracker.tsx (25.084396ms)
+✔ TypeScript parser: app/motionLogic.ts (18.777311ms)
+✔ one navigable hub, five destinations (5.87399ms)
+✔ account switching isolates the journey cache and stale requests (4.711169ms)
+✔ camera remains optional and local (1.005189ms)
+✔ all approved illustrations referenced in kids world (4.263379ms)
+✔ motion tracking uses shared movement rules and cleans up model (1.373079ms)
+ℹ tests 48
+ℹ suites 0
+ℹ pass 48
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 21251.425274
+
+
+PASS journey en: sibling/owner isolation, cloud save, stale response, explicit conflict choice, offline/retry, consent, deletion and parent summary/accessibility; 8 writes
+PASS journey ar: sibling/owner isolation, cloud save, stale response, explicit conflict choice, offline/retry, consent, deletion and parent summary/accessibility; 8 writes
+
+
+PASS synthetic pose stationary/moving detection and detector cleanup; camera consent, rejection/retry, pause cleanup, mode cleanup, unmount cleanup, late permission cleanup; eight manual movement games, aquatic passport persistence; 5 API authorization checks; Arabic play with browser storage blocked; no child analytics with prior consent
+
+
+PASS Kids world bilingual, five games, stars, approved artwork, responsive and WCAG checks 10
