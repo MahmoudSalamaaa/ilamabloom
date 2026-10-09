@@ -1,0 +1,30 @@
+"use client";
+import {useEffect,useState} from "react";
+import styles from "./KidsWorld.module.css";
+type Props={ar:boolean;signedIn:boolean;saveProgress:(key:string,score:number)=>Promise<unknown>};
+type Zone="garden"|"market"|"kitchen"|"family";
+const scenes:{id:Zone;emoji:string;en:string;ar:string;descEn:string;descAr:string;img:string}[]=[
+{id:"garden",emoji:"🌱",en:"The Wonder Garden",ar:"حديقة العجائب",descEn:"Find the colors growing around us",descAr:"اكتشف ألوان النباتات",img:"/kids/ilama-family.webp"},
+{id:"market",emoji:"🧺",en:"The Rainbow Market",ar:"سوق الألوان",descEn:"Help Ilamo fill his basket",descAr:"ساعد إيلامو يملأ السلة",img:"/kids/ilamo.webp"},
+{id:"kitchen",emoji:"🍲",en:"Ilama's Kitchen",ar:"مطبخ إيلاما",descEn:"Build a colorful snack",descAr:"حضّر وجبة خفيفة ملونة",img:"/kids/ilama.webp"},
+{id:"family",emoji:"📖",en:"Grandma's Story Corner",ar:"ركن حكايات تيتا",descEn:"Explore food stories together",descAr:"اكتشفوا حكايات الطعام سوا",img:"/kids/grandma.webp"}];
+const tasks:Record<Zone,{en:string;ar:string;choices:{en:string;ar:string;icon:string;ok:boolean}[]}>={
+garden:{en:"Which one grows in a garden?",ar:"مين في دول بيكبر في الحديقة؟",choices:[{en:"Carrot",ar:"جزر",icon:"🥕",ok:true},{en:"Spoon",ar:"معلقة",icon:"🥄",ok:false},{en:"Shoe",ar:"جزمة",icon:"👟",ok:false}]},
+market:{en:"Find a colorful fruit for Ilamo!",ar:"اختار فاكهة ملونة لإيلامو!",choices:[{en:"Strawberry",ar:"فراولة",icon:"🍓",ok:true},{en:"Book",ar:"كتاب",icon:"📘",ok:false},{en:"Ball",ar:"كرة",icon:"⚽",ok:false}]},
+kitchen:{en:"What could we add to our fruit bowl?",ar:"نضيف إيه لطبق الفاكهة؟",choices:[{en:"Banana",ar:"موز",icon:"🍌",ok:true},{en:"Sock",ar:"شراب",icon:"🧦",ok:false},{en:"Pencil",ar:"قلم",icon:"✏️",ok:false}]},
+family:{en:"What can Grandma grow in the garden?",ar:"تيتا ممكن تزرع إيه في الجنينة؟",choices:[{en:"Tomato",ar:"طماطم",icon:"🍅",ok:true},{en:"Clock",ar:"ساعة",icon:"⏰",ok:false},{en:"Chair",ar:"كرسي",icon:"🪑",ok:false}]}};
+export default function KidsWorld({ar,signedIn,saveProgress}:Props){
+const [zone,setZone]=useState<Zone|null>(null),[answer,setAnswer]=useState<number|null>(null),[earned,setEarned]=useState<Zone[]>([]),[notice,setNotice]=useState("");
+useEffect(()=>{setAnswer(null);setNotice("")},[zone]);
+const current=zone?scenes.find(x=>x.id===zone):null;
+const task=zone?tasks[zone]:null;
+async function choose(i:number){if(!zone||!task||answer!==null)return;setAnswer(i);if(!task.choices[i].ok)return;
+try{if(signedIn){const result=await saveProgress("world:"+zone,1);if(result===false){setNotice(ar?"تعذر حفظ النجمة، حاول مرة تانية":"Could not save your star. Try again.");return}}
+setEarned(old=>old.includes(zone)?old:[...old,zone]);setNotice(ar?"برافو! كسبت نجمة ⭐":"Wonderful! You earned a star ⭐")}catch{setNotice(ar?"تعذر حفظ التقدم":"Could not save progress")}}
+return <main className={styles.world} dir={ar?"rtl":"ltr"}>
+<div className={styles.stars} aria-live="polite">⭐ {earned.length} / {scenes.length} <span>{ar?"نجوم المغامرة":"Adventure stars"}</span></div>
+<header className={styles.hero}><div className={styles.heroText}><p className={styles.eyebrow}>{ar?"أهلًا بيك في عالمنا":"WELCOME TO OUR WORLD"}</p><h1>{ar?"عالم إيلاما وإيلامو":"Ilama & Ilamo's World"}</h1><p>{ar?"تعال نلعب ونكتشف الطعام والطبيعة مع أصحابنا وجدو وتيتا.":"Come play and discover food and nature with our friends, Grandpa and Grandma."}</p><button onClick={()=>{setZone("garden");document.getElementById("kids-adventure")?.scrollIntoView({behavior:"smooth"})}}>{ar?"ابدأ المغامرة ✨":"Start exploring ✨"}</button></div><img src="/kids/ilama-family.webp" alt={ar?"عائلة إيلاما وإيلامو في الحديقة":"Ilama and Ilamo's family garden"}/></header>
+<section className={styles.map} aria-label={ar?"خريطة المغامرات":"Adventure map"}><p className={styles.eyebrow}>{ar?"اختار مكانًا":"PICK A PLACE"}</p><h2>{ar?"هنروح فين النهارده؟":"Where shall we go today?"}</h2><div className={styles.zones}>{scenes.map((s,i)=><button key={s.id} className={styles.zone} onClick={()=>{setZone(s.id);document.getElementById("kids-adventure")?.scrollIntoView({behavior:"smooth"})}}><img src={s.img} alt=""/><span className={styles.zoneTitle}>{s.emoji} {ar?s.ar:s.en} {earned.includes(s.id)?"⭐":""}</span><small>{ar?s.descAr:s.descEn}</small><span className={styles.enter}>{ar?"ادخل المغامرة ←":"Explore →"}</span></button>)}</div></section>
+<section id="kids-adventure" className={styles.adventure} aria-live="polite">{current&&task?<><button className={styles.back} onClick={()=>setZone(null)}>{ar?"← خريطة العالم":"← World map"}</button><div className={styles.game}><div><p className={styles.eyebrow}>{ar?"مهمة مع الأصدقاء":"A FRIENDLY QUEST"}</p><h2>{ar?current.ar:current.en}</h2><p>{ar?task.ar:task.en}</p><div className={styles.choices}>{task.choices.map((c,i)=><button key={i} disabled={answer!==null} className={answer===i?(c.ok?styles.right:styles.tryAgain):""} onClick={()=>choose(i)} aria-pressed={answer===i}><span>{c.icon}</span>{ar?c.ar:c.en}</button>)}</div>{answer!==null&&<p role="status" className={styles.feedback}>{task.choices[answer].ok?notice:(ar?"قريب! جرب مغامرة تانية، مفيش مشكلة 🌼":"Nice try! Every discovery counts 🌼")}</p>}<button className={styles.again} onClick={()=>{setAnswer(null);setNotice("")}}>{ar?"العب تاني":"Play again"}</button></div><img src={current.img} alt={ar?current.ar:current.en}/></div></>:<div className={styles.welcome}><img src="/kids/ilamo.webp" alt="Ilamo"/><div><h2>{ar?"إيلامو مستنيك!":"Ilamo is waiting for you!"}</h2><p>{ar?"اختار مكان من خريطة العالم عشان تبدأ اللعب.":"Choose a place on the world map to start playing."}</p></div><img src="/kids/ilama.webp" alt="Ilama"/></div>}</section>
+<footer className={styles.footer}>{ar?"نلعب ونتعلم مع بعض، من غير درجات ولا أحكام على الأكل.":"Play and learn together — no food scores or judgment."}</footer>
+</main>}
