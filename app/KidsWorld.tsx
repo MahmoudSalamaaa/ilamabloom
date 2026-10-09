@@ -3,6 +3,8 @@ import {useEffect,useRef,useState} from "react";
 import styles from "./KidsWorld.module.css";
 import FarmWorld from "./FarmWorld";
 import EgyptAdventures from "./EgyptAdventures";
+import KidsDiscoveryLab from "./KidsDiscoveryLab";
+import KidsWeatherLab from "./KidsWeatherLab";
 
 type Zone="garden"|"market"|"kitchen"|"body"|"family";
 type Localized={en:string;ar:string};
@@ -71,6 +73,8 @@ return <section data-kids-world="true" aria-label={ar?"عالم إيلاما ل�
 <div className={styles.gameFeedback} role="status" aria-live="polite">{notice|| (earned.includes(selected.id)?(ar?"نجمتك محفوظة! تقدر تلعب تاني.":"Your star is earned! You can play again."):"")}</div><button type="button" className={styles.replay} disabled={busy} onClick={replay}>{ar?"↻ العب من أول وجديد":"↻ Play again"}</button></div><div className={styles.gameVisual}><img src={selected.image} alt={label(selected.title)}/>{celebrate&&<div className={styles.confetti} aria-hidden="true">{["⭐","🌸","✨","🎉","🌼","⭐"].map((icon,i)=><span key={i}>{icon}</span>)}</div>}</div></div></>:<div className={styles.welcome}><img src="/kids/ilamo.webp" loading="lazy" alt=""/><div><h2>{ar?"المغامرة مستنياك!":"Your adventure is waiting!"}</h2><p>{ar?"اختار لعبة من فوق، وإيلامو وإيلاما هيبقوا معاك.":"Choose a game above and explore with Ilamo and Ilama."}</p><a href="#kids-games">{ar?"شوف الألعاب ↑":"See the games ↑"}</a></div><img src="/kids/ilama.webp" loading="lazy" alt=""/></div>}</section>
 <FarmWorld ar={ar} userId={signedIn?userId:undefined}/>
 <EgyptAdventures ar={ar} userId={signedIn?userId:undefined}/>
+<KidsDiscoveryLab ar={ar} userId={signedIn?userId:undefined}/>
+<KidsWeatherLab ar={ar}/>
 <section className={styles.parents} id="kids-parents"><div><p className={styles.eyebrow}>{ar?"للأهل":"FOR PARENTS"}</p><h2>{ar?"التعلّم بيكبر باللعب":"Little discoveries grow into healthy habits"}</h2><p>{ar?"الألعاب دي بتشجع الفضول والحركة واكتشاف الأطعمة من غير أحكام أو ضغط. العبوا مع أطفالكم، واحكوا عن الألوان والروائح والطعم.":"Our games encourage curiosity, movement, food exploration and family conversation — without labeling foods as good or bad. Join in, ask questions and celebrate discovery."}</p><small>{ar?"محتوى تعليمي فقط، وليس نصيحة طبية.":"Educational content only, not medical advice."}</small></div><img src="/kids/grandpa.webp" loading="lazy" alt=""/></section>
 <footer className={styles.footer}>{ar?"إيلاما كيدز · نكتشف ونكبر سوا 🌿":"ILAMA Kids · Little wonders grow here 🌿"}</footer>
 </section>
