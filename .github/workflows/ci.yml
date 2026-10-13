@@ -1,0 +1,20 @@
+name: Independent quality checks
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies without a lockfile
+        run: npm install --no-package-lock --no-audit --no-fund
+      - name: TypeScript
+        run: npm run typecheck
+      - name: Production build
+        run: npm run build
