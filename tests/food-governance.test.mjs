@@ -34,3 +34,9 @@ test("admin validates food identifiers and confidence values", () => {
   assert.match(admin, /\["estimated","variable","label"\]\.includes\(confidence\)/);
   assert.match(admin, /Invalid confidence level/);
 });
+
+test("food edits retain author attribution and reset review state", () => {
+  assert.match(admin, /last_edited_by=\$\{u\.email\}/);
+  assert.match(admin, /review_status=\x27draft\x27/);
+  assert.match(admin, /ADD COLUMN IF NOT EXISTS last_edited_by/);
+});
