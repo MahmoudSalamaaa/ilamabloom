@@ -28,3 +28,9 @@ test("unreviewed items are labeled in both languages", () => {
   assert.match(atlas, /not independently reviewed/);
   assert.match(adminUi, /يلزم اعتماد مستقل/);
 });
+
+test("admin validates food identifiers and confidence values", () => {
+  assert.match(admin, /\^\[a-z0-9\]/);
+  assert.match(admin, /\["estimated","variable","label"\]\.includes\(confidence\)/);
+  assert.match(admin, /Invalid confidence level/);
+});
