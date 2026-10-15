@@ -2130,3 +2130,11 @@ html[lang="ar"] .siteAr .v3FooterNav a{
   html[lang="ar"] .siteAr .v3FooterBase p,
   html[lang="ar"] .siteAr .v3FooterBase button{width:100%;text-align:right}
 }
+
+
+/* Arabic footer heading should use the full statement column. */
+html[lang="ar"] .siteAr .v3FooterStatement h2{
+  width:100%!important;
+  max-width:100%!important;
+  text-wrap:pretty!important;
+}
