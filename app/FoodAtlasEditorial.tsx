@@ -10,6 +10,13 @@ const en:{[k:string]:string}={"عيش بلدي":"Baladi bread","عيش شامي"
 const portions:{[k:string]:string}={"1 medium piece":"قطعة متوسطة","½ cup":"نصف كوب","3 pieces":"٣ قطع","⅓ cup":"ثلث كوب","1 plate":"طبق واحد","6 small pieces":"٦ قطع صغيرة","1 small":"واحدة صغيرة","½ cup cooked":"نصف كوب مطبوخ","1 small piece":"قطعة صغيرة","1 small cup":"كوب صغير","1 small bowl":"طبق صغير","1 sandwich":"ساندوتش واحد","1 piece":"قطعة واحدة","½ cup pieces":"نصف كوب قطع"};
 const photosByCategory:{[k:string]:string}={"Bread & grains":"https://images.pexels.com/photos/1775043/pexels-photo-1775043.jpeg?auto=compress&cs=tinysrgb&w=900",Legumes:"https://images.pexels.com/photos/4110251/pexels-photo-4110251.jpeg?auto=compress&cs=tinysrgb&w=900","Mixed dishes":"https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=900",Starches:"https://images.pexels.com/photos/1437267/pexels-photo-1437267.jpeg?auto=compress&cs=tinysrgb&w=900",Pastries:"https://images.pexels.com/photos/2135/food-france-morning-breakfast.jpg?auto=compress&cs=tinysrgb&w=900",Sweets:"https://images.pexels.com/photos/291528/pexels-photo-291528.jpeg?auto=compress&cs=tinysrgb&w=900",Dairy:"https://images.pexels.com/photos/5946720/pexels-photo-5946720.jpeg?auto=compress&cs=tinysrgb&w=900",Fruit:"https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg?auto=compress&cs=tinysrgb&w=900",Vegetables:"https://images.pexels.com/photos/2255935/pexels-photo-2255935.jpeg?auto=compress&cs=tinysrgb&w=900",Drinks:"https://images.pexels.com/photos/416528/pexels-photo-416528.jpeg?auto=compress&cs=tinysrgb&w=900"};
 const photosByFood:{[k:string]:string}={
+ "baladi-bread":"/baladi-bread.png",
+ "shami-bread":"/shami-bread.png",
+ rice:"/rice.png",
+ "rice-vermicelli":"/rice-vermicelli.png",
+ pasta:"/pasta.png",
+ freekeh:"/freekeh.png",
+ bulgur:"/bulgur.png",
  koshari:"https://www.themealdb.com/images/media/meals/4er7mj1598733193.jpg",
  ful:"https://www.youregypttours.com/images/ful-medames.jpg",
  taameya:"https://afrotools.com/assets/img/kitchen/taameya-eg.webp",
@@ -29,7 +36,7 @@ const photosByFood:{[k:string]:string}={
  dates:"/fruit-dates.png"
 };
 const photo=(f:Food)=>photosByFood[f.id]||photosByCategory[f.category]||photosByCategory["Mixed dishes"];
-const foodEmoji:{[k:string]:string}={koshari:"🥣",ful:"🫘",taameya:"🧆",molokhia:"🍲","om-ali":"🍮","rice-pudding":"🍚",basbousa:"🍰",konafa:"🍮",qatayef:"🥟",kahk:"🍪",apple:"🍎",banana:"🍌",orange:"🍊",mango:"🥭",grapes:"🍇",watermelon:"🍉",dates:"🌴"};
+const foodEmoji:{[k:string]:string}={koshari:"🥣",ful:"🫘",taameya:"🧆",molokhia:"🍲","om-ali":"🍮","rice-pudding":"🍚",basbousa:"🍰",konafa:"🍮",qatayef:"🥟",kahk:"🍪","baladi-bread":"🫓","shami-bread":"🥙",rice:"🍚","rice-vermicelli":"🍜",pasta:"🍝",freekeh:"🌾",bulgur:"🌾",apple:"🍎",banana:"🍌",orange:"🍊",mango:"🥭",grapes:"🍇",watermelon:"🍉",dates:"🌴"};
 export default function FoodAtlasEditorial({add,go,ar}:{add:(t:string,v:string)=>Promise<boolean>|boolean;go:(v:any)=>void;ar:boolean}){
  const [foods,setFoods]=useState<Food[]>([]),[q,setQ]=useState(""),[category,setCategory]=useState("All"),[atlasTag,setAtlasTag]=useState("all"),[loading,setLoading]=useState(true),[error,setError]=useState(false),[saved,setSaved]=useState<string|null>(null),[gentle,setGentle]=useState<"all"|"nocook"|"five"|"low"|"sensory"|"budget"|"work">("all");
  useEffect(()=>{fetch("/api/foods").then(r=>r.ok?r.json():null).then(d=>Array.isArray(d?.foods)?setFoods(d.foods):setError(true)).catch(()=>setError(true)).finally(()=>setLoading(false))},[]);
