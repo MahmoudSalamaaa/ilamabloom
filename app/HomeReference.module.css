@@ -19,8 +19,8 @@
 .heroCaption{position:absolute;z-index:4;inset-inline:clamp(32px,5.8vw,90px);bottom:18px;display:flex;justify-content:space-between;gap:20px;padding:10px 0 0;border-top:1px solid rgba(255,255,255,.42);background:none;color:#fff;font:700 9px/1.3 "DM Sans",Arial,sans-serif;letter-spacing:.13em;text-transform:uppercase;text-shadow:0 1px 8px rgba(0,0,0,.45)}
 .heroCaption span{text-align:end}.heroFootline{min-height:58px;padding:14px clamp(22px,3vw,48px);display:flex;align-items:center;justify-content:space-between;gap:18px;background:#f5ede2;color:var(--ink);font:700 9px/1.3 "DM Sans",Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase}
 .heroFootline button{border:0;border-bottom:1px solid currentColor;background:transparent;color:inherit;padding:7px 0;cursor:pointer;font:inherit;letter-spacing:inherit}
-.siteAr .heroCopy h1{font-family:"Noto Kufi Arabic","Tajawal",sans-serif;letter-spacing:0;line-height:1.08;max-width:11ch}
-.siteAr .lead,.siteAr .primary{font-family:"Tajawal",sans-serif}.siteAr .heroSideNote{writing-mode:vertical-lr}
+.siteAr .heroCopy h1{font-family:"Cairo","Cairo",sans-serif;letter-spacing:0;line-height:1.08;max-width:11ch}
+.siteAr .lead,.siteAr .primary{font-family:"Cairo",sans-serif}.siteAr .heroSideNote{writing-mode:vertical-lr}
 .approachTop h2{white-space:nowrap;font-size:clamp(44px,5.4vw,84px)}
 @media(max-width:900px){.hero{min-height:690px}.heroImage:after{background:linear-gradient(0deg,rgba(12,31,24,.86) 0%,rgba(12,31,24,.5) 52%,rgba(12,31,24,.12) 100%)}.heroCopy{width:100%;min-height:690px;padding:120px 24px 86px;justify-content:flex-end}.heroCopy h1{font-size:clamp(58px,13vw,86px);max-width:8.6ch}.heroBloom{inset-inline-start:24px;top:24px}.heroSideNote{display:none}.heroCaption{inset-inline:20px;bottom:14px}.approachTop h2{font-size:clamp(44px,8vw,66px)}}
 @media(max-width:520px){.hero{min-height:620px}.heroCopy{min-height:620px;padding:104px 20px 82px}.heroCopy h1{font-size:clamp(52px,14.5vw,70px);margin-bottom:18px}.lead{font-size:15px}.primary{margin-top:18px}.heroBloom{inset-inline-start:20px;top:20px;gap:.5rem;letter-spacing:.14em}.heroCaption{inset-inline:16px;font-size:8px}.heroCaption span{max-width:58%}.heroFootline{align-items:flex-start;flex-direction:column;gap:7px}.approachTop h2{font-size:clamp(36px,10vw,48px);letter-spacing:-.035em}}
@@ -49,7 +49,7 @@
 .page .kids>div{background:#f2e2df;position:relative}
 .page .kids .eyebrow{color:#8f3654!important}
 .page .kids h2{color:#19382f}
-:global(.siteAr) .page :where(.approach h2,.atlasCopy h2,.kids h2,.closing h2,.atlasImage figcaption strong){font-family:"Noto Kufi Arabic","Tajawal",sans-serif!important;letter-spacing:0!important}
+:global(.siteAr) .page :where(.approach h2,.atlasCopy h2,.kids h2,.closing h2,.atlasImage figcaption strong){font-family:"Cairo","Cairo",sans-serif!important;letter-spacing:0!important}
 @media(max-width:720px){
  .page .approach{padding-inline:22px}
  .page .approach h2{font-size:clamp(48px,12vw,72px)!important;max-width:100%;white-space:normal;letter-spacing:-.035em;line-height:1.02;text-wrap:balance}
@@ -62,7 +62,7 @@
 
 .page :where(.lead,.approachTop>div>p:last-child,.approachTop aside p,.atlasCopy>p:not(.eyebrow),.kids>div>p:not(.eyebrow),.closing p:last-child,.cardBody small,.atlasImage figcaption small){font-family:"Lora",Georgia,serif!important;font-weight:400;line-height:1.65}
 .page :where(.textLink,.approachTop aside button){font-family:"Lora",Georgia,serif!important}
-:global(.siteAr) .page :where(.lead,.approachTop>div>p:last-child,.approachTop aside p,.atlasCopy>p:not(.eyebrow),.kids>div>p:not(.eyebrow),.closing p:last-child,.cardBody small,.atlasImage figcaption small,.textLink,.approachTop aside button,.primary){font-family:"Tajawal","Noto Sans Arabic",sans-serif!important}
+:global(.siteAr) .page :where(.lead,.approachTop>div>p:last-child,.approachTop aside p,.atlasCopy>p:not(.eyebrow),.kids>div>p:not(.eyebrow),.closing p:last-child,.cardBody small,.atlasImage figcaption small,.textLink,.approachTop aside button,.primary){font-family:"Cairo","Noto Sans Arabic",sans-serif!important}
 
 
 /* Kids editorial story: title belongs to the photograph; supporting copy continues below/beside it. */
@@ -72,7 +72,7 @@
 .page .kidsOverlay h2{max-width:9ch!important;margin:12px 0 0!important;color:#fff!important;text-shadow:0 3px 24px rgba(0,0,0,.38)}
 .page .kidsCopy{background:#f2e2df!important;justify-content:center}
 .page .kidsCopy>p{font-family:"Lora",Georgia,serif!important;font-size:clamp(17px,1.45vw,21px);line-height:1.65;max-width:40ch!important;color:#19382f!important}
-:global(.siteAr) .page .kidsCopy>p{font-family:"Tajawal","Noto Sans Arabic",sans-serif!important;line-height:1.8}
+:global(.siteAr) .page .kidsCopy>p{font-family:"Cairo","Noto Sans Arabic",sans-serif!important;line-height:1.8}
 @media(max-width:720px){
  .page .kids figure{height:390px;min-height:390px}
  .page .kids figure img{object-position:center 42%}
@@ -96,7 +96,7 @@
 .approachTop h2{white-space:nowrap!important}
 .kids{position:relative}
 .kids:before{content:"KIDS · FAMILY";position:absolute;z-index:3;top:18px;inset-inline-start:clamp(20px,3vw,44px);padding:7px 10px;border:1px solid rgba(25,56,47,.28);background:#f7f1e8;color:#19382f;font:700 9px/1 "DM Sans",Arial,sans-serif;letter-spacing:.16em}
-:global(.siteAr) .page .kids:before{content:"الأطفال · العائلة";font-family:"Tajawal",sans-serif;letter-spacing:0}
+:global(.siteAr) .page .kids:before{content:"الأطفال · العائلة";font-family:"Cairo",sans-serif;letter-spacing:0}
 @media(max-width:720px){
  .hero{min-height:clamp(600px,82svh,690px)}
  .heroCopy{min-height:inherit;padding:112px 20px 92px}
