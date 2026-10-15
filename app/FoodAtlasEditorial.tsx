@@ -14,6 +14,8 @@ const photosByFood:{[k:string]:string}={
  taameya:"/taameya.png",
  lentils:"/lentils.png",
  "lentil-soup":"/lentil-soup.png",
+ yogurt:"/yogurt.png",
+ milk:"/milk.png",
  "white-beans":"/white-beans.png",
  chickpeas:"/chickpeas.png",
  potato:"/potato.png",
@@ -27,8 +29,15 @@ const photosByFood:{[k:string]:string}={
  pasta:"/pasta.png",
  freekeh:"/freekeh.png",
  bulgur:"/bulgur.png",
- koshari:"https://www.themealdb.com/images/media/meals/4er7mj1598733193.jpg",
- molokhia:"https://www.196flavors.com/wp-content/uploads/2021/11/Molokhia-FP-min.jpg",
+ feteer:"/feteer.png",
+ koshari:"/koshari.png",
+ mahshi:"/mahshi.png",
+ "mahshi-grape":"/mahshi-grape.png",
+ "mahshi-cabbage":"/mahshi-cabbage.png",
+ "mahshi-zucchini":"/mahshi-zucchini.png",
+ hawawshi:"/hawawshi.png",
+ fattah:"/fattah.png",
+ molokhia:"/molokhia.png",
  "om-ali":"/om-ali.png",
  "rice-pudding":"/rice-pudding.png",
  basbousa:"/basbousa.png",
@@ -44,7 +53,7 @@ const photosByFood:{[k:string]:string}={
  dates:"/fruit-dates.png"
 };
 const photo=(f:Food)=>photosByFood[f.id]||photosByCategory[f.category]||photosByCategory["Mixed dishes"];
-const foodEmoji:{[k:string]:string}={koshari:"🥣",ful:"🫘",taameya:"🧆",lentils:"🫘","lentil-soup":"🍲","white-beans":"🫘",chickpeas:"🫘",molokhia:"🍲","om-ali":"🍮","rice-pudding":"🍚",basbousa:"🍰",konafa:"🍮",qatayef:"🥟",kahk:"🍪","baladi-bread":"🫓","shami-bread":"🥙",rice:"🍚","rice-vermicelli":"🍜",pasta:"🍝",freekeh:"🌾",bulgur:"🌾",potato:"🥔","sweet-potato":"🍠",corn:"🌽",peas:"🫛",apple:"🍎",banana:"🍌",orange:"🍊",mango:"🥭",grapes:"🍇",watermelon:"🍉",dates:"🌴"};
+const foodEmoji:{[k:string]:string}={koshari:"🥣",mahshi:"🍃","mahshi-grape":"🍃","mahshi-cabbage":"🥬","mahshi-zucchini":"🥒",hawawshi:"🥙",fattah:"🍲",ful:"🫘",taameya:"🧆",lentils:"🫘","lentil-soup":"🍲","white-beans":"🫘",chickpeas:"🫘",molokhia:"🍲","om-ali":"🍮","rice-pudding":"🍚",basbousa:"🍰",konafa:"🍮",qatayef:"🥟",kahk:"🍪","baladi-bread":"🫓","shami-bread":"🥙",rice:"🍚","rice-vermicelli":"🍜",pasta:"🍝",freekeh:"🌾",bulgur:"🌾",feteer:"🥐",potato:"🥔","sweet-potato":"🍠",corn:"🌽",peas:"🫛",yogurt:"🥛",milk:"🥛",apple:"🍎",banana:"🍌",orange:"🍊",mango:"🥭",grapes:"🍇",watermelon:"🍉",dates:"🌴"};
 export default function FoodAtlasEditorial({add,go,ar}:{add:(t:string,v:string)=>Promise<boolean>|boolean;go:(v:any)=>void;ar:boolean}){
  const [foods,setFoods]=useState<Food[]>([]),[q,setQ]=useState(""),[category,setCategory]=useState("All"),[atlasTag,setAtlasTag]=useState("all"),[loading,setLoading]=useState(true),[error,setError]=useState(false),[saved,setSaved]=useState<string|null>(null),[gentle,setGentle]=useState<"all"|"nocook"|"five"|"low"|"sensory"|"budget"|"work">("all");
  useEffect(()=>{fetch("/api/foods").then(r=>r.ok?r.json():null).then(d=>Array.isArray(d?.foods)?setFoods(d.foods):setError(true)).catch(()=>setError(true)).finally(()=>setLoading(false))},[]);
