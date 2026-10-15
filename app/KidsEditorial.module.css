@@ -32,8 +32,8 @@
 
 
 /* Kids: keep playful identity while aligning typography with ILAMA */
-.page,.kidsWorld{font-family:"DM Sans","Tajawal",Arial,sans-serif!important}
-[dir="rtl"] .page,[dir="rtl"] .kidsWorld{font-family:"Tajawal","Noto Sans Arabic",Arial,sans-serif!important}
+.page,.kidsWorld{font-family:"DM Sans","Cairo",Arial,sans-serif!important}
+[dir="rtl"] .page,[dir="rtl"] .kidsWorld{font-family:"Cairo","Noto Sans Arabic",Arial,sans-serif!important}
 
 
 /* PLAY GARDEN — phase 1 connected progression */
