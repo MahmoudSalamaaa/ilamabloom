@@ -174,3 +174,25 @@
   :global(.siteAr) .page .kids h2,
   :global(.siteAr) .page .closing h2{font-size:clamp(32px,8.8vw,46px)!important;line-height:1.24!important}
 }
+
+
+/* Arabic layout repair: let editorial headings use the available column. */
+:global(.siteAr) .page .heroCopy h1,
+:global(.siteAr) .page .approachTop h2,
+:global(.siteAr) .page .atlasCopy h2,
+:global(.siteAr) .page .kids h2,
+:global(.siteAr) .page .closing h2{
+  width:100%!important;
+  max-width:100%!important;
+  text-wrap:pretty!important;
+}
+@media(max-width:720px){
+  :global(.siteAr) .page .heroCopy h1,
+  :global(.siteAr) .page .approachTop h2,
+  :global(.siteAr) .page .atlasCopy h2,
+  :global(.siteAr) .page .kids h2,
+  :global(.siteAr) .page .closing h2{
+    max-width:100%!important;
+    width:100%!important;
+  }
+}
