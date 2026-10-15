@@ -149,3 +149,28 @@
     max-width:12ch;
   }
 }
+
+/* Final Arabic art direction: lighter display scale and intentional type pairing. */
+:global(.siteAr) .page .heroCopy h1{
+  font-family:"Noto Kufi Arabic","Cairo","Noto Sans Arabic",Arial,sans-serif!important;
+  font-size:clamp(50px,5.3vw,86px)!important;
+  line-height:1.18!important;
+  max-width:8ch!important;
+  text-shadow:0 3px 18px rgba(0,0,0,.22);
+}
+:global(.siteAr) .page .approachTop h2,
+:global(.siteAr) .page .atlasCopy h2,
+:global(.siteAr) .page .kids h2,
+:global(.siteAr) .page .closing h2{
+  font-family:"Noto Kufi Arabic","Cairo","Noto Sans Arabic",Arial,sans-serif!important;
+  font-size:clamp(40px,4.4vw,70px)!important;
+  line-height:1.24!important;
+  max-width:12ch!important;
+}
+@media(max-width:720px){
+  :global(.siteAr) .page .heroCopy h1{font-size:clamp(42px,11.5vw,62px)!important;line-height:1.2!important;max-width:8ch!important}
+  :global(.siteAr) .page .approachTop h2,
+  :global(.siteAr) .page .atlasCopy h2,
+  :global(.siteAr) .page .kids h2,
+  :global(.siteAr) .page .closing h2{font-size:clamp(32px,8.8vw,46px)!important;line-height:1.24!important}
+}
