@@ -15,10 +15,17 @@ const photosByFood:{[k:string]:string}={
  taameya:"https://afrotools.com/assets/img/kitchen/taameya-eg.webp",
  molokhia:"https://www.196flavors.com/wp-content/uploads/2021/11/Molokhia-FP-min.jpg",
  "om-ali":"/om-ali.png",
- basbousa:"https://www.lifeberrys.com/img/article/egyptian-desserts-2-1589957906-lb.jpg"
+ basbousa:"https://www.lifeberrys.com/img/article/egyptian-desserts-2-1589957906-lb.jpg",
+ apple:"/fruit-apple.png",
+ banana:"/fruit-banana.png",
+ orange:"/fruit-orange.png",
+ mango:"/fruit-mango.png",
+ grapes:"/fruit-grapes.png",
+ watermelon:"/fruit-watermelon.png",
+ dates:"/fruit-dates.png"
 };
 const photo=(f:Food)=>photosByFood[f.id]||photosByCategory[f.category]||photosByCategory["Mixed dishes"];
-const foodEmoji:{[k:string]:string}={koshari:"🥣",ful:"🫘",taameya:"🧆",molokhia:"🍲","om-ali":"🍮",basbousa:"🍰",konafa:"🍮",qatayef:"🥟",kahk:"🍪"};
+const foodEmoji:{[k:string]:string}={koshari:"🥣",ful:"🫘",taameya:"🧆",molokhia:"🍲","om-ali":"🍮",basbousa:"🍰",konafa:"🍮",qatayef:"🥟",kahk:"🍪",apple:"🍎",banana:"🍌",orange:"🍊",mango:"🥭",grapes:"🍇",watermelon:"🍉",dates:"🌴"};
 export default function FoodAtlasEditorial({add,go,ar}:{add:(t:string,v:string)=>Promise<boolean>|boolean;go:(v:any)=>void;ar:boolean}){
  const [foods,setFoods]=useState<Food[]>([]),[q,setQ]=useState(""),[category,setCategory]=useState("All"),[atlasTag,setAtlasTag]=useState("all"),[loading,setLoading]=useState(true),[error,setError]=useState(false),[saved,setSaved]=useState<string|null>(null),[gentle,setGentle]=useState<"all"|"nocook"|"five"|"low"|"sensory"|"budget"|"work">("all");
  useEffect(()=>{fetch("/api/foods").then(r=>r.ok?r.json():null).then(d=>Array.isArray(d?.foods)?setFoods(d.foods):setError(true)).catch(()=>setError(true)).finally(()=>setLoading(false))},[]);
