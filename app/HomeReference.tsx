@@ -48,7 +48,7 @@ export default function HomeReference({go,ar}:Props){
 
   <section className={styles.atlas}>
    <div className={styles.atlasCopy}><p className={styles.eyebrow}>{ar?"تجربة اخترناها ليك":"FEATURED EXPERIENCE"}</p><h2>{ar?"أطلس الأكل":"The Food Atlas"}</h2><p>{ar?"رحلة بصرية في عالم الأكل الحقيقي — مكوناته، كمياته والظروف اللي بتخليه مفهوم.":"A visual journey through the world of real food — its ingredients, portions and the context that makes it useful."}</p><button type="button" className={styles.primary} onClick={()=>go("atlas")}>{ar?"شوف أكتر أطلس الأكل":"Explore the Food Atlas"} <span>→</span></button></div>
-   <figure className={styles.atlasImage}><img src="https://images.pexels.com/photos/5945641/pexels-photo-5945641.jpeg?auto=compress&cs=tinysrgb&w=1800" alt={ar?"رمان طازج":"Fresh pomegranate"}/><figcaption><strong>{ar?"الرمان":"Pomegranate"}</strong><small>{ar?"أكل حقيقي جوه وجبة كاملة.":"Real food, understood in context."}</small><button type="button" onClick={()=>go("atlas")}>→</button></figcaption></figure>
+   <figure className={styles.atlasImage}><img src="https://www.themealdb.com/images/media/meals/4er7mj1598733193.jpg" alt={ar?"طبق كشري مصري":"Egyptian koshari dish"}/><figcaption><strong>{ar?"طبقك في سياقه":"Your plate, in context"}</strong><small>{ar?"الكشري مش مجرد طبق — نفهمه جوه يومك، مش نحكم عليه من برّه.":"Koshari is more than a dish — understand it in your day, not out of context."}</small><button type="button" onClick={()=>go("atlas")}>→</button></figcaption></figure>
   </section>
 
   <section className={styles.kids}>
