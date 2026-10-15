@@ -2095,3 +2095,38 @@ html[lang="ar"] .siteAr h4{
     gap:12px!important;
   }
 }
+
+
+/* Arabic footer visual QA fix: physical right alignment for every footer column. */
+html[lang="ar"] .siteAr .v3Footer,
+html[lang="ar"] .siteAr .v3FooterStage,
+html[lang="ar"] .siteAr .v3FooterNav,
+html[lang="ar"] .siteAr .v3FooterBase{
+  direction:rtl;
+  text-align:right;
+}
+html[lang="ar"] .siteAr .v3FooterStatement,
+html[lang="ar"] .siteAr .v3FooterStatement h2,
+html[lang="ar"] .siteAr .v3FooterStatement > p{
+  text-align:right;
+}
+html[lang="ar"] .siteAr .v3FooterNav nav,
+html[lang="ar"] .siteAr .v3FooterDoctor{
+  align-items:flex-start;
+  text-align:right;
+}
+html[lang="ar"] .siteAr .v3FooterNav button,
+html[lang="ar"] .siteAr .v3FooterNav a,
+html[lang="ar"] .siteAr .v3FooterDoctor > *,
+html[lang="ar"] .siteAr .v3FooterBase > *{
+  text-align:right;
+}
+html[lang="ar"] .siteAr .v3FooterNav button,
+html[lang="ar"] .siteAr .v3FooterNav a{
+  width:100%;
+}
+@media(max-width:620px){
+  html[lang="ar"] .siteAr .v3FooterBase{justify-items:start;text-align:right}
+  html[lang="ar"] .siteAr .v3FooterBase p,
+  html[lang="ar"] .siteAr .v3FooterBase button{width:100%;text-align:right}
+}
