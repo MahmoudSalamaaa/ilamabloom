@@ -28,8 +28,6 @@ const photosByFood:{[k:string]:string}={
  freekeh:"/freekeh.png",
  bulgur:"/bulgur.png",
  koshari:"https://www.themealdb.com/images/media/meals/4er7mj1598733193.jpg",
- ful:"https://www.youregypttours.com/images/ful-medames.jpg",
- taameya:"https://afrotools.com/assets/img/kitchen/taameya-eg.webp",
  molokhia:"https://www.196flavors.com/wp-content/uploads/2021/11/Molokhia-FP-min.jpg",
  "om-ali":"/om-ali.png",
  "rice-pudding":"/rice-pudding.png",
