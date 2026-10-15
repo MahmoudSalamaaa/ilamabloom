@@ -7,7 +7,6 @@ const publicRoutes=[
   ["/visit", "weekly", .7],
   ["/kids", "weekly", .7],
   ["/lens", "monthly", .6],
-  ["/account", "monthly", .4],
   ["/privacy", "monthly", .4],
   ["/about", "monthly", .4],
 ] as const;
