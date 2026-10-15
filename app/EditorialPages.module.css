@@ -44,7 +44,7 @@
 
 
 /* ILAMA feminine editorial page treatment */
-.page{font-family:"DM Sans","Tajawal",Arial,sans-serif!important}
+.page{font-family:"DM Sans","Cairo",Arial,sans-serif!important}
 .page h1,.page h2,.page h3,.page h4{font-family:"Cormorant Garamond",Georgia,serif!important;font-weight:500}
 [dir="rtl"] .page,[dir="rtl"] .page h1,[dir="rtl"] .page h2,[dir="rtl"] .page h3,[dir="rtl"] .page h4{font-family:"Cairo","Noto Sans Arabic",Arial,sans-serif!important}
 .page button{font-family:inherit}
