@@ -12,11 +12,11 @@ const EN=[
  ["Kids","Healthy habits, happier little humans.","kids","https://images.pexels.com/photos/296301/pexels-photo-296301.jpeg?auto=compress&cs=tinysrgb&w=1200"]
 ] as const;
 const AR=[
- ["التغذية","معرفة عملية لاختياراتك اليومية.","learn","https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1200"],
- ["حياة صحية","عادات بسيطة لتغيير واقعي ومستمر.","everyday","https://images.pexels.com/photos/3768126/pexels-photo-3768126.jpeg?auto=compress&cs=tinysrgb&w=1200"],
- ["أطلس الطعام","اكتشف الطعام وسياقه وحصصه.","atlas","https://images.pexels.com/photos/2255935/pexels-photo-2255935.jpeg?auto=compress&cs=tinysrgb&w=1200"],
- ["اليوميات","لاحظ الأنماط واحتفظ بما يهم.","journal","https://images.pexels.com/photos/4050990/pexels-photo-4050990.jpeg?auto=compress&cs=tinysrgb&w=1200"],
- ["الأطفال","عادات صحية لعلاقة أفضل مع الطعام.","kids","https://images.pexels.com/photos/296301/pexels-photo-296301.jpeg?auto=compress&cs=tinysrgb&w=1200"]
+ ["التغذية","معلومات عملية تساعدك تختار كل يوم.","learn","https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1200"],
+ ["حياة صحية","عادات بسيطة لتغيير حقيقي ومستمر.","everyday","https://images.pexels.com/photos/3768126/pexels-photo-3768126.jpeg?auto=compress&cs=tinysrgb&w=1200"],
+ ["أطلس الأكل","شوف الأكل وسياقه وكميته.","atlas","https://images.pexels.com/photos/2255935/pexels-photo-2255935.jpeg?auto=compress&cs=tinysrgb&w=1200"],
+ ["اليوميات","لاحظ اللي بيتكرر وخلي المهم معاك.","journal","https://images.pexels.com/photos/4050990/pexels-photo-4050990.jpeg?auto=compress&cs=tinysrgb&w=1200"],
+ ["الأطفال","عادات صحية تخلي علاقتك بالأكل أحسن.","kids","https://images.pexels.com/photos/296301/pexels-photo-296301.jpeg?auto=compress&cs=tinysrgb&w=1200"]
 ] as const;
 
 export default function HomeReference({go,ar}:Props){
@@ -28,34 +28,34 @@ export default function HomeReference({go,ar}:Props){
    </div>
    <div className={styles.heroBloom} aria-hidden="true"><span>{ar?"الأكل":"FOOD"}</span><i>·</i><span>{ar?"الجسم":"BODY"}</span><i>·</i><span>{ar?"السياق":"CONTEXT"}</span></div>
    <div className={styles.heroCopy}>
-    <p className={styles.eyebrow}>{ar?"دليل مفتوح للغذاء والجسد والحياة":"AN OPEN FIELD GUIDE TO FOOD, BODY & LIFE"}</p>
-    <h1>{ar?<>الأشياء الجميلة <em>تنمو</em></>:<>Good things <em>grow</em></>}<br/>{ar?"حين نتأمل عن قرب.":"when we look closer."}</h1>
-    <p className={styles.lead}>{ar?"عالم حيّ من الطعام والجسد وكل ما يصوغ تفاصيل يومنا.":"A living world of food, body and the many things that shape a day."}</p>
-    <button type="button" className={styles.primary} onClick={()=>go("atlas")}>{ar?"ادخل إلى الأطلس":"Enter the atlas"} <span>↗</span></button>
+    <p className={styles.eyebrow}>{ar?"دليل مفتوح للأكل والجسم والحياة":"AN OPEN FIELD GUIDE TO FOOD, BODY & LIFE"}</p>
+    <h1>{ar?<>الحاجات الحلوة <em>بتكبر</em></>:<>Good things <em>grow</em></>}<br/>{ar?"لما نبص لها عن قرب.":"when we look closer."}</h1>
+    <p className={styles.lead}>{ar?"عالم حي من الأكل والجسم وكل حاجة بتشكل يومنا.":"A living world of food, body and the many things that shape a day."}</p>
+    <button type="button" className={styles.primary} onClick={()=>go("atlas")}>{ar?"ادخل أطلس الأكل":"Enter the atlas"} <span>↗</span></button>
    </div>
-   <p className={styles.heroSideNote}>{ar?"جذوره فضول · صُمم للحياة كما هي":"ROOTED IN CURIOSITY · MADE FOR REAL LIFE"}</p>
-   <figure className={styles.heroImage}><div className={styles.heroImageTrack}><img src="https://images.pexels.com/photos/5966431/pexels-photo-5966431.jpeg?auto=compress&cs=tinysrgb&w=1800" alt={ar?"ضوء الشمس يستقر فوق طبقات من الأوراق الخضراء في غابة هادئة":"Sunlight resting on layers of green leaves in a quiet forest"}/></div><figcaption className={styles.heroCaption}><b>ILAMA / 01</b><span>{ar?"طعام حقيقي · حياة حقيقية":"REAL FOOD · REAL LIFE"}</span></figcaption></figure>
+   <p className={styles.heroSideNote}>{ar?"مبني على الفضول · معمول للحياة زي ما هي":"ROOTED IN CURIOSITY · MADE FOR REAL LIFE"}</p>
+   <figure className={styles.heroImage}><div className={styles.heroImageTrack}><img src="https://images.pexels.com/photos/5966431/pexels-photo-5966431.jpeg?auto=compress&cs=tinysrgb&w=1800" alt={ar?"ضوء الشمس يستقر فوق طبقات من الأوراق الخضراء في غابة هادئة":"Sunlight resting on layers of green leaves in a quiet forest"}/></div><figcaption className={styles.heroCaption}><b>ILAMA / 01</b><span>{ar?"أكل حقيقي · حياة حقيقية":"REAL FOOD · REAL LIFE"}</span></figcaption></figure>
   </section>
-  <div className={styles.heroFootline}><span>{ar?"ملاحظة افتتاحية · ابدأ بما ينمو":"AN OPENING NOTE · BEGIN WITH WHAT IS GROWING"}</span><button type="button" onClick={()=>document.getElementById("ilama-world")?.scrollIntoView({behavior:"smooth"})}>{ar?"اقرأ الافتتاحية ↓":"Read the opening note ↓"}</button></div>
+  <div className={styles.heroFootline}><span>{ar?"ملاحظة نبدأ بيها · ابدأ باللي بيكبر":"AN OPENING NOTE · BEGIN WITH WHAT IS GROWING"}</span><button type="button" onClick={()=>document.getElementById("ilama-world")?.scrollIntoView({behavior:"smooth"})}>{ar?"اقرأ البداية ↓":"Read the opening note ↓"}</button></div>
 
   <section className={styles.approach} id="ilama-world">
    <div className={styles.approachTop}>
-    <div><p className={styles.eyebrow}>{ar?"رؤية متكاملة":"A WHOLE-PERSON APPROACH"}</p><h2>{ar?"الطعام · الجسد · السياق":"Food · Body · Context"}</h2><p>{ar?"نجمع التغذية ونمط الحياة والسياق الحقيقي معًا لتصبح الحياة الصحية أبسط وأكثر صلة وإلهامًا.":"We bring nutrition, lifestyle and real-life context together so healthy living feels simple, relevant and inspiring."}</p></div>
-    <aside><p>{ar?"إيلاما بلوم مساحتك للاستكشاف والتعلم وبناء حياة أكثر صحة واتزانًا — في كل مرحلة من العمر.":"ILAMA BLOOM is your guided space to explore, learn and build a healthier, more balanced you — at every stage of life."}</p><button type="button" onClick={()=>go("learn")}>{ar?"منهجنا":"Our Approach"} <span>→</span></button></aside>
+    <div><p className={styles.eyebrow}>{ar?"الصورة كاملة":"A WHOLE-PERSON APPROACH"}</p><h2>{ar?"الأكل · الجسم · الظروف":"Food · Body · Context"}</h2><p>{ar?"بنجمع الأكل الصحي ونمط الحياة والظروف الحقيقية عشان العيشة الصحية تبقى أبسط وأقرب ليك وألطف.":"We bring nutrition, lifestyle and real-life context together so healthy living feels simple, relevant and inspiring."}</p></div>
+    <aside><p>{ar?"إيلاما بلوم مساحتك عشان تستكشف وتتعلم وتبني حياة أهدى وأصح — في كل مرحلة.":"ILAMA BLOOM is your guided space to explore, learn and build a healthier, more balanced you — at every stage of life."}</p><button type="button" onClick={()=>go("learn")}>{ar?"طريقتنا":"Our Approach"} <span>→</span></button></aside>
    </div>
-   <div className={styles.cardGrid}>{cards.map(([title,copy,to,img])=><button type="button" key={title} className={styles.card} onClick={()=>go(to)}><span className={styles.cardImage}><img src={img} alt=""/></span><span className={styles.cardBody}><strong>{title}</strong><small>{copy}</small><i>{ar?"استكشف":"Explore"} <b>→</b></i></span></button>)}</div>
+   <div className={styles.cardGrid}>{cards.map(([title,copy,to,img])=><button type="button" key={title} className={styles.card} onClick={()=>go(to)}><span className={styles.cardImage}><img src={img} alt=""/></span><span className={styles.cardBody}><strong>{title}</strong><small>{copy}</small><i>{ar?"شوف أكتر":"Explore"} <b>→</b></i></span></button>)}</div>
   </section>
 
   <section className={styles.atlas}>
-   <div className={styles.atlasCopy}><p className={styles.eyebrow}>{ar?"تجربة مميزة":"FEATURED EXPERIENCE"}</p><h2>{ar?"أطلس الطعام":"The Food Atlas"}</h2><p>{ar?"رحلة بصرية في عالم الطعام الحقيقي — مكوناته، حصصه والسياق الذي يجعله مفهومًا.":"A visual journey through the world of real food — its ingredients, portions and the context that makes it useful."}</p><button type="button" className={styles.primary} onClick={()=>go("atlas")}>{ar?"استكشف أطلس الطعام":"Explore the Food Atlas"} <span>→</span></button></div>
-   <figure className={styles.atlasImage}><img src="https://images.pexels.com/photos/5945641/pexels-photo-5945641.jpeg?auto=compress&cs=tinysrgb&w=1800" alt={ar?"رمان طازج":"Fresh pomegranate"}/><figcaption><strong>{ar?"الرمان":"Pomegranate"}</strong><small>{ar?"طعام حقيقي داخل سياق الوجبة.":"Real food, understood in context."}</small><button type="button" onClick={()=>go("atlas")}>→</button></figcaption></figure>
+   <div className={styles.atlasCopy}><p className={styles.eyebrow}>{ar?"تجربة اخترناها ليك":"FEATURED EXPERIENCE"}</p><h2>{ar?"أطلس الأكل":"The Food Atlas"}</h2><p>{ar?"رحلة بصرية في عالم الأكل الحقيقي — مكوناته، كمياته والظروف اللي بتخليه مفهوم.":"A visual journey through the world of real food — its ingredients, portions and the context that makes it useful."}</p><button type="button" className={styles.primary} onClick={()=>go("atlas")}>{ar?"شوف أكتر أطلس الأكل":"Explore the Food Atlas"} <span>→</span></button></div>
+   <figure className={styles.atlasImage}><img src="https://images.pexels.com/photos/5945641/pexels-photo-5945641.jpeg?auto=compress&cs=tinysrgb&w=1800" alt={ar?"رمان طازج":"Fresh pomegranate"}/><figcaption><strong>{ar?"الرمان":"Pomegranate"}</strong><small>{ar?"أكل حقيقي جوه وجبة كاملة.":"Real food, understood in context."}</small><button type="button" onClick={()=>go("atlas")}>→</button></figcaption></figure>
   </section>
 
   <section className={styles.kids}>
-   <figure><img src="https://images.pexels.com/photos/296301/pexels-photo-296301.jpeg?auto=compress&cs=tinysrgb&w=1800" alt={ar?"طفل سعيد في الخارج":"Happy child outdoors"}/><figcaption className={styles.kidsOverlay}><p className={styles.eyebrow}>{ar?"الأطفال والعائلة":"KIDS · FAMILY"}</p><h2>{ar?"لعقول وأجسام تنمو":"For Growing Minds & Bodies"}</h2></figcaption></figure>
-   <div className={styles.kidsCopy}><p>{ar?"محتوى وأدوات مرحة ومناسبة للعمر تساعد الأطفال على بناء علاقة إيجابية مع الطعام — اليوم وبكرة.":"Fun, age-appropriate content and tools to help kids build a positive relationship with food — for today and tomorrow."}</p><button type="button" className={styles.textLink} onClick={()=>go("kids")}>{ar?"اكتشف الأطفال":"Discover Kids"} <span>→</span></button></div>
+   <figure><img src="https://images.pexels.com/photos/296301/pexels-photo-296301.jpeg?auto=compress&cs=tinysrgb&w=1800" alt={ar?"طفل سعيد في الخارج":"Happy child outdoors"}/><figcaption className={styles.kidsOverlay}><p className={styles.eyebrow}>{ar?"الأطفال والعيلة":"KIDS · FAMILY"}</p><h2>{ar?"لعقول وأجسام بتكبر":"For Growing Minds & Bodies"}</h2></figcaption></figure>
+   <div className={styles.kidsCopy}><p>{ar?"محتوى وأدوات لطيفة ومناسبة للسن تساعد الأطفال يعملوا علاقة أحسن مع الأكل — النهارده وبكرة.":"Fun, age-appropriate content and tools to help kids build a positive relationship with food — for today and tomorrow."}</p><button type="button" className={styles.textLink} onClick={()=>go("kids")}>{ar?"اكتشف الأطفال":"Discover Kids"} <span>→</span></button></div>
   </section>
 
-  <section className={styles.closing}><div><p className={styles.eyebrow}>{ar?"أنت أكثر صحة وإشراقًا":"A HEALTHIER, BRIGHTER YOU"}</p><h2>{ar?"ننمو معًا نحو غدٍ أكثر صحة":"Let’s Grow a Healthier Tomorrow"}</h2><p>{ar?"معرفة حقيقية. اختيارات أفضل. حياة أكثر إشراقًا.":"Real knowledge. Better choices. A brighter you."}</p></div><button type="button" onClick={()=>go("learn")}>{ar?"ابدأ رحلتك":"Start Your Journey"} <span>→</span></button></section>
+  <section className={styles.closing}><div><p className={styles.eyebrow}>{ar?"صحتك وحياتك أحلى":"A HEALTHIER, BRIGHTER YOU"}</p><h2>{ar?"نكبر سوا لبكرة أصح":"Let’s Grow a Healthier Tomorrow"}</h2><p>{ar?"معرفة حقيقية. اختيارات أهدى. حياة أحلى.":"Real knowledge. Better choices. A brighter you."}</p></div><button type="button" onClick={()=>go("learn")}>{ar?"ابدأ مشوارك":"Start Your Journey"} <span>→</span></button></section>
  </div>
 }
