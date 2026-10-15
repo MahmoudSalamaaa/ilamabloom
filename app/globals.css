@@ -2057,3 +2057,24 @@ main[lang="en"] :where(input,textarea,select,button){font-family:"Lora",Georgia,
   }
   .v3FooterBase p { text-align: start; }
 }
+
+/* Arabic typography lock: the legacy theme rules above use Tajawal with !important.
+   Keep one deliberate, loaded family for the Arabic experience. */
+html[lang="ar"] .siteAr,
+html[lang="ar"] .siteAr *,
+html[lang="ar"] .siteAr h1,
+html[lang="ar"] .siteAr h2,
+html[lang="ar"] .siteAr h3,
+html[lang="ar"] .siteAr h4,
+html[lang="ar"] .siteAr p,
+html[lang="ar"] .siteAr small,
+html[lang="ar"] .siteAr label,
+html[lang="ar"] .siteAr button,
+html[lang="ar"] .siteAr input,
+html[lang="ar"] .siteAr textarea,
+html[lang="ar"] .siteAr select,
+html[lang="ar"] .siteAr a,
+html[lang="ar"] .siteAr span,
+html[lang="ar"] .siteAr li {
+  font-family: "Cairo", "Noto Sans Arabic", Arial, sans-serif !important;
+}
