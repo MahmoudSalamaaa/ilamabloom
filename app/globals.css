@@ -2078,3 +2078,20 @@ html[lang="ar"] .siteAr span,
 html[lang="ar"] .siteAr li {
   font-family: "Cairo", "Noto Sans Arabic", Arial, sans-serif !important;
 }
+
+/* Arabic type hierarchy: readable Cairo body with a quieter display face. */
+html[lang="ar"] .siteAr h1,
+html[lang="ar"] .siteAr h2,
+html[lang="ar"] .siteAr h3,
+html[lang="ar"] .siteAr h4{
+  font-family:"Noto Kufi Arabic","Cairo","Noto Sans Arabic",Arial,sans-serif!important;
+  font-weight:600!important;
+  letter-spacing:0!important;
+  line-height:1.24!important;
+}
+@media(max-width:900px){
+  html[lang="ar"] .siteAr .brandHeader{
+    padding-inline:16px!important;
+    gap:12px!important;
+  }
+}
