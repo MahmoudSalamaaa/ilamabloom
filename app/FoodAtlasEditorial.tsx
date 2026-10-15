@@ -14,7 +14,7 @@ const photosByFood:{[k:string]:string}={
  ful:"https://www.youregypttours.com/images/ful-medames.jpg",
  taameya:"https://afrotools.com/assets/img/kitchen/taameya-eg.webp",
  molokhia:"https://www.196flavors.com/wp-content/uploads/2021/11/Molokhia-FP-min.jpg",
- "om-ali":"https://whatworldeats.com/wp-content/uploads/2025/04/FATS-SUGARS-AND-NUTS-Umm-Ali-1000x1000.jpeg",
+ "om-ali":"/om-ali.png",
  basbousa:"https://www.lifeberrys.com/img/article/egyptian-desserts-2-1589957906-lb.jpg"
 };
 const photo=(f:Food)=>photosByFood[f.id]||photosByCategory[f.category]||photosByCategory["Mixed dishes"];
