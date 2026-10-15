@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap');
+
 :root{--paper:#FAF6F0;--ink:#203128;--muted:#66746c;--line:#DED3C8;--acid:#E9D8D1;--coral:#A94B65;--violet:#2D4236;--white:#FFFDFC;--radius:0px;--ilama-green:#2D4236;--ilama-deep:#203128;--ilama-pink:#A94B65;--ilama-cream:#FAF6F0}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Cairo","Noto Sans Arabic",Arial,sans-serif}button,input,textarea,select{font:inherit}button,a{transition:transform .18s ease,opacity .18s ease,background .18s ease,color .18s ease}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--violet);outline-offset:3px}.skipLink{position:fixed;left:12px;top:-60px;z-index:999;background:#111;color:#fff;padding:12px}.skipLink:focus{top:12px}
 .nav{height:72px;position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:25px;padding:0 3vw;background:rgba(245,239,229,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.logo{margin-right:auto;border:0;background:none;padding:0}.brandLogo{font-family:Georgia,"Times New Roman",serif;font-size:25px;letter-spacing:.02em}.nav>button:not(.logo),.nav>a{border:0;background:none;color:var(--ink);text-decoration:none;font-size:13px}.nav>button:hover,.nav>a:hover{opacity:.55}.globalLang{border:1px solid var(--ink)!important;border-radius:999px!important;padding:7px 11px!important}.mobileNav{display:none}.siteFooter{padding:65px 3vw 35px;border-top:1px solid var(--ink);background:var(--ink);color:var(--paper)}.unifiedFooterTop{display:grid;grid-template-columns:1.3fr repeat(3,1fr);gap:30px}.unifiedFooterBrand strong{font:400 44px Georgia,"Times New Roman",serif}.unifiedFooterBottom{margin-top:60px;padding-top:20px;border-top:1px solid #444;font-size:12px;color:#aaa}
@@ -16,5 +18,5 @@
 /* Arabic font refinement — keep English typography unchanged */
 .siteAr,.siteAr button,.siteAr input,.siteAr textarea,.siteAr select,
 .siteAr h1,.siteAr h2,.siteAr h3,.siteAr h4,.siteAr .brandDrawer,.siteAr .navMorePanel{
-  font-family:"Tajawal","Noto Sans Arabic",Arial,sans-serif;
+  font-family:"Cairo","Noto Sans Arabic",Arial,sans-serif;
 }
