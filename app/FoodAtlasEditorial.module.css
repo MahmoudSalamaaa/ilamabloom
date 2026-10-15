@@ -7,3 +7,6 @@
 @media(max-width:420px){.gentleIdeas{grid-template-columns:1fr}.grid dl{font-size:14px}}
 @media(prefers-reduced-motion:reduce){.grid article,.cats button,.gentleFilters button{transition:none}}
 
+
+.imageFallback{display:none;width:100%;height:100%;align-items:center;justify-content:center;background:linear-gradient(135deg,#efe1d1,#f8f2e9);font-size:72px}
+.imageFallbackVisible{display:flex}
