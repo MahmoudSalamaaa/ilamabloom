@@ -52,3 +52,20 @@ test("Google Fonts are imported once without duplicate Cairo requests",()=>{
   for(const weight of ["400","500","600","700"])assert.ok(cairo.includes(weight),"missing legacy Cairo weight "+weight);
   assert.equal(url.searchParams.get("display"),"swap");
 });
+
+test("shared chrome selectors cannot accumulate more cross-file overrides",()=>{
+  // These existing collisions require visual migration, not blind deletion.
+  const count=(css,selector)=>[...css.matchAll(/(?:^|[{}])\s*([^{}]+)\s*\{/gm)]
+    .filter(match=>match[1].trim()===selector).length;
+  const baseline={
+    ".nav":[14,1],
+    ".mobileNav":[15,2],
+    ".brandLogo":[16,1],
+    ".globalLang":[13,1],
+    ".skipLink":[5,1],
+  };
+  for(const [selector,[maxGlobal,maxSystem]] of Object.entries(baseline)){
+    assert.ok(count(globals,selector)<=maxGlobal,selector+" duplicated again in globals.css");
+    assert.ok(count(system,selector)<=maxSystem,selector+" duplicated again in system.css");
+  }
+});
