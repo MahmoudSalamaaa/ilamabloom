@@ -69,11 +69,21 @@ test("saved wellbeing observations are fetched only for the active care profile"
 test("saved observation deletion requires confirmation and uses scoped care endpoint",()=>{
  assert.match(page,/window\.confirm/);
  assert.match(page,/method:"DELETE"/);
- assert.match(page,/familyProfileId:activeProfile\(\)/);
+ assert.match(page,/body:JSON.stringify\(\{id,familyProfileId\}\)/);
  assert.match(page,/setRecords\(current=>current\.filter/);
 });
 test("saved observations expose accessible loading and error feedback",()=>{
  assert.match(page,/recordsLoading/);
  assert.match(page,/recordsError&&<p role="alert">/);
  assert.match(page,/recordsLoaded&&records\.length===0&&<p role="status">/);
+});
+
+test("server filters wellbeing observations before applying record limit",()=>{
+ assert.match(careApi,/kindFilter=clean\(url\.searchParams\.get\("kind"\),30\)/);
+ assert.match(careApi,/AND \(\$\{kindFilter\} = '' OR kind=\$\{kindFilter\}\) ORDER BY occurred_at DESC LIMIT 300/);
+ assert.match(page,/\?kind=wellbeing-observation/);
+});
+test("saved record deletion uses its loaded family profile, not current selection",()=>{
+ assert.match(page,/deleteRecord=async\(id:string,familyProfileId:string\|null\)/);
+ assert.match(page,/deleteRecord\(record\.id,record\.familyProfileId\)/);
 });
