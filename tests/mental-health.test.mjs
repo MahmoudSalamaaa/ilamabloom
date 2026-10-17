@@ -60,3 +60,20 @@ test("self profile is stored as an unscoped care record",()=>{
   assert.match(page,/selectedProfile&&selectedProfile!=="self"\?selectedProfile:null/);
   assert.match(careApi,/!id\|\|id==="self"\?null:id/);
 });
+
+test("saved wellbeing observations are fetched only for the active care profile",()=>{
+ assert.match(page,/fetch\("\/api\/care"\+query,\{cache:"no-store"\}\)/);
+ assert.match(page,/record\.kind==="wellbeing-observation"/);
+ assert.match(page,/encodeURIComponent\(familyProfileId\)/);
+});
+test("saved observation deletion requires confirmation and uses scoped care endpoint",()=>{
+ assert.match(page,/window\.confirm/);
+ assert.match(page,/method:"DELETE"/);
+ assert.match(page,/familyProfileId:activeProfile\(\)/);
+ assert.match(page,/setRecords\(current=>current\.filter/);
+});
+test("saved observations expose accessible loading and error feedback",()=>{
+ assert.match(page,/recordsLoading/);
+ assert.match(page,/recordsError&&<p role="alert">/);
+ assert.match(page,/recordsLoaded&&records\.length===0&&<p role="status">/);
+});
