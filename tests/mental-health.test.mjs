@@ -34,3 +34,24 @@ test("unauthenticated writes show sign-in guidance and preserve observations",()
   assert.match(page,/Sign in to save this observation/);
   assert.match(page,/href="\/account"/);
 });
+
+const careApi=readFileSync(new URL("../app/api/care/route.ts",import.meta.url),"utf8");
+const css=readFileSync(new URL("../app/MentalHealthNutrition.module.css",import.meta.url),"utf8");
+test("server requires explicit consent for wellbeing observations",()=>{
+  assert.match(careApi,/kind==="wellbeing-observation"&&b\.consentToSensitiveStorage!==true/);
+  assert.match(page,/consentToSensitiveStorage:consent/);
+});
+test("failed profile ownership checks keep observations and guide recovery",()=>{
+  assert.match(page,/r\.status===404/);
+  assert.match(page,/setProfileMissing\(true\)/);
+  assert.match(page,/Choose a valid profile/);
+  assert.match(careApi,/ownsProfile\(sql,u\.id,familyId\)/);
+});
+test("care API scopes deletion to user and selected profile",()=>{
+  assert.match(careApi,/export async function DELETE/);
+  assert.match(careApi,/DELETE FROM public\.care_records WHERE id=\$\{id\} AND user_id=\$\{u\.id\}/);
+});
+test("consent control has compact checkbox and keyboard focus treatment",()=>{
+  assert.match(css,/input\[type="checkbox"\]/);
+  assert.match(css,/:focus-visible/);
+});
