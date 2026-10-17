@@ -40,10 +40,12 @@ test("legacy CSS specificity debt does not grow during consolidation",()=>{
 });
 
 test("Google Fonts are imported once without duplicate Cairo requests",()=>{
-  const globalImports=[...globals.matchAll(/^@import\\s+url\\(["'](https:\/\/fonts\\.googleapis\\.com\/css2[^"']+)["']\\);/gm)];
+  const globalImports=globals.split("\n").filter(line=>line.startsWith("@import url(")&&line.includes("fonts.googleapis.com/css2"));
   assert.equal(globalImports.length,1,"one canonical Google Fonts request in globals.css");
-  assert.doesNotMatch(system,/@import\\s+url\\(["']https:\/\/fonts\\.googleapis\\.com/,"system.css must not duplicate font loading");
-  const url=new URL(globalImports[0][1]);
+  assert.ok(!system.includes("fonts.googleapis.com/css2"),"system.css must not duplicate font loading");
+  const fontUrl=globalImports[0].match(/["']([^"']+)["']/);
+  assert.ok(fontUrl,"Google Fonts URL must be quoted");
+  const url=new URL(fontUrl[1]);
   const families=url.searchParams.getAll("family");
   assert.equal(families.filter(f=>f.startsWith("Cairo:")).length,1,"Cairo family must be requested once");
   const cairo=families.find(f=>f.startsWith("Cairo:"))||"";
