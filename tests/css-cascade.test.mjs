@@ -38,3 +38,15 @@ test("legacy CSS specificity debt does not grow during consolidation",()=>{
   assert.ok((globals.match(/:root\s*\{/g)||[]).length<=11,"globals.css root definitions increased");
   assert.ok((system.match(/!important/g)||[]).length<=9,"system.css !important budget exceeded");
 });
+
+test("Google Fonts are imported once without duplicate Cairo requests",()=>{
+  const globalImports=[...globals.matchAll(/^@import\\s+url\\(["'](https:\/\/fonts\\.googleapis\\.com\/css2[^"']+)["']\\);/gm)];
+  assert.equal(globalImports.length,1,"one canonical Google Fonts request in globals.css");
+  assert.doesNotMatch(system,/@import\\s+url\\(["']https:\/\/fonts\\.googleapis\\.com/,"system.css must not duplicate font loading");
+  const url=new URL(globalImports[0][1]);
+  const families=url.searchParams.getAll("family");
+  assert.equal(families.filter(f=>f.startsWith("Cairo:")).length,1,"Cairo family must be requested once");
+  const cairo=families.find(f=>f.startsWith("Cairo:"))||"";
+  for(const weight of ["400","500","600","700"])assert.ok(cairo.includes(weight),"missing legacy Cairo weight "+weight);
+  assert.equal(url.searchParams.get("display"),"swap");
+});
