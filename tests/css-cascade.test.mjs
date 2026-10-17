@@ -71,6 +71,6 @@ test("shared chrome selectors cannot accumulate more cross-file overrides",()=>{
 });
 
 test("topic search input uses valid font longhands rather than an invalid shorthand",()=>{
-  assert.doesNotMatch(globals,/font:500 1\\.05rem inherit;/);
-  assert.match(globals,/font-size:1\\.05rem;font-weight:500;font-family:inherit;/);
+  assert.doesNotMatch(globals,/font:500 1\.05rem inherit;/);
+  assert.match(globals,/font-size:1\.05rem;font-weight:500;font-family:inherit;/);
 });
