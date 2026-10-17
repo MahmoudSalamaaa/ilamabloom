@@ -55,3 +55,8 @@ test("consent control has compact checkbox and keyboard focus treatment",()=>{
   assert.match(css,/input\[type="checkbox"\]/);
   assert.match(css,/:focus-visible/);
 });
+
+test("self profile is stored as an unscoped care record",()=>{
+  assert.match(page,/selectedProfile&&selectedProfile!=="self"\?selectedProfile:null/);
+  assert.match(careApi,/!id\|\|id==="self"\?null:id/);
+});
