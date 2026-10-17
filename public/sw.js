@@ -39,6 +39,10 @@ self.addEventListener("fetch",event=>{
     return;
   }
 
+  // Only public, versioned assets and the explicit offline shell may enter Cache Storage.
+  // Authenticated or user-specific requests must never be cached by this worker.
+  if(!url.pathname.startsWith("/_next/static/")&&!OFFLINE.includes(url.pathname)) return;
+
   if(url.pathname.startsWith("/_next/static/")){
     event.respondWith(
       caches.match(req).then(cached=>cached||fetch(req).then(response=>{
