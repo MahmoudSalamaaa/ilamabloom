@@ -87,3 +87,11 @@ test("saved record deletion uses its loaded family profile, not current selectio
  assert.match(page,/deleteRecord=async\(id:string,familyProfileId:string\|null\)/);
  assert.match(page,/deleteRecord\(record\.id,record\.familyProfileId\)/);
 });
+
+test("late responses cannot overwrite observations for another family profile",()=>{
+ assert.match(page,/requestEpoch=useRef\(0\)/);
+ assert.match(page,/epoch!==requestEpoch\.current\|\|activeProfile\(\)!==familyProfileId/);
+ assert.match(page,/window\.addEventListener\("storage",invalidate\)/);
+ assert.match(page,/window\.addEventListener\("focus",invalidate\)/);
+ assert.match(page,/setRecords\(\[\]\);setRecordsLoaded\(false\)/);
+});
