@@ -1,0 +1,43 @@
+/* ILAMA BLOOM — shared visual and interaction foundation. Loaded last. */
+:root{
+  --ui-page:#fbf7ef;--ui-surface:#fffdf9;--ui-ink:#142f28;
+  --ui-muted:#53665e;--ui-border:#d5cabc;--ui-accent:#8f3f54;
+  --ui-focus:#7b3148;--ui-radius:14px;
+  --ui-content:1200px;--ui-gutter:clamp(16px,4vw,64px);
+}
+html{scroll-padding-top:90px}
+body{background:var(--ui-page);color:var(--ui-ink);-webkit-font-smoothing:antialiased}
+body :where(button,input,textarea,select){font:inherit}
+body :where(button,[role="button"]){touch-action:manipulation}
+body :where(button,a,input,textarea,select,[tabindex]):focus-visible{
+  outline:3px solid var(--ui-focus);outline-offset:3px;
+}
+body :where(button,a){-webkit-tap-highlight-color:transparent}
+body :where(input,textarea,select){min-width:0;max-width:100%}
+body :where(img,video,svg){max-width:100%}
+body :where(h1,h2,h3){text-wrap:balance}
+body :where(p,li){overflow-wrap:break-word}
+body :where(.page,.atlasPage,.kidsWorld,.siteAr,.siteEn){min-width:0}
+body :where(.page,.atlasPage,.kidsWorld) :where(article,section,form){min-width:0}
+body :where(.page,.atlasPage,.kidsWorld) :where(input,textarea,select){
+  border-radius:8px;
+}
+body :where(.page,.atlasPage,.kidsWorld) :where(button,[role="button"]){
+  transition:background-color .2s ease,color .2s ease,border-color .2s ease,box-shadow .2s ease;
+}
+body :where(.page,.atlasPage,.kidsWorld) :where(button,[role="button"]):disabled{
+  cursor:not-allowed;opacity:.55;
+}
+body :where(.page,.atlasPage,.kidsWorld) :where(button,[role="button"]):not(:disabled):focus-visible{
+  box-shadow:0 0 0 5px rgba(143,63,84,.14);
+}
+html[lang="ar"] body :where(input,textarea){text-align:start}
+@media(max-width:700px){
+  html{scroll-padding-top:74px}
+  body :where(.page,.atlasPage,.kidsWorld) :where(button,[role="button"]){min-height:44px}
+  body :where(.page,.atlasPage,.kidsWorld) :where(input,select,textarea){font-size:max(16px,1em)}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto!important}
+  body :where(*,*::before,*::after){scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
