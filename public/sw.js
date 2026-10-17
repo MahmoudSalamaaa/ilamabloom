@@ -19,7 +19,7 @@ self.addEventListener("activate",event=>{
 self.addEventListener("message",event=>{
   if(event.data?.type==="SKIP_WAITING") self.skipWaiting();
   if(event.data?.type==="CLEAR_OLD_CACHES"){
-    event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))));
+    event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE&&LEGACY_PREFIXES.some(prefix=>key.startsWith(prefix))).map(key=>caches.delete(key)))));
   }
 });
 
