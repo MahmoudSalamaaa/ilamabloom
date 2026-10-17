@@ -1,0 +1,23 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import {readFileSync} from "node:fs";
+const page=readFileSync(new URL("../app/MentalHealthNutrition.tsx",import.meta.url),"utf8");
+
+test("mood and food observation uses a real submit control",()=>{
+  assert.match(page,/<form[^>]*onSubmit=/);
+  assert.match(page,/<button type="submit" disabled=\{saving/);
+  assert.match(page,/await fetch\("\/api\/care"/);
+});
+
+test("failed care writes preserve input and show an accessible error",()=>{
+  assert.match(page,/else\{setSaveError\(true\)\}/);
+  assert.match(page,/catch\{setSaveError\(true\)\}/);
+  assert.match(page,/role="alert"/);
+  assert.match(page,/finally\{setSaving\(false\)\}/);
+});
+
+test("mental-health guidance avoids diagnosis and treatment substitution",()=>{
+  assert.match(page,/does not diagnose or replace mental-health treatment/);
+  assert.match(page,/association|Association|Association ≠ cause|pattern is not proof/);
+  assert.match(page,/professional assessment/);
+});
