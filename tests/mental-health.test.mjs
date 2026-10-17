@@ -10,7 +10,7 @@ test("mood and food observation uses a real submit control",()=>{
 });
 
 test("failed care writes preserve input and show an accessible error",()=>{
-  assert.match(page,/else\{setSaveError\(true\);if\(r.status===401\)setAuthRequired\(true\)\}/);
+  assert.match(page,/else\{setSaveError\(true\);if\(r.status===401\)setAuthRequired\(true\);if\(r.status===404\)setProfileMissing\(true\)\}/);
   assert.match(page,/catch\{setSaveError\(true\)\}/);
   assert.match(page,/role="alert"/);
   assert.match(page,/finally\{setSaving\(false\)\}/);
