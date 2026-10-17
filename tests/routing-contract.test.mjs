@@ -11,12 +11,14 @@ test("public route rewrites keep the existing client-side view mapping",()=>{
     assert.ok(app.includes(view+':"'+path+'"'),"missing app view "+view);
     assert.ok(config.includes('source: "'+path+'", destination: "/"'),"missing shell rewrite "+path);
   }
-  assert.match(app,/const pathViews:Record<View,string>/);
+  assert.match(app,/const viewPaths:Record<View,string>/);
   assert.match(app,/const pathViews/);
 });
 
 test("private and medical API endpoints are not rewritten to the public shell",()=>{
-  for(const route of ["/api/","/account","/auth","/admin"]){
-    assert.ok(!config.includes('source: "'+route),route+" must not be rewritten");
+  for(const route of ["/api/admin","/api/foods","/api/profile","/api/entries","/account","/auth","/admin"]){
+    assert.ok(!config.includes('source: "'+route),route+" must not be rewritten to the public shell");
   }
+  assert.match(config,/source: "\/api\/auth\/:path\*\/", destination: "\/api\/auth\/:path\*"/);
+  assert.doesNotMatch(config,/source: "\/api\/[^"]+", destination: "\/"/);
 });

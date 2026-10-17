@@ -1,7 +1,5 @@
 name: ILAMA V1 build gate
 on:
-  pull_request:
-    branches: [main]
   workflow_dispatch:
 jobs:
   build:

@@ -12,6 +12,4 @@ jobs:
         with:
           node-version: 20
       - run: npm install
-      - run: node --test tests/*.test.mjs
-      - run: npx tsc --noEmit
-      - run: npm run build
+      - run: npm run check
