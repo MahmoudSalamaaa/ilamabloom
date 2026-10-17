@@ -1,4 +1,7 @@
-/* ILAMA BLOOM — shared visual and interaction foundation. Loaded last.\n   Scoped low-specificity rules only: do not override editorial art direction or modules. */
+/* ILAMA BLOOM — shared visual and interaction foundation. Loaded last.
+   Scoped low-specificity rules only: do not override editorial art direction or modules. */
+/* Lower precedence than unlayered legacy rules: avoid visual regressions. */
+@layer ilama-foundation {
 :root{
   --ui-page:#fbf7ef;--ui-surface:#fffdf9;--ui-ink:#142f28;
   --ui-muted:#53665e;--ui-border:#d5cabc;--ui-accent:#8f3f54;
@@ -6,8 +9,7 @@
   --ui-content:1200px;--ui-gutter:clamp(16px,4vw,64px);
 }
 html{scroll-padding-top:90px}
-body{background:var(--ui-page);color:var(--ui-ink);-webkit-font-smoothing:antialiased}
-body :where(button,input,textarea,select){font:inherit}
+body{-webkit-font-smoothing:antialiased}
 body :where(button,[role="button"]){touch-action:manipulation}
 body :where(button,a,input,textarea,select,[tabindex]):focus-visible{
   outline:3px solid var(--ui-focus);outline-offset:3px;
@@ -22,6 +24,7 @@ body :where(.page,.atlasPage,.kidsWorld) :where(article,section,form){min-width:
 html[lang="ar"] body :where(input,textarea){text-align:start}
 @media(max-width:700px){
   html{scroll-padding-top:74px}
+}
 }
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto!important}
