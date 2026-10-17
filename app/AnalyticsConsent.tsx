@@ -13,7 +13,7 @@ export default function AnalyticsConsent(){
   const legacyId=localStorage.getItem("nutclue-anonymous-id");
   const id=localStorage.getItem(ID_KEY)||legacyId||crypto.randomUUID();
   localStorage.setItem(ID_KEY,id);
-  const send=()=>fetch("/api/analytics",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({event:"page_view",anonymousId:id,path:location.pathname+location.hash})}).catch(()=>{});
+  const send=()=>fetch("/api/analytics",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({event:"page_view",anonymousId:id,path:location.pathname})}).catch(()=>{});
   send();const onNavigation=()=>send();addEventListener("hashchange",onNavigation);addEventListener("popstate",onNavigation);addEventListener("ilama:navigate",onNavigation);return()=>{removeEventListener("hashchange",onNavigation);removeEventListener("popstate",onNavigation);removeEventListener("ilama:navigate",onNavigation)}
  },[choice]);
  const decide=(value:string)=>{localStorage.setItem(CONSENT_KEY,value);setChoice(value);setVisible(false)};
