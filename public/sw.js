@@ -19,7 +19,7 @@ self.addEventListener("activate",event=>{
 self.addEventListener("message",event=>{
   if(event.data?.type==="SKIP_WAITING") self.skipWaiting();
   if(event.data?.type==="CLEAR_OLD_CACHES"){
-    event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))));
+    event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE&&LEGACY_PREFIXES.some(prefix=>key.startsWith(prefix))).map(key=>caches.delete(key)))));
   }
 });
 
@@ -38,6 +38,10 @@ self.addEventListener("fetch",event=>{
     );
     return;
   }
+
+  // Only public, versioned assets and the explicit offline shell may enter Cache Storage.
+  // Authenticated or user-specific requests must never be cached by this worker.
+  if(!url.pathname.startsWith("/_next/static/")&&!OFFLINE.includes(url.pathname)) return;
 
   if(url.pathname.startsWith("/_next/static/")){
     event.respondWith(

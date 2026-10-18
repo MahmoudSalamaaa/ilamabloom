@@ -1,0 +1,32 @@
+/* ILAMA BLOOM — shared visual and interaction foundation. Loaded last.
+   Scoped low-specificity rules only: do not override editorial art direction or modules. */
+/* Lower precedence than unlayered legacy rules: avoid visual regressions. */
+@layer ilama-foundation {
+:root{
+  --ui-page:#fbf7ef;--ui-surface:#fffdf9;--ui-ink:#142f28;
+  --ui-muted:#53665e;--ui-border:#d5cabc;--ui-accent:#8f3f54;
+  --ui-focus:#7b3148;--ui-radius:14px;
+  --ui-content:1200px;--ui-gutter:clamp(16px,4vw,64px);
+}
+html{scroll-padding-top:90px}
+body{-webkit-font-smoothing:antialiased}
+body :where(button,[role="button"]){touch-action:manipulation}
+body :where(button,a,input,textarea,select,[tabindex]):focus-visible{
+  outline:3px solid var(--ui-focus);outline-offset:3px;
+}
+body :where(button,a){-webkit-tap-highlight-color:transparent}
+body :where(input,textarea,select){min-width:0;max-width:100%}
+body :where(img,video,svg){max-width:100%}
+body :where(h1,h2,h3){text-wrap:balance}
+body :where(p,li){overflow-wrap:break-word}
+body :where(.page,.atlasPage,.kidsWorld,.siteAr,.siteEn){min-width:0}
+body :where(.page,.atlasPage,.kidsWorld) :where(article,section,form){min-width:0}
+html[lang="ar"] body :where(input,textarea){text-align:start}
+@media(max-width:700px){
+  html{scroll-padding-top:74px}
+}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto!important}
+  body :where(*,*::before,*::after){scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}

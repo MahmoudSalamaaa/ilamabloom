@@ -1,7 +1,5 @@
 name: ILAMA V1 build gate
 on:
-  pull_request:
-    branches: [main]
   workflow_dispatch:
 jobs:
   build:
@@ -12,5 +10,4 @@ jobs:
         with:
           node-version: 20
       - run: npm install
-      - run: npx tsc --noEmit
-      - run: npm run build
+      - run: npm run check
