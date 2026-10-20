@@ -1,6 +1,7 @@
 const base="https://www.ilamabloom.com";
 const publicRoutes=[
   ["", "weekly", 1],
+  ["/study", "weekly", .95],
   ["/explore", "weekly", .8],
   ["/food-atlas", "weekly", .8],
   ["/journal", "daily", .7],
@@ -20,4 +21,3 @@ export default function sitemap(){
     priority,
   }));
 }
-
