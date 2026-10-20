@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import styles from "../Study.module.css";
 import { studyCurriculum } from "../curriculum";
 
@@ -26,7 +27,7 @@ export default function StudyTopicsBrowser() {
       <label><span>Domain</span><select value={domain} onChange={(event) => setDomain(event.target.value)}><option value="ALL">All domains</option>{domains.map((item) => <option key={item} value={item}>{item}</option>)}</select></label>
       <p aria-live="polite"><strong>{filtered.length}</strong> of {studyCurriculum.length} topics</p>
     </div>
-    <div className={styles.fullTopicGrid}>{filtered.map((unit) => <article key={unit.id} className={styles.topicCard}><span>{unit.id} · {trackNames[unit.track]}</span><h2>{unit.title}</h2><p>{unit.domain}</p><small>Planned learning unit · public map</small></article>)}</div>
+    <div className={styles.fullTopicGrid}>{filtered.map((unit) => <article key={unit.id} className={styles.topicCard}><span>{unit.id} · {trackNames[unit.track]}</span><h2>{unit.title}</h2><p>{unit.domain}</p><Link href={`/study/topics/${unit.id}`} className={styles.topicCardLink}>Open topic map ↗</Link><small>Planned learning unit · public map</small></article>)}</div>
     {filtered.length === 0 && <p className={styles.emptyTopics}>No topics match this search. Try a broader term or reset a filter.</p>}
   </>;
 }
