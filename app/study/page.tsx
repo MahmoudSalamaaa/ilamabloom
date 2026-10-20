@@ -24,7 +24,7 @@ export default function StudyPage() {
   return (
     <main className={styles.page}>
       <header className={styles.header}>
-        <Link href="/" className={styles.wordmark} aria-label="ILAMA BLOOM home">ILAMA BLOOM <span>STUDY</span></Link>
+        <Link href="/" className={styles.wordmark} aria-label="ILAMA BLOOM home"><img src="/ilama-bloom-logo.svg" alt="ILAMA BLOOM" /><span>STUDY</span></Link>
         <nav aria-label="Study navigation"><Link href="#curriculum">Curriculum</Link><Link href="#topics">Topics</Link><Link href="/study/topics">All 350</Link><Link href="#safety">Standards</Link></nav>
         <span className={styles.headerMeta}>ENGLISH MEDICAL EDUCATION</span>
       </header>
