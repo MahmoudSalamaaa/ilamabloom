@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function StudyTopicsPage() {
   return <main className={styles.page}>
-    <header className={styles.header}><Link href="/study" className={styles.wordmark}>ILAMA BLOOM <span>STUDY</span></Link><nav aria-label="Study navigation"><Link href="/study#curriculum">Curriculum</Link><Link href="/study/topics">All topics</Link></nav><span className={styles.headerMeta}>350 ENGLISH UNITS</span></header>
+    <header className={styles.header}><Link href="/study" className={styles.wordmark}><img src="/ilama-bloom-logo.svg" alt="ILAMA BLOOM" /><span>STUDY</span></Link><nav aria-label="Study navigation"><Link href="/study#curriculum">Curriculum</Link><Link href="/study/topics">All topics</Link></nav><span className={styles.headerMeta}>350 ENGLISH UNITS</span></header>
     <section className={styles.topicSection} aria-labelledby="all-topics-title">
       <div className={styles.sectionIntro}><div><p className={styles.eyebrow}>PUBLIC REGISTER · 350 UNITS</p><h1 id="all-topics-title">The complete <em>learning field.</em></h1></div><p>Browse the canonical, clinically reviewed Study register by track and domain. Detailed objectives, cases, examiner rubrics and media are being staged from the authorised source set.</p></div>
       <StudyTopicsBrowser />
