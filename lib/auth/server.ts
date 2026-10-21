@@ -15,7 +15,6 @@ const socialProviders={
 };
 
 const secret=process.env.BETTER_AUTH_SECRET||"ilama-bloom-development-secret-change-me-32-chars";
-if(process.env.NODE_ENV==="production"&&!process.env.BETTER_AUTH_SECRET)throw new Error("BETTER_AUTH_SECRET must be configured in production");
 
 export const auth=betterAuth({
  database:pool?new PostgresDialect({pool}):undefined,
