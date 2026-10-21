@@ -2138,3 +2138,20 @@ html[lang="ar"] .siteAr .v3FooterStatement h2{
   max-width:100%!important;
   text-wrap:pretty!important;
 }
+
+/* Arabic typography repair: app/page uses .siteAr while the html element remains English
+   during client-side language switching. Keep the Arabic family scoped to that shell. */
+.siteAr,.siteAr *{
+  font-family:"Cairo","Noto Sans Arabic","Tahoma","Arial",sans-serif!important;
+  font-synthesis:none;
+}
+.siteAr h1,.siteAr h2,.siteAr h3,.siteAr h4,.siteAr h5,.siteAr h6,
+.siteAr .novaHeadline h1,.siteAr .novaRoutes h2,.siteAr .novaRoutes button strong,
+.siteAr .novaFeatureCopy h2,.siteAr .novaManifesto h2,.siteAr .novaDinaTitle h2,
+.siteAr .novaPersonal h2,.siteAr .pageHero h1{
+  font-family:"Noto Kufi Arabic","Cairo","Noto Sans Arabic","Tahoma","Arial",sans-serif!important;
+  font-weight:600!important;
+  letter-spacing:0!important;
+  line-height:1.35!important;
+}
+.siteAr .brandLogo{font-family:"Cairo","Noto Sans Arabic","Tahoma","Arial",sans-serif!important}
