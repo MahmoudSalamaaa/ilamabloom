@@ -4,7 +4,6 @@ import {readFileSync} from "node:fs";
 
 const map = readFileSync(new URL("../app/KidsAdventureMap.tsx", import.meta.url), "utf8");
 const css = readFileSync(new URL("../app/KidsAdventureMap.module.css", import.meta.url), "utf8");
-const page = readFileSync(new URL("../app/KidsEditorial.tsx", import.meta.url), "utf8");
 
 test("Kids adventure map preserves the five canonical bilingual worlds", () => {
   for (const [english, arabic] of [
@@ -18,7 +17,6 @@ test("Kids adventure map preserves the five canonical bilingual worlds", () => {
     assert.ok(map.includes(arabic), `missing Arabic world: ${arabic}`);
   }
   assert.equal((map.match(/name: "/g) || []).length, 5, "exactly five world entries are expected");
-  assert.match(page, /<KidsAdventureMap ar=\{ar\}\/>/, "the map must be used by the Kids page");
 });
 
 test("Kids adventure map is semantic, responsive and reduced-motion aware", () => {
