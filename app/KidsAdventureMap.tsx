@@ -1,6 +1,6 @@
 import styles from "./KidsAdventureMap.module.css";
 
-type World = { name: string; nameAr: string; icon: string; note: string; noteAr: string; tone: string };
+type World = { name: string; nameAr: string; icon: string; note: string; noteAr: string; tone: "garden" | "move" | "body" | "sleep" | "kitchen" };
 
 const worlds: World[] = [
   { name: "Food Garden", nameAr: "حديقة الطعام", icon: "✿", note: "Notice what grows, where it comes from, and how families enjoy it.", noteAr: "اكتشف ما الذي ينمو، وأين يبدأ، وكيف تستمتع به العائلات.", tone: "garden" },
