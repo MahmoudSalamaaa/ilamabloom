@@ -8,7 +8,8 @@ const atlas = read("app/FoodAtlasLive.tsx");
 const adminUi = read("app/admin/page.tsx");
 
 test("food edits do not auto-approve content", () => {
-  assert.match(admin, /VALUES \(\$\{id\}.*NULL,NULL\)/s);
+  assert.match(admin, /reviewed_at,reviewed_by,last_edited_by,review_status\) VALUES/);
+  assert.match(admin, /NULL,NULL,\$\{u\.email\},'draft'\)/);
   assert.match(admin, /reviewed_at=NULL,reviewed_by=NULL/);
   assert.doesNotMatch(admin, /reviewed_at=now\(\)/);
 });
