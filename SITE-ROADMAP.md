@@ -1,6 +1,29 @@
 # ILAMA BLOOM — Product & Experience Roadmap
 
-Last updated: 2026-10-06
+Last updated: 2026-10-28
+
+## Execution log — 2026-10-28
+
+### Academy: Endocrinology visual study chapter
+
+- Rebuilt the Endocrinology study experience to follow the Chapter 19 visual-reader rhythm, with original topic illustrations, concise recall guidance, case-based MCQs, and clear answer reasoning.
+- Removed learner-facing source/provenance notes from the chapter. Existing clinician access controls remain in place.
+- Production: Academy main commit `88dc510aa700e041a5e61706caa22742477cf5c0`; Vercel production deployment is **READY**. The endocrine route was previously opened and checked after release.
+- No new medical review was required for publication; reviewer attribution remains metadata only.
+
+### Public site and remaining work
+
+- Public-site production deployment was checked today: Vercel reports **READY** for main commit `b6dac997d7bc2b4814b2f82a771d61606861a9a1`. This status check is not a fresh browser QA pass.
+- Kids Adventure Map PR #95 remains a draft. Its five world names and bilingual map are implemented; visual/browser and mobile QA remain open. The original character art was not present in the inspected public asset tree, so the map does not introduce substitute characters.
+- The Notion blueprint defines the 350-unit curriculum and category totals, but still lists reconciliation of unique canonical IDs and an exact title-level inventory as the next curriculum phase. Do not represent the total as an audited, fully authored library.
+- Continue the wider plan: reconcile the Study inventory; Food Atlas and ILAMA Kitchen; FOOD · BODY · CONTEXT; original Kids worlds and art; Journal; Visit Prep; science, food history, nutrition, and mental-health learning.
+- Maintain English medical teaching and bilingual family experiences, approved logo and typography, privacy, accessibility, responsive layouts, SEO, performance, and shared navigation.
+
+### Release and verification record
+
+- The Vercel production checks above confirm deployment state only; they do not replace route, device, keyboard, screen-reader, or visual QA.
+- The Endocrinology redesign has its own deployed production commit. The public-site deployment remains at the commit listed above; no deployment was submitted during this log update.
+- No merges, production changes, or new medical claims were made in this documentation batch.
 
 ## Current redesign audit — 2026-10-06
 
@@ -16,6 +39,7 @@ The active redesign is being reviewed on PR #80 (`redesign/foundation-and-discov
 - The full redesign matrix is tracked in `work/ilama-redesign-matrix.md`; external Notion synchronization remains pending because Notion access is not available in this workspace.
 
 ## Product idea
+
 ILAMA BLOOM is a bilingual nutrition and healthy-living experience built around **Food · Body · Context**. It should help people understand what is useful for the life they actually have rather than impose a perfect routine.
 
 Official brand line:
@@ -23,6 +47,7 @@ Official brand line:
 - **تغذية أفضل .. لحياة أكثر إشراقا**
 
 ## Release gate — mandatory
+
 Before any new feature, design batch, content expansion or refactor:
 1. Check the latest Vercel production deployment.
 2. If it is not successfully **READY**, stop feature work.
@@ -32,6 +57,7 @@ Before any new feature, design batch, content expansion or refactor:
 6. Prefer substantial tested batches and one production deployment instead of many tiny deployments.
 
 ## Experience principles
+
 - Premium editorial, botanical and tactile — not SaaS, not a generic clinic template.
 - Feminine and sophisticated without becoming childish or ornamental.
 - Mobile-first, accessible and calm.
@@ -47,8 +73,7 @@ Before any new feature, design batch, content expansion or refactor:
 Start with the person's real day: normal, busy, work, travel, exam, recovery, Ramadan or night shift. Context can influence what content and tools are surfaced without judging the user.
 
 ### 2. Eight Worlds
-**Nourish · Move · Rest · Feel · Grow · Care · Learn · Journal**
-
+**Nourish · Move · Rest · Feel · Grow · Care · Learn · Journal**  
 These are the conceptual map of ILAMA BLOOM. Existing tools should gradually be organized into these worlds rather than accumulating unrelated menu items.
 
 ### 3. ILAMA Kitchen
@@ -78,6 +103,7 @@ Egyptian foods, familiar portions, local eating patterns, family meals, affordab
 Learning-by-doing games, family context and age-appropriate explanations. No public child profiles, punitive streaks, weight goals, calorie morality or competitive leaderboards.
 
 ## Current build priorities
+
 1. Stabilize the global ILAMA shell and design system.
 2. Complete the context-first homepage and Eight Worlds.
 3. Make ILAMA Kitchen and Food Atlas feel like one product journey.
@@ -89,10 +115,12 @@ Learning-by-doing games, family context and age-appropriate explanations. No pub
 9. Harden production build and verify Vercel after every merged batch.
 
 ## Data & privacy direction
+
 - Private journal data belongs to the signed-in account.
 - Support edit, delete and export.
 - Keep analytics focused on product quality rather than raw health values.
 - Future child/family accounts require explicit consent, deletion/export controls and careful data minimization.
 
 ## Deployment discipline
+
 Work on a non-production branch for large batches. Review the complete diff, then merge/push to main once. Do not knowingly stack new work on top of a failed production deployment.
