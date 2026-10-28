@@ -1,0 +1,2096 @@
+{
+  "schemaVersion": 1,
+  "inventoryStatus": "title_level_audited",
+  "auditedAt": "2026-10-28",
+  "source": {
+    "system": "Notion",
+    "blueprintPageId": "3fe91b3ef4668140a61b-dcbf7326c6df",
+    "categoryPages": 33
+  },
+  "totalPlanned": 350,
+  "totalFound": 350,
+  "uniqueCanonicalIds": 350,
+  "note": "This manifest records topic titles and IDs only. It does not imply that teaching content has been authored, clinically reviewed, or published.",
+  "categories": [
+    {
+      "code": "COM",
+      "name": "Communication & Talking OSCE",
+      "notionCategoryPageId": "3fe91b3ef46681f2adffefe8e01359b1",
+      "sourceTitle": "COM — Breaking Bad News (15 topics)",
+      "expectedCount": 15,
+      "auditedCount": 15,
+      "topics": [
+        {
+          "canonicalId": "COM-001",
+          "title": "New diagnosis of type 1 diabetes",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-002",
+          "title": "New diagnosis of leukemia",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-003",
+          "title": "Suspected brain tumour",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-004",
+          "title": "New diagnosis of cerebral palsy",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-005",
+          "title": "Severe neonatal brain injury",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-006",
+          "title": "Life-limiting genetic condition",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-007",
+          "title": "Unexpected death of a child",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-008",
+          "title": "Sudden deterioration in intensive care",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-009",
+          "title": "New diagnosis of epilepsy",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-010",
+          "title": "Hearing loss diagnosis",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-011",
+          "title": "Autism diagnosis",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-012",
+          "title": "Permanent visual impairment",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-013",
+          "title": "Complex congenital heart disease",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-014",
+          "title": "Treatment failure or relapse",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-015",
+          "title": "Discussing palliative care",
+          "contentStatus": "title_inventory_only"
+        }
+      ]
+    },
+    {
+      "code": "COM",
+      "name": "Diagnosis and Treatment Explanations",
+      "notionCategoryPageId": "3fe91b3ef4668124ad04fbf94d0b3376",
+      "sourceTitle": "COM — Diagnosis and Treatment Explanations (20 topics)",
+      "expectedCount": 20,
+      "auditedCount": 20,
+      "topics": [
+        {
+          "canonicalId": "COM-016",
+          "title": "Asthma diagnosis and inhaler plan",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-017",
+          "title": "Bronchiolitis supportive care",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-018",
+          "title": "Febrile seizure explanation",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-019",
+          "title": "Epilepsy medication counselling",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-020",
+          "title": "Type 1 diabetes insulin education",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-021",
+          "title": "Coeliac disease and gluten-free diet",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-022",
+          "title": "Urinary tract infection treatment",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-023",
+          "title": "Vesicoureteric reflux counselling",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-024",
+          "title": "Constipation management",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-025",
+          "title": "Eczema skin-care plan",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-026",
+          "title": "Food allergy and anaphylaxis action plan",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-027",
+          "title": "Iron deficiency anaemia treatment",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-028",
+          "title": "ADHD assessment and options",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-029",
+          "title": "Autism support pathway",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-030",
+          "title": "Obesity and family-centred care",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-031",
+          "title": "Growth faltering assessment",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-032",
+          "title": "Congenital heart disease follow-up",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-033",
+          "title": "Nephrotic syndrome steroid plan",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-034",
+          "title": "Sickle cell disease care plan",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-035",
+          "title": "Migraine management",
+          "contentStatus": "title_inventory_only"
+        }
+      ]
+    },
+    {
+      "code": "COM",
+      "name": "Consent and Shared Decisions",
+      "notionCategoryPageId": "3fe91b3ef46681d0b88dc935a042adc5",
+      "sourceTitle": "COM — Consent and Shared Decisions (10 topics)",
+      "expectedCount": 10,
+      "auditedCount": 10,
+      "topics": [
+        {
+          "canonicalId": "COM-036",
+          "title": "Lumbar puncture consent",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-037",
+          "title": "Blood transfusion consent",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-038",
+          "title": "Procedural sedation consent",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-039",
+          "title": "Surgery referral consent",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-040",
+          "title": "Vaccination discussion",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-041",
+          "title": "Research participation consent",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-042",
+          "title": "Genetic testing consent",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-043",
+          "title": "Adolescent confidential consultation",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-044",
+          "title": "Refusal of recommended treatment",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-045",
+          "title": "Shared decision-making under uncertainty",
+          "contentStatus": "title_inventory_only"
+        }
+      ]
+    },
+    {
+      "code": "COM",
+      "name": "Difficult Conversations",
+      "notionCategoryPageId": "3fe91b3ef46681039b25dc73a8998bd6",
+      "sourceTitle": "COM — Difficult Conversations (12 topics)",
+      "expectedCount": 12,
+      "auditedCount": 12,
+      "topics": [
+        {
+          "canonicalId": "COM-046",
+          "title": "Angry parent after delay",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-047",
+          "title": "Parent requests unnecessary antibiotics",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-048",
+          "title": "Parent disputes diagnosis",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-049",
+          "title": "Conflicting parental preferences",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-050",
+          "title": "Missed appointment and safeguarding concerns",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-051",
+          "title": "Explaining diagnostic uncertainty",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-052",
+          "title": "Complaint about staff conduct",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-053",
+          "title": "Managing unrealistic prognosis expectations",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-054",
+          "title": "Parent demands immediate imaging",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-055",
+          "title": "De-escalating distressed relative",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-056",
+          "title": "Managing interpreter-mediated conflict",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-057",
+          "title": "Discussing limits of intensive treatment",
+          "contentStatus": "title_inventory_only"
+        }
+      ]
+    },
+    {
+      "code": "COM",
+      "name": "Empathy and Rapport",
+      "notionCategoryPageId": "3fe91b3ef46681c08985e02aa838e438",
+      "sourceTitle": "COM — Empathy and Rapport (10 topics)",
+      "expectedCount": 10,
+      "auditedCount": 10,
+      "topics": [
+        {
+          "canonicalId": "COM-058",
+          "title": "Active listening with anxious parent",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-059",
+          "title": "Responding to parental guilt",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-060",
+          "title": "Supporting a frightened child",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-061",
+          "title": "Communicating with bereaved family",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-062",
+          "title": "Trauma-informed consultation",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-063",
+          "title": "Non-judgemental obesity conversation",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-064",
+          "title": "Building rapport with neurodivergent child",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-065",
+          "title": "Supporting low health literacy",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-066",
+          "title": "Addressing cultural health beliefs",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-067",
+          "title": "Ending consultation with safety netting",
+          "contentStatus": "title_inventory_only"
+        }
+      ]
+    },
+    {
+      "code": "COM",
+      "name": "Ethics, Confidentiality and Safeguarding",
+      "notionCategoryPageId": "3fe91b3ef4668103b70cc22ccd886daa",
+      "sourceTitle": "COM — Ethics Confidentiality Safeguarding (12 topics)",
+      "expectedCount": 12,
+      "auditedCount": 12,
+      "topics": [
+        {
+          "canonicalId": "COM-068",
+          "title": "Suspected non-accidental injury",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-069",
+          "title": "Confidentiality in adolescent sexual health",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-070",
+          "title": "Gillick competence and capacity",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-071",
+          "title": "Information sharing for child protection",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-072",
+          "title": "Parental refusal of lifesaving care",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-073",
+          "title": "Duty of candour after error",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-074",
+          "title": "Consent for clinical photography",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-075",
+          "title": "Conflict of interest disclosure",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-076",
+          "title": "Managing discriminatory behaviour",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-077",
+          "title": "Ethical end-of-life decisions",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-078",
+          "title": "Safeguarding domestic abuse exposure",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-079",
+          "title": "Documentation and privacy breach",
+          "contentStatus": "title_inventory_only"
+        }
+      ]
+    },
+    {
+      "code": "COM",
+      "name": "Colleague, Student and Handover Communication",
+      "notionCategoryPageId": "3fe91b3ef46681f1afeec1e2081f4d88",
+      "sourceTitle": "COM — Colleague Student Handover (11 topics)",
+      "expectedCount": 11,
+      "auditedCount": 11,
+      "topics": [
+        {
+          "canonicalId": "COM-080",
+          "title": "SBAR emergency handover",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-081",
+          "title": "Explaining a procedure to student",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-082",
+          "title": "Giving constructive feedback",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-083",
+          "title": "Escalating deteriorating child",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-084",
+          "title": "Disclosing prescribing error to supervisor",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-085",
+          "title": "Managing disagreement with colleague",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-086",
+          "title": "Teaching clinical reasoning",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-087",
+          "title": "Discussing multidisciplinary care",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-088",
+          "title": "Supporting junior colleague after incident",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-089",
+          "title": "Leading family-centred ward round",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-090",
+          "title": "Referral to tertiary specialist",
+          "contentStatus": "title_inventory_only"
+        }
+      ]
+    },
+    {
+      "code": "COM",
+      "name": "Adolescent Communication",
+      "notionCategoryPageId": "3fe91b3ef466812da5dbe54a2087fb19",
+      "sourceTitle": "COM — Adolescent Communication (10 topics)",
+      "expectedCount": 10,
+      "auditedCount": 10,
+      "topics": [
+        {
+          "canonicalId": "COM-091",
+          "title": "HEADSSS psychosocial interview",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-092",
+          "title": "Confidentiality boundaries",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-093",
+          "title": "Self-harm risk conversation",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-094",
+          "title": "Eating disorder concerns",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-095",
+          "title": "Substance use discussion",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-096",
+          "title": "Puberty and body image",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-097",
+          "title": "Sexual health counselling",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-098",
+          "title": "School avoidance and anxiety",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-099",
+          "title": "Transition to adult care",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "COM-100",
+          "title": "Shared decision with adolescent and parent",
+          "contentStatus": "title_inventory_only"
+        }
+      ]
+    },
+    {
+      "code": "CLN",
+      "name": "Neurology",
+      "notionCategoryPageId": "3fe91b3ef466817998a4f7be5bb36bc2",
+      "sourceTitle": "CLN — Neurology (22 topics)",
+      "expectedCount": 22,
+      "auditedCount": 22,
+      "topics": [
+        {
+          "canonicalId": "CLN-001",
+          "title": "Neurological screening examination",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-002",
+          "title": "Cranial nerve examination",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-003",
+          "title": "Upper limb neurological examination",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-004",
+          "title": "Lower limb neurological examination",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-005",
+          "title": "Tone and reflexes",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-006",
+          "title": "Cerebellar examination",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-007",
+          "title": "Gait assessment",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-008",
+          "title": "Hypotonia assessment",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-009",
+          "title": "Spasticity assessment",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-010",
+          "title": "Hemiplegia assessment",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-011",
+          "title": "Peripheral neuropathy examination",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-012",
+          "title": "Neuromuscular weakness assessment",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-013",
+          "title": "Duchenne muscular dystrophy signs",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-014",
+          "title": "Spinal muscular atrophy signs",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-015",
+          "title": "Cerebral palsy examination",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-016",
+          "title": "Movement disorder examination",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-017",
+          "title": "Ataxia examination",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-018",
+          "title": "Seizure semiology assessment",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-019",
+          "title": "Head circumference and neurocutaneous signs",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-020",
+          "title": "Neurofibromatosis signs",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-021",
+          "title": "Raised intracranial pressure signs",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-022",
+          "title": "Coma and consciousness assessment",
+          "contentStatus": "title_inventory_only"
+        }
+      ]
+    },
+    {
+      "code": "CLN",
+      "name": "Cardiology",
+      "notionCategoryPageId": "3fe91b3ef4668197adb8fe4c26dbd382",
+      "sourceTitle": "CLN — Cardiology (20 topics)",
+      "expectedCount": 20,
+      "auditedCount": 20,
+      "topics": [
+        {
+          "canonicalId": "CLN-023",
+          "title": "Cardiovascular examination sequence",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-024",
+          "title": "Pulse and perfusion assessment",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-025",
+          "title": "Blood pressure interpretation",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-026",
+          "title": "Precordial inspection and palpation",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-027",
+          "title": "Heart sound identification",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-028",
+          "title": "Innocent versus pathological murmur",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-029",
+          "title": "Ventricular septal defect",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-030",
+          "title": "Atrial septal defect",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-031",
+          "title": "Patent ductus arteriosus",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-032",
+          "title": "Aortic stenosis",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-033",
+          "title": "Pulmonary stenosis",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-034",
+          "title": "Coarctation of aorta",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-035",
+          "title": "Tetralogy of Fallot",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-036",
+          "title": "Transposition physiology overview",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-037",
+          "title": "Heart failure signs",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-038",
+          "title": "Cyanotic child examination",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-039",
+          "title": "Postoperative congenital heart disease",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-040",
+          "title": "Rheumatic heart disease",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-041",
+          "title": "Infective endocarditis signs",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-042",
+          "title": "Cardiac auscultation site mapping",
+          "contentStatus": "title_inventory_only"
+        }
+      ]
+    },
+    {
+      "code": "CLN",
+      "name": "Respiratory",
+      "notionCategoryPageId": "3fe91b3ef4668102a0fed4a6b50c075a",
+      "sourceTitle": "CLN — Respiratory (15 topics)",
+      "expectedCount": 15,
+      "auditedCount": 15,
+      "topics": [
+        {
+          "canonicalId": "CLN-043",
+          "title": "Respiratory examination sequence",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-044",
+          "title": "Work of breathing assessment",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-045",
+          "title": "Wheeze and asthma signs",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-046",
+          "title": "Stridor assessment",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-047",
+          "title": "Crackles and consolidation",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-048",
+          "title": "Pleural effusion signs",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-049",
+          "title": "Pneumothorax recognition",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-050",
+          "title": "Cystic fibrosis examination",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-051",
+          "title": "Bronchiectasis examination",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-052",
+          "title": "Chest deformity assessment",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-053",
+          "title": "Clubbing examination",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-054",
+          "title": "Oxygen saturation interpretation",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-055",
+          "title": "Respiratory distress in infant",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-056",
+          "title": "Chronic cough examination",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-057",
+          "title": "Tracheostomy assessment",
+          "contentStatus": "title_inventory_only"
+        }
+      ]
+    },
+    {
+      "code": "CLN",
+      "name": "Abdominal",
+      "notionCategoryPageId": "3fe91b3ef46681e0a898e50e516f7507",
+      "sourceTitle": "CLN — Abdominal (15 topics)",
+      "expectedCount": 15,
+      "auditedCount": 15,
+      "topics": [
+        {
+          "canonicalId": "CLN-058",
+          "title": "Abdominal examination sequence",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-059",
+          "title": "Hepatomegaly examination",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-060",
+          "title": "Splenomegaly examination",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-061",
+          "title": "Ascites assessment",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-062",
+          "title": "Abdominal mass assessment",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-063",
+          "title": "Constipation examination",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-064",
+          "title": "Chronic liver disease signs",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-065",
+          "title": "Portal hypertension signs",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-066",
+          "title": "Renal mass examination",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-067",
+          "title": "Hernia examination",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-068",
+          "title": "Stoma assessment",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-069",
+          "title": "Acute abdomen red flags",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-070",
+          "title": "Nutritional abdominal signs",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-071",
+          "title": "Organ transplant follow-up examination",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-072",
+          "title": "Abdominal pain focused examination",
+          "contentStatus": "title_inventory_only"
+        }
+      ]
+    },
+    {
+      "code": "CLN",
+      "name": "Musculoskeletal",
+      "notionCategoryPageId": "3fe91b3ef46681909891f60e0c649288",
+      "sourceTitle": "CLN — Musculoskeletal (15 topics)",
+      "expectedCount": 15,
+      "auditedCount": 15,
+      "topics": [
+        {
+          "canonicalId": "CLN-073",
+          "title": "GALS screening",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-074",
+          "title": "Upper limb joint examination",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-075",
+          "title": "Lower limb joint examination",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-076",
+          "title": "Spine examination",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-077",
+          "title": "Hip examination",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-078",
+          "title": "Knee examination",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-079",
+          "title": "Ankle and foot examination",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-080",
+          "title": "Juvenile idiopathic arthritis signs",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-081",
+          "title": "Limping child examination",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-082",
+          "title": "Hypermobility assessment",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-083",
+          "title": "Scoliosis assessment",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-084",
+          "title": "Leg length discrepancy",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-085",
+          "title": "Muscle power and functional assessment",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-086",
+          "title": "Inflammatory versus mechanical pain",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-087",
+          "title": "Musculoskeletal red flags",
+          "contentStatus": "title_inventory_only"
+        }
+      ]
+    },
+    {
+      "code": "CLN",
+      "name": "Syndromes",
+      "notionCategoryPageId": "3fe91b3ef466818098a7d82c5190f916",
+      "sourceTitle": "CLN — Syndromes (13 topics)",
+      "expectedCount": 13,
+      "auditedCount": 13,
+      "topics": [
+        {
+          "canonicalId": "CLN-088",
+          "title": "Down syndrome examination",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-089",
+          "title": "Turner syndrome signs",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-090",
+          "title": "Noonan syndrome signs",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-091",
+          "title": "Williams syndrome signs",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-092",
+          "title": "Marfan syndrome signs",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-093",
+          "title": "Ehlers-Danlos spectrum signs",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-094",
+          "title": "Fragile X features",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-095",
+          "title": "22q11.2 deletion features",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-096",
+          "title": "Prader-Willi syndrome signs",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-097",
+          "title": "Angelman syndrome features",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-098",
+          "title": "Tuberous sclerosis signs",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-099",
+          "title": "Neurofibromatosis type 1 features",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-100",
+          "title": "Dysmorphology structured assessment",
+          "contentStatus": "title_inventory_only"
+        }
+      ]
+    },
+    {
+      "code": "CLN",
+      "name": "General Examination",
+      "notionCategoryPageId": "3fe91b3ef466814498c3f25b3a8affd2",
+      "sourceTitle": "CLN — General Examination (10 topics)",
+      "expectedCount": 10,
+      "auditedCount": 10,
+      "topics": [
+        {
+          "canonicalId": "CLN-101",
+          "title": "General paediatric inspection",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-102",
+          "title": "Growth measurements and centiles",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-103",
+          "title": "Nutritional status examination",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-104",
+          "title": "Hydration assessment",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-105",
+          "title": "Lymph node examination",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-106",
+          "title": "Skin and rash assessment",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-107",
+          "title": "Endocrine examination overview",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-108",
+          "title": "Neonatal examination",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-109",
+          "title": "Developmental observation during examination",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "CLN-110",
+          "title": "Clinical examination summary and presentation",
+          "contentStatus": "title_inventory_only"
+        }
+      ]
+    },
+    {
+      "code": "VID",
+      "name": "Neurology Video",
+      "notionCategoryPageId": "3fe91b3ef46681908402c3be60f71e67",
+      "sourceTitle": "VID — Neurology Video (12 topics)",
+      "expectedCount": 12,
+      "auditedCount": 12,
+      "topics": [
+        {
+          "canonicalId": "VID-001",
+          "title": "Generalised tonic-clonic seizure",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-002",
+          "title": "Absence seizure",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-003",
+          "title": "Infantile spasms",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-004",
+          "title": "Focal motor seizure",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-005",
+          "title": "Dystonia",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-006",
+          "title": "Chorea",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-007",
+          "title": "Tic disorder",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-008",
+          "title": "Ataxic gait",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-009",
+          "title": "Spastic diplegic gait",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-010",
+          "title": "Hemiplegic gait",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-011",
+          "title": "Hypotonic infant",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-012",
+          "title": "Abnormal eye movements",
+          "contentStatus": "title_inventory_only"
+        }
+      ]
+    },
+    {
+      "code": "VID",
+      "name": "Respiratory Video",
+      "notionCategoryPageId": "3fe91b3ef46681e9b3a2f9c4497ef7a0",
+      "sourceTitle": "VID — Respiratory Video (10 topics)",
+      "expectedCount": 10,
+      "auditedCount": 10,
+      "topics": [
+        {
+          "canonicalId": "VID-013",
+          "title": "Inspiratory stridor",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-014",
+          "title": "Expiratory wheeze",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-015",
+          "title": "Severe respiratory recession",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-016",
+          "title": "Grunting infant",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-017",
+          "title": "Bronchiolitis work of breathing",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-018",
+          "title": "Croup presentation",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-019",
+          "title": "Foreign body aspiration clues",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-020",
+          "title": "Apnoea episode",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-021",
+          "title": "Tracheostomy emergency signs",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-022",
+          "title": "Abnormal breathing pattern",
+          "contentStatus": "title_inventory_only"
+        }
+      ]
+    },
+    {
+      "code": "VID",
+      "name": "Development Video",
+      "notionCategoryPageId": "3fe91b3ef4668198b337f01812507a2f",
+      "sourceTitle": "VID — Development Video (10 topics)",
+      "expectedCount": 10,
+      "auditedCount": 10,
+      "topics": [
+        {
+          "canonicalId": "VID-023",
+          "title": "Sitting milestone observation",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-024",
+          "title": "Crawling pattern",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-025",
+          "title": "Independent walking",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-026",
+          "title": "Fine motor pincer grasp",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-027",
+          "title": "Joint attention",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-028",
+          "title": "Pretend play",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-029",
+          "title": "Speech articulation",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-030",
+          "title": "Social reciprocity",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-031",
+          "title": "Autistic behavioural features",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-032",
+          "title": "Developmental regression signs",
+          "contentStatus": "title_inventory_only"
+        }
+      ]
+    },
+    {
+      "code": "VID",
+      "name": "Syndrome Video",
+      "notionCategoryPageId": "3fe91b3ef46681999367c59afbae4915",
+      "sourceTitle": "VID — Syndrome Video (10 topics)",
+      "expectedCount": 10,
+      "auditedCount": 10,
+      "topics": [
+        {
+          "canonicalId": "VID-033",
+          "title": "Down syndrome phenotypic features",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-034",
+          "title": "Noonan syndrome features",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-035",
+          "title": "Williams syndrome behaviour",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-036",
+          "title": "Duchenne Gowers sign",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-037",
+          "title": "Cerebral palsy movement pattern",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-038",
+          "title": "Rett syndrome hand stereotypies",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-039",
+          "title": "Tuberous sclerosis cutaneous signs",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-040",
+          "title": "Marfan habitus",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-041",
+          "title": "Prader-Willi behavioural presentation",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-042",
+          "title": "Neurofibromatosis cutaneous signs",
+          "contentStatus": "title_inventory_only"
+        }
+      ]
+    },
+    {
+      "code": "VID",
+      "name": "Other Video",
+      "notionCategoryPageId": "3fe91b3ef466810ea918d10eec7bcd70",
+      "sourceTitle": "VID — Other Video (8 topics)",
+      "expectedCount": 8,
+      "auditedCount": 8,
+      "topics": [
+        {
+          "canonicalId": "VID-043",
+          "title": "Abnormal neonatal movements",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-044",
+          "title": "Heart failure respiratory signs",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-045",
+          "title": "Dehydration clinical signs",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-046",
+          "title": "Jaundice assessment limits",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-047",
+          "title": "Acute allergic reaction signs",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-048",
+          "title": "Limp assessment",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-049",
+          "title": "Rash morphology interpretation",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "VID-050",
+          "title": "Safeguarding observation and limitations",
+          "contentStatus": "title_inventory_only"
+        }
+      ]
+    },
+    {
+      "code": "DEV",
+      "name": "Gross Motor",
+      "notionCategoryPageId": "3fe91b3ef46681c586d0dfe25c47b6ee",
+      "sourceTitle": "DEV — Gross Motor (8 topics)",
+      "expectedCount": 8,
+      "auditedCount": 8,
+      "topics": [
+        {
+          "canonicalId": "DEV-001",
+          "title": "Head control",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "DEV-002",
+          "title": "Rolling",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "DEV-003",
+          "title": "Supported sitting",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "DEV-004",
+          "title": "Independent sitting",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "DEV-005",
+          "title": "Crawling",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "DEV-006",
+          "title": "Pull to stand",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "DEV-007",
+          "title": "Independent walking",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "DEV-008",
+          "title": "Running jumping and balance",
+          "contentStatus": "title_inventory_only"
+        }
+      ]
+    },
+    {
+      "code": "DEV",
+      "name": "Fine Motor",
+      "notionCategoryPageId": "3fe91b3ef4668109bbb3f42ff4cbdabb",
+      "sourceTitle": "DEV — Fine Motor (6 topics)",
+      "expectedCount": 6,
+      "auditedCount": 6,
+      "topics": [
+        {
+          "canonicalId": "DEV-009",
+          "title": "Visual tracking and reach",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "DEV-010",
+          "title": "Palmar grasp",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "DEV-011",
+          "title": "Transfer objects",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "DEV-012",
+          "title": "Pincer grasp",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "DEV-013",
+          "title": "Scribbling",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "DEV-014",
+          "title": "Copying shapes and drawing",
+          "contentStatus": "title_inventory_only"
+        }
+      ]
+    },
+    {
+      "code": "DEV",
+      "name": "Language and Hearing",
+      "notionCategoryPageId": "3fe91b3ef4668122b9a8de8983509f55",
+      "sourceTitle": "DEV — Language and Hearing (6 topics)",
+      "expectedCount": 6,
+      "auditedCount": 6,
+      "topics": [
+        {
+          "canonicalId": "DEV-015",
+          "title": "Early vocalisation",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "DEV-016",
+          "title": "Babbling",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "DEV-017",
+          "title": "First words",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "DEV-018",
+          "title": "Two-word phrases",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "DEV-019",
+          "title": "Speech intelligibility",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "DEV-020",
+          "title": "Hearing screening and language delay",
+          "contentStatus": "title_inventory_only"
+        }
+      ]
+    },
+    {
+      "code": "DEV",
+      "name": "Social and Adaptive",
+      "notionCategoryPageId": "3fe91b3ef4668174bb10c3e8472d2fc8",
+      "sourceTitle": "DEV — Social and Adaptive (6 topics)",
+      "expectedCount": 6,
+      "auditedCount": 6,
+      "topics": [
+        {
+          "canonicalId": "DEV-021",
+          "title": "Social smile",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "DEV-022",
+          "title": "Joint attention",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "DEV-023",
+          "title": "Pretend play",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "DEV-024",
+          "title": "Peer interaction",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "DEV-025",
+          "title": "Feeding independence",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "DEV-026",
+          "title": "Dressing and toileting skills",
+          "contentStatus": "title_inventory_only"
+        }
+      ]
+    },
+    {
+      "code": "DEV",
+      "name": "Global Delay",
+      "notionCategoryPageId": "3fe91b3ef4668119a6b4e22fbf0c72b1",
+      "sourceTitle": "DEV — Global Delay (5 topics)",
+      "expectedCount": 5,
+      "auditedCount": 5,
+      "topics": [
+        {
+          "canonicalId": "DEV-027",
+          "title": "Recognising global developmental delay",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "DEV-028",
+          "title": "Structured developmental history",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "DEV-029",
+          "title": "Developmental regression red flags",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "DEV-030",
+          "title": "Initial investigations and referral",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "DEV-031",
+          "title": "Communicating developmental concerns",
+          "contentStatus": "title_inventory_only"
+        }
+      ]
+    },
+    {
+      "code": "DEV",
+      "name": "Neurodevelopment",
+      "notionCategoryPageId": "3fe91b3ef4668123bd59e657ad0e2c03",
+      "sourceTitle": "DEV — Neurodevelopment (5 topics)",
+      "expectedCount": 5,
+      "auditedCount": 5,
+      "topics": [
+        {
+          "canonicalId": "DEV-032",
+          "title": "Autism assessment overview",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "DEV-033",
+          "title": "ADHD developmental assessment",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "DEV-034",
+          "title": "Intellectual disability assessment",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "DEV-035",
+          "title": "Motor coordination disorder",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "DEV-036",
+          "title": "Sensory and behavioural profile",
+          "contentStatus": "title_inventory_only"
+        }
+      ]
+    },
+    {
+      "code": "DEV",
+      "name": "Assessment",
+      "notionCategoryPageId": "3fe91b3ef466814c9e31f9daa4470d66",
+      "sourceTitle": "DEV — Assessment (4 topics)",
+      "expectedCount": 4,
+      "auditedCount": 4,
+      "topics": [
+        {
+          "canonicalId": "DEV-037",
+          "title": "Age-adjusted milestone interpretation",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "DEV-038",
+          "title": "Corrected age in prematurity",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "DEV-039",
+          "title": "Developmental screening tools",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "DEV-040",
+          "title": "Documenting and presenting developmental findings",
+          "contentStatus": "title_inventory_only"
+        }
+      ]
+    },
+    {
+      "code": "HMX",
+      "name": "Respiratory and Cardiac",
+      "notionCategoryPageId": "3fe91b3ef466811a9d9cc494c991b316",
+      "sourceTitle": "HMX — Respiratory and Cardiac (10 topics)",
+      "expectedCount": 10,
+      "auditedCount": 10,
+      "topics": [
+        {
+          "canonicalId": "HMX-001",
+          "title": "Acute asthma history and plan",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-002",
+          "title": "Recurrent wheeze assessment",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-003",
+          "title": "Chronic cough approach",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-004",
+          "title": "Recurrent pneumonia assessment",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-005",
+          "title": "Cyanotic episode assessment",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-006",
+          "title": "Heart murmur referral history",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-007",
+          "title": "Palpitations and syncope",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-008",
+          "title": "Chest pain in child",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-009",
+          "title": "Congenital heart disease follow-up",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-010",
+          "title": "Respiratory failure escalation",
+          "contentStatus": "title_inventory_only"
+        }
+      ]
+    },
+    {
+      "code": "HMX",
+      "name": "Neurology and Development",
+      "notionCategoryPageId": "3fe91b3ef4668196a7ecf106c6d98d5f",
+      "sourceTitle": "HMX — Neurology and Development (10 topics)",
+      "expectedCount": 10,
+      "auditedCount": 10,
+      "topics": [
+        {
+          "canonicalId": "HMX-011",
+          "title": "First seizure history",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-012",
+          "title": "Recurrent seizure assessment",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-013",
+          "title": "Headache red flags",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-014",
+          "title": "Developmental delay history",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-015",
+          "title": "Developmental regression history",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-016",
+          "title": "Hypotonia history",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-017",
+          "title": "Abnormal gait history",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-018",
+          "title": "Neurocutaneous disorder history",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-019",
+          "title": "Behavioural and school concerns",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-020",
+          "title": "Acute altered consciousness",
+          "contentStatus": "title_inventory_only"
+        }
+      ]
+    },
+    {
+      "code": "HMX",
+      "name": "GI, Renal and Endocrine",
+      "notionCategoryPageId": "3fe91b3ef46681d79279d38bf09e209d",
+      "sourceTitle": "HMX — GI Renal Endocrine (10 topics)",
+      "expectedCount": 10,
+      "auditedCount": 10,
+      "topics": [
+        {
+          "canonicalId": "HMX-021",
+          "title": "Chronic abdominal pain",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-022",
+          "title": "Vomiting in infant",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-023",
+          "title": "Chronic diarrhoea",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-024",
+          "title": "Constipation history",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-025",
+          "title": "Urinary tract infection history",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-026",
+          "title": "Haematuria assessment",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-027",
+          "title": "Polyuria and polydipsia",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-028",
+          "title": "Short stature history",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-029",
+          "title": "Precocious puberty history",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-030",
+          "title": "Diabetic ketoacidosis recognition",
+          "contentStatus": "title_inventory_only"
+        }
+      ]
+    },
+    {
+      "code": "HMX",
+      "name": "Infections and Acute Care",
+      "notionCategoryPageId": "3fe91b3ef466817c82b5fd69815b0558",
+      "sourceTitle": "HMX — Infections and Acute (8 topics)",
+      "expectedCount": 8,
+      "auditedCount": 8,
+      "topics": [
+        {
+          "canonicalId": "HMX-031",
+          "title": "Fever without source",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-032",
+          "title": "Sepsis recognition",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-033",
+          "title": "Meningitis history and action",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-034",
+          "title": "Persistent fever assessment",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-035",
+          "title": "Dehydration and gastroenteritis",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-036",
+          "title": "Anaphylaxis recognition",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-037",
+          "title": "Poisoning history",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-038",
+          "title": "Child with non-blanching rash",
+          "contentStatus": "title_inventory_only"
+        }
+      ]
+    },
+    {
+      "code": "HMX",
+      "name": "Neonatal, Growth and Nutrition",
+      "notionCategoryPageId": "3fe91b3ef46681aca68bf1c0b3e685bc",
+      "sourceTitle": "HMX — Neonatal Growth Nutrition (6 topics)",
+      "expectedCount": 6,
+      "auditedCount": 6,
+      "topics": [
+        {
+          "canonicalId": "HMX-039",
+          "title": "Neonatal jaundice history",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-040",
+          "title": "Poor feeding newborn",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-041",
+          "title": "Failure to thrive history",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-042",
+          "title": "Breastfeeding assessment",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-043",
+          "title": "Prematurity follow-up",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-044",
+          "title": "Nutritional deficiency assessment",
+          "contentStatus": "title_inventory_only"
+        }
+      ]
+    },
+    {
+      "code": "HMX",
+      "name": "Complex Care and Safeguarding",
+      "notionCategoryPageId": "3fe91b3ef46681968e06fad04bc13cee",
+      "sourceTitle": "HMX — Complex Care and Safeguarding (6 topics)",
+      "expectedCount": 6,
+      "auditedCount": 6,
+      "topics": [
+        {
+          "canonicalId": "HMX-045",
+          "title": "Complex disability review",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-046",
+          "title": "Technology-dependent child history",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-047",
+          "title": "Medication reconciliation",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-048",
+          "title": "Chronic pain consultation",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-049",
+          "title": "Safeguarding focused history",
+          "contentStatus": "title_inventory_only"
+        },
+        {
+          "canonicalId": "HMX-050",
+          "title": "End-of-life goals of care",
+          "contentStatus": "title_inventory_only"
+        }
+      ]
+    }
+  ]
+}
