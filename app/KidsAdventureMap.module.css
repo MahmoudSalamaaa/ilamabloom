@@ -1,0 +1,45 @@
+.map{
+  --ink:#203b32;
+  --green:#285a46;
+  --rose:#a44f68;
+  --paper:#fbf7f0;
+  --line:#ded4c8;
+  margin:0;
+  padding:clamp(2.7rem,6vw,5.4rem) max(22px,5vw);
+  color:var(--ink);
+  background:linear-gradient(135deg,#f8f1e8 0%,#fffaf3 52%,#f1f4ec 100%);
+  border-block:1px solid var(--line);
+}
+.heading{max-width:790px;margin:0 auto 2rem;text-align:center}
+.kicker{margin:0 0 .7rem;color:var(--rose);font:700 .7rem Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase}
+.heading h2{margin:.25rem 0 .8rem;font:400 clamp(2rem,4vw,3.4rem)/1.08 Georgia,serif;letter-spacing:-.025em}
+.heading>p:last-child{max-width:60ch;margin:0 auto;color:#53645b;line-height:1.7}
+.worlds{position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;max-width:1240px;margin:0 auto;padding:0;list-style:none}
+.worlds:before{position:absolute;top:2.15rem;inset-inline:9%;height:1px;background:var(--line);content:""}
+.world{position:relative;min-width:0;padding:0 clamp(.7rem,1.8vw,1.35rem);text-align:center}
+.number{position:relative;z-index:1;display:block;width:2.25rem;height:2.25rem;margin:0 auto .8rem;border:1px solid var(--line);border-radius:50%;background:var(--paper);color:var(--green);font:700 .72rem/2.15rem Arial,sans-serif}
+.icon{display:grid;place-items:center;width:3.4rem;height:3.4rem;margin:0 auto .65rem;border-radius:50%;background:#e5eddf;color:var(--green);font:2.1rem/1 Georgia,serif}
+.world h3{margin:.2rem 0 .5rem;color:var(--green);font:600 clamp(1rem,1.45vw,1.25rem)/1.2 Arial,sans-serif}
+.world p{margin:0;color:#53645b;font-size:.9rem;line-height:1.6}
+.garden .icon{background:#e9eee0;color:#547b48}
+.move .icon{background:#f4e6dc;color:#9a5c48}
+.body .icon{background:#e2edf0;color:#477580}
+.sleep .icon{background:#ece6f0;color:#705d7e}
+.kitchen .icon{background:#f4e8d2;color:#9b7040}
+.note{max-width:1240px;margin:1.8rem auto 0;padding-top:1rem;border-top:1px solid var(--line);color:#6a746c;font-size:.8rem;text-align:center}
+@media(max-width:900px){
+ .worlds{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:2rem}
+ .worlds:before{display:none}
+}
+@media(max-width:560px){
+ .map{padding-inline:18px}
+ .heading{text-align:start}
+ .worlds{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:1.4rem}
+ .world{padding-inline:.5rem}
+ .world h3{font-size:1rem}
+ .world p{font-size:.83rem}
+ .note{text-align:start}
+}
+@media(prefers-reduced-motion:reduce){
+ .map *{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+}

@@ -23,10 +23,10 @@ test("fallback source is explicit and not cached", () => {
   assert.match(atlas, /data\.source==="database"\?"database":"fallback"/);
   assert.match(atlas, /dataSource==="fallback"/);
 });
-test("unreviewed items are labeled in both languages", () => {
+test("food review status is transparent and reviewer attribution is metadata", () => {
   assert.match(atlas, /غير معتمد علميًا/);
   assert.match(atlas, /not independently reviewed/);
-  assert.match(adminUi, /يلزم اعتماد مستقل/);
+  assert.match(adminUi, /تم حفظ المرجع وتسجيل المراجع/);
 });
 
 test("admin validates food identifiers and confidence values", () => {

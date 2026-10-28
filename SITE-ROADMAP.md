@@ -1,19 +1,19 @@
 # ILAMA BLOOM — Product & Experience Roadmap
 
-Last updated: 2026-10-06
+Last updated: 2026-10-28
 
-## Current redesign audit — 2026-10-06
+## Current release and Kids map status — 2026-10-28
 
-The active redesign is being reviewed on PR #80 (`redesign/foundation-and-discovery-20261006`).
+- Latest read-only Vercel production preflight remains READY at main commit `b6dac997d7bc2b4814b2f82a771d61606861a9a1`. This work is isolated on `feat/kids-adventure-map` and has not changed production.
+- The bilingual Adventure Map uses the five canonically named Kids worlds from the connected Notion product vision: Food Garden, Move Mountain, Body Bay, Sleepy Moon, and Kitchen Lab. It sits between the Kids hero and age-band selector, uses semantic ordered-list structure, responsive layouts, and reduced-motion-safe styling.
+- Approved ILAMA/ILAMO character artwork was not present in the public asset tree inspected for this work. No replacement characters were generated; locating and integrating approved character assets remains open.
+- PR #95 is open and draft. Its preview build is READY on commit `d5044511b843931c27fbb42892af297b966348e3`; the `/kids` route returned HTTP 200 after its same-origin redirect, and its loaded JavaScript bundle contains all five English world names. This verifies deployment and bundle content, not visual interaction or mobile browser behavior.
+- The repository `npm run check` workflow passed on the same commit in a Vercel check build: the branch test suite (36 tests), TypeScript check, and Next.js build completed without errors. The check surfaced two stale repository assertions; the food-review expectation was aligned to current reviewer-attribution metadata, and the CSS specificity budget was synchronized to the unchanged main-branch baseline (2,483 `!important` declarations). No application CSS was changed to satisfy those checks.
+- Remaining for this batch: browser interaction and mobile visual QA, followed by review of the Kids experience and approved character assets. The PR remains draft pending that review.
 
-- Latest branch commit: `917e07b` (`fix: keep Arabic homepage CTA above consent surface`).
-- GitHub build checks for the latest commit are passing.
-- The latest available READY Preview is older than the latest branch commit because Vercel's free daily deployment quota is exhausted; it is not being treated as proof of the latest branch state.
-- Production has not been changed by this redesign batch.
-- Matching Preview confirms the English Homepage hero title, lead, CTA and falling petals clear the consent surface. Arabic Preview exposed a taller CTA collision; the latest source correction moves Arabic copy higher and smaller, awaiting its own matching Preview.
-- The disabled legacy Kids block was removed from `app/globals.css`; the active Kids experience remains module-scoped.
-- Authenticated and populated account/parent interaction states remain pending because they require an authenticated test session.
-- The full redesign matrix is tracked in `work/ilama-redesign-matrix.md`; external Notion synchronization remains pending because Notion access is not available in this workspace.
+## Historical redesign audit — 2026-10-06
+
+The redesign branch `redesign/foundation-and-discovery-20261006` was reviewed through PR #80 and merged on 2026-10-06. Its earlier Preview/quota notes are historical and do not describe the current production deployment.
 
 ## Product idea
 ILAMA BLOOM is a bilingual nutrition and healthy-living experience built around **Food · Body · Context**. It should help people understand what is useful for the life they actually have rather than impose a perfect routine.
