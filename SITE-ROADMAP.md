@@ -25,9 +25,9 @@ Last updated: 2026-10-28
 - The Endocrinology redesign has its own deployed production commit. The public-site deployment remains at the commit listed above; no deployment was submitted during this log update.
 - No merges, production changes, or new medical claims were made in this documentation batch.
 
-## Current redesign audit — 2026-10-06
+## Historical redesign audit snapshot — 2026-10-06
 
-The active redesign is being reviewed on PR #80 (`redesign/foundation-and-discovery-20261006`).
+At that time, the redesign was being reviewed on PR #80 (`redesign/foundation-and-discovery-20261006`).
 
 - Latest branch commit: `917e07b` (`fix: keep Arabic homepage CTA above consent surface`).
 - GitHub build checks for the latest commit are passing.
@@ -36,7 +36,7 @@ The active redesign is being reviewed on PR #80 (`redesign/foundation-and-discov
 - Matching Preview confirms the English Homepage hero title, lead, CTA and falling petals clear the consent surface. Arabic Preview exposed a taller CTA collision; the latest source correction moves Arabic copy higher and smaller, awaiting its own matching Preview.
 - The disabled legacy Kids block was removed from `app/globals.css`; the active Kids experience remains module-scoped.
 - Authenticated and populated account/parent interaction states remain pending because they require an authenticated test session.
-- The full redesign matrix is tracked in `work/ilama-redesign-matrix.md`; external Notion synchronization remains pending because Notion access is not available in this workspace.
+- The full redesign matrix is tracked in `work/ilama-redesign-matrix.md`; external Notion synchronization was still pending at the time of this snapshot.
 
 ## Product idea
 
