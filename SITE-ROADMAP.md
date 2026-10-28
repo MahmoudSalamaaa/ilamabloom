@@ -17,6 +17,7 @@ Last updated: 2026-10-28
 - Kids Adventure Map PR #95 remains a draft. Its five world names and bilingual map are implemented; visual/browser and mobile QA remain open. The original character art was not present in the inspected public asset tree, so the map does not introduce substitute characters.
 - Inventory audit completed from the 33 linked Notion category pages on 2026-10-28: 350 topic headings found, 350 unique canonical IDs, and all five category totals matched the blueprint (COM 100, CLN 110, VID 50, DEV 40, HMX 50). This is a title/ID audit, not a content-completeness or clinical-quality sign-off.
 - The fetched topic entries use a repeated outline template (objective, practice, assessment). They are not 350 fully authored teaching units; development must expand and verify substantive learning content before describing the curriculum as finished.
+- Added `data/study-350-topic-inventory.json` on this review branch: 33 Notion category pages, 350 titles, 350 unique IDs, with each row explicitly marked `title_inventory_only`. The manifest is a planning/data artifact and is not wired into the learner interface.
 - Continue the wider plan: reconcile the Study inventory; Food Atlas and ILAMA Kitchen; FOOD · BODY · CONTEXT; original Kids worlds and art; Journal; Visit Prep; science, food history, nutrition, and mental-health learning.
 - Maintain English medical teaching and bilingual family experiences, approved logo and typography, privacy, accessibility, responsive layouts, SEO, performance, and shared navigation.
 
