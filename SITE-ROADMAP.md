@@ -1,15 +1,15 @@
 # ILAMA BLOOM — Product & Experience Roadmap
 
-Last updated: 2026-10-27
+Last updated: 2026-10-28
 
-## Current release and Kids map status — 2026-10-27
+## Current release and Kids map status — 2026-10-28
 
-- Latest read-only Vercel production preflight for `ilamabloom`: READY at main commit `b6dac997d7bc2b4814b2f82a771d61606861a9a1` (2026-10-24). The current Kids map work is on `feat/kids-adventure-map`; it has not been previewed, merged, or deployed.
-- PR #80 (the 2026-10-06 foundation/discovery redesign) is merged. Its former “active review” status above is historical, not current.
-- Added a bilingual Adventure Map using the five canonically named Kids worlds from the connected Notion product vision: Food Garden, Move Mountain, Body Bay, Sleepy Moon, and Kitchen Lab. It is placed between the Kids hero and age-band selector, uses semantic list structure, responsive layouts, and reduced-motion-safe styling.
-- The repository’s public asset tree contains no approved ILAMA/ILAMO character artwork. No substitute characters were generated; locating/reusing the approved character assets remains open.
-- Focused Node checks on a temporary source snapshot passed: 2 tests, 0 failures. They verify the five English/Arabic world names, semantic markup, responsive breakpoints, reduced-motion styling, and source integration. Full repository test/typecheck/build and browser verification were not run from this workspace.
-- The Vercel daily deployment cooldown is active. No preview or production deployment was requested; after it expires, run the repository’s full checks, create one preview, verify bilingual/mobile behavior, and then deploy/verify production.
+- Latest read-only Vercel production preflight remains READY at main commit `b6dac997d7bc2b4814b2f82a771d61606861a9a1`. This work is isolated on `feat/kids-adventure-map` and has not changed production.
+- The bilingual Adventure Map uses the five canonically named Kids worlds from the connected Notion product vision: Food Garden, Move Mountain, Body Bay, Sleepy Moon, and Kitchen Lab. It sits between the Kids hero and age-band selector, uses semantic ordered-list structure, responsive layouts, and reduced-motion-safe styling.
+- Approved ILAMA/ILAMO character artwork was not present in the public asset tree inspected for this work. No replacement characters were generated; locating and integrating approved character assets remains open.
+- PR #95 is open and draft. Its preview build is READY on commit `d5044511b843931c27fbb42892af297b966348e3`; the `/kids` route returned HTTP 200 after its same-origin redirect, and its loaded JavaScript bundle contains all five English world names. This verifies deployment and bundle content, not visual interaction or mobile browser behavior.
+- The repository `npm run check` workflow passed on the same commit in a Vercel check build: the branch test suite (36 tests), TypeScript check, and Next.js build completed without errors. The check surfaced two stale repository assertions; the food-review expectation was aligned to current reviewer-attribution metadata, and the CSS specificity budget was synchronized to the unchanged main-branch baseline (2,483 `!important` declarations). No application CSS was changed to satisfy those checks.
+- Remaining for this batch: browser interaction and mobile visual QA, followed by review of the Kids experience and approved character assets. The PR remains draft pending that review.
 
 ## Historical redesign audit — 2026-10-06
 
